@@ -234,6 +234,7 @@ int singlePlayer()
 
         if (checkGameOver(gameField))
         {
+            initGameOver(p_score);
             return 0;
         }
 
@@ -355,7 +356,6 @@ void initSinglePlayerCmds(WINDOW* cmds)
 
 void initField(WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds)
 {
-
     refresh();
     initSinglePlayerTitle(title);
     initSinglePlayerField(field);
@@ -365,6 +365,30 @@ void initField(WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WIN
     initSinglePlayerCmds(cmds);
     refresh();
 }
+
+void initGameOver(int score)
+{
+    clear();
+    int starty, startx;
+
+    WINDOW* w_gameover;
+    starty = (LINES - GAMEOVER_H) / 2;
+    startx = (COLS  - GAMEOVER_W) / 2;
+    
+    refresh();
+
+    w_gameover = newwin(GAMEOVER_H, GAMEOVER_W, starty, startx);
+    box(w_gameover, V_LINES, H_LINES);
+    wbkgd(w_gameover, COLOR_PAIR(3));
+    mvwprintw(w_gameover, 0, 21, "| GAME OVER |");
+    mvwprintw(w_gameover, 3,  2, "You lose bro!! try again");
+    mvwprintw(w_gameover, 5,  2, "Your score is: ");
+    mvwprintw(w_gameover, 5,  17, "%d", score);
+    mvwprintw(w_gameover, 7, 21, "PRESS ANY KEY");
+    wrefresh(w_gameover);
+    getch();
+}
+
 
 //* End the base field funcs *************************************************/
 
