@@ -1,5 +1,6 @@
 #include "singlePlayer.h"
 #include <ncurses.h>
+#include <unistd.h>
 
 #define HCENTER  ((LINES - FIELD_H) / 2)
 #define WCENTER  ((COLS  - FIELD_W) / 2)
@@ -7,7 +8,7 @@
 //* Begin the Prototyping ****************************************************/
 
 void initGameMatrix(int gameField[][MATRIX_W]);
-
+void initTetVector();
 //* Prototype the init field funcs  ******************************************/
 
 void initSinglePlayerTitle(WINDOW* title);
@@ -17,11 +18,12 @@ void initSinglePlayerScore(WINDOW* score);
 void initSinglePlayerScore(WINDOW* save);
 void initSinglePlayerCmds(WINDOW* cmds);
 void initField(WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds);
+void initGameOver(int score);
 
 //* End the prototyping of field funcs ***************************************/
 
 void colorField(int gameField[][MATRIX_W], WINDOW* win);
-void clearPreviewGameMatrix();
+void resetPreview();
 
 void refreshPreview(WINDOW* s_preview, tet* preview_piece);
 void refreshGameField(int* x, tet* current_piece, int gamefield[][MATRIX_W], WINDOW *win);
@@ -32,12 +34,28 @@ void playerChoices(player *player, tet* current_piece, int* pieces, int gamefiel
 int singlePlayerCommands(WINDOW* field);
 
 //* Prototype the basic movements ********************************************/
-void rotating(int available, tet* current_piece);
+void rotatingPiece(tet* current_piece);
 
 //* End of the movements funcs ***********************************************/
 void nextPiece(tet* current_piece, tet* preview_piece);
 
+void backPiece(tet* current_piece, tet* preview_piece);
+
 //* End the Prototyping ******************************************************/
+
+// * Go down tetramini *************//
+
+void fallingPiece(int gamefield[][MATRIX_W], WINDOW* win);
+
+int smallerIntervall(int row, int col, int gamefield[][MATRIX_W]);
+
+int checkDeleteRows(int gamefield[][MATRIX_W], WINDOW* field);
+
+int checkGameOver(int gamefield[][MATRIX_W]);
+
+void goDownTetramini(int row, int gamefield[][MATRIX_W]);
+
+int calculateScoring(int rows);
 
 /* current piece selected by player */
 tet current_piece = {0,0};
@@ -134,6 +152,7 @@ int singlePlayer()
 
     /* initialize the game matrix & init the base screen & creating the refreshable windows */
     initGameMatrix(gameField);
+    initTetVector();
     initField(w_title, w_field, w_preview, w_score, w_save, w_cmds);
 
     /* automate these commands */
@@ -155,32 +174,52 @@ int singlePlayer()
     }
 
     /* Single player routine */
-    keypad(s_field, TRUE);
-    do
+    
+    preview_piece.tet = current_piece.tet + 1;
     {
         refreshPreview(s_preview ,&preview_piece);
         refreshGameField(position_x, &current_piece, gameField, s_field);
         refreshScore(s_score ,tet_pieces[current_piece.tet], &p_score);
+    }
+
+    do
+    {
+        keypad(s_field, TRUE);
         key = singlePlayerCommands(s_field);
+        colorField(gameField, s_field);
 
         /* if Arrow pressed!  */
         if(key == LEFT)
-            mvwprintw(s_field, 4, 2, "LEFT");
+            *position_x -= 2;
+            
         if(key == RIGHT)
-            mvwprintw(s_field, 5, 2, "RIGHT");
+            *position_x += 2;
+
         if(key == DOWN)
-            mvwprintw(s_field, 6, 2, "DOWN");
+        {
+            fallingPiece(gameField, s_field);
+            tet_pieces[current_piece.tet] -= 1;
+            pieces -= 1; 
+            p_score += checkDeleteRows(gameField, s_field);
+            refreshScore(s_score, tet_pieces[current_piece.tet], &p_score);
+        }
 
         /* if Letter pressed! */
         if(key == NEXT)
-            mvwprintw(s_field, 7, 2, "NEXT");
+        {
+            nextPiece(&current_piece, &preview_piece);
+            refreshScore(s_score, tet_pieces[current_piece.tet], &p_score);
+        }
+            
         if(key == PREVIOUS)
-            mvwprintw(s_field, 8, 2, "PREVIOUS");
+        {
+            backPiece(&current_piece, &preview_piece);
+            refreshScore(s_score, tet_pieces[current_piece.tet], &p_score);
+        }
+        
         if(key == ROTATE)
         {
-            mvwprintw(s_field, 9, 2, "ROTATE, %d", tet_pieces[current_piece.tet]);
-            rotating(tet_pieces[current_piece.tet], &current_piece);
-            refreshGameField(position_x, &current_piece, gameField, s_field);
+            rotatingPiece(&current_piece);
         }
 
         if(key == XRAY)
@@ -193,10 +232,15 @@ int singlePlayer()
         if(key == HELP)
             mvwprintw(s_field, 11, 2, "HELP!!");
 
+        if (checkGameOver(gameField))
+        {
+            return 0;
+        }
+
+        refreshPreview(s_preview, &preview_piece);
         refreshGameField(position_x, &current_piece, gameField, s_field);
     }
-    while(pieces > 0 && key != QUIT);
-    refresh();
+    while(pieces && key != QUIT);
 
     return 5;
 }
@@ -211,6 +255,13 @@ void initGameMatrix(int gameField[][MATRIX_W])
             if(row < MATRIX_H_PREV)
                 preview_gamefield[row][cols] = 0;
         }
+}
+
+void initTetVector()
+{  
+    int i;
+    for (i = 0; i < T_NUM; i++)  
+        tet_pieces[i] = T_PIECES;
 }
 
 //* Init the base field funcs ************************************************/
@@ -317,24 +368,24 @@ void initField(WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WIN
 
 //* End the base field funcs *************************************************/
 
-void colorField(int gameField[][MATRIX_W], WINDOW* win)
+void colorField(int gameField[][MATRIX_W], WINDOW* field)
 {
     int i, j;
-    werase(win);
+    werase(field);
     for(i = 0; i < MATRIX_H; i++)
     {
         for(j = 0; j < MATRIX_W; j++)
         {
             if(gameField[i][j] != 0)
-                wattron(win, COLOR_PAIR(gameField[i][j] + 9));
-                mvwprintw(win, i, j*2, "  ");
-                wattroff(win, COLOR_PAIR(gameField[i][j] + 9));
+                wattron(field, COLOR_PAIR(gameField[i][j] + 9));
+                mvwprintw(field, i, j*2, "  ");
+                wattroff(field, COLOR_PAIR(gameField[i][j] + 9));
         }
     }
-    wrefresh(win);
+    wrefresh(field);
 }
 
-void clearPreviewGameMatrix()
+void resetPreview()
 {
     int row;
     int col;
@@ -370,7 +421,7 @@ void refreshPreview(WINDOW* preview , tet* preview_piece)
 void refreshGameField(int* x, tet* current_piece, int gamefield[][MATRIX_W], WINDOW* win)
 {
     int i;
-    clearPreviewGameMatrix();
+    resetPreview();
     wrefresh(win);
 
     int current_tet = current_piece->tet;
@@ -430,119 +481,6 @@ void printMatrix(int gameField[][MATRIX_W])
         printf("tetramino %d ha pezzi rimanenti = %d\n", i, tet_pieces[i]);
     }
 }
-
-//* Define the movement func *************************************************/
-
-/* void playerChoices(WINDOW* preview, player *player, tet* current_piece, int* pieces, int gamefield[][MATRIX_W]) */
-/* { */
-/*     int p_choice = 0; */
-
-/*     int p_quit = 0; */
-/*     int p_action = 0; */
-
-/*     preview_piece.tet = current_piece->tet + 1; */
-
-/*     /\* refreshPreview(preview ,&preview_piece); *\/ */
-/*     /\* refreshGameField(position_x, current_piece, gamefield); *\/ */
-
-/*     /\* Initialize the counter of the pieces *\/ */
-/*     /\* refresh_score(tet_pieces[current_piece->tet], p_score); *\/ */
-
-/*     while (*pieces > 0) */
-/*     { */
-/*         keypad(preview, TRUE); */
-/*         p_choice = wgetch(preview); */
-
-/*         /\* clear the window preview to clean the object *\/ */
-/*         colorField(gamefield); */
-/*         switch (p_choice) */
-/*         { */
-
-/*         /\* case: next piece *\/ */
-/*         case 'n': */
-/*             next_piece(current_piece, &preview_piece); */
-/*             refresh_preview(&preview_piece); */
-/*             refresh_gamefield(position_x, current_piece, gamefield); */
-/*             refresh_score(tet_pieces[current_piece->tet], p_score); */
-/*             break; */
-
-/*         /\* case: back piece *\/ */
-/*         case 'b': */
-/*             back_piece(current_piece, &preview_piece); */
-/*             refresh_preview(&preview_piece); */
-/*             refresh_gamefield(position_x, current_piece, gamefield); */
-/*             refresh_score(tet_pieces[current_piece->tet], p_score); */
-/*             break; */
-
-/*         /\* case: rotate piece *\/ */
-/*         case 'r': */
-/*             rotate_piece(tet_pieces[current_piece->tet], current_piece); */
-/*             refresh_gamefield(position_x, current_piece, gamefield); */
-/*             break; */
-
-/*         case KEY_LEFT: */
-/*             if (tet_pieces[current_piece->tet] > 0) */
-/*                 *position_x -= 2; */
-/*             refresh_gamefield(position_x, current_piece, gamefield); */
-/*             break; */
-
-/*         case KEY_RIGHT: */
-/*             if (tet_pieces[current_piece->tet] > 0) */
-/*                 *position_x += 2; */
-/*             refresh_gamefield(position_x, current_piece, gamefield); */
-/*             break; */
-
-/*         case KEY_DOWN: */
-/*             if (tet_pieces[current_piece->tet] > 0) */
-/*             { */
-/*                 falling_piece(gamefield); */
-/*                 refresh_preview(&preview_piece); */
-
-/*                 tet_pieces[current_piece->tet] -= 1; */
-/*                 *pieces -= 1; */
-
-/*                 *p_score = *p_score + check_delete_rows(gamefield); */
-/*                 refresh_score(tet_pieces[current_piece->tet], p_score); */
-/*             } else */
-/*                 string_change_piece(); */
-
-/*             refresh_gamefield(position_x, current_piece, gamefield); */
-/*             break; */
-
-/*         case 'f': */
-/*             endwin(); */
-/*             print_matrix(gamefield); */
-/*             printf("\n\n %d", current_piece->tet + 1); */
-/*             break; */
-
-/*         case 'q': */
-/*             p_quit = 1; */
-/*             break; */
-
-/*         case 'h': */
-/*             paint_help(); */
-/*             paint_field_elements(game_mode); */
-/*             refresh_score(tet_pieces[current_piece->tet], p_score); */
-/*             refresh_gamefield(position_x, current_piece, gamefield); */
-/*             refresh_preview(&preview_piece); */
-/*             break; */
-
-/*         default: */
-/*             refresh_preview(&preview_piece); */
-/*             refresh_gamefield(position_x, current_piece, gamefield); */
-/*             break; */
-/*         } */
-
-/*         if(check_is_top(gamefield) || p_quit || p_action) */
-/*             break; */
-/*     } */
-
-/*     if (check_is_top(gamefield) == GAMEOVER_TRUE) */
-/*     { */
-/*         *p_gameover = GAMEOVER_TRUE; */
-/*         return ; */
-/*     } */
-/* } */
 
 int singlePlayerCommands(WINDOW* field)
 {
@@ -609,13 +547,153 @@ void nextPiece(tet* current_piece, tet* preview_piece)
     }
 }
 
-void rotating(int available, tet* current_piece)
+void rotatingPiece(tet* current_piece)
 {
-    if(available > 0)
+    if(current_piece->ori == 3)
+        current_piece->ori = 0;
+    else
+        current_piece->ori += 1;
+}
+
+void backPiece(tet* current_piece, tet* preview_piece)
+{
+    current_piece->tet -= 1;
+    if ( current_piece->tet < 0 )
     {
-        if(current_piece->ori == 3)
-            current_piece->ori = 0;
-        else
-            current_piece->ori += 1;
+        current_piece->tet = 6;
+        preview_piece->tet  = 0;
+    } else
+        preview_piece->tet = current_piece->tet + 1;
+}
+
+void fallingPiece(int gamefield[][MATRIX_W], WINDOW* field)
+{
+
+    int row, col;
+    int counter = 0;
+    for(row = 0; row < TOP_LINE; row++)
+    {
+        for(col = 0; col < MATRIX_W; col++)
+        {
+            if(preview_gamefield[row][col] != 0)
+            {   
+                if(counter == 0 || counter > smallerIntervall(row, col, gamefield))
+                    counter = smallerIntervall(row, col, gamefield);
+            }
+        }   
+    }
+
+    for(row = 0; row < MATRIX_H_PREV; row++)
+    {
+        for(col = 0; col < MATRIX_W; col++)     
+        {
+            if(preview_gamefield[row][col] != 0)
+            {
+                gamefield[row + counter][col] = preview_gamefield[row][col];
+            }
+        }
+    }
+
+    colorField(gamefield, field);
+}
+
+int smallerIntervall(int row, int col, int gamefield[][MATRIX_W])
+{
+
+    int counter = 0;
+    int current_row;
+    int current_col = col;
+
+    for(current_row = MATRIX_H - 1; current_row > row; current_row--)
+    {
+        if(gamefield[current_row][current_col] != 0)
+            counter = 0;
+        else if(gamefield[current_row][current_col] == 0)
+            counter++;
+    }
+    return counter;
+}
+
+int checkDeleteRows(int gamefield[][MATRIX_W], WINDOW* field)
+{
+    keypad(field, FALSE);
+    int counter_rows  = 0;
+    int is_delete_row = 0;
+    int counter_numbers;
+
+    int row, col;
+    for (row = MATRIX_H - 1; row >= TOP_LINE; row--)
+    {   
+        
+        is_delete_row = 0;
+        counter_numbers = 0;
+        for (col = 0; col < MATRIX_W; col++)
+        {
+            if (gamefield[row][col] != 0)
+                counter_numbers += 1;
+        }
+
+        if (counter_numbers == MATRIX_W)
+        {
+            is_delete_row = 1;
+            counter_rows += 1;
+            halfdelay(10);
+            goDownTetramini(row, gamefield);
+            colorField(gamefield, field);
+        }
+        
+        if (is_delete_row == 1)
+            row = row + 1;
+    }
+
+    return calculateScoring(counter_rows);
+}
+
+int checkGameOver(int gamefield[][MATRIX_W])
+{
+    int col;
+    for (col = 0; col < MATRIX_W; col++)
+    {
+        if (gamefield[TOP_LINE - 1][col] != 0)
+            return 1;
+    }
+    return 0;
+}
+
+void goDownTetramini(int row, int gamefield[][MATRIX_W])
+{
+    int currentRow;
+    int cols;
+
+    int box = 0;
+    int next_box = 0;
+
+    for (cols = 0; cols < MATRIX_W; cols++)
+        gamefield[row][cols] = 0;
+
+    for (currentRow = row - 1; currentRow >= TOP_LINE; currentRow--)
+    {
+        for (cols = 0; cols < MATRIX_W; cols++)
+        {
+            box = gamefield[currentRow][cols];
+            next_box = gamefield[currentRow + 1][cols];
+            if (box != 0 && next_box == 0)
+            {
+                gamefield[currentRow + 1][cols] = box;
+                gamefield[currentRow][cols] = 0;
+            }
+        }
     }
 }
+
+int calculateScoring(int rows)
+{
+    if (rows == 0) return 0;
+    if (rows == 1) return 1;
+    if (rows == 2) return 3;
+    if (rows == 3) return 6;
+    if (rows == 4) return 12;
+    return 0;
+}
+
+
