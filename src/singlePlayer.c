@@ -19,6 +19,7 @@ void initSinglePlayerScore(WINDOW* save);
 void initSinglePlayerCmds(WINDOW* cmds);
 void initField(WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds);
 void initGameOver(int score);
+void initTopLine(WINDOW *field);
 
 //* End the prototyping of field funcs ***************************************/
 
@@ -374,7 +375,7 @@ void initGameOver(int score)
     WINDOW* w_gameover;
     starty = (LINES - GAMEOVER_H) / 2;
     startx = (COLS  - GAMEOVER_W) / 2;
-    
+
     refresh();
 
     w_gameover = newwin(GAMEOVER_H, GAMEOVER_W, starty, startx);
@@ -405,6 +406,19 @@ void colorField(int gameField[][MATRIX_W], WINDOW* field)
                 mvwprintw(field, i, j*2, "  ");
                 wattroff(field, COLOR_PAIR(gameField[i][j] + 9));
         }
+    }
+    initTopLine(field);
+    wrefresh(field);
+}
+
+void initTopLine(WINDOW* field)
+{
+    int col;
+    for (col = 0; col < FIELD_W - 2; col++)
+    {
+        wattron(field, COLOR_PAIR(19));
+        mvwprintw(field, TOP_LINE - 1, col, " ");
+        wattroff(field, COLOR_PAIR(19));
     }
     wrefresh(field);
 }
@@ -442,38 +456,39 @@ void refreshPreview(WINDOW* preview , tet* preview_piece)
     wrefresh(preview);
 }
 
-void refreshGameField(int* x, tet* current_piece, int gamefield[][MATRIX_W], WINDOW* win)
+void refreshGameField(int* x, tet* current_piece, int gamefield[][MATRIX_W], WINDOW* field)
 {
     int i;
     resetPreview();
-    wrefresh(win);
+    wrefresh(field);
 
     int current_tet = current_piece->tet;
     int current_ori = current_piece->ori;
 
     for(i = 0; i < TETS_CELL; ++i)
     {
-        wattron(win, COLOR_PAIR(current_tet + 10));
+        wattron(field, COLOR_PAIR(current_tet + 10));
         cell = TETROMINOS[current_tet][current_ori][i];
-        mvwprintw(win, cell.row, (cell.col) * 2 + *x, "  ");
-        wattroff(win, COLOR_PAIR(current_tet + 10));
+        mvwprintw(field, cell.row, (cell.col) * 2 + *x, "  ");
+        wattroff(field, COLOR_PAIR(current_tet + 10));
 
         if(cell.col + *x < 0)
         {
-            colorField(gamefield, win);
+            colorField(gamefield, field);
             *x += 2;
-            refreshGameField(x, current_piece, gamefield, win);
+            refreshGameField(x, current_piece, gamefield, field);
         }
 
         if( (cell.col) * 2 + *x > FIELD_W - 3)
         {
-            colorField(gamefield, win);
+            colorField(gamefield, field);
             *x -= 2;
-            refreshGameField(x, current_piece, gamefield, win);
+            refreshGameField(x, current_piece, gamefield, field);
         }
         preview_gamefield[cell.row][cell.col + (*x / 2)] = current_tet + 1;
     }
-    wrefresh(win);
+    initTopLine(field);
+    wrefresh(field);
 }
 
 void refreshScore(WINDOW* s_score ,int pieces, int* score)
