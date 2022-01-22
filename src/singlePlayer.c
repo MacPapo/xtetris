@@ -209,7 +209,7 @@ void initGameMatrix(int gameField[][MATRIX_W])
         {
             gameField[row][cols] = 0;
             if(row < MATRIX_H_PREV)
-                return;
+                preview_gamefield[row][cols] = 0;
         }
 }
 
