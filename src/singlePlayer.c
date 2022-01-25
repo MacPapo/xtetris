@@ -1,6 +1,6 @@
 #include "singlePlayer.h"
 #include <ncurses.h>
-#include <unistd.h>
+
 
 #define HCENTER  ((LINES - FIELD_H) / 2)
 #define WCENTER  ((COLS  - FIELD_W) / 2)
@@ -9,6 +9,7 @@
 
 void initGameMatrix(int gameField[][MATRIX_W]);
 void initTetVector();
+
 //* Prototype the init field funcs  ******************************************/
 
 void initSinglePlayerTitle(WINDOW* title);
@@ -35,12 +36,12 @@ void playerChoices(player *player, tet* current_piece, int* pieces, int gamefiel
 int singlePlayerCommands(WINDOW* field);
 
 //* Prototype the basic movements ********************************************/
+
 void rotatingPiece(tet* current_piece);
+void nextPiece(tet* current_piece, tet* preview_piece);
+void backPiece(tet* current_piece, tet* preview_piece);
 
 //* End of the movements funcs ***********************************************/
-void nextPiece(tet* current_piece, tet* preview_piece);
-
-void backPiece(tet* current_piece, tet* preview_piece);
 
 //* End the Prototyping ******************************************************/
 
@@ -369,14 +370,13 @@ void initField(WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WIN
 
 void initGameOver(int score)
 {
-    clear();
     int starty, startx;
-
     WINDOW* w_gameover;
+
+    erase();
+    refresh();
     starty = (LINES - GAMEOVER_H) / 2;
     startx = (COLS  - GAMEOVER_W) / 2;
-
-    refresh();
 
     w_gameover = newwin(GAMEOVER_H, GAMEOVER_W, starty, startx);
     box(w_gameover, V_LINES, H_LINES);
@@ -387,7 +387,11 @@ void initGameOver(int score)
     mvwprintw(w_gameover, 5,  17, "%d", score);
     mvwprintw(w_gameover, 7, 21, "PRESS ANY KEY");
     wrefresh(w_gameover);
+    halfdelay(50);
     getch();
+    delwin(w_gameover);
+    touchwin(stdscr);
+    refresh();
 }
 
 
@@ -503,7 +507,7 @@ void refreshScore(WINDOW* s_score ,int pieces, int* score)
 
 void printMatrix(int gameField[][MATRIX_W])
 {
-    int i,j;
+    int i, j;
 
     for(i = 0; i < MATRIX_H; i++)
     {
@@ -727,11 +731,21 @@ void goDownTetramini(int row, int gamefield[][MATRIX_W])
 
 int calculateScoring(int rows)
 {
-    if (rows == 0) return 0;
-    if (rows == 1) return 1;
-    if (rows == 2) return 3;
-    if (rows == 3) return 6;
-    if (rows == 4) return 12;
+    if (rows == 0)
+        return 0;
+
+    if (rows == 1)
+        return 1;
+
+    if (rows == 2)
+        return 3;
+
+    if (rows == 3)
+        return 6;
+
+    if (rows == 4)
+        return 12;
+
     return 0;
 }
 
