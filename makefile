@@ -11,6 +11,8 @@ MKDIR_P=mkdir -p
 SRC=src
 OBJ=obj
 BINDIR=bin
+OTHERDIR=./other/
+OTHER=$(OTHERDIR)title.mp3
 BIN=$(BINDIR)/xtetris
 
 # Declaring the pattern that the make file has
@@ -72,4 +74,4 @@ clean:
 	$(RM) -r $(BINDIR)/* $(OBJ)/*
 
 fly:
-	$(BINDIR)/./xtetris
+	$(BINDIR)/./xtetris  $(OTHER)
