@@ -16,9 +16,6 @@
 /*-- init field function ---*/
 void initSinglePlayerTitle(WINDOW* title);
 void initSinglePlayerField(WINDOW* field);
-void initSinglePlayerPreview(WINDOW* preview);
-void initSinglePlayerScore(WINDOW* score);
-void initSinglePlayerScore(WINDOW* save);
 void initSinglePlayerCmds(WINDOW* cmds);
 void initField(WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds);
 void initGameOver(int score);

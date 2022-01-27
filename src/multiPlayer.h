@@ -23,6 +23,11 @@
 
 #define SECOND_PLAYER    0
 
+void initMultiPlayerCmds(WINDOW* w_cmds);
+void initMultiPlayerTitle(WINDOW* title);
+void initMultiPlayerField(WINDOW* firstField, WINDOW* secondField);
+void initMultiField(WINDOW* title, WINDOW* firstField, WINDOW* secondField, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds);
+
 int multiPlayer();
 
 #endif 

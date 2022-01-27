@@ -6,6 +6,7 @@
 #include "miniaudio.h"
 
 #include "singlePlayer.h"
+#include "multiPlayer.h"
 #include "colors.h"
 #include <ncurses.h>
 
@@ -78,7 +79,7 @@ int main(int argc, char** argv)
         if(mod == 0)
             singlePlayer();
         if(mod == 1)
-            printw("MIAO");
+            multiPlayer();
         if(mod == 2)
             printw("ZAO");
     }

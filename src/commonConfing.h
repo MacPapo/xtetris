@@ -83,12 +83,20 @@ extern tet_location TETROMINOS[T_NUM][T_ORI][T_CELL];
 extern tet_location cell;
 extern int previewGamefield[MATRIX_H][MATRIX_W];
 
+void initSinglePlayerPreview(WINDOW* preview);
+void initSinglePlayerSave(WINDOW* save);
+void initSinglePlayerScore(WINDOW* score);
+
+
 player addPlayer();
 
 void refreshGameField(int* x, tet* current_piece, player *pg);
 void resetPreview();
 void initTopLine(WINDOW* field);
 void colorField(player *pg);
+
+void initGameMatrix(int gameField[][MATRIX_W]);
+void initTetVector(int *tetPieces, int mod);
 
 int calculateScoring(int rows);
 

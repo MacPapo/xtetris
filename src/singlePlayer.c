@@ -41,7 +41,7 @@ int singlePlayer()
 
     /* initialize the game matrix & init the base screen & creating the refreshable windows */
     initGameMatrix(pg.gameField);
-    initTetVector(&tetPieces);
+    initTetVector(tetPieces, 0);
     initField(w_title, w_field, w_preview, w_score, w_save, w_cmds);
 
     /* automate these commands */
@@ -139,25 +139,6 @@ int singlePlayer()
     return initReturnToMenu(pg.score);
 }
 
-void initGameMatrix(int gameField[][MATRIX_W])
-{
-    int row, cols;
-    for(row = 0; row < MATRIX_H; ++row)
-        for(cols = 0; cols < MATRIX_W; ++cols)
-        {
-            gameField[row][cols] = 0;
-            if(row < MATRIX_H_PREV)
-                previewGamefield[row][cols] = 0;
-        }
-}
-
-void initTetVector(int *tetPieces)
-{  
-    int i;
-    for (i = 0; i < T_NUM; i++)  
-        tetPieces[i] = T_PIECES;
-}
-
 //* Init the base field funcs ************************************************/
 
 void initSinglePlayerTitle(WINDOW* title)
@@ -185,51 +166,6 @@ void initSinglePlayerField(WINDOW* field)
     box(field, V_LINES, H_LINES);
     wbkgd(field, COLOR_PAIR(2));
     wrefresh(field);
-}
-
-void initSinglePlayerPreview(WINDOW* preview)
-{
-    int previewY, previewX;
-
-    previewY = HCENTER;
-    previewX = WCENTER - SCORE_W/2 + FIELD_W + 2;
-
-    preview = newwin(PREVIEW_H, PREVIEW_W, previewY, previewX);
-    box( preview, V_LINES, H_LINES);
-    wbkgd(preview, COLOR_PAIR(2));
-    mvwprintw(preview , 0 , 5 , "| PREVIEW |");
-    wrefresh(preview);
-}
-
-void initSinglePlayerScore(WINDOW* score)
-{
-    int scoreY, scoreX;
-
-    scoreY = HCENTER + PREVIEW_H + 1;
-    scoreX = WCENTER - SCORE_W/2 + FIELD_W + 2;
-
-    score = newwin(SCORE_H, SCORE_W, scoreY, scoreX);
-    box(score , V_LINES, H_LINES);
-    wbkgd(score, COLOR_PAIR(2));
-    mvwprintw(score , 0 , 6 , "| SCORE |");
-    wrefresh(score);
-}
-
-void initSinglePlayerSave(WINDOW *save)
-{
-    int saveY, saveX;
-
-    saveY = HCENTER + PREVIEW_H + SCORE_H + 3;
-    saveX = WCENTER - SCORE_W/2 + FIELD_W + 2;
-
-    save = newwin(SAVE_H, SAVE_W, saveY, saveX);
-    box(save, V_LINES, H_LINES);
-    wbkgd(save, COLOR_PAIR(3));
-    mvwprintw(save, 0, 6, "| SAVE |");
-    mvwprintw(save, 1, 1, "'H' to help page");
-    mvwprintw(save, 2, 1, "'S' to save game");
-    mvwprintw(save, 3, 1, "'Q' return to menu");
-    wrefresh(save);
 }
 
 void initSinglePlayerCmds(WINDOW* cmds)
@@ -349,8 +285,6 @@ void refreshPreview(WINDOW* preview , tet* preview_piece)
     wrefresh(preview);
 }
 
-
-
 void refreshScore(WINDOW* s_score ,int pieces, int score)
 {
     werase(s_score);
@@ -360,8 +294,6 @@ void refreshScore(WINDOW* s_score ,int pieces, int score)
     mvwprintw(s_score, 3, 14, "%d", score);
     wrefresh(s_score);
 }
-
-//* End the movement func ****************************************************/
 
 void nextPiece(tet* current_piece, tet* preview_piece)
 {
