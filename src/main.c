@@ -23,7 +23,7 @@ int main()
         if(mod == 2)
             printw("ZAO");
     }
-    while ( mod != 4 );
+    while (mod != 4);
 
     /* Deallocates memory and ends ncurses */
     refresh();

@@ -50,6 +50,11 @@
 #define GAMEOVER_H       9
 #define GAMEOVER_W      54
 
+#define MQUIT_H         9
+#define MQUIT_W        54
+
+#define RTMENU_H        9
+#define RTMENU_W        54
 /* ---------------------------------------------------------- END defining title parameters */
 
 /* tetramino cells */
@@ -64,26 +69,11 @@
 /* the number of each tetramino */
 #define T_PIECES  20
 
-//* Define the movements *****************************************************/
-
-/* Arrow Keys */
-#define LEFT          1
-#define RIGHT         2
-#define DOWN          3
-
-/* Letter commands */
-#define NEXT          4
-#define PREVIOUS      5
-#define ROTATE        6
-#define XRAY          7
-#define HELP          8
-#define QUIT          9
-
 //* End of the commands definition *******************************************/
 
-#define TOP_LINE      5
+#define TOP_LINE         5
 
-#define TETS_CELL     4
+#define TETS_CELL        4
 
 #define FIRST_PLAYER     1
 
@@ -95,8 +85,6 @@
 
 /* gameover true or false */
 #define GAMEOVER_TRUE        1
-
-#define G_FALSE       0
 
 /* if you finish all the pieces  */
 #define GAMEOVER_FINISH_PIECES  3
@@ -113,11 +101,61 @@ typedef struct {
 
 typedef struct {
     int score;
-    int gameover;
+    int gameField[MATRIX_H][MATRIX_W];
+    WINDOW* window;
 } player;
 
 extern tet_location TETROMINOS[T_NUM][T_ORI][T_CELL];
 
+/*-- init field function ---*/
+void initSinglePlayerTitle(WINDOW* title);
+void initSinglePlayerField(WINDOW* field);
+void initSinglePlayerPreview(WINDOW* preview);
+void initSinglePlayerScore(WINDOW* score);
+void initSinglePlayerScore(WINDOW* save);
+void initSinglePlayerCmds(WINDOW* cmds);
+void initField(WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds);
+void initGameOver(int score);
+void initTopLine(WINDOW *field);
+void initQuit(int score);
+int initReturnToMenu(int score);
+
+
+void changePiece(WINDOW* score);
+/*--- init field variable ---*/
+void initGameMatrix(int gameField[][MATRIX_W]);
+void initTetVector();
+
+/*--- print info ---*/
+void printMatrix(int gamefield[][MATRIX_W]);
+
+/*--- repaint */
+void colorField(player *pg);
+void resetPreview();
+
+/*--- refresh function ---*/
+void refreshPreview(WINDOW* s_preview, tet* preview_piece);
+void refreshGameField(int* x, tet* current_piece, player *pg);
+void refreshScore(WINDOW* s_score ,int pieces, int score);
+
+void playerChoices(player *player, tet* current_piece, int* pieces, int gamefield[][MATRIX_W]);
+int singlePlayerCommands(WINDOW* field);
+
+/*--- main function for gamefield ---*/
+int calculateScoring(int rows);
+int checkDeleteRows(player *pg);
+int checkGameOver(int gamefield[][MATRIX_W]);
+int smallerIntervall(int row, int col, int gamefield[][MATRIX_W]);
+
+void goDownTetramini(int row, int gamefield[][MATRIX_W]);
+void fallingPiece(player *pg);
+
+/*--- piece movement ---*/
+void rotatingPiece(tet* current_piece);
+void nextPiece(tet* current_piece, tet* preview_piece);
+void backPiece(tet* current_piece, tet* preview_piece);
+
+/*--- single Player function --*/
 int singlePlayer();
 
 #endif /* SINGLEPLAYER_H_ */
