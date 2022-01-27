@@ -1,16 +1,34 @@
+/**
+ * @file   singlePlayer.c
+ * @author Jacopo Costantini Matteo Zambon Alvise Silvestri
+ * @date   Thu Jan 27 22:42:18 2022
+ *
+ * @brief  Singleplayer routine
+ *
+ * Qui si definisce la routine che verrà eseguita per il single player
+ *
+ *
+ */
+
 #include "singlePlayer.h"
 #include "commonConfing.h"
 #include <ncurses.h>
 
-
+/**
+ * Questa è la funzione che crea le schermate di gioco
+ * Quando termina si ritorna alla funzione main()
+ *
+ * @brief retrun score
+ * @return  initReturnToMenu(pg.score)
+ */
 int singlePlayer()
 {
     /* declaring the game windows */
-    WINDOW *w_title = NULL, *w_field = NULL, *w_preview = NULL, *w_score = NULL, *w_save = NULL, *w_cmds = NULL;
-    WINDOW *s_preview = NULL, *s_score = NULL;
+    WINDOW *w_title = NULL, *w_field = NULL, *w_preview = NULL, *w_score = NULL, *w_save = NULL, *w_cmds = NULL; /**< Qui si inizializzano tutte le window statiche */
+    WINDOW *s_preview = NULL, *s_score = NULL; /**< Qui si inizializzano tutte le window dinamiche */
 
-    tet current_piece = {0,0};
-    tet preview_piece = {0,0};
+    tet current_piece = {0,0};  /**< Current piece contiene le opzioni del pezzo corrente */
+    tet preview_piece = {0,0};  /**< Preview piece contiene le opzioni del pezzo mostrato in preview */
 
     int choice = 0;
     int position_x = 0;
@@ -21,49 +39,116 @@ int singlePlayer()
     int tetPieces[T_NUM];
     player pg = addPlayer();
 
-    /* Clear the screen to visualize a new window */
+
+    /**
+     * Pulisce lo schermo per visualizzare le nuove window
+     *
+     *
+     * @return blank stdscr window
+     */
     clear();
+
+    /**
+     * Disabilita la possibilità di uscire con un cambinazioni di tasti ctrl
+     */
     cbreak();
 
     /* initialize the game matrix & init the base screen & creating the refreshable windows */
+
+    /**
+     * Inizializza la matrice di gioco tutta a 0
+     *
+     * @param gameField
+     *
+     */
     initGameMatrix(pg.gameField);
+
+    /**
+     * Inizializza il vettore del tetramino
+     *
+     * @param tetPieces
+     * @param 0
+     *
+     */
     initTetVector(tetPieces, 0);
+    /**
+     * Stampa l'intero campo di gioco con tutte le window statiche
+     *
+     * @param w_title
+     * @param w_field
+     * @param w_preview
+     * @param w_score
+     * @param w_save
+     * @param w_cmds
+     *
+     */
     initField(w_title, w_field, w_preview, w_score, w_save, w_cmds);
 
 
-    pg.window = initPlayerWindow(pg.window);
-    s_preview = initPreviewWindow(s_preview);
-    s_score = initScoreWindow(s_score);
+    pg.window = initPlayerWindow(pg.window); /**< Da le info per modellare la window, tutti i suoi parametri */
+    s_preview = initPreviewWindow(s_preview); /**<  Da le informazioni per modellare la window dinamica preview */
+    s_score = initScoreWindow(s_score); /**< Da le info per modellare la window dinamica score */
 
     /* Single player routine */
-    preview_piece.tet = current_piece.tet + 1;
-    refreshPreview(s_preview ,&preview_piece);
-    refreshGameField(&position_x, &current_piece, &pg);
-    refreshScore(s_score ,tetPieces[current_piece.tet], pg.score);
 
-    do
+    preview_piece.tet = current_piece.tet + 1; /**< Aggiorno la preview con il prossimo tetramino */
+    refreshPreview(s_preview ,&preview_piece); /**< Aggiorno i valori in preview e ridisegna la sua window dinamica */
+    refreshGameField(&position_x, &current_piece, &pg); /**< Aggiorna i valori nel gamefield e ridisegna la sua window dinamica */
+    refreshScore(s_score ,tetPieces[current_piece.tet], pg.score); /**< Aggiorna i valori dello score e ridisegna la sua window dinamica */
+
+    //@{
+    do                          /**< Inizia la sequenza di istruzioni da eseguire */
     {
-        keypad(pg.window, TRUE);
-        choice = wgetch(pg.window);
+        keypad(pg.window, TRUE); /**< Inzializza la funzionalità di input da tastiera */
+        choice = wgetch(pg.window); /**< Prendo l'input da tastiera da parte dell'utente */
+
+        /**
+         * Coloro il campo con i valori salvati nella matrice di gioco
+         *
+         * @param pg
+         *
+         */
         colorField(&pg);
 
-        countCurrentPiece = tetPieces[current_piece.tet];
+        countCurrentPiece = tetPieces[current_piece.tet]; /**< Conta i pezzi rimanenti dello stesso tetramino */
         if (countCurrentPiece == 0) 
             changePiece(s_score); 
 
-        switch (choice)
+        switch (choice)         /**< Casistica della scelta dell'utente */
         {
             case 'n':
+                /**
+                 * Cambio il pezzo corrente con il prossimo
+                 *
+                 * @param current_piece
+                 * @param preview_piece
+                 *
+                 * @return next piece
+                 */
                 nextPiece(&current_piece, &preview_piece);
-                refreshScore(s_score, tetPieces[current_piece.tet], pg.score);
+                refreshScore(s_score, tetPieces[current_piece.tet], pg.score); /**< Riscrivo lo score con i nuovi valori */
                 break;
 
             case 'b':
+                /**
+                 * Cambio pezzo con quello precedente nell'array di tetramini
+                 *
+                 * @param current_piece
+                 * @param preview_piece
+                 *
+                 * @return previus piece
+                 */
                 backPiece(&current_piece, &preview_piece);
-                refreshScore(s_score, tetPieces[current_piece.tet], pg.score);
+                refreshScore(s_score, tetPieces[current_piece.tet], pg.score); /**< Riscrivo lo score con i nuovi valori */
                 break;
             
             case 'r':
+                /**
+                 * Ruoto di 90 gradi il tetramino
+                 *
+                 * @param current_piece
+                 *
+                 */
                 rotatingPiece(&current_piece);
                 break;
             
@@ -71,26 +156,40 @@ int singlePlayer()
                 break;
             
             case KEY_RIGHT:
-                position_x += 2;
+                position_x += 2; /**< Muovo il tetramino nella preview di una posizione a destra */
                 break;
             
             case KEY_LEFT:
-                position_x -= 2;
+                position_x -= 2; /**< Muovo il tetramino nella preview di una posizione a destra */
                 break;
             
             case KEY_DOWN:
-                if (countCurrentPiece)
+                if (countCurrentPiece) /**< Se la condizione è soddisfatta eseguo le seguenti azioni */
                 {
+                    /**
+                     * Fa cadere il tetramino scelto
+                     *
+                     * @param pg
+                     *
+                     * @return
+                     */
                     fallingPiece(&pg);
-                    tetPieces[current_piece.tet] -= 1;
-                    pieces -= 1; 
+                    tetPieces[current_piece.tet] -= 1; /**< Decremento il tetraminno corrente di 1 */
+                    pieces -= 1; /**< Decremento il numero generale di tetramini disponibili */
+                    /**
+                     * Controllo se è possibile eliminare una o più righe nel campo
+                     *
+                     * @param pg
+                     *
+                     * @return
+                     */
                     pg.score += checkDeleteRows(&pg);
-                    refreshScore(s_score, tetPieces[current_piece.tet], pg.score);
+                    refreshScore(s_score, tetPieces[current_piece.tet], pg.score); /**< Riscrivo lo score con i nuovi valori */
                 }
                 break;
 
             case 'q':
-                initQuit(pg.score);
+                initQuit(pg.score); /**< Esco dal while */
                 return 1;
                 break;
         
@@ -98,7 +197,7 @@ int singlePlayer()
                 break;
         }
 
-        if (checkGameOver(pg.gameField))
+        if (checkGameOver(pg.gameField)) /**< Se la condizione è soddisfatta il gioco va in gameover */
         {
             initGameOver(pg.score);
             return 0;
@@ -108,12 +207,17 @@ int singlePlayer()
         refreshGameField(&position_x, &current_piece, &pg);
         
     } while(pieces);
-
-    return initReturnToMenu(pg.score);
+    //@}
+    return initReturnToMenu(pg.score); /**< Ritorno al menu */
 }
 
 //* Init the base field funcs ************************************************/
 
+/**
+ * Inizializzo il titolo della window
+ *
+ * @param title
+ */
 void initSinglePlayerTitle(WINDOW* title)
 {
     int titleY, titleX;
@@ -128,6 +232,11 @@ void initSinglePlayerTitle(WINDOW* title)
     wrefresh(title);
 }
 
+/**
+ * Inizializzo il field della window
+ *
+ * @param field
+ */
 void initSinglePlayerField(WINDOW* field)
 {
     int fieldY, fieldX;
@@ -141,6 +250,11 @@ void initSinglePlayerField(WINDOW* field)
     wrefresh(field);
 }
 
+/**
+ * Inizializzo il cmds della window
+ *
+ * @param field
+ */
 void initSinglePlayerCmds(WINDOW* cmds)
 {
    int cmdsY, cmdsX;
@@ -156,6 +270,11 @@ void initSinglePlayerCmds(WINDOW* cmds)
    wrefresh(cmds);
 }
 
+/**
+ * Inizializzo il preview della window
+ *
+ * @param field
+ */
 void initSinglePlayerPreview(WINDOW* preview)
 {
     int previewY, previewX;
@@ -170,6 +289,11 @@ void initSinglePlayerPreview(WINDOW* preview)
     wrefresh(preview);
 }
 
+/**
+ * Inizializzo il score della window
+ *
+ * @param field
+ */
 void initSinglePlayerScore(WINDOW* score)
 {
     int scoreY, scoreX;
@@ -184,6 +308,11 @@ void initSinglePlayerScore(WINDOW* score)
     wrefresh(score);
 }
 
+/**
+ * Inizializzo il save della window
+ *
+ * @param field
+ */
 void initSinglePlayerSave(WINDOW *save)
 {
     int saveY, saveX;
