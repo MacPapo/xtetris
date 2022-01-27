@@ -83,21 +83,42 @@ extern tet_location TETROMINOS[T_NUM][T_ORI][T_CELL];
 extern tet_location cell;
 extern int previewGamefield[MATRIX_H][MATRIX_W];
 
-void initSinglePlayerPreview(WINDOW* preview);
-void initSinglePlayerSave(WINDOW* save);
-void initSinglePlayerScore(WINDOW* score);
-
+WINDOW* initSecondPlayerWindow(WINDOW* pgWindow);
 
 player addPlayer();
 
 void refreshGameField(int* x, tet* current_piece, player *pg);
+
+void changePiece(WINDOW* score);
+
+void refreshPreview(WINDOW* preview , tet* preview_piece);
+
 void resetPreview();
+
 void initTopLine(WINDOW* field);
+
 void colorField(player *pg);
 
 void initGameMatrix(int gameField[][MATRIX_W]);
+
 void initTetVector(int *tetPieces, int mod);
 
 int calculateScoring(int rows);
+
+void backPiece(tet* current_piece, tet* preview_piece);
+
+void rotatingPiece(tet* current_piece);
+
+void nextPiece(tet* current_piece, tet* preview_piece);
+
+void goDownTetramini(int row, int gamefield[][MATRIX_W]);
+
+int checkGameOver(int gamefield[][MATRIX_W]);
+
+int checkDeleteRows(player *pg);
+
+int smallerIntervall(int row, int col, int gamefield[][MATRIX_W]);
+
+void fallingPiece(player *pg);
 
 #endif 

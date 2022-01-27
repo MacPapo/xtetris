@@ -14,6 +14,9 @@
 
 
 /*-- init field function ---*/
+void initSinglePlayerPreview(WINDOW* preview);
+void initSinglePlayerSave(WINDOW* save);
+void initSinglePlayerScore(WINDOW* score);
 void initSinglePlayerTitle(WINDOW* title);
 void initSinglePlayerField(WINDOW* field);
 void initSinglePlayerCmds(WINDOW* cmds);
@@ -23,6 +26,9 @@ void initTopLine(WINDOW *field);
 void initQuit(int score);
 int initReturnToMenu(int score);
 
+WINDOW* initPlayerWindow(WINDOW* pgWindow);
+WINDOW* initPreviewWindow(WINDOW* preview);
+WINDOW* initScoreWindow(WINDOW* score);
 
 void changePiece(WINDOW* score);
 

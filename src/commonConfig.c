@@ -51,48 +51,75 @@ player addPlayer()
     return player;
 }
 
-void initSinglePlayerPreview(WINDOW* preview)
+
+WINDOW* initSecondPlayerWindow(WINDOW* pgWindow)
 {
-    int previewY, previewX;
-
-    previewY = HCENTER;
-    previewX = WCENTER - SCORE_W/2 + FIELD_W + 2;
-
-    preview = newwin(PREVIEW_H, PREVIEW_W, previewY, previewX);
-    box( preview, V_LINES, H_LINES);
-    wbkgd(preview, COLOR_PAIR(2));
-    mvwprintw(preview , 0 , 5 , "| PREVIEW |");
-    wrefresh(preview);
+    int fieldY, fieldX;
+    fieldY   = HCENTER + 1;
+    fieldX   = WCENTER + SCORE_W + FIELD_W / 2 - 5;
+    pgWindow = newwin(FIELD_H - 2, FIELD_W - 2, fieldY, fieldX);
+    wbkgd(pgWindow, COLOR_PAIR(0));
+    wrefresh(pgWindow);
+    return pgWindow;
 }
 
-void initSinglePlayerScore(WINDOW* score)
+void nextPiece(tet* current_piece, tet* preview_piece)
 {
-    int scoreY, scoreX;
+    current_piece->tet += 1;
+    if(current_piece->tet < 6)
+        preview_piece->tet = current_piece->tet + 1;
+    if(current_piece->tet == 6)
+        preview_piece->tet = 0;
+    if(current_piece->tet > 6)
+    {
+        current_piece->tet = 0;
+        preview_piece->tet = 1;
+    }
+    
+}
 
-    scoreY = HCENTER + PREVIEW_H + 1;
-    scoreX = WCENTER - SCORE_W/2 + FIELD_W + 2;
+void rotatingPiece(tet* current_piece)
+{
+    if(current_piece->ori == 3)
+        current_piece->ori = 0;
+    else
+        current_piece->ori += 1;
+}
 
-    score = newwin(SCORE_H, SCORE_W, scoreY, scoreX);
-    box(score , V_LINES, H_LINES);
-    wbkgd(score, COLOR_PAIR(2));
-    mvwprintw(score , 0 , 6 , "| SCORE |");
+void backPiece(tet* current_piece, tet* preview_piece)
+{
+    current_piece->tet -= 1;
+    if ( current_piece->tet < 0 )
+    {
+        current_piece->tet = 6;
+        preview_piece->tet  = 0;
+    } else
+        preview_piece->tet = current_piece->tet + 1;
+}
+
+
+void changePiece(WINDOW* score)
+{
+    mvwprintw(score, 5, (SCORE_W - 13) / 2, "CAMBIA PEZZO!");
     wrefresh(score);
 }
-void initSinglePlayerSave(WINDOW *save)
+
+void refreshPreview(WINDOW* preview , tet* preview_piece)
 {
-    int saveY, saveX;
+    int i;
+    int preview_tet = preview_piece->tet;
+    int preview_ori = preview_piece->ori;
 
-    saveY = HCENTER + PREVIEW_H + SCORE_H + 3;
-    saveX = WCENTER - SCORE_W/2 + FIELD_W + 2;
-
-    save = newwin(SAVE_H, SAVE_W, saveY, saveX);
-    box(save, V_LINES, H_LINES);
-    wbkgd(save, COLOR_PAIR(3));
-    mvwprintw(save, 0, 6, "| SAVE |");
-    mvwprintw(save, 1, 1, "'H' to help page");
-    mvwprintw(save, 2, 1, "'S' to save game");
-    mvwprintw(save, 3, 1, "'Q' return to menu");
-    wrefresh(save);
+    /* Clearing the previeus box */
+    werase(preview);
+    for(i = 0; i < TETS_CELL; ++i)
+    {
+        wattron(preview, COLOR_PAIR(preview_tet + 10));
+        cell = TETROMINOS[preview_tet][preview_ori][i];
+        mvwprintw(preview, cell.row + 2, 1 + (cell.col + 2) * 2, "  ");
+        wattroff(preview, COLOR_PAIR(preview_tet + 10));
+    }
+    wrefresh(preview);
 }
 
 void refreshGameField(int* x, tet* current_piece, player *pg)
@@ -129,6 +156,7 @@ void refreshGameField(int* x, tet* current_piece, player *pg)
     initTopLine(pg->window);
     wrefresh(pg->window);
 }
+
 void resetPreview()
 {
     int row;
@@ -143,6 +171,7 @@ void resetPreview()
         }
     }
 }
+
 void initTopLine(WINDOW* field)
 {
     int col;
@@ -154,6 +183,7 @@ void initTopLine(WINDOW* field)
     }
     wrefresh(field);
 }
+
 void colorField(player *pg)
 {
     int i, j;
@@ -173,6 +203,7 @@ void colorField(player *pg)
     initTopLine(pg->window);
     wrefresh(pg->window);
 }
+
 void initGameMatrix(int gameField[][MATRIX_W])
 {
     int row, cols;
@@ -184,6 +215,7 @@ void initGameMatrix(int gameField[][MATRIX_W])
                 previewGamefield[row][cols] = 0;
         }
 }
+
 void initTetVector(int *tetPieces, int mod)
 {  
     int i;
@@ -199,6 +231,7 @@ void initTetVector(int *tetPieces, int mod)
         tetPieces[i] = T_PIECES * 2;
     }
 }
+
 int calculateScoring(int rows)
 {
     if (rows == 0) return 0;
@@ -207,4 +240,123 @@ int calculateScoring(int rows)
     if (rows == 3) return 6;
     if (rows == 4) return 12;
     return 0;
+}
+
+void fallingPiece(player *pg)
+{
+
+    int row, col;
+    int counter = 0;
+    for(row = 0; row < TOP_LINE; row++)
+    {
+        for(col = 0; col < MATRIX_W; col++)
+        {
+            if(previewGamefield[row][col] != 0)
+            {   
+                if(counter == 0 || counter > smallerIntervall(row, col, pg->gameField))
+                    counter = smallerIntervall(row, col, pg->gameField);
+            }
+        }   
+    }
+
+    for(row = 0; row < MATRIX_H_PREV; row++)
+    {
+        for(col = 0; col < MATRIX_W; col++)     
+        {
+            if(previewGamefield[row][col] != 0)
+            {
+                pg->gameField[row + counter][col] = previewGamefield[row][col];
+            }
+        }
+    }
+
+    colorField(pg);
+}
+
+int smallerIntervall(int row, int col, int gamefield[][MATRIX_W])
+{
+
+    int counter = 0;
+    int current_row;
+    int current_col = col;
+
+    for(current_row = MATRIX_H - 1; current_row > row; current_row--)
+    {
+        if(gamefield[current_row][current_col] != 0)
+            counter = 0;
+        else if(gamefield[current_row][current_col] == 0)
+            counter++;
+    }
+    return counter;
+}
+
+int checkDeleteRows(player *pg)
+{
+    keypad(pg->window, FALSE);
+    int counter_rows  = 0;
+    int is_delete_row = 0;
+    int counter_numbers;
+
+    int row, col;
+    for (row = MATRIX_H - 1; row >= TOP_LINE; row--)
+    {   
+        is_delete_row = 0;
+        counter_numbers = 0;
+        for (col = 0; col < MATRIX_W; col++)
+        {
+            if (pg->gameField[row][col] != 0)
+                counter_numbers += 1;
+        }
+
+        if (counter_numbers == MATRIX_W)
+        {
+            is_delete_row = 1;
+            counter_rows += 1;
+            halfdelay(10);
+            goDownTetramini(row, pg->gameField);
+            colorField(pg);
+        }
+        
+        if (is_delete_row == 1)
+            row = row + 1;
+    }
+
+    return calculateScoring(counter_rows);
+}
+
+int checkGameOver(int gamefield[][MATRIX_W])
+{
+    int col;
+    for (col = 0; col < MATRIX_W; col++)
+    {
+        if (gamefield[TOP_LINE - 1][col] != 0)
+            return 1;
+    }
+    return 0;
+}
+
+void goDownTetramini(int row, int gamefield[][MATRIX_W])
+{
+    int currentRow;
+    int cols;
+
+    int box = 0;
+    int next_box = 0;
+
+    for (cols = 0; cols < MATRIX_W; cols++)
+        gamefield[row][cols] = 0;
+
+    for (currentRow = row - 1; currentRow >= TOP_LINE; currentRow--)
+    {
+        for (cols = 0; cols < MATRIX_W; cols++)
+        {
+            box = gamefield[currentRow][cols];
+            next_box = gamefield[currentRow + 1][cols];
+            if (box != 0 && next_box == 0)
+            {
+                gamefield[currentRow + 1][cols] = box;
+                gamefield[currentRow][cols] = 0;
+            }
+        }
+    }
 }

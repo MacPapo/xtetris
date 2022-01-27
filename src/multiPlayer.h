@@ -9,9 +9,6 @@
 #define MTITLE_H         3
 #define MTITLE_W        75
 
-#define CMDS_H           3
-#define CMDS_W          51
-
 #define MPLAYER_X       31
 #define PVSCPU_X        31
 
@@ -26,6 +23,13 @@
 void initMultiPlayerCmds(WINDOW* w_cmds);
 void initMultiPlayerTitle(WINDOW* title);
 void initMultiPlayerField(WINDOW* firstField, WINDOW* secondField);
+void initMultiPlayerPreview(WINDOW* preview);
+void initMultiPlayerScore(WINDOW* score);
+void initMultiPlayerSave(WINDOW* save);
+WINDOW* initFirstPlayerWindow(WINDOW* pgWindow);
+WINDOW* initMultiPreviewWindow(WINDOW* preview);
+WINDOW* initMultiScoreWindow(WINDOW* score);
+
 void initMultiField(WINDOW* title, WINDOW* firstField, WINDOW* secondField, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds);
 
 int multiPlayer();

@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "unistd.h": "c",
-        "singleplayer.h": "c"
+        "singleplayer.h": "c",
+        "multiplayer.h": "c"
     }
 }
