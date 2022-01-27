@@ -28,12 +28,10 @@ int initReturnToMenu(int score);
 
 
 void changePiece(WINDOW* score);
+
 /*--- init field variable ---*/
 void initGameMatrix(int gameField[][MATRIX_W]);
 void initTetVector();
-
-/*--- print info ---*/
-void printMatrix(int gamefield[][MATRIX_W]);
 
 /*--- repaint */
 void colorField(player *pg);
@@ -43,9 +41,6 @@ void resetPreview();
 void refreshPreview(WINDOW* s_preview, tet* preview_piece);
 void refreshGameField(int* x, tet* current_piece, player *pg);
 void refreshScore(WINDOW* s_score ,int pieces, int score);
-
-void playerChoices(player *player, tet* current_piece, int* pieces, int gamefield[][MATRIX_W]);
-int singlePlayerCommands(WINDOW* field);
 
 /*--- main function for gamefield ---*/
 int calculateScoring(int rows);

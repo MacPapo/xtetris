@@ -1,5 +1,6 @@
 #include "main.h"
 #include "menu.h"
+#include "commonConfing.h"
 
 #define MINIAUDIO_IMPLEMENTATION
 #include "miniaudio.h"

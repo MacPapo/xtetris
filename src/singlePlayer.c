@@ -1,61 +1,6 @@
 #include "singlePlayer.h"
 #include "commonConfing.h"
 #include <ncurses.h>
-#include <unistd.h>
-
-#define HCENTER  ((LINES - FIELD_H) / 2)
-#define WCENTER  ((COLS  - FIELD_W) / 2)
-
-/* store in a variable x and y of current block */
-tet_location cell = {0,0};
-
-/* tridimensional array for tetramini */
-tet_location TETROMINOS[T_NUM][T_ORI][T_CELL] =
-{
-  // I
-  { { {0, 0}, {0, 1}, {0, 2}, {0, 3} },
-    { {0, 0}, {1, 0}, {2, 0}, {3, 0} },
-    { {0, 0}, {0, 1}, {0, 2}, {0, 3} },
-    { {0, 0}, {1, 0}, {2, 0}, {3, 0} } },
-  // J
-  { { {0, 0}, {0, 1}, {0, 2}, {1, 2} },
-    { {0, 0}, {0, 1}, {1, 0}, {2, 0} },
-    { {0, 0}, {1, 0}, {1, 1}, {1, 2} } ,
-    { {0, 1}, {1, 1}, {2, 0}, {2, 1} } },
-  // L
-  { { {1, 0}, {0, 0}, {0, 1}, {0, 2} },
-    { {2, 1}, {0, 0}, {1, 0}, {2, 0} },
-    { {0, 2}, {1, 2}, {1, 1}, {1, 0} },
-    { {0, 0}, {0, 1}, {1, 1}, {2, 1} } },
-  // O
-  { { {0, 0}, {0, 1}, {1, 0}, {1, 1} },
-    { {0, 0}, {0, 1}, {1, 0}, {1, 1} },
-    { {0, 0}, {0, 1}, {1, 0}, {1, 1} },
-    { {0, 0}, {0, 1}, {1, 0}, {1, 1} } },
-  // S
-  { { {0, 1}, {0, 2}, {1, 0}, {1, 1} },
-    { {0, 0}, {1, 0}, {1, 1}, {2, 1} },
-    { {0, 1}, {0, 2}, {1, 0}, {1, 1} },
-    { {0, 0}, {1, 0}, {1, 1}, {2, 1} } },
-  // T
-  { { {0, 0}, {0, 1}, {1, 1}, {0, 2} },
-    { {1, 0}, {0, 1}, {1, 1}, {2, 1} },
-    { {1, 0}, {0, 1}, {1, 1}, {1, 2} },
-    { {0, 0}, {1, 0}, {1, 1}, {2, 0} } },
-  // Z
-  { { {0, 0}, {0, 1}, {1, 1}, {1, 2} },
-    { {1, 0}, {2, 0}, {0, 1}, {1, 1} },
-    { {0, 0}, {0, 1}, {1, 1}, {1, 2} },
-    { {1, 0}, {2, 0}, {0, 1}, {1, 1} } },
-};
-
-int preview_gamefield[MATRIX_H_PREV][MATRIX_W];
-
-player addPlayer() {
-    player player;
-    player.score = 0;
-    return player;
-}
 
 int singlePlayer()
 {
@@ -202,7 +147,7 @@ void initGameMatrix(int gameField[][MATRIX_W])
         {
             gameField[row][cols] = 0;
             if(row < MATRIX_H_PREV)
-                preview_gamefield[row][cols] = 0;
+                previewGamefield[row][cols] = 0;
         }
 }
 
@@ -386,53 +331,6 @@ void changePiece(WINDOW* score)
     wrefresh(score);
 }
 
-void colorField(player *pg)
-{
-    int i, j;
-    werase(pg->window);
-    for(i = 0; i < MATRIX_H; i++)
-    {
-        for(j = 0; j < MATRIX_W; j++)
-        {
-            if(pg->gameField[i][j] != 0)
-            {
-                wattron(pg->window, COLOR_PAIR(pg->gameField[i][j] + 9));
-                mvwprintw(pg->window, i, j*2, "  ");
-                wattroff(pg->window, COLOR_PAIR(pg->gameField[i][j] + 9));
-            } 
-        }
-    }
-    initTopLine(pg->window);
-    wrefresh(pg->window);
-}
-
-void initTopLine(WINDOW* field)
-{
-    int col;
-    for (col = 0; col < FIELD_W - 2; col++)
-    {
-        wattron(field, COLOR_PAIR(19));
-        mvwprintw(field, TOP_LINE - 1, col, " ");
-        wattroff(field, COLOR_PAIR(19));
-    }
-    wrefresh(field);
-}
-
-void resetPreview()
-{
-    int row;
-    int col;
-
-    for( row = 0; row < MATRIX_H_PREV; row++)
-    {
-        for( col = 0; col < MATRIX_W; col++)
-        {
-            if(preview_gamefield[row][col] != 0)
-                preview_gamefield[row][col] = 0;
-        }
-    }
-}
-
 void refreshPreview(WINDOW* preview , tet* preview_piece)
 {
     int i;
@@ -451,40 +349,7 @@ void refreshPreview(WINDOW* preview , tet* preview_piece)
     wrefresh(preview);
 }
 
-void refreshGameField(int* x, tet* current_piece, player *pg)
-{
-    int i;
-    resetPreview();
-    wrefresh(pg->window);
 
-    int current_tet = current_piece->tet;
-    int current_ori = current_piece->ori;
-
-    for(i = 0; i < TETS_CELL; ++i)
-    {
-        wattron(pg->window, COLOR_PAIR(current_tet + 10));
-        cell = TETROMINOS[current_tet][current_ori][i];
-        mvwprintw(pg->window, cell.row, (cell.col) * 2 + *x, "  ");
-        wattroff(pg->window, COLOR_PAIR(current_tet + 10));
-
-        if(cell.col + *x < 0)
-        {
-            colorField(pg);
-            *x += 2;
-            refreshGameField(x, current_piece, pg);
-        }
-
-        if( (cell.col) * 2 + *x > FIELD_W - 3)
-        {
-            colorField(pg);
-            *x -= 2;
-            refreshGameField(x, current_piece, pg);
-        }
-        preview_gamefield[cell.row][cell.col + (*x / 2)] = current_tet + 1;
-    }
-    initTopLine(pg->window);
-    wrefresh(pg->window);
-}
 
 void refreshScore(WINDOW* s_score ,int pieces, int score)
 {
@@ -494,20 +359,6 @@ void refreshScore(WINDOW* s_score ,int pieces, int score)
     mvwprintw(s_score, 3, 1, "Punteggio: ");
     mvwprintw(s_score, 3, 14, "%d", score);
     wrefresh(s_score);
-}
-
-void printMatrix(int gameField[][MATRIX_W])
-{
-    int i,j;
-
-    for(i = 0; i < MATRIX_H; i++)
-    {
-        for(j = 0; j < MATRIX_W; j++)
-        {
-            printf("%d" , gameField[i][j]);
-        }
-        printf("\n");
-    }
 }
 
 //* End the movement func ****************************************************/
@@ -555,7 +406,7 @@ void fallingPiece(player *pg)
     {
         for(col = 0; col < MATRIX_W; col++)
         {
-            if(preview_gamefield[row][col] != 0)
+            if(previewGamefield[row][col] != 0)
             {   
                 if(counter == 0 || counter > smallerIntervall(row, col, pg->gameField))
                     counter = smallerIntervall(row, col, pg->gameField);
@@ -567,9 +418,9 @@ void fallingPiece(player *pg)
     {
         for(col = 0; col < MATRIX_W; col++)     
         {
-            if(preview_gamefield[row][col] != 0)
+            if(previewGamefield[row][col] != 0)
             {
-                pg->gameField[row + counter][col] = preview_gamefield[row][col];
+                pg->gameField[row + counter][col] = previewGamefield[row][col];
             }
         }
     }
@@ -663,14 +514,4 @@ void goDownTetramini(int row, int gamefield[][MATRIX_W])
             }
         }
     }
-}
-
-int calculateScoring(int rows)
-{
-    if (rows == 0) return 0;
-    if (rows == 1) return 1;
-    if (rows == 2) return 3;
-    if (rows == 3) return 6;
-    if (rows == 4) return 12;
-    return 0;
 }

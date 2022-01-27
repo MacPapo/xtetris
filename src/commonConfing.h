@@ -7,6 +7,9 @@
 #define V_LINES     ACS_VLINE
 #define H_LINES     ACS_HLINE
 
+#define HCENTER  ((LINES - FIELD_H) / 2)
+#define WCENTER  ((COLS  - FIELD_W) / 2)
+
 /* defining field parameters */
 #define FIELD_Y         10
 #define FIELD_X         10
@@ -77,5 +80,16 @@ typedef struct {
 } player;
 
 extern tet_location TETROMINOS[T_NUM][T_ORI][T_CELL];
+extern tet_location cell;
+extern int previewGamefield[MATRIX_H][MATRIX_W];
+
+player addPlayer();
+
+void refreshGameField(int* x, tet* current_piece, player *pg);
+void resetPreview();
+void initTopLine(WINDOW* field);
+void colorField(player *pg);
+
+int calculateScoring(int rows);
 
 #endif 
