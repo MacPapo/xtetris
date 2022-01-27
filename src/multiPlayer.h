@@ -31,7 +31,8 @@ WINDOW* initMultiPreviewWindow(WINDOW* preview);
 WINDOW* initMultiScoreWindow(WINDOW* score);
 
 void initMultiField(WINDOW* title, WINDOW* firstField, WINDOW* secondField, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds);
-
+void refreshMultiScore(int pieces, int pg1Score, int pg2Score, int *turn, WINDOW* score);
 int multiPlayer();
+int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* pieces, int* turn, WINDOW* preview, WINDOW* score)
 
 #endif 

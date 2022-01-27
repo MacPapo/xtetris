@@ -15,14 +15,11 @@ int multiPlayer()
 
     int pieces =  T_NUM * (T_PIECES * 2);
 
-    tet current_piece = {0,0};
-    tet preview_piece = {0,0};
+    tet piece = {0,0};
 
     int tetPieces[T_NUM];
 
-    int choice = 0;
     int position_x = 0;
-    int countCurrentPiece = 0;
     int turn = 0;
 
     player pg1 = addPlayer();
@@ -38,17 +35,35 @@ int multiPlayer()
     s_preview = initMultiPreviewWindow(s_preview);
     s_score = initMultiScoreWindow(s_score);
     
-    do
-    {
-        
-
-    } while (pieces);
-    
+    startTheGame(&pg1, &pg2, &piece, tetPieces, &pieces, &turn, s_preview, s_score);
 
     refresh();
     getch();
 
     return 1;
+
+}
+
+int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* pieces, int* turn, WINDOW* preview, WINDOW* score)
+{
+    int choice = 0;
+    int action = 0;
+
+    int positionX = 0;
+    tet preview_piece = {piece->tet + 1, 0};
+
+    if (*pieces == 0)
+        return 1;
+
+    refreshPreview(preview, &preview_piece);
+    refreshGamefield(positionX, piece, pg1);
+    refreshMultiScore(pieces, pg1->score, pg2->score, turn, score);
+
+    do
+    {
+        
+    } while (!action);
+    
 
 }
 
@@ -191,4 +206,24 @@ void initMultiField(WINDOW* title, WINDOW* firstField, WINDOW *secondField, WIND
     initMultiPlayerSave(save);
     initMultiPlayerCmds(cmds);
     refresh();
+}
+
+void refreshMultiScore(int pieces, int pg1Score, int pg2Score,int *turn, WINDOW* score)
+{
+    werase(score);
+    mvwprintw(score, 1, 1, "Disponibili: ");
+    mvwprintw(score, 1, 14, "%d", pieces);
+    mvwprintw(score, 3, 1, "Punteggio PG1: ");
+    mvwprintw(score, 4, 1, "Punteggio PG2: ");
+    if (*turn == FIRST_PLAYER)
+    {
+        mvwprintw(score, 3, 14, "%d", pg1Score);
+        mvwprintw(score, 4, 14, "%d", pg2Score);
+    }
+    if (*turn == SECOND_PLAYER)
+    {
+        mvwprintw(score, 4, 14, "%d", pg1Score);
+        mvwprintw(score, 3, 14, "%d", pg2Score);
+    }  
+    wrefresh(score);
 }
