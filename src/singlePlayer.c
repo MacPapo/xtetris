@@ -160,7 +160,7 @@ int singlePlayer()
                 break;
             
             case KEY_LEFT:
-                position_x -= 2; /**< Muovo il tetramino nella preview di una posizione a destra */
+                position_x -= 2; /**< Muovo il tetramino nella preview di una posizione a sinistra */
                 break;
             
             case KEY_DOWN:
@@ -330,6 +330,11 @@ void initSinglePlayerSave(WINDOW *save)
     wrefresh(save);
 }
 
+/**
+ * Inizializzo il tutte le schermate della window
+ *
+ * @param field
+ */
 void initField(WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds)
 {
     refresh();
@@ -342,6 +347,11 @@ void initField(WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WIN
     refresh();
 }
 
+/**
+ * Creo il gameover  window
+ *
+ * @param field
+ */
 void initGameOver(int score)
 {
     clear();
@@ -365,6 +375,11 @@ void initGameOver(int score)
     getch();
 }
 
+/**
+ * Creo il quit  window
+ *
+ * @param field
+ */
 void initQuit(int score)
 {
     clear();
@@ -386,6 +401,11 @@ void initQuit(int score)
     getch();
 }
 
+/**
+ * Creo player  window
+ *
+ * @param field
+ */
 WINDOW* initPlayerWindow(WINDOW* pgWindow)
 {
     int fieldY, fieldX;
@@ -397,6 +417,11 @@ WINDOW* initPlayerWindow(WINDOW* pgWindow)
     return pgWindow;
 }
 
+/**
+ * Creo il preview  window
+ *
+ * @param field
+ */
 WINDOW* initPreviewWindow(WINDOW* preview)
 {
     int previewY, previewX;
@@ -408,6 +433,11 @@ WINDOW* initPreviewWindow(WINDOW* preview)
     return preview;
 }
 
+/**
+ * Creo il score  window
+ *
+ * @param field
+ */
 WINDOW* initScoreWindow(WINDOW* score)
 {
     int scoreY, scoreX;
@@ -419,6 +449,11 @@ WINDOW* initScoreWindow(WINDOW* score)
     return score;
 }
 
+/**
+ * Creo il return  window
+ *
+ * @param field
+ */
 int initReturnToMenu(int score)
 {
     clear();
@@ -441,6 +476,11 @@ int initReturnToMenu(int score)
     return 1;
 }
 
+/**
+ * Refresho la score  window
+ *
+ * @param field
+ */
 void refreshScore(WINDOW* s_score ,int pieces, int score)
 {
     werase(s_score);

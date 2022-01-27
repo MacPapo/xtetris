@@ -1,3 +1,16 @@
+/**
+ * @file   main.c
+ * @author Jacopo Costantini Matteo Zambon Alvise Silvestri
+ * @date   Fri Jan 28 00:05:07 2022
+ *
+ * @brief  The main file
+ *
+ * Where the magic happen
+ *
+ *
+ */
+
+
 #include "main.h"
 #include "menu.h"
 #include "commonConfing.h"
@@ -10,6 +23,14 @@
 #include "colors.h"
 #include <ncurses.h>
 
+/**
+ * Qui si inizializza il loop dei decoder musicali
+ *
+ * @param pDevice
+ * @param pOutput
+ * @param pInput
+ * @param frameCount
+ */
 void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount)
 {
     ma_decoder* pDecoder = (ma_decoder*)pDevice->pUserData;
@@ -70,25 +91,67 @@ int main(int argc, char** argv)
 
 
     /* Initialize the memory with ncurses session & start colors */
+
+    /**
+     * Inizializzo lo standar screen
+     *
+     *
+     * @return
+     */
     initscr();
+
+    /**
+     * Inizializzo la palette di colori
+     *
+     *
+     * @return
+     */
     initializeColors();
 
-    do
+    do  /**< Inizia la sequenza di istruzioni da eseguire */
     {
-        mod = menu();
+        mod = menu(); /**< Prendo l'input da tastiera da parte dell'utente nel menu */
         if(mod == 0)
-            singlePlayer();
+            singlePlayer();     /**< Funzione single player */
         if(mod == 1)
-            multiPlayer();
+            multiPlayer();      /**< Funzioni multiplayer */
         if(mod == 2)
             printw("ZAO");
     }
     while (mod != 4);
 
     /* Deallocates memory and ends ncurses */
+    /**
+     * Refresh della schermata
+     *
+     *
+     * @return
+     */
     refresh();
+    /**
+     * Elimino la window e dealloco la memoria
+     *
+     *
+     * @return
+     */
     endwin();
+
+    /**
+     * Dealloco i devices della libreria musicale
+     *
+     * @param device
+     *
+     * @return
+     */
     ma_device_uninit(&device);
+
+    /**
+     * Dealloco i decoder della libreria musicale
+     *
+     * @param decoder
+     *
+     * @return
+     */
     ma_decoder_uninit(&decoder);
 
     return 0;
