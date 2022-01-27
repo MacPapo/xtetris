@@ -8,10 +8,6 @@
 #define TITLE_H          3
 #define TITLE_W         51
 
-/* #define TPP_Y            1 */
-
-/* #define SPLAYER_X       20 */
-
 /* box vertical & horizontal lines  */
 #define V_LINES     ACS_VLINE
 #define H_LINES     ACS_HLINE
