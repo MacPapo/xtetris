@@ -1,4 +1,5 @@
 #include "singlePlayer.h"
+#include "commonConfing.h"
 #include <ncurses.h>
 #include <unistd.h>
 
