@@ -1,17 +1,45 @@
+/**
+ * @file   multiPlayer.c
+ * @author Jacopo Costantini <jacopocostantini32@gmail.com>
+ * @date   Thu Jan 27 23:33:50 2022
+ *
+ * @brief  Multiplayer routine
+ *
+ * Qui si definisce la routine che verrà eseguita per il multi player
+ *
+ */
+
+
 #include "multiPlayer.h"
 #include "commonConfing.h"
 #include <ncurses.h>
 #include <time.h>
 #include <stdlib.h>
 
+/**
+ * Questa è la funzione che crea le schermate di gioco
+ * Quando termina si ritorna alla funzione main()
+ *
+ * @brief retrun score
+ * @return 1
+ */
 int multiPlayer()
 {
 
-    WINDOW *w_title = NULL, *w_field = NULL, *w_sfield = NULL, *w_preview = NULL, *w_score = NULL, *w_save = NULL, *w_cmds = NULL;
-    WINDOW *s_preview = NULL, *s_score = NULL;
+    WINDOW *w_title = NULL, *w_field = NULL, *w_sfield = NULL, *w_preview = NULL, *w_score = NULL, *w_save = NULL, *w_cmds = NULL; /**< Qui si inizializzano tutte le window statiche */
+    WINDOW *s_preview = NULL, *s_score = NULL; /**< Qui si inizializzano tutte le window dinamiche */
 
-    /* clear the screen to visualize a new windows */
+    /**
+     * Pulisce lo schermo per visualizzare le nuove window
+     *
+     *
+     * @return blank stdscr window
+     */
     clear();
+
+    /**
+     * Disabilita la possibilità di uscire con un cambinazioni di tasti ctrl
+     */
     cbreak();
 
     int pieces =  T_NUM * (T_PIECES * 2);
@@ -22,23 +50,71 @@ int multiPlayer()
     int lastAction = 0;
 
 
-    player pg1 = addPlayer();
-    player pg2 = addPlayer();
+    player pg1 = addPlayer();   /**< Aggiungo il player 1 */
+    player pg2 = addPlayer();  /**< Aggiungo il player 2 */
+
+    /**
+     * Inizializza la matrice di gioco tutta a 0
+     *
+     * @param gameField
+     *
+     */
     initGameMatrix(pg1.gameField);
     initGameMatrix(pg2.gameField);
 
+    /**
+     * Inizializza il vettore del tetramino
+     *
+     * @param tetPieces
+     * @param 0
+     *
+     */
     initTetVector(tetPieces, 1);
+    /**
+     * Stampa l'intero campo di gioco con tutte le window statiche
+     *
+     * @param w_title
+     * @param w_field
+     * @param w_preview
+     * @param w_sfield
+     * @param w_score
+     * @param w_save
+     * @param w_cmds
+     *
+     * @return
+     */
     initMultiField(w_title, w_field, w_preview, w_sfield, w_score, w_save, w_cmds);
 
-    pg1.window = initFirstPlayerWindow(pg1.window);
-    pg2.window = initSecondPlayerWindow(pg2.window);
-    s_preview = initMultiPreviewWindow(s_preview);
-    s_score = initMultiScoreWindow(s_score);
-    
+    pg1.window = initFirstPlayerWindow(pg1.window); /**< Da le info per modellare la window, tutti i suoi parametri */
+    pg2.window = initSecondPlayerWindow(pg2.window); /**< Da le info per modellare la window, tutti i suoi parametri */
+    s_preview = initMultiPreviewWindow(s_preview); /**< Da le info per modellare la window dinamica preview */
+    s_score = initMultiScoreWindow(s_score); /**< Da le info per modellare la window dinamica score */
+
+    /**
+     * L'ultima azione
+     *
+     * @param pg1
+     * @param pg2
+     * @param piece
+     * @param tetPieces
+     * @param pieces
+     * @param turn
+     * @param s_preview
+     * @param s_score
+     *
+     */
     lastAction = startTheGame(&pg1, &pg2, &piece, tetPieces, &pieces, &turn, s_preview, s_score);
 
     if (lastAction == 1)
     {
+        /**
+         * Vincitore
+         *
+         * @param pg1
+         * @param pg2
+         *
+         * @return
+         */
         initWinner(&pg1, &pg2);
     }
         
@@ -49,6 +125,20 @@ int multiPlayer()
 
 }
 
+/**
+ * Routine del gioco
+ *
+ * @param pg1
+ * @param pg2
+ * @param piece
+ * @param tetPieces
+ * @param pieces
+ * @param turn
+ * @param preview
+ * @param score
+ *
+ * @return
+ */
 int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* pieces, int* turn, WINDOW* preview, WINDOW* score)
 {
     int choice = 0;
@@ -63,61 +153,97 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
     if (*pieces == 0)
         return 1;
 
-    refreshPreview(preview, &preview_piece);
-    refreshGameField(&positionX, piece, pg1);
-    refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, score);
+    refreshPreview(preview, &preview_piece); /**< Aggiorno i valori in preview e ridisegna la sua window dinamica */
+    refreshGameField(&positionX, piece, pg1); /**< Aggiorno i valori in gamefield e ridisegna la sua window dinamica */
+    refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, score); /**< Aggiorno i valori in score e ridisegna la sua window dinamica */
 
-    do
+    do /**< Inizia la sequenza di istruzioni da eseguire */
     {
-        keypad(pg1->window, TRUE);
+        keypad(pg1->window, TRUE); /**< Inzializza la funzionalità di input da tastiera */
+
+         /**
+         * Coloro il campo con i valori salvati nella matrice di gioco
+         *
+         * @param pg
+         *
+         */
         colorField(pg2);
-        choice = wgetch(pg1->window);
+        choice = wgetch(pg1->window); /**< Prendo l'input da tastiera da parte dell'utente */
         colorField(pg1);
 
         countCurrentPiece = tetPieces[piece->tet];
         if (countCurrentPiece == 0)
             changePiece(score);
 
-        switch (choice)
+        switch (choice) /**< Casistica della scelta dell'utente */
         {
             case 'n':
+                /**
+                 * Cambio il pezzo corrente con il prossimo
+                 *
+                 * @param preview_piece
+                 * @param preview_piece
+                 *
+                 * @return next piece
+                 */
                 nextPiece(piece, &preview_piece);
                 refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, score);
                 break;
 
             /* case: back piece */
             case 'b':
+                /**
+                 * Cambio pezzo con quello precedente nell'array di tetramini
+                 *
+                 * @param piece
+                 * @param preview_piece
+                 *
+                 * @return
+                 */
                 backPiece(piece, &preview_piece);
                 refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, score);
                 break;
 
             /* case: rotate piece */
             case 'r':
+                 /**
+                 * Ruoto di 90 gradi il tetramino
+                 *
+                 * @param current_piece
+                 *
+                 */
                 rotatingPiece(piece);
                 break;
 
             case KEY_LEFT:
-                positionX -= 2;
+                positionX -= 2; /**< Muovo il tetramino nella preview di una posizione a destra */
                 break;
 
             case KEY_RIGHT:
-                positionX += 2;
+                positionX += 2; /**< Muovo il tetramino nella preview di una posizione a sinistra */
                 break;
 
             case KEY_DOWN:
-                if (countCurrentPiece)
+                if (countCurrentPiece) /**< Se la condizione è soddisfatta faccio cadere il pezzo */
                 {
+                    /**
+                     * Fa cadere il tetramino scelto
+                     *
+                     * @param pg1
+                     *
+                     * @return
+                     */
                     fallingPiece(pg1);
-                    tetPieces[piece->tet] -= 1;
-                    *pieces -= 1;
+                    tetPieces[piece->tet] -= 1; /**< Decremento il tetraminno corrente di 1 */
+                    *pieces -= 1; /**< Decremento il numero generale di tetramini disponibili */
                     *currentScore += checkAndReverseRows(pg1, pg2);
-                    refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, score);
+                    refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, score); /**< Riscrivo lo score con i nuovi valori */
                     action = 1;
                 }
                 break;
 
             case 'q':
-                initMultiQuit();
+                initMultiQuit(); /**< Esco dal while */
                 return 0;
                 break;
 
@@ -140,10 +266,29 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
     }
 
     colorField(pg1);
+    /**
+     * Ricorsione della funzione startGame
+     *
+     * @param pg2
+     * @param pg1
+     * @param piece
+     * @param tetPieces
+     * @param pieces
+     * @param changeTurn
+     * @param preview
+     * @param score
+     *
+     * @return
+     */
     return startTheGame(pg2, pg1, piece, tetPieces, pieces, changeTurn(turn), preview, score);
     
 }
 
+/**
+ * Inizializzo il titolo della window
+ *
+ * @param title
+ */
 void initMultiPlayerTitle(WINDOW* title)
 {
     int titleY, titleX;
@@ -158,6 +303,12 @@ void initMultiPlayerTitle(WINDOW* title)
     wrefresh(title);
 }
 
+/**
+ * Inizializzo il field della window
+ *
+ * @param firstField
+ * @param secondField
+ */
 void initMultiPlayerField(WINDOW* firstField, WINDOW* secondField)
 {
     int fieldY, fieldX;
@@ -180,6 +331,12 @@ void initMultiPlayerField(WINDOW* firstField, WINDOW* secondField)
     wrefresh(secondField);
 }
 
+
+/**
+ * Inizializzo il cmds della window
+ *
+ * @param cmds
+ */
 void initMultiPlayerCmds(WINDOW *cmds)
 {
     int cmdsY, cmdsX;
@@ -195,6 +352,12 @@ void initMultiPlayerCmds(WINDOW *cmds)
     wrefresh(cmds);
 }
 
+
+/**
+ * Inizializzo il preview della window
+ *
+ * @param preview
+ */
 void initMultiPlayerPreview(WINDOW* preview)
 {
     int previewY, previewX;
@@ -209,6 +372,12 @@ void initMultiPlayerPreview(WINDOW* preview)
     wrefresh(preview);
 }
 
+
+/**
+ * Inizializzo il score della window
+ *
+ * @param score
+ */
 void initMultiPlayerScore(WINDOW* score)
 {
     int scoreY, scoreX;
@@ -223,6 +392,11 @@ void initMultiPlayerScore(WINDOW* score)
     wrefresh(score);
 }
 
+/**
+ * Inizializzo il save della window
+ *
+ * @param save
+ */
 void initMultiPlayerSave(WINDOW* save)
 {
     int saveY, saveX;
@@ -240,6 +414,11 @@ void initMultiPlayerSave(WINDOW* save)
     wrefresh(save);
 }
 
+/**
+ * Inizializzo il tutte le schermate del player
+ *
+ * @param pgWindow
+ */
 WINDOW* initFirstPlayerWindow(WINDOW* pgWindow)
 {
     int fieldY, fieldX;
@@ -251,6 +430,13 @@ WINDOW* initFirstPlayerWindow(WINDOW* pgWindow)
     return pgWindow;
 }
 
+/**
+ * Inizializzo la preview
+ *
+ * @param preview
+ *
+ * @return
+ */
 WINDOW* initMultiPreviewWindow(WINDOW* preview)
 {
     int previewY, previewX;
@@ -262,6 +448,13 @@ WINDOW* initMultiPreviewWindow(WINDOW* preview)
     return preview;
 }
 
+/**
+ * Inizializzo lo score
+ *
+ * @param score
+ *
+ * @return
+ */
 WINDOW* initMultiScoreWindow(WINDOW* score)
 {
     int scoreY, scoreX;
@@ -273,6 +466,17 @@ WINDOW* initMultiScoreWindow(WINDOW* score)
     return score;
 }
 
+/**
+ * Inizializzo tutti i field
+ *
+ * @param title
+ * @param firstField
+ * @param secondField
+ * @param preview
+ * @param score
+ * @param save
+ * @param cmds
+ */
 void initMultiField(WINDOW* title, WINDOW* firstField, WINDOW *secondField, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds)
 {
     refresh();
@@ -285,6 +489,15 @@ void initMultiField(WINDOW* title, WINDOW* firstField, WINDOW *secondField, WIND
     refresh();
 }
 
+/**
+ * Refresh the multiscore
+ *
+ * @param pieces
+ * @param pg1Score
+ * @param pg2Score
+ * @param turn
+ * @param score
+ */
 void refreshMultiScore(int pieces, int *pg1Score, int pg2Score,int *turn, WINDOW* score)
 {
     werase(score);
@@ -305,6 +518,11 @@ void refreshMultiScore(int pieces, int *pg1Score, int pg2Score,int *turn, WINDOW
     wrefresh(score);
 }
 
+
+/**
+ * Inverte le righe se il numero di righe è maggiore o uguale a 3 righe
+ *
+ */
 void reverseRowsGameField(int secondGamefield[][MATRIX_W], int counterRows)
 {
     int row, col;
@@ -325,6 +543,14 @@ void reverseRowsGameField(int secondGamefield[][MATRIX_W], int counterRows)
     }
 }
 
+/**
+ * Inverto le righe del campo avversario
+ *
+ * @param pg1
+ * @param pg2
+ *
+ * @return
+ */
 int checkAndReverseRows(player* pg1, player* pg2)
 {
     keypad(pg1->window, FALSE);
@@ -365,6 +591,12 @@ int checkAndReverseRows(player* pg1, player* pg2)
     return calculateScoring(counterRows);
 }
 
+/**
+ * Inizializzo il gameover
+ *
+ * @param score
+ * @param turn
+ */
 void multiGameOver(int score, int* turn)
 {
     clear();
@@ -395,6 +627,13 @@ void multiGameOver(int score, int* turn)
     getch();
 }
 
+/**
+ * Funzione di cambio turno
+ *
+ * @param turn
+ *
+ * @return
+ */
 int* changeTurn(int *turn)
 {
     if (*turn == FIRST_PLAYER)
@@ -410,6 +649,10 @@ int* changeTurn(int *turn)
     return turn;
 }
 
+/**
+ * Inizializzo il quit
+ *
+ */
 void initMultiQuit()
 {
     clear();
@@ -429,6 +672,12 @@ void initMultiQuit()
     refresh();
 }
 
+/**
+ * Inizializzo il winner
+ *
+ * @param pg1
+ * @param pg2
+ */
 void initWinner(player *pg1, player *pg2)
 {
     clear();

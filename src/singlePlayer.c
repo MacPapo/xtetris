@@ -160,7 +160,7 @@ int singlePlayer()
                 break;
             
             case KEY_LEFT:
-                position_x -= 2; /**< Muovo il tetramino nella preview di una posizione a destra */
+                position_x -= 2; /**< Muovo il tetramino nella preview di una posizione a sinistra */
                 break;
             
             case KEY_DOWN:
