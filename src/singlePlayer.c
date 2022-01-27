@@ -330,6 +330,11 @@ void initSinglePlayerSave(WINDOW *save)
     wrefresh(save);
 }
 
+/**
+ * Inizializzo il tutte le schermate della window
+ *
+ * @param field
+ */
 void initField(WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds)
 {
     refresh();
@@ -342,6 +347,11 @@ void initField(WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WIN
     refresh();
 }
 
+/**
+ * Creo il gameover  window
+ *
+ * @param field
+ */
 void initGameOver(int score)
 {
     clear();
