@@ -1,8 +1,10 @@
 #ifndef MULTIPLAYER_H_
 #define MULTIPLAYER_H_
 
+#include "commonConfing.h"
 #include <stdbool.h>
 #include <ncurses.h>
+
 
 /* ---------------------------------------------------------- defining title parameters */
 /* Multi fields */
@@ -16,23 +18,42 @@
 #define MCMDS_W         75
 /* ---------------------------------------------------------- END defining title parameters */
 
-#define FIRST_PLAYER     1
+#define FIRST_PLAYER     0
 
-#define SECOND_PLAYER    0
+#define SECOND_PLAYER    1
 
 void initMultiPlayerCmds(WINDOW* w_cmds);
+
 void initMultiPlayerTitle(WINDOW* title);
+
 void initMultiPlayerField(WINDOW* firstField, WINDOW* secondField);
+
 void initMultiPlayerPreview(WINDOW* preview);
+
 void initMultiPlayerScore(WINDOW* score);
+
 void initMultiPlayerSave(WINDOW* save);
+
 WINDOW* initFirstPlayerWindow(WINDOW* pgWindow);
+
 WINDOW* initMultiPreviewWindow(WINDOW* preview);
+
 WINDOW* initMultiScoreWindow(WINDOW* score);
 
 void initMultiField(WINDOW* title, WINDOW* firstField, WINDOW* secondField, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds);
-void refreshMultiScore(int pieces, int pg1Score, int pg2Score, int *turn, WINDOW* score);
+
+void refreshMultiScore(int pieces, int *pg1Score, int pg2Score, int *turn, WINDOW* score);
+
 int multiPlayer();
-int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* pieces, int* turn, WINDOW* preview, WINDOW* score)
+
+int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* pieces, int* turn, WINDOW* preview, WINDOW* score);
+
+int checkAndReverseRows(player* pg1, player* pg2);
+
+void reverseRowsGameField(int secondGamefield[][MATRIX_W], int counterRows);
+
+void multiGameOver(int score, int* turn);
+
+int* changeTurn(int *turn);
 
 #endif 

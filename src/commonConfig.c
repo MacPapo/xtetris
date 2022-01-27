@@ -51,7 +51,6 @@ player addPlayer()
     return player;
 }
 
-
 WINDOW* initSecondPlayerWindow(WINDOW* pgWindow)
 {
     int fieldY, fieldX;

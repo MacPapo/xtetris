@@ -1,7 +1,8 @@
 #include "multiPlayer.h"
 #include "commonConfing.h"
 #include <ncurses.h>
-
+#include <time.h>
+#include <stdlib.h>
 
 int multiPlayer()
 {
@@ -19,13 +20,12 @@ int multiPlayer()
 
     int tetPieces[T_NUM];
 
-    int position_x = 0;
     int turn = 0;
 
     player pg1 = addPlayer();
     player pg2 = addPlayer();
     initGameMatrix(pg1.gameField);
-    initGameMatrix(pg1.gameField);
+    initGameMatrix(pg2.gameField);
 
     initTetVector(tetPieces, 1);
     initMultiField(w_title, w_field, w_preview, w_sfield, w_score, w_save, w_cmds);
@@ -52,19 +52,86 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
     int positionX = 0;
     tet preview_piece = {piece->tet + 1, 0};
 
+    int countCurrentPiece = 0;
+    int *currentScore = &pg1->score;
+
     if (*pieces == 0)
         return 1;
 
     refreshPreview(preview, &preview_piece);
-    refreshGamefield(positionX, piece, pg1);
-    refreshMultiScore(pieces, pg1->score, pg2->score, turn, score);
+    refreshGameField(&positionX, piece, pg1);
+    refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, score);
 
     do
     {
-        
+        keypad(pg1->window, TRUE);
+        colorField(pg2);
+        choice = wgetch(pg1->window);
+        colorField(pg1);
+
+        countCurrentPiece = tetPieces[piece->tet];
+        if (countCurrentPiece == 0)
+            changePiece(score);
+
+        switch (choice)
+        {
+            case 'n':
+                nextPiece(piece, &preview_piece);
+                refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, score);
+                break;
+
+            /* case: back piece */
+            case 'b':
+                backPiece(piece, &preview_piece);
+                refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, score);
+                break;
+
+            /* case: rotate piece */
+            case 'r':
+                rotatingPiece(piece);
+                break;
+
+            case KEY_LEFT:
+                positionX -= 2;
+                break;
+
+            case KEY_RIGHT:
+                positionX += 2;
+                break;
+
+            case KEY_DOWN:
+                if (countCurrentPiece)
+                {
+                    fallingPiece(pg1);
+                    tetPieces[piece->tet] -= 1;
+                    *pieces -= 1;
+                    *currentScore += checkAndReverseRows(pg1, pg2);
+                    refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, score);
+                    action = 1;
+                }
+                break;
+
+            case 'q':
+                return 0;
+                break;
+
+            default:
+                break;
+        }
+
+        refreshPreview(preview, &preview_piece);
+        refreshGameField(&positionX, piece, pg1);
+
     } while (!action);
     
+    if (checkGameOver(pg1->gameField))
+    {
+        multiGameOver(pg2->score, turn);
+        return 0;
+    }
 
+    colorField(pg1);
+    startTheGame(pg2, pg1, piece, tetPieces, pieces, changeTurn(turn), preview, score);
 }
 
 void initMultiPlayerTitle(WINDOW* title)
@@ -208,7 +275,7 @@ void initMultiField(WINDOW* title, WINDOW* firstField, WINDOW *secondField, WIND
     refresh();
 }
 
-void refreshMultiScore(int pieces, int pg1Score, int pg2Score,int *turn, WINDOW* score)
+void refreshMultiScore(int pieces, int *pg1Score, int pg2Score,int *turn, WINDOW* score)
 {
     werase(score);
     mvwprintw(score, 1, 1, "Disponibili: ");
@@ -217,13 +284,117 @@ void refreshMultiScore(int pieces, int pg1Score, int pg2Score,int *turn, WINDOW*
     mvwprintw(score, 4, 1, "Punteggio PG2: ");
     if (*turn == FIRST_PLAYER)
     {
-        mvwprintw(score, 3, 14, "%d", pg1Score);
-        mvwprintw(score, 4, 14, "%d", pg2Score);
+        mvwprintw(score, 3, 16, "%d", *pg1Score);
+        mvwprintw(score, 4, 16, "%d", pg2Score);
     }
     if (*turn == SECOND_PLAYER)
     {
-        mvwprintw(score, 4, 14, "%d", pg1Score);
-        mvwprintw(score, 3, 14, "%d", pg2Score);
+        mvwprintw(score, 4, 16, "%d", *pg1Score);
+        mvwprintw(score, 3, 16, "%d", pg2Score);
     }  
     wrefresh(score);
+}
+
+void reverseRowsGameField(int secondGamefield[][MATRIX_W], int counterRows)
+{
+    int row, col;
+    int cell;
+
+    for (row = MATRIX_H - 1; row > (MATRIX_H - 1) - counterRows; row--)
+    {
+        for (col = 0; col < MATRIX_W; col++)
+        {
+            cell = secondGamefield[row][col];
+            if ( cell == 0)
+            {
+                secondGamefield[row][col] = (rand() % (T_NUM - 1)) + 1;
+            } else {
+                secondGamefield[row][col] = 0;
+            }
+        }
+    }
+}
+
+int checkAndReverseRows(player* pg1, player* pg2)
+{
+    keypad(pg1->window, FALSE);
+    int counterRows  = 0;
+    int isDeleteRow = 0;
+    int counterNumbers;
+
+    int row, col;
+    for (row = MATRIX_H - 1; row >= TOP_LINE; row--)
+    {   
+        isDeleteRow = 0;
+        counterNumbers = 0;
+        for (col = 0; col < MATRIX_W; col++)
+        {
+            if (pg1->gameField[row][col] != 0)
+                counterNumbers += 1;
+        }
+
+        if (counterNumbers == MATRIX_W)
+        {
+            isDeleteRow = 1;
+            counterRows += 1;
+            halfdelay(10);
+            goDownTetramini(row, pg1->gameField);
+            colorField(pg1);
+        }
+        
+        if (isDeleteRow == 1)
+            row = row + 1;
+    }
+
+    if (counterRows >= 3)
+    {
+        reverseRowsGameField(pg2->gameField, counterRows);
+        colorField(pg2);
+    }
+
+    return calculateScoring(counterRows);
+}
+
+void multiGameOver(int score, int* turn)
+{
+    clear();
+
+    int starty, startx;
+    starty =  (LINES - GAMEOVER_H) / 2;
+    startx =  (COLS  - GAMEOVER_W) / 2;
+    
+    refresh();
+    WINDOW* w_gameover;
+    w_gameover = newwin(GAMEOVER_H, GAMEOVER_W, starty, startx);
+    box(w_gameover, V_LINES, H_LINES);
+    wbkgd(w_gameover, COLOR_PAIR(3));
+    mvwprintw(w_gameover, 0, 21, "| GAME OVER |");
+    if (*turn == FIRST_PLAYER)
+    {
+        mvwprintw(w_gameover, 3,  2, "Second player win the game !!");
+        mvwprintw(w_gameover, 5,  2, "Your score is: ");
+        mvwprintw(w_gameover, 5,  17, "%d", score);
+    } else if (*turn == SECOND_PLAYER) {
+        mvwprintw(w_gameover, 3,  2, "First player win the game !!");
+        mvwprintw(w_gameover, 5,  2, "Your score is: ");
+        mvwprintw(w_gameover, 5,  17, "%d", score);
+    }
+    mvwprintw(w_gameover, 7, 21, "PRESS ANY KEY");
+    wrefresh(w_gameover);
+    getch();
+}
+
+int* changeTurn(int *turn)
+{
+    if (*turn == FIRST_PLAYER)
+    {
+        *turn = SECOND_PLAYER;
+        return turn;
+    }
+    if (*turn == SECOND_PLAYER)
+    {
+        *turn = FIRST_PLAYER;
+        return turn;
+    }
+    return turn;
 }
