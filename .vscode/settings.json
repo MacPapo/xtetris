@@ -1,8 +1,5 @@
 {
     "files.associations": {
-        "unistd.h": "c",
-        "singleplayer.h": "c",
-        "multiplayer.h": "c",
         "commonconfing.h": "c"
     }
 }
