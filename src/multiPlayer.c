@@ -15,12 +15,12 @@ int multiPlayer()
     cbreak();
 
     int pieces =  T_NUM * (T_PIECES * 2);
-
     tet piece = {0,0};
-
     int tetPieces[T_NUM];
-
     int turn = 0;
+
+    int lastAction = 0;
+
 
     player pg1 = addPlayer();
     player pg2 = addPlayer();
@@ -35,8 +35,13 @@ int multiPlayer()
     s_preview = initMultiPreviewWindow(s_preview);
     s_score = initMultiScoreWindow(s_score);
     
-    startTheGame(&pg1, &pg2, &piece, tetPieces, &pieces, &turn, s_preview, s_score);
+    lastAction = startTheGame(&pg1, &pg2, &piece, tetPieces, &pieces, &turn, s_preview, s_score);
 
+    if (lastAction == 1)
+    {
+        initWinner(&pg1, &pg2);
+    }
+        
     refresh();
     getch();
 
@@ -112,7 +117,11 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
                 break;
 
             case 'q':
+                initMultiQuit();
                 return 0;
+                break;
+
+            case 'h':
                 break;
 
             default:
@@ -131,7 +140,8 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
     }
 
     colorField(pg1);
-    startTheGame(pg2, pg1, piece, tetPieces, pieces, changeTurn(turn), preview, score);
+    return startTheGame(pg2, pg1, piece, tetPieces, pieces, changeTurn(turn), preview, score);
+    
 }
 
 void initMultiPlayerTitle(WINDOW* title)
@@ -372,15 +382,16 @@ void multiGameOver(int score, int* turn)
     if (*turn == FIRST_PLAYER)
     {
         mvwprintw(w_gameover, 3,  2, "Second player win the game !!");
-        mvwprintw(w_gameover, 5,  2, "Your score is: ");
+        mvwprintw(w_gameover, 5,  2, "Player's score: ");
         mvwprintw(w_gameover, 5,  17, "%d", score);
     } else if (*turn == SECOND_PLAYER) {
         mvwprintw(w_gameover, 3,  2, "First player win the game !!");
-        mvwprintw(w_gameover, 5,  2, "Your score is: ");
+        mvwprintw(w_gameover, 5,  2, "Player's score: ");
         mvwprintw(w_gameover, 5,  17, "%d", score);
     }
     mvwprintw(w_gameover, 7, 21, "PRESS ANY KEY");
     wrefresh(w_gameover);
+    refresh();
     getch();
 }
 
@@ -398,3 +409,57 @@ int* changeTurn(int *turn)
     }
     return turn;
 }
+
+void initMultiQuit()
+{
+    clear();
+    WINDOW* w_quit;
+    int starty, startx;
+    starty =  (LINES - MQUIT_H) / 2;
+    startx =  (COLS  - MQUIT_W) / 2;
+
+    refresh();
+    w_quit = newwin(MQUIT_H, MQUIT_W, starty, startx);
+    box(w_quit, V_LINES, H_LINES);
+    wbkgd(w_quit, COLOR_PAIR(3));
+    mvwprintw(w_quit, 0, 20, "| QUIT |");
+    mvwprintw(w_quit, 3,  2, "IT WAS GREAT PLAY WITH YOU!");
+    wrefresh(w_quit);
+    getch();
+    refresh();
+}
+
+void initWinner(player *pg1, player *pg2)
+{
+    clear();
+    WINDOW* w_winner;
+    int starty, startx;
+    starty =  (LINES - MQUIT_H) / 2;
+    startx =  (COLS  - MQUIT_W) / 2;
+
+    refresh();
+    w_winner = newwin(MQUIT_H, MQUIT_W, starty, startx);
+    box(w_winner, V_LINES, H_LINES);
+    wbkgd(w_winner, COLOR_PAIR(3));
+    mvwprintw(w_winner, 0, 20, "| WINNER |");
+
+    if (pg1->score > pg2->score)
+    {
+        mvwprintw(w_winner, 3,  2, "First player win the game !!");
+        mvwprintw(w_winner, 5,  2, "Player's score: ");
+        mvwprintw(w_winner, 5,  17, "%d", pg1->score);
+    } else if (pg1->score < pg2->score) {
+        mvwprintw(w_winner, 3,  2, "Second player win the game !!");
+        mvwprintw(w_winner, 5,  2, "Player's score: ");
+        mvwprintw(w_winner, 5,  17, "%d", pg2->score);
+    } else {
+        mvwprintw(w_winner, 3,  2, "Congratulations to both of you, no one wins");
+    }
+    wrefresh(w_winner);
+    refresh();
+    getch();
+}
+
+
+
+
