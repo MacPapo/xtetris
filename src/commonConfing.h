@@ -57,7 +57,7 @@
 #define T_ORI  4
 
 /* the number of each tetramino */
-#define T_PIECES  1
+#define T_PIECES  20
 
 #define TOP_LINE      5
 

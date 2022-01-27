@@ -89,7 +89,7 @@ void opening(player *cpu, int tetraminos[])
         cell = TETROMINOS[tet_type][tet_ori][i];
         previewGamefield[cell.row][cell.col + offset] = tet_type + 1;
     }
-    colorFieldCPU(previewGamefield, cpu->window);
+    colorFieldCPU(previewGamefield, cpu);
     fallingAI(cpu);
     tetraminos[tet_type] -= 1;
     wrefresh(cpu->window);
@@ -299,6 +299,7 @@ int isCompletable(int row, int gamefield[][MATRIX_W])
             return 0;
     }
     isCompletable(row - 1, gamefield);
+    return 0;
 }
 
 int completionSpot(int bestRow, int gamefield[][MATRIX_W], int* start)
@@ -306,7 +307,6 @@ int completionSpot(int bestRow, int gamefield[][MATRIX_W], int* start)
     int cols;
     int counterMinZeros = 0;
     int minZeros = 0;
-    int counter = 0;
     for (cols = 0; cols < MATRIX_W; cols++)
     {
         if (gamefield[bestRow][cols] == 0 )
@@ -405,22 +405,22 @@ void bigBrain(player *cpu, int* bestRow, int* zeroInterval, int tetraminos[])
             previewGamefield[cell.row][cell.col + offset] = tet_type + 1;
         }
 
-        colorFieldCPU(previewGamefield, cpu->window);
+        colorFieldCPU(previewGamefield, cpu);
         fallingAI(cpu);
         tetraminos[tet_type] -= 1;
 
     }
 }
 
-void refreshCpuScore(int pieces, int pg1Score, int pg2Score, WINDOW* score)
+void refreshCpuScore(int pieces, int *pg1Score, int *pg2Score, WINDOW* score)
 {
     werase(score);
     mvwprintw(score, 1, 1, "Disponibili: ");
     mvwprintw(score, 1, 14, "%d", pieces);
     mvwprintw(score, 3, 1, "Punteggio P1: ");
     mvwprintw(score, 4, 1, "Punteggio P2: ");
-    mvwprintw(score, 3, 14, "%d", pg1Score);
-    mvwprintw(score, 4, 14, "%d", pg2Score);
+    mvwprintw(score, 3, 14, "%d", *pg1Score);
+    mvwprintw(score, 4, 14, "%d", *pg2Score);
     wrefresh(score);
 }
 
@@ -433,16 +433,15 @@ void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* 
 
     int bestRow = 0;
     int zeroInterval = 0;
-    int completion = 0;
 
     int position_x = 0;
 
-    int *currentScore = pg1->score;
-    int *cpuScore = cpu->score;
+    int *currentScore = &pg1->score;
+    int *cpuScore = &cpu->score;
 
     tet preview_piece = {piece->tet + 1, 0};
 
-    refreshPreview(&preview_piece, s_preview);
+    refreshPreview(s_preview, &preview_piece);
     refreshGameField(&position_x, piece, pg1);
     refreshCpuScore(tetPieces[piece->tet], currentScore, cpuScore, s_score);
 
@@ -489,7 +488,7 @@ void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* 
                     fallingPiece(pg1);
                     tetPieces[piece->tet] -= 1;
                     pieces -= 1;
-                    bigBrain(cpu, &bestRow, &zeroInterval, piece);
+                    bigBrain(cpu, &bestRow, &zeroInterval, tetPieces);
                     *currentScore += checkAndReverseRows(pg1, cpu);
                     *cpuScore += checkAndReverseRows(cpu, pg1);
                     wrefresh(cpu->window);
@@ -520,7 +519,7 @@ void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* 
             return ;
         }
             
-        refreshPreview(&preview_piece, s_preview);
+        refreshPreview(s_preview, &preview_piece);
         refreshGameField(&position_x, piece, pg1);
         
     } while (pieces > 0 && !quit);

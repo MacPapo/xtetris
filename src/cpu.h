@@ -10,7 +10,7 @@
 
 void fallingAi(player* cpu);
 
-void refreshCpuScore(int pieces, int fscorem, int sscore, WINDOW* score);
+void refreshCpuScore(int pieces, int *pg1Score, int *cpuScore, WINDOW* score);
 
 void opening(player* cpu, int tetraminos[]);
 
