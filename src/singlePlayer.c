@@ -253,8 +253,8 @@ void initQuit(int score)
     mvwprintw(w_quit, 3,  17, "%d", score);
     mvwprintw(w_quit, 7,  21, "PRESS ANY KEY");
     wrefresh(w_quit);
-    getch();
     refresh();
+    getch();
 }
 
 WINDOW* initPlayerWindow(WINDOW* pgWindow)
@@ -303,7 +303,7 @@ int initReturnToMenu(int score)
     box(returnToMenu, V_LINES, H_LINES);
     wbkgd(returnToMenu, COLOR_PAIR(3));
     mvwprintw(returnToMenu, 0, 20, "| RETURN TO MENU |");
-    mvwprintw(returnToMenu, 4,  2, "Sorry Bro! You have finisched all pieces! ");
+    mvwprintw(returnToMenu, 3,  2, "Sorry Bro! You have finisched all pieces! ");
     mvwprintw(returnToMenu, 4,  2, "Your score is: ");
     mvwprintw(returnToMenu, 4,  17, "%d", score);
     mvwprintw(returnToMenu, 7,  21, "PRESS ANY KEY");

@@ -56,4 +56,8 @@ void multiGameOver(int score, int* turn);
 
 int* changeTurn(int *turn);
 
+void initMultiQuit();
+
+void initWinner(player *pg1, player *pg2);
+
 #endif 
