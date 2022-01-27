@@ -5,12 +5,18 @@
 #include <ncurses.h>
 
 /* ---------------------------------------------------------- defining title parameters */
-#define TITLE_H          3
-#define TITLE_W         51
+/* Multi fields */
+#define MTITLE_H         3
+#define MTITLE_W        75
 
 #define CMDS_H           3
 #define CMDS_W          51
 
+#define MPLAYER_X       31
+#define PVSCPU_X        31
+
+#define MCMDS_H          3
+#define MCMDS_W         75
 /* ---------------------------------------------------------- END defining title parameters */
 
 #define FIRST_PLAYER     1
