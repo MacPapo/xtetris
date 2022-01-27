@@ -20,6 +20,8 @@
 
 #include "singlePlayer.h"
 #include "multiPlayer.h"
+#include "cpu.h"
+
 #include "colors.h"
 #include <ncurses.h>
 
@@ -114,9 +116,9 @@ int main(int argc, char** argv)
         if(mod == 0)
             singlePlayer();     /**< Funzione single player */
         if(mod == 1)
-            multiPlayer();      /**< Funzioni multiplayer */
+            multiPlayer();      /**< Funzione multiplayer */
         if(mod == 2)
-            printw("ZAO");
+            CPU();              /**< Funzione playerVScpu */
     }
     while (mod != 4);
 
