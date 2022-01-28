@@ -46,6 +46,31 @@ void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uin
     (void)pInput;
 }
 
+void paintExit()
+{
+    clear();
+    raw();
+    WINDOW *w_byby;
+
+    int starty, startx;
+
+    starty = (LINES - BYBY_H) / 2;
+    startx = (COLS  - BYBY_W) / 2;
+    w_byby = newwin(BYBY_H, BYBY_W, starty, startx);
+    box(w_byby, BOX_BYBY_VE, BOX_BYBY_HO);
+    wbkgd(w_byby, COLOR_PAIR(2));
+    mvwprintw(w_byby, 0, 14, "+ BYBY SEE YOU NEXT TIME +");
+    mvwprintw(w_byby, 2, 3, "Hope you enjoied this simple game...");
+    mvwprintw(w_byby, 4, 3, "See you next time bro, have a nice day/night.");
+    wattrset(w_byby, A_REVERSE);
+    mvwprintw(w_byby, 6, 15, "PRESS ANY KEY TO EXIT...");
+    wattroff(w_byby, A_REVERSE);
+    mvwprintw(w_byby, 8, 5, "+ By: @MacPapo @Blast291 @mastrodeimastri +");
+    refresh();
+    wrefresh(w_byby);
+    getch();
+}
+
 int main(int argc, char** argv)
 {
     int mod = 0;
@@ -121,7 +146,7 @@ int main(int argc, char** argv)
             CPU();              /**< Funzione playerVScpu */
     }
     while (mod != 4);
-
+    paintExit();
     /* Deallocates memory and ends ncurses */
     /**
      * Refresh della schermata

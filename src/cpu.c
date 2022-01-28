@@ -1,3 +1,14 @@
+/**
+ * @file   cpu.c
+ * @author Jacopo Costantini Matteo Zambon Alvise Silvestri
+ * @date   Fri Jan 28 02:21:51 2022
+ *
+ * @brief Questo è il file del grande cervello
+ *
+ *
+ */
+
+
 #include "multiPlayer.h"
 #include "cpu.h"
 #include "commonConfing.h"
@@ -6,11 +17,15 @@
 #include <time.h>
 #include <stdlib.h>
 
-
+/**
+ * Qui vengono colorati i tetramini della preview
+ * sulla window della cpu
+ *
+ */
 void colorFieldCPU(int gameField[][MATRIX_W], player *cpu)
 {
     int i, j;
-    werase(cpu->window);
+    werase(cpu->window);        /**< La funzione pulisce la window */
     for(i = 0; i < MATRIX_H; i++)
     {
         for(j = 0; j < MATRIX_W; j++)
@@ -23,10 +38,25 @@ void colorFieldCPU(int gameField[][MATRIX_W], player *cpu)
             } 
         }
     }
+    /**
+     * Disegna la Top line che non si può superare
+     * in game
+     *
+     * @param window
+     *
+     * @return
+     */
     initTopLine(cpu->window);
     wrefresh(cpu->window);
 }
 
+/**
+ * verifica se l'ultima riga è occupata per determinare
+ * il tipo di mossa
+ *
+ *
+ * @return
+ */
 int checkLastRow(int gamefield[][MATRIX_W])
 {
     int row = MATRIX_H - 1, cols = 0;
@@ -38,6 +68,12 @@ int checkLastRow(int gamefield[][MATRIX_W])
     return 0;
 }
 
+/**
+ * Questa funzione fa cadere il tetramino
+ * scelto dalla cpu
+ *
+ * @param cpu
+ */
 void fallingAI(player *cpu)
 {
     int row, col;
@@ -65,10 +101,24 @@ void fallingAI(player *cpu)
             }
         }
     }
-    /* sleep(1); */
+    /**
+     * Colora la window basandosi sul
+     * proprio campo di gioco
+     *
+     * @param cpu
+     *
+     * @return
+     */
     colorField(cpu);
 }
 
+/**
+ * Questa è la mossa della CPU quando il campo è
+ * completamente vuoto
+ *
+ * @param cpu
+ * @param tetraminos
+ */
 void opening(player *cpu, int tetraminos[])
 {
     int i;
@@ -91,10 +141,22 @@ void opening(player *cpu, int tetraminos[])
     }
     colorFieldCPU(previewGamefield, cpu);
     fallingAI(cpu);
-    tetraminos[tet_type] -= 1;
+    tetraminos[tet_type] -= 1;  /**< Sottrae all'array dei tetramini il tetramino scelto */
     wrefresh(cpu->window);
 }
 
+/**
+ * Questa funzione sceglie grazie ai parametri passati
+ * la scelta migliore del tetramino con la corrispondente
+ * orientazione
+ *
+ * @param zeros
+ * @param tet_type
+ * @param tet_ori
+ * @param start
+ * @param offset
+ * @param tetLeft
+ */
 void fillPossibleChoices( int zeros, int* tet_type, int* tet_ori, int start, int* offset, int tetLeft[])
 {
     tet possible_choiches[7];
@@ -271,6 +333,14 @@ void fillPossibleChoices( int zeros, int* tet_type, int* tet_ori, int start, int
     }
 }
 
+/**
+ * Questa funzione controlla il numero numero maggiore
+ * di 1 consecutivi
+ *
+ * @param row
+ *
+ * @return
+ */
 int fullConsecutive(int row, int gamefield[][MATRIX_W])
 {
     int cols;
@@ -287,6 +357,16 @@ int fullConsecutive(int row, int gamefield[][MATRIX_W])
     return max;
 }
 
+/**
+ * Questa funzione controlla se le righe sopra la
+ * colonna più completabile siano vuote, se no
+ * restituisce che la righa più completabile non
+ * è la selezionata
+ *
+ * @param row
+ *
+ * @return
+ */
 int isCompletable(int row, int gamefield[][MATRIX_W])
 {
     int cols;
@@ -302,6 +382,13 @@ int isCompletable(int row, int gamefield[][MATRIX_W])
     return 1;
 }
 
+/**
+ * Questa funzione trova lo spot migliore dove inserire il tetramino
+ *
+ * @param bestRow
+ *
+ * @return
+ */
 int completionSpot(int bestRow, int gamefield[][MATRIX_W], int* start)
 {
     int cols;
@@ -330,25 +417,13 @@ int completionSpot(int bestRow, int gamefield[][MATRIX_W], int* start)
     return minZeros;
 }
 
-int belowControl(int bestRow, int start, int zero, int gamefield[][MATRIX_W])
-{
-    int cols, row;
-    int below = 0;
-
-    for (row = bestRow; row < MATRIX_H; ++row) {
-        for (cols = start; cols <= (MATRIX_W - zero); cols++) {
-            if (gamefield[row + 1][cols] == 0) {
-                below++;
-            }
-        }
-    }
-
-    if( below > (zero/2) )
-        return below;
-    else
-        return 0;
-}
-
+/**
+ * Analizza la riga per trovare se sia la più completabile
+ *
+ * @param cpu
+ *
+ * @return
+ */
 int analizeRows(player *cpu)
 {
     int row;
@@ -370,6 +445,16 @@ int analizeRows(player *cpu)
     return best_row;
 }
 
+/**
+ * Il grande cervello della nostra CPU
+ * Con il suo algoritmo cerca di essere competitiva
+ *
+ *
+ * @param cpu
+ * @param bestRow
+ * @param zeroInterval
+ * @param tetraminos
+ */
 void bigBrain(player *cpu, int* bestRow, int* zeroInterval, int tetraminos[])
 {
     /* init some handy variable */
@@ -396,8 +481,6 @@ void bigBrain(player *cpu, int* bestRow, int* zeroInterval, int tetraminos[])
 
             offset = start;
             fillPossibleChoices(firstClearSpots, &tet_type, &tet_ori, start, &offset, tetraminos);
-            if(firstBestRow != 24)
-                stampa = belowControl(firstBestRow, start, firstClearSpots, cpu->gameField);
 
             {
                 resetPreview();
@@ -416,18 +499,36 @@ void bigBrain(player *cpu, int* bestRow, int* zeroInterval, int tetraminos[])
     }
 }
 
+/**
+ * Questa funzione aggiorna il valore degli score
+ *
+ * @param pieces
+ * @param pg1Score
+ * @param pg2Score
+ * @param score
+ */
 void refreshCpuScore(int pieces, int *pg1Score, int *pg2Score, WINDOW* score)
 {
     werase(score);
     mvwprintw(score, 1, 1, "Disponibili: ");
     mvwprintw(score, 1, 14, "%d", pieces);
-    mvwprintw(score, 3, 1, "Punteggio P1: ");
-    mvwprintw(score, 4, 1, "Punteggio P2: ");
-    mvwprintw(score, 3, 14, "%d", *pg1Score);
-    mvwprintw(score, 4, 14, "%d", *pg2Score);
+    mvwprintw(score, 3, 1, "Punteggio PG1: ");
+    mvwprintw(score, 4, 1, "Punteggio CPU: ");
+    mvwprintw(score, 3, 16, "%d", *pg1Score);
+    mvwprintw(score, 4, 16, "%d", *pg2Score);
     wrefresh(score);
 }
 
+/**
+ * Questo è la routine della nostra modalità player vs cpu
+ *
+ * @param pg1
+ * @param cpu
+ * @param piece
+ * @param tetPieces
+ * @param s_preview
+ * @param s_score
+ */
 void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* s_preview, WINDOW* s_score)
 {
     int pieces = T_NUM * (T_PIECES * 2);
@@ -531,6 +632,12 @@ void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* 
     return ;
 }
 
+/**
+ * La funzione principale che inizializza i principali parametri
+ *
+ *
+ * @return
+ */
 int CPU()
 {
     WINDOW *w_title = NULL, *w_field = NULL, *w_sfield = NULL, *w_preview = NULL, *w_score = NULL, *w_save = NULL, *w_cmds = NULL;
@@ -542,8 +649,6 @@ int CPU()
 
     tet piece = {0,0};
     int tetPieces[T_NUM];
-
-    int lastAction = 0;
 
     player pg1 = addPlayer();
     player cpu = addPlayer();
@@ -559,11 +664,6 @@ int CPU()
     s_score = initMultiScoreWindow(s_score);
     
     startCpuGame(&pg1, &cpu, &piece, tetPieces, s_preview, s_score);
-
-    if (lastAction == 1)
-    {
-        initWinner(&pg1, &cpu);
-    }
         
     refresh();
     getch();
