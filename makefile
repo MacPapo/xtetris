@@ -74,4 +74,4 @@ clean:
 	$(RM) -r $(BINDIR)/* $(OBJ)/*
 
 fly:
-	$(BINDIR)/./xtetris  $(OTHER)
+	$(BINDIR)/./xtetris $(OTHER)

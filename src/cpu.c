@@ -290,16 +290,16 @@ int fullConsecutive(int row, int gamefield[][MATRIX_W])
 int isCompletable(int row, int gamefield[][MATRIX_W])
 {
     int cols;
+    int currentRow;
 
-    if (row == TOP_LINE)
-        return 1;
-
-    for (cols = 0; cols < MATRIX_W; ++cols) {
-        if (gamefield[row][cols] == 0 && gamefield[row - 1][cols] != 0)
-            return 0;
+    for (currentRow = row; currentRow > 5; currentRow--)
+    {
+        for (cols = 0; cols < MATRIX_W; ++cols) {
+            if ( gamefield[currentRow - 1][cols] != 0 && gamefield[currentRow][cols] == 0 )
+                return 0;
+        }
     }
-    isCompletable(row - 1, gamefield);
-    return 0;
+    return 1;
 }
 
 int completionSpot(int bestRow, int gamefield[][MATRIX_W], int* start)
@@ -356,7 +356,8 @@ int analizeRows(player *cpu)
     int best_row = 0;
     int firstCompletable = 6;
 
-    for (row = 5; row < MATRIX_H; ++row)
+    //*QUESTO E SBAGLIATO*****************************************************/
+    for (row = 24; row >= 5; --row)
     {
         if( isCompletable(row, cpu->gameField) && counter <= fullConsecutive(row, cpu->gameField))
         {
@@ -386,29 +387,32 @@ void bigBrain(player *cpu, int* bestRow, int* zeroInterval, int tetraminos[])
 
     if (!checkLastRow(cpu->gameField))
         opening(cpu, tetraminos);
-    else {
+    else
+    {
         resetPreview();
-        *bestRow = analizeRows(cpu);
-        firstBestRow = *bestRow;
-        *zeroInterval = completionSpot(firstBestRow, cpu->gameField, &start);
-        firstClearSpots = *zeroInterval;
-
-        offset = start;
-        fillPossibleChoices(firstClearSpots, &tet_type, &tet_ori, start, &offset, tetraminos);
-        if(firstBestRow != 24)
-            stampa = belowControl(firstBestRow, start, firstClearSpots, cpu->gameField);
-
-        wrefresh(cpu->window);
-        for(i = 0; i < TETS_CELL; i++)
         {
-            cell = TETROMINOS[tet_type][tet_ori][i];
-            previewGamefield[cell.row][cell.col + offset] = tet_type + 1;
+            firstBestRow = analizeRows(cpu);
+            firstClearSpots = completionSpot(firstBestRow, cpu->gameField, &start);
+
+            offset = start;
+            fillPossibleChoices(firstClearSpots, &tet_type, &tet_ori, start, &offset, tetraminos);
+            if(firstBestRow != 24)
+                stampa = belowControl(firstBestRow, start, firstClearSpots, cpu->gameField);
+
+            {
+                resetPreview();
+                wrefresh(cpu->window);
+                for(i = 0; i < TETS_CELL; i++)
+                {
+                    cell = TETROMINOS[tet_type][tet_ori][i];
+                    previewGamefield[cell.row][cell.col + offset] = tet_type + 1;
+                }
+
+                colorFieldCPU(previewGamefield, cpu);
+                fallingAI(cpu);
+                tetraminos[tet_type] -= 1;
+            }
         }
-
-        colorFieldCPU(previewGamefield, cpu);
-        fallingAI(cpu);
-        tetraminos[tet_type] -= 1;
-
     }
 }
 
