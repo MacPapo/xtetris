@@ -1,0 +1,178 @@
+\hypertarget{structma__channel__converter}{}\doxysection{ma\+\_\+channel\+\_\+converter Struct Reference}
+\label{structma__channel__converter}\index{ma\_channel\_converter@{ma\_channel\_converter}}
+
+
+{\ttfamily \#include $<$miniaudio.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad79b60b511fdbc0c98a63ac23ac12bd9}{ma\+\_\+format}} \mbox{\hyperlink{structma__channel__converter_a338f168041c6edcac29f22f061edc7f2}{format}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} \mbox{\hyperlink{structma__channel__converter_ac1badddef903127dbae4c3ec91f0334e}{channels\+In}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} \mbox{\hyperlink{structma__channel__converter_a748af983a82d9885a4cb45bbf7b7ef6f}{channels\+Out}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a68d7c974b163b5528b79d0f4dd73babe}{ma\+\_\+channel\+\_\+mix\+\_\+mode}} \mbox{\hyperlink{structma__channel__converter_ad277ae783d1e1bba2364dab5b9d9d609}{mixing\+Mode}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a75e3a88bdae41d078fbfbbd1f78edd67}{ma\+\_\+channel\+\_\+conversion\+\_\+path}} \mbox{\hyperlink{structma__channel__converter_acd9675ccc9e8b2b751937749fddcb434}{conversion\+Path}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a1fc95b50a97f37464c83ba348861e808}{ma\+\_\+channel}} $\ast$ \mbox{\hyperlink{structma__channel__converter_aaed049cf0deaef2902068094c977cccc}{p\+Channel\+Map\+In}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a1fc95b50a97f37464c83ba348861e808}{ma\+\_\+channel}} $\ast$ \mbox{\hyperlink{structma__channel__converter_a268668d0bc179ce31458d451929b24f3}{p\+Channel\+Map\+Out}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a2fe92d57aae732f91c6e21f6425afcac}{ma\+\_\+uint8}} $\ast$ \mbox{\hyperlink{structma__channel__converter_a103213aee1da28028d5460bf6e4e0eb0}{p\+Shuffle\+Table}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>float $\ast$$\ast$ \mbox{\hyperlink{structma__channel__converter_a30446f1fc19a0ecd771d03ee25cc785b}{f32}}\\
+\>\mbox{\hyperlink{miniaudio_8h_a954dc9734e4e4af594da6fc76f43bc85}{ma\_int32}} $\ast$$\ast$ \mbox{\hyperlink{structma__channel__converter_a0b901528b84a3d25befcba70594a5f49}{s16}}\\
+\} \mbox{\hyperlink{structma__channel__converter_a43ced250212ec58b09b64dd92d74f010}{weights}}\\
+
+\end{tabbing}\item 
+void $\ast$ \mbox{\hyperlink{structma__channel__converter_a70e423a746fe79229a177931a9f1fb80}{\+\_\+p\+Heap}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} \mbox{\hyperlink{structma__channel__converter_a792eafdc28df87fb85e0260796c95bdc}{\+\_\+owns\+Heap}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05252}{5252}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structma__channel__converter_a792eafdc28df87fb85e0260796c95bdc}\label{structma__channel__converter_a792eafdc28df87fb85e0260796c95bdc}} 
+\index{ma\_channel\_converter@{ma\_channel\_converter}!\_ownsHeap@{\_ownsHeap}}
+\index{\_ownsHeap@{\_ownsHeap}!ma\_channel\_converter@{ma\_channel\_converter}}
+\doxysubsubsection{\texorpdfstring{\_ownsHeap}{\_ownsHeap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} \+\_\+owns\+Heap}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05270}{5270}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__channel__converter_a70e423a746fe79229a177931a9f1fb80}\label{structma__channel__converter_a70e423a746fe79229a177931a9f1fb80}} 
+\index{ma\_channel\_converter@{ma\_channel\_converter}!\_pHeap@{\_pHeap}}
+\index{\_pHeap@{\_pHeap}!ma\_channel\_converter@{ma\_channel\_converter}}
+\doxysubsubsection{\texorpdfstring{\_pHeap}{\_pHeap}}
+{\footnotesize\ttfamily void$\ast$ \+\_\+p\+Heap}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05269}{5269}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__channel__converter_ac1badddef903127dbae4c3ec91f0334e}\label{structma__channel__converter_ac1badddef903127dbae4c3ec91f0334e}} 
+\index{ma\_channel\_converter@{ma\_channel\_converter}!channelsIn@{channelsIn}}
+\index{channelsIn@{channelsIn}!ma\_channel\_converter@{ma\_channel\_converter}}
+\doxysubsubsection{\texorpdfstring{channelsIn}{channelsIn}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} channels\+In}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05255}{5255}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__channel__converter_a748af983a82d9885a4cb45bbf7b7ef6f}\label{structma__channel__converter_a748af983a82d9885a4cb45bbf7b7ef6f}} 
+\index{ma\_channel\_converter@{ma\_channel\_converter}!channelsOut@{channelsOut}}
+\index{channelsOut@{channelsOut}!ma\_channel\_converter@{ma\_channel\_converter}}
+\doxysubsubsection{\texorpdfstring{channelsOut}{channelsOut}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} channels\+Out}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05256}{5256}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__channel__converter_acd9675ccc9e8b2b751937749fddcb434}\label{structma__channel__converter_acd9675ccc9e8b2b751937749fddcb434}} 
+\index{ma\_channel\_converter@{ma\_channel\_converter}!conversionPath@{conversionPath}}
+\index{conversionPath@{conversionPath}!ma\_channel\_converter@{ma\_channel\_converter}}
+\doxysubsubsection{\texorpdfstring{conversionPath}{conversionPath}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a75e3a88bdae41d078fbfbbd1f78edd67}{ma\+\_\+channel\+\_\+conversion\+\_\+path}} conversion\+Path}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05258}{5258}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__channel__converter_a30446f1fc19a0ecd771d03ee25cc785b}\label{structma__channel__converter_a30446f1fc19a0ecd771d03ee25cc785b}} 
+\index{ma\_channel\_converter@{ma\_channel\_converter}!f32@{f32}}
+\index{f32@{f32}!ma\_channel\_converter@{ma\_channel\_converter}}
+\doxysubsubsection{\texorpdfstring{f32}{f32}}
+{\footnotesize\ttfamily float$\ast$$\ast$ f32}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05264}{5264}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__channel__converter_a338f168041c6edcac29f22f061edc7f2}\label{structma__channel__converter_a338f168041c6edcac29f22f061edc7f2}} 
+\index{ma\_channel\_converter@{ma\_channel\_converter}!format@{format}}
+\index{format@{format}!ma\_channel\_converter@{ma\_channel\_converter}}
+\doxysubsubsection{\texorpdfstring{format}{format}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad79b60b511fdbc0c98a63ac23ac12bd9}{ma\+\_\+format}} format}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05254}{5254}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__channel__converter_ad277ae783d1e1bba2364dab5b9d9d609}\label{structma__channel__converter_ad277ae783d1e1bba2364dab5b9d9d609}} 
+\index{ma\_channel\_converter@{ma\_channel\_converter}!mixingMode@{mixingMode}}
+\index{mixingMode@{mixingMode}!ma\_channel\_converter@{ma\_channel\_converter}}
+\doxysubsubsection{\texorpdfstring{mixingMode}{mixingMode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a68d7c974b163b5528b79d0f4dd73babe}{ma\+\_\+channel\+\_\+mix\+\_\+mode}} mixing\+Mode}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05257}{5257}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__channel__converter_aaed049cf0deaef2902068094c977cccc}\label{structma__channel__converter_aaed049cf0deaef2902068094c977cccc}} 
+\index{ma\_channel\_converter@{ma\_channel\_converter}!pChannelMapIn@{pChannelMapIn}}
+\index{pChannelMapIn@{pChannelMapIn}!ma\_channel\_converter@{ma\_channel\_converter}}
+\doxysubsubsection{\texorpdfstring{pChannelMapIn}{pChannelMapIn}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a1fc95b50a97f37464c83ba348861e808}{ma\+\_\+channel}}$\ast$ p\+Channel\+Map\+In}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05259}{5259}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__channel__converter_a268668d0bc179ce31458d451929b24f3}\label{structma__channel__converter_a268668d0bc179ce31458d451929b24f3}} 
+\index{ma\_channel\_converter@{ma\_channel\_converter}!pChannelMapOut@{pChannelMapOut}}
+\index{pChannelMapOut@{pChannelMapOut}!ma\_channel\_converter@{ma\_channel\_converter}}
+\doxysubsubsection{\texorpdfstring{pChannelMapOut}{pChannelMapOut}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a1fc95b50a97f37464c83ba348861e808}{ma\+\_\+channel}}$\ast$ p\+Channel\+Map\+Out}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05260}{5260}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__channel__converter_a103213aee1da28028d5460bf6e4e0eb0}\label{structma__channel__converter_a103213aee1da28028d5460bf6e4e0eb0}} 
+\index{ma\_channel\_converter@{ma\_channel\_converter}!pShuffleTable@{pShuffleTable}}
+\index{pShuffleTable@{pShuffleTable}!ma\_channel\_converter@{ma\_channel\_converter}}
+\doxysubsubsection{\texorpdfstring{pShuffleTable}{pShuffleTable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a2fe92d57aae732f91c6e21f6425afcac}{ma\+\_\+uint8}}$\ast$ p\+Shuffle\+Table}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05261}{5261}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__channel__converter_a0b901528b84a3d25befcba70594a5f49}\label{structma__channel__converter_a0b901528b84a3d25befcba70594a5f49}} 
+\index{ma\_channel\_converter@{ma\_channel\_converter}!s16@{s16}}
+\index{s16@{s16}!ma\_channel\_converter@{ma\_channel\_converter}}
+\doxysubsubsection{\texorpdfstring{s16}{s16}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a954dc9734e4e4af594da6fc76f43bc85}{ma\+\_\+int32}}$\ast$$\ast$ s16}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05265}{5265}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__channel__converter_a43ced250212ec58b09b64dd92d74f010}\label{structma__channel__converter_a43ced250212ec58b09b64dd92d74f010}} 
+\index{ma\_channel\_converter@{ma\_channel\_converter}!weights@{weights}}
+\index{weights@{weights}!ma\_channel\_converter@{ma\_channel\_converter}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily union  \{ ... \}  weights}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{miniaudio_8h}{miniaudio.\+h}}\end{DoxyCompactItemize}

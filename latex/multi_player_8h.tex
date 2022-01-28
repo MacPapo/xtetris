@@ -1,0 +1,713 @@
+\hypertarget{multi_player_8h}{}\doxysection{src/multi\+Player.h File Reference}
+\label{multi_player_8h}\index{src/multiPlayer.h@{src/multiPlayer.h}}
+{\ttfamily \#include \char`\"{}common\+Confing.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$ncurses.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{multi_player_8h_a3d96e6d438a7e6f9aa537ae66c28dd14}{MTITLE\+\_\+H}}~3
+\item 
+\#define \mbox{\hyperlink{multi_player_8h_a00622fef69c93d8dcaf2e9fe63bea25f}{MTITLE\+\_\+W}}~75
+\item 
+\#define \mbox{\hyperlink{multi_player_8h_a458a0ef2e8dde967762440092f339d26}{MPLAYER\+\_\+X}}~31
+\item 
+\#define \mbox{\hyperlink{multi_player_8h_a9de11f95269c7a83bbf9797ea0e91c77}{PVSCPU\+\_\+X}}~31
+\item 
+\#define \mbox{\hyperlink{multi_player_8h_a0b08a74d7fd93bfcde361b1b3202fdf6}{MCMDS\+\_\+H}}~3
+\item 
+\#define \mbox{\hyperlink{multi_player_8h_ad1bcc027cd3bf6d274866ab640a73c2c}{MCMDS\+\_\+W}}~75
+\item 
+\#define \mbox{\hyperlink{multi_player_8h_a89f0201fca94cbc3ca0f5fbce851e7c9}{FIRST\+\_\+\+PLAYER}}~0
+\item 
+\#define \mbox{\hyperlink{multi_player_8h_a90f82b78b521ff3fe5790f76b4c7252e}{SECOND\+\_\+\+PLAYER}}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{multi_player_8h_a8f6046a62ee70034a7946f045e67cede}{init\+Multi\+Player\+Cmds}} (WINDOW $\ast$w\+\_\+cmds)
+\item 
+void \mbox{\hyperlink{multi_player_8h_a1a9e117d8bfbf808f5318eee42eafce6}{init\+Multi\+Player\+Title}} (WINDOW $\ast$title)
+\item 
+void \mbox{\hyperlink{multi_player_8h_a63bdbb61de460eed2c5d62d2a2cf5e1f}{init\+Multi\+Player\+Field}} (WINDOW $\ast$first\+Field, WINDOW $\ast$second\+Field)
+\item 
+void \mbox{\hyperlink{multi_player_8h_ab251c05eea07a8cfbb2f76bde9262d11}{init\+Multi\+Player\+Preview}} (WINDOW $\ast$preview)
+\item 
+void \mbox{\hyperlink{multi_player_8h_af3a49d9ee23db02715ea7fc9d7d383a4}{init\+Multi\+Player\+Score}} (WINDOW $\ast$score)
+\item 
+void \mbox{\hyperlink{multi_player_8h_adb8ada904138f09cc0d5a89875eef1ca}{init\+Multi\+Player\+Save}} (WINDOW $\ast$save)
+\item 
+WINDOW $\ast$ \mbox{\hyperlink{multi_player_8h_a760f31efa803c06c0dc1727f7c9f751b}{init\+First\+Player\+Window}} (WINDOW $\ast$pg\+Window)
+\item 
+WINDOW $\ast$ \mbox{\hyperlink{multi_player_8h_a9ba6ea70113937b93549c8e1886c0b20}{init\+Multi\+Preview\+Window}} (WINDOW $\ast$preview)
+\item 
+WINDOW $\ast$ \mbox{\hyperlink{multi_player_8h_aac72c38f76c7040982b9821ee91dddf3}{init\+Multi\+Score\+Window}} (WINDOW $\ast$score)
+\item 
+void \mbox{\hyperlink{multi_player_8h_a797de169da08bfe0213dad65b1c44782}{init\+Multi\+Field}} (WINDOW $\ast$title, WINDOW $\ast$first\+Field, WINDOW $\ast$second\+Field, WINDOW $\ast$preview, WINDOW $\ast$score, WINDOW $\ast$save, WINDOW $\ast$cmds)
+\item 
+void \mbox{\hyperlink{multi_player_8h_abe5f9a63c911cdea5dabad277b979672}{refresh\+Multi\+Score}} (int pieces, int $\ast$pg1\+Score, int pg2\+Score, int $\ast$turn, WINDOW $\ast$score)
+\item 
+int \mbox{\hyperlink{multi_player_8h_a4a9d94f393ef94c6f5f2d8082fd44e51}{multi\+Player}} ()
+\begin{DoxyCompactList}\small\item\em retrun score \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{multi_player_8h_a4668a1e9617135822d76bd06de370d08}{start\+The\+Game}} (\mbox{\hyperlink{structplayer}{player}} $\ast$pg1, \mbox{\hyperlink{structplayer}{player}} $\ast$pg2, \mbox{\hyperlink{structtet}{tet}} $\ast$piece, int $\ast$tet\+Pieces, int $\ast$pieces, int $\ast$turn, WINDOW $\ast$preview, WINDOW $\ast$score)
+\item 
+int \mbox{\hyperlink{multi_player_8h_a1a347b806d29c671f2c26a024187e1c1}{check\+And\+Reverse\+Rows}} (\mbox{\hyperlink{structplayer}{player}} $\ast$pg1, \mbox{\hyperlink{structplayer}{player}} $\ast$pg2)
+\item 
+void \mbox{\hyperlink{multi_player_8h_a9c74fafa4eff9e5370ee9901013d0867}{reverse\+Rows\+Game\+Field}} (int second\+Gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\+\_\+W}}\mbox{]}, int counter\+Rows)
+\item 
+void \mbox{\hyperlink{multi_player_8h_ac26f36e77707a96f65e78e21f9ab1363}{multi\+Game\+Over}} (int score, int $\ast$turn)
+\item 
+int $\ast$ \mbox{\hyperlink{multi_player_8h_a8808434572e5d0f8507ed8278d341f5a}{change\+Turn}} (int $\ast$turn)
+\item 
+void \mbox{\hyperlink{multi_player_8h_a26146d112c5ae606dda2d5b1000dabe9}{init\+Multi\+Quit}} ()
+\item 
+void \mbox{\hyperlink{multi_player_8h_af9061165b83682615bbc2e7c41afe3b7}{init\+Winner}} (\mbox{\hyperlink{structplayer}{player}} $\ast$pg1, \mbox{\hyperlink{structplayer}{player}} $\ast$pg2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{multi_player_8h_a89f0201fca94cbc3ca0f5fbce851e7c9}\label{multi_player_8h_a89f0201fca94cbc3ca0f5fbce851e7c9}} 
+\index{multiPlayer.h@{multiPlayer.h}!FIRST\_PLAYER@{FIRST\_PLAYER}}
+\index{FIRST\_PLAYER@{FIRST\_PLAYER}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{FIRST\_PLAYER}{FIRST\_PLAYER}}
+{\footnotesize\ttfamily \#define FIRST\+\_\+\+PLAYER~0}
+
+
+
+Definition at line \mbox{\hyperlink{multi_player_8h_source_l00021}{21}} of file \mbox{\hyperlink{multi_player_8h_source}{multi\+Player.\+h}}.
+
+\mbox{\Hypertarget{multi_player_8h_a0b08a74d7fd93bfcde361b1b3202fdf6}\label{multi_player_8h_a0b08a74d7fd93bfcde361b1b3202fdf6}} 
+\index{multiPlayer.h@{multiPlayer.h}!MCMDS\_H@{MCMDS\_H}}
+\index{MCMDS\_H@{MCMDS\_H}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{MCMDS\_H}{MCMDS\_H}}
+{\footnotesize\ttfamily \#define MCMDS\+\_\+H~3}
+
+
+
+Definition at line \mbox{\hyperlink{multi_player_8h_source_l00017}{17}} of file \mbox{\hyperlink{multi_player_8h_source}{multi\+Player.\+h}}.
+
+\mbox{\Hypertarget{multi_player_8h_ad1bcc027cd3bf6d274866ab640a73c2c}\label{multi_player_8h_ad1bcc027cd3bf6d274866ab640a73c2c}} 
+\index{multiPlayer.h@{multiPlayer.h}!MCMDS\_W@{MCMDS\_W}}
+\index{MCMDS\_W@{MCMDS\_W}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{MCMDS\_W}{MCMDS\_W}}
+{\footnotesize\ttfamily \#define MCMDS\+\_\+W~75}
+
+
+
+Definition at line \mbox{\hyperlink{multi_player_8h_source_l00018}{18}} of file \mbox{\hyperlink{multi_player_8h_source}{multi\+Player.\+h}}.
+
+\mbox{\Hypertarget{multi_player_8h_a458a0ef2e8dde967762440092f339d26}\label{multi_player_8h_a458a0ef2e8dde967762440092f339d26}} 
+\index{multiPlayer.h@{multiPlayer.h}!MPLAYER\_X@{MPLAYER\_X}}
+\index{MPLAYER\_X@{MPLAYER\_X}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{MPLAYER\_X}{MPLAYER\_X}}
+{\footnotesize\ttfamily \#define MPLAYER\+\_\+X~31}
+
+
+
+Definition at line \mbox{\hyperlink{multi_player_8h_source_l00014}{14}} of file \mbox{\hyperlink{multi_player_8h_source}{multi\+Player.\+h}}.
+
+\mbox{\Hypertarget{multi_player_8h_a3d96e6d438a7e6f9aa537ae66c28dd14}\label{multi_player_8h_a3d96e6d438a7e6f9aa537ae66c28dd14}} 
+\index{multiPlayer.h@{multiPlayer.h}!MTITLE\_H@{MTITLE\_H}}
+\index{MTITLE\_H@{MTITLE\_H}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{MTITLE\_H}{MTITLE\_H}}
+{\footnotesize\ttfamily \#define MTITLE\+\_\+H~3}
+
+
+
+Definition at line \mbox{\hyperlink{multi_player_8h_source_l00011}{11}} of file \mbox{\hyperlink{multi_player_8h_source}{multi\+Player.\+h}}.
+
+\mbox{\Hypertarget{multi_player_8h_a00622fef69c93d8dcaf2e9fe63bea25f}\label{multi_player_8h_a00622fef69c93d8dcaf2e9fe63bea25f}} 
+\index{multiPlayer.h@{multiPlayer.h}!MTITLE\_W@{MTITLE\_W}}
+\index{MTITLE\_W@{MTITLE\_W}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{MTITLE\_W}{MTITLE\_W}}
+{\footnotesize\ttfamily \#define MTITLE\+\_\+W~75}
+
+
+
+Definition at line \mbox{\hyperlink{multi_player_8h_source_l00012}{12}} of file \mbox{\hyperlink{multi_player_8h_source}{multi\+Player.\+h}}.
+
+\mbox{\Hypertarget{multi_player_8h_a9de11f95269c7a83bbf9797ea0e91c77}\label{multi_player_8h_a9de11f95269c7a83bbf9797ea0e91c77}} 
+\index{multiPlayer.h@{multiPlayer.h}!PVSCPU\_X@{PVSCPU\_X}}
+\index{PVSCPU\_X@{PVSCPU\_X}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{PVSCPU\_X}{PVSCPU\_X}}
+{\footnotesize\ttfamily \#define PVSCPU\+\_\+X~31}
+
+
+
+Definition at line \mbox{\hyperlink{multi_player_8h_source_l00015}{15}} of file \mbox{\hyperlink{multi_player_8h_source}{multi\+Player.\+h}}.
+
+\mbox{\Hypertarget{multi_player_8h_a90f82b78b521ff3fe5790f76b4c7252e}\label{multi_player_8h_a90f82b78b521ff3fe5790f76b4c7252e}} 
+\index{multiPlayer.h@{multiPlayer.h}!SECOND\_PLAYER@{SECOND\_PLAYER}}
+\index{SECOND\_PLAYER@{SECOND\_PLAYER}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{SECOND\_PLAYER}{SECOND\_PLAYER}}
+{\footnotesize\ttfamily \#define SECOND\+\_\+\+PLAYER~1}
+
+
+
+Definition at line \mbox{\hyperlink{multi_player_8h_source_l00023}{23}} of file \mbox{\hyperlink{multi_player_8h_source}{multi\+Player.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{multi_player_8h_a8808434572e5d0f8507ed8278d341f5a}\label{multi_player_8h_a8808434572e5d0f8507ed8278d341f5a}} 
+\index{multiPlayer.h@{multiPlayer.h}!changeTurn@{changeTurn}}
+\index{changeTurn@{changeTurn}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{changeTurn()}{changeTurn()}}
+{\footnotesize\ttfamily int $\ast$ change\+Turn (\begin{DoxyParamCaption}\item[{int $\ast$}]{turn }\end{DoxyParamCaption})}
+
+Funzione di cambio turno
+
+
+\begin{DoxyParams}{Parameters}
+{\em turn} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00637}{637}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_a1a347b806d29c671f2c26a024187e1c1}\label{multi_player_8h_a1a347b806d29c671f2c26a024187e1c1}} 
+\index{multiPlayer.h@{multiPlayer.h}!checkAndReverseRows@{checkAndReverseRows}}
+\index{checkAndReverseRows@{checkAndReverseRows}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{checkAndReverseRows()}{checkAndReverseRows()}}
+{\footnotesize\ttfamily int check\+And\+Reverse\+Rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{pg1,  }\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{pg2 }\end{DoxyParamCaption})}
+
+Inverto le righe del campo avversario
+
+
+\begin{DoxyParams}{Parameters}
+{\em pg1} & \\
+\hline
+{\em pg2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00554}{554}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_a760f31efa803c06c0dc1727f7c9f751b}\label{multi_player_8h_a760f31efa803c06c0dc1727f7c9f751b}} 
+\index{multiPlayer.h@{multiPlayer.h}!initFirstPlayerWindow@{initFirstPlayerWindow}}
+\index{initFirstPlayerWindow@{initFirstPlayerWindow}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{initFirstPlayerWindow()}{initFirstPlayerWindow()}}
+{\footnotesize\ttfamily WINDOW $\ast$ init\+First\+Player\+Window (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{pg\+Window }\end{DoxyParamCaption})}
+
+Inizializzo il tutte le schermate del player
+
+
+\begin{DoxyParams}{Parameters}
+{\em pg\+Window} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00422}{422}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_a797de169da08bfe0213dad65b1c44782}\label{multi_player_8h_a797de169da08bfe0213dad65b1c44782}} 
+\index{multiPlayer.h@{multiPlayer.h}!initMultiField@{initMultiField}}
+\index{initMultiField@{initMultiField}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{initMultiField()}{initMultiField()}}
+{\footnotesize\ttfamily void init\+Multi\+Field (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{title,  }\item[{WINDOW $\ast$}]{first\+Field,  }\item[{WINDOW $\ast$}]{second\+Field,  }\item[{WINDOW $\ast$}]{preview,  }\item[{WINDOW $\ast$}]{score,  }\item[{WINDOW $\ast$}]{save,  }\item[{WINDOW $\ast$}]{cmds }\end{DoxyParamCaption})}
+
+Inizializzo tutti i field
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & \\
+\hline
+{\em first\+Field} & \\
+\hline
+{\em second\+Field} & \\
+\hline
+{\em preview} & \\
+\hline
+{\em score} & \\
+\hline
+{\em save} & \\
+\hline
+{\em cmds} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00480}{480}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_a8f6046a62ee70034a7946f045e67cede}\label{multi_player_8h_a8f6046a62ee70034a7946f045e67cede}} 
+\index{multiPlayer.h@{multiPlayer.h}!initMultiPlayerCmds@{initMultiPlayerCmds}}
+\index{initMultiPlayerCmds@{initMultiPlayerCmds}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{initMultiPlayerCmds()}{initMultiPlayerCmds()}}
+{\footnotesize\ttfamily void init\+Multi\+Player\+Cmds (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{cmds }\end{DoxyParamCaption})}
+
+Inizializzo il cmds della window
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmds} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00340}{340}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_a63bdbb61de460eed2c5d62d2a2cf5e1f}\label{multi_player_8h_a63bdbb61de460eed2c5d62d2a2cf5e1f}} 
+\index{multiPlayer.h@{multiPlayer.h}!initMultiPlayerField@{initMultiPlayerField}}
+\index{initMultiPlayerField@{initMultiPlayerField}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{initMultiPlayerField()}{initMultiPlayerField()}}
+{\footnotesize\ttfamily void init\+Multi\+Player\+Field (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{first\+Field,  }\item[{WINDOW $\ast$}]{second\+Field }\end{DoxyParamCaption})}
+
+Inizializzo il field della window
+
+
+\begin{DoxyParams}{Parameters}
+{\em first\+Field} & \\
+\hline
+{\em second\+Field} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00312}{312}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_ab251c05eea07a8cfbb2f76bde9262d11}\label{multi_player_8h_ab251c05eea07a8cfbb2f76bde9262d11}} 
+\index{multiPlayer.h@{multiPlayer.h}!initMultiPlayerPreview@{initMultiPlayerPreview}}
+\index{initMultiPlayerPreview@{initMultiPlayerPreview}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{initMultiPlayerPreview()}{initMultiPlayerPreview()}}
+{\footnotesize\ttfamily void init\+Multi\+Player\+Preview (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{preview }\end{DoxyParamCaption})}
+
+Inizializzo il preview della window
+
+
+\begin{DoxyParams}{Parameters}
+{\em preview} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00361}{361}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_adb8ada904138f09cc0d5a89875eef1ca}\label{multi_player_8h_adb8ada904138f09cc0d5a89875eef1ca}} 
+\index{multiPlayer.h@{multiPlayer.h}!initMultiPlayerSave@{initMultiPlayerSave}}
+\index{initMultiPlayerSave@{initMultiPlayerSave}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{initMultiPlayerSave()}{initMultiPlayerSave()}}
+{\footnotesize\ttfamily void init\+Multi\+Player\+Save (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{save }\end{DoxyParamCaption})}
+
+Inizializzo il save della window
+
+
+\begin{DoxyParams}{Parameters}
+{\em save} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00400}{400}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_af3a49d9ee23db02715ea7fc9d7d383a4}\label{multi_player_8h_af3a49d9ee23db02715ea7fc9d7d383a4}} 
+\index{multiPlayer.h@{multiPlayer.h}!initMultiPlayerScore@{initMultiPlayerScore}}
+\index{initMultiPlayerScore@{initMultiPlayerScore}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{initMultiPlayerScore()}{initMultiPlayerScore()}}
+{\footnotesize\ttfamily void init\+Multi\+Player\+Score (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{score }\end{DoxyParamCaption})}
+
+Inizializzo il score della window
+
+
+\begin{DoxyParams}{Parameters}
+{\em score} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00381}{381}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_a1a9e117d8bfbf808f5318eee42eafce6}\label{multi_player_8h_a1a9e117d8bfbf808f5318eee42eafce6}} 
+\index{multiPlayer.h@{multiPlayer.h}!initMultiPlayerTitle@{initMultiPlayerTitle}}
+\index{initMultiPlayerTitle@{initMultiPlayerTitle}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{initMultiPlayerTitle()}{initMultiPlayerTitle()}}
+{\footnotesize\ttfamily void init\+Multi\+Player\+Title (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{title }\end{DoxyParamCaption})}
+
+Inizializzo il titolo della window
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00292}{292}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_a9ba6ea70113937b93549c8e1886c0b20}\label{multi_player_8h_a9ba6ea70113937b93549c8e1886c0b20}} 
+\index{multiPlayer.h@{multiPlayer.h}!initMultiPreviewWindow@{initMultiPreviewWindow}}
+\index{initMultiPreviewWindow@{initMultiPreviewWindow}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{initMultiPreviewWindow()}{initMultiPreviewWindow()}}
+{\footnotesize\ttfamily WINDOW $\ast$ init\+Multi\+Preview\+Window (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{preview }\end{DoxyParamCaption})}
+
+Inizializzo la preview
+
+
+\begin{DoxyParams}{Parameters}
+{\em preview} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00440}{440}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_a26146d112c5ae606dda2d5b1000dabe9}\label{multi_player_8h_a26146d112c5ae606dda2d5b1000dabe9}} 
+\index{multiPlayer.h@{multiPlayer.h}!initMultiQuit@{initMultiQuit}}
+\index{initMultiQuit@{initMultiQuit}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{initMultiQuit()}{initMultiQuit()}}
+{\footnotesize\ttfamily void init\+Multi\+Quit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Inizializzo il quit 
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00656}{656}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_aac72c38f76c7040982b9821ee91dddf3}\label{multi_player_8h_aac72c38f76c7040982b9821ee91dddf3}} 
+\index{multiPlayer.h@{multiPlayer.h}!initMultiScoreWindow@{initMultiScoreWindow}}
+\index{initMultiScoreWindow@{initMultiScoreWindow}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{initMultiScoreWindow()}{initMultiScoreWindow()}}
+{\footnotesize\ttfamily WINDOW $\ast$ init\+Multi\+Score\+Window (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{score }\end{DoxyParamCaption})}
+
+Inizializzo lo score
+
+
+\begin{DoxyParams}{Parameters}
+{\em score} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00458}{458}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_af9061165b83682615bbc2e7c41afe3b7}\label{multi_player_8h_af9061165b83682615bbc2e7c41afe3b7}} 
+\index{multiPlayer.h@{multiPlayer.h}!initWinner@{initWinner}}
+\index{initWinner@{initWinner}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{initWinner()}{initWinner()}}
+{\footnotesize\ttfamily void init\+Winner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{pg1,  }\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{pg2 }\end{DoxyParamCaption})}
+
+Inizializzo il winner
+
+
+\begin{DoxyParams}{Parameters}
+{\em pg1} & \\
+\hline
+{\em pg2} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00681}{681}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_ac26f36e77707a96f65e78e21f9ab1363}\label{multi_player_8h_ac26f36e77707a96f65e78e21f9ab1363}} 
+\index{multiPlayer.h@{multiPlayer.h}!multiGameOver@{multiGameOver}}
+\index{multiGameOver@{multiGameOver}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{multiGameOver()}{multiGameOver()}}
+{\footnotesize\ttfamily void multi\+Game\+Over (\begin{DoxyParamCaption}\item[{int}]{score,  }\item[{int $\ast$}]{turn }\end{DoxyParamCaption})}
+
+Inizializzo il gameover
+
+
+\begin{DoxyParams}{Parameters}
+{\em score} & \\
+\hline
+{\em turn} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00600}{600}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_a4a9d94f393ef94c6f5f2d8082fd44e51}\label{multi_player_8h_a4a9d94f393ef94c6f5f2d8082fd44e51}} 
+\index{multiPlayer.h@{multiPlayer.h}!multiPlayer@{multiPlayer}}
+\index{multiPlayer@{multiPlayer}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{multiPlayer()}{multiPlayer()}}
+{\footnotesize\ttfamily int multi\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+retrun score 
+
+Questa è la funzione che crea le schermate di gioco Quando termina si ritorna alla funzione \mbox{\hyperlink{main_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main()}}
+
+\begin{DoxyReturn}{Returns}
+1 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Qui si inizializzano tutte le window statiche
+
+\texorpdfstring{$<$}{<} Qui si inizializzano tutte le window dinamiche
+
+Pulisce lo schermo per visualizzare le nuove window
+
+\begin{DoxyReturn}{Returns}
+blank stdscr window
+\end{DoxyReturn}
+Disabilita la possibilità di uscire con un cambinazioni di tasti ctrl
+
+\texorpdfstring{$<$}{<} Aggiungo il player 1
+
+\texorpdfstring{$<$}{<} Aggiungo il player 2
+
+Inizializza la matrice di gioco tutta a 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em game\+Field} & \\
+\hline
+\end{DoxyParams}
+Inizializza il vettore del tetramino
+
+
+\begin{DoxyParams}{Parameters}
+{\em tet\+Pieces} & \\
+\hline
+{\em 0} & \\
+\hline
+\end{DoxyParams}
+Stampa l\textquotesingle{}intero campo di gioco con tutte le window statiche
+
+
+\begin{DoxyParams}{Parameters}
+{\em w\+\_\+title} & \\
+\hline
+{\em w\+\_\+field} & \\
+\hline
+{\em w\+\_\+preview} & \\
+\hline
+{\em w\+\_\+sfield} & \\
+\hline
+{\em w\+\_\+score} & \\
+\hline
+{\em w\+\_\+save} & \\
+\hline
+{\em w\+\_\+cmds} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Da le info per modellare la window, tutti i suoi parametri
+
+\texorpdfstring{$<$}{<} Da le info per modellare la window, tutti i suoi parametri
+
+\texorpdfstring{$<$}{<} Da le info per modellare la window dinamica preview
+
+\texorpdfstring{$<$}{<} Da le info per modellare la window dinamica score
+
+L\textquotesingle{}ultima azione
+
+
+\begin{DoxyParams}{Parameters}
+{\em pg1} & \\
+\hline
+{\em pg2} & \\
+\hline
+{\em piece} & \\
+\hline
+{\em tet\+Pieces} & \\
+\hline
+{\em pieces} & \\
+\hline
+{\em turn} & \\
+\hline
+{\em s\+\_\+preview} & \\
+\hline
+{\em s\+\_\+score} & \\
+\hline
+\end{DoxyParams}
+Vincitore
+
+
+\begin{DoxyParams}{Parameters}
+{\em pg1} & \\
+\hline
+{\em pg2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00026}{26}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_abe5f9a63c911cdea5dabad277b979672}\label{multi_player_8h_abe5f9a63c911cdea5dabad277b979672}} 
+\index{multiPlayer.h@{multiPlayer.h}!refreshMultiScore@{refreshMultiScore}}
+\index{refreshMultiScore@{refreshMultiScore}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{refreshMultiScore()}{refreshMultiScore()}}
+{\footnotesize\ttfamily void refresh\+Multi\+Score (\begin{DoxyParamCaption}\item[{int}]{pieces,  }\item[{int $\ast$}]{pg1\+Score,  }\item[{int}]{pg2\+Score,  }\item[{int $\ast$}]{turn,  }\item[{WINDOW $\ast$}]{score }\end{DoxyParamCaption})}
+
+Refresh the multiscore
+
+
+\begin{DoxyParams}{Parameters}
+{\em pieces} & \\
+\hline
+{\em pg1\+Score} & \\
+\hline
+{\em pg2\+Score} & \\
+\hline
+{\em turn} & \\
+\hline
+{\em score} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00501}{501}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_a9c74fafa4eff9e5370ee9901013d0867}\label{multi_player_8h_a9c74fafa4eff9e5370ee9901013d0867}} 
+\index{multiPlayer.h@{multiPlayer.h}!reverseRowsGameField@{reverseRowsGameField}}
+\index{reverseRowsGameField@{reverseRowsGameField}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{reverseRowsGameField()}{reverseRowsGameField()}}
+{\footnotesize\ttfamily void reverse\+Rows\+Game\+Field (\begin{DoxyParamCaption}\item[{int}]{second\+Gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\+MATRIX\+\_\+\+W\mbox{]},  }\item[{int}]{counter\+Rows }\end{DoxyParamCaption})}
+
+Inverte le righe se il numero di righe è maggiore o uguale a 3 righe 
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00526}{526}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+
+\mbox{\Hypertarget{multi_player_8h_a4668a1e9617135822d76bd06de370d08}\label{multi_player_8h_a4668a1e9617135822d76bd06de370d08}} 
+\index{multiPlayer.h@{multiPlayer.h}!startTheGame@{startTheGame}}
+\index{startTheGame@{startTheGame}!multiPlayer.h@{multiPlayer.h}}
+\doxysubsubsection{\texorpdfstring{startTheGame()}{startTheGame()}}
+{\footnotesize\ttfamily int start\+The\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{pg1,  }\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{pg2,  }\item[{\mbox{\hyperlink{structtet}{tet}} $\ast$}]{piece,  }\item[{int $\ast$}]{tet\+Pieces,  }\item[{int $\ast$}]{pieces,  }\item[{int $\ast$}]{turn,  }\item[{WINDOW $\ast$}]{preview,  }\item[{WINDOW $\ast$}]{score }\end{DoxyParamCaption})}
+
+Routine del gioco
+
+
+\begin{DoxyParams}{Parameters}
+{\em pg1} & \\
+\hline
+{\em pg2} & \\
+\hline
+{\em piece} & \\
+\hline
+{\em tet\+Pieces} & \\
+\hline
+{\em pieces} & \\
+\hline
+{\em turn} & \\
+\hline
+{\em preview} & \\
+\hline
+{\em score} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Aggiorno i valori in preview e ridisegna la sua window dinamica
+
+\texorpdfstring{$<$}{<} Aggiorno i valori in gamefield e ridisegna la sua window dinamica
+
+\texorpdfstring{$<$}{<} Aggiorno i valori in score e ridisegna la sua window dinamica
+
+\texorpdfstring{$<$}{<} Inizia la sequenza di istruzioni da eseguire
+
+\texorpdfstring{$<$}{<} Inzializza la funzionalità di input da tastiera
+
+Coloro il campo con i valori salvati nella matrice di gioco
+
+
+\begin{DoxyParams}{Parameters}
+{\em pg} & \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Prendo l\textquotesingle{}input da tastiera da parte dell\textquotesingle{}utente
+
+\texorpdfstring{$<$}{<} Casistica della scelta dell\textquotesingle{}utente
+
+Cambio il pezzo corrente con il prossimo
+
+
+\begin{DoxyParams}{Parameters}
+{\em preview\+\_\+piece} & \\
+\hline
+{\em preview\+\_\+piece} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+next piece
+\end{DoxyReturn}
+Cambio pezzo con quello precedente nell\textquotesingle{}array di tetramini
+
+
+\begin{DoxyParams}{Parameters}
+{\em piece} & \\
+\hline
+{\em preview\+\_\+piece} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Ruoto di 90 gradi il tetramino
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+piece} & \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Muovo il tetramino nella preview di una posizione a destra
+
+\texorpdfstring{$<$}{<} Muovo il tetramino nella preview di una posizione a sinistra
+
+\texorpdfstring{$<$}{<} Se la condizione è soddisfatta faccio cadere il pezzo
+
+Fa cadere il tetramino scelto
+
+
+\begin{DoxyParams}{Parameters}
+{\em pg1} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Decremento il tetraminno corrente di 1
+
+\texorpdfstring{$<$}{<} Decremento il numero generale di tetramini disponibili
+
+\texorpdfstring{$<$}{<} Riscrivo lo score con i nuovi valori
+
+\texorpdfstring{$<$}{<} Esco dal while
+
+Ricorsione della funzione start\+Game
+
+
+\begin{DoxyParams}{Parameters}
+{\em pg2} & \\
+\hline
+{\em pg1} & \\
+\hline
+{\em piece} & \\
+\hline
+{\em tet\+Pieces} & \\
+\hline
+{\em pieces} & \\
+\hline
+{\em change\+Turn} & \\
+\hline
+{\em preview} & \\
+\hline
+{\em score} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{multi_player_8c_source_l00142}{142}} of file \mbox{\hyperlink{multi_player_8c_source}{multi\+Player.\+c}}.
+

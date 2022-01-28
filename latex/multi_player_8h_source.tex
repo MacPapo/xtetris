@@ -1,0 +1,69 @@
+\hypertarget{multi_player_8h_source}{}\doxysection{multi\+Player.\+h}
+\label{multi_player_8h_source}\index{src/multiPlayer.h@{src/multiPlayer.h}}
+\mbox{\hyperlink{multi_player_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef MULTIPLAYER\_H\_}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00002}00002 \textcolor{preprocessor}{\#define MULTIPLAYER\_H\_}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{common_confing_8h}{commonConfing.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <ncurses.h>}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00009}00009 \textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ defining title parameters */}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00010}00010 \textcolor{comment}{/* Multi fields */}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00011}\mbox{\hyperlink{multi_player_8h_a3d96e6d438a7e6f9aa537ae66c28dd14}{00011}} \textcolor{preprocessor}{\#define MTITLE\_H         3}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00012}\mbox{\hyperlink{multi_player_8h_a00622fef69c93d8dcaf2e9fe63bea25f}{00012}} \textcolor{preprocessor}{\#define MTITLE\_W        75}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00014}\mbox{\hyperlink{multi_player_8h_a458a0ef2e8dde967762440092f339d26}{00014}} \textcolor{preprocessor}{\#define MPLAYER\_X       31}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00015}\mbox{\hyperlink{multi_player_8h_a9de11f95269c7a83bbf9797ea0e91c77}{00015}} \textcolor{preprocessor}{\#define PVSCPU\_X        31}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00017}\mbox{\hyperlink{multi_player_8h_a0b08a74d7fd93bfcde361b1b3202fdf6}{00017}} \textcolor{preprocessor}{\#define MCMDS\_H          3}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00018}\mbox{\hyperlink{multi_player_8h_ad1bcc027cd3bf6d274866ab640a73c2c}{00018}} \textcolor{preprocessor}{\#define MCMDS\_W         75}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00019}00019 \textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ END defining title parameters */}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00021}\mbox{\hyperlink{multi_player_8h_a89f0201fca94cbc3ca0f5fbce851e7c9}{00021}} \textcolor{preprocessor}{\#define FIRST\_PLAYER     0}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00023}\mbox{\hyperlink{multi_player_8h_a90f82b78b521ff3fe5790f76b4c7252e}{00023}} \textcolor{preprocessor}{\#define SECOND\_PLAYER    1}}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00025}00025 \textcolor{keywordtype}{void} \mbox{\hyperlink{multi_player_8h_a8f6046a62ee70034a7946f045e67cede}{initMultiPlayerCmds}}(WINDOW* w\_cmds);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00027}00027 \textcolor{keywordtype}{void} \mbox{\hyperlink{multi_player_8h_a1a9e117d8bfbf808f5318eee42eafce6}{initMultiPlayerTitle}}(WINDOW* title);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00029}00029 \textcolor{keywordtype}{void} \mbox{\hyperlink{multi_player_8h_a63bdbb61de460eed2c5d62d2a2cf5e1f}{initMultiPlayerField}}(WINDOW* firstField, WINDOW* secondField);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00031}00031 \textcolor{keywordtype}{void} \mbox{\hyperlink{multi_player_8h_ab251c05eea07a8cfbb2f76bde9262d11}{initMultiPlayerPreview}}(WINDOW* preview);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00033}00033 \textcolor{keywordtype}{void} \mbox{\hyperlink{multi_player_8h_af3a49d9ee23db02715ea7fc9d7d383a4}{initMultiPlayerScore}}(WINDOW* score);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00035}00035 \textcolor{keywordtype}{void} \mbox{\hyperlink{multi_player_8h_adb8ada904138f09cc0d5a89875eef1ca}{initMultiPlayerSave}}(WINDOW* save);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00037}00037 WINDOW* \mbox{\hyperlink{multi_player_8h_a760f31efa803c06c0dc1727f7c9f751b}{initFirstPlayerWindow}}(WINDOW* pgWindow);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00039}00039 WINDOW* \mbox{\hyperlink{multi_player_8h_a9ba6ea70113937b93549c8e1886c0b20}{initMultiPreviewWindow}}(WINDOW* preview);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00041}00041 WINDOW* \mbox{\hyperlink{multi_player_8h_aac72c38f76c7040982b9821ee91dddf3}{initMultiScoreWindow}}(WINDOW* score);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00043}00043 \textcolor{keywordtype}{void} \mbox{\hyperlink{multi_player_8h_a797de169da08bfe0213dad65b1c44782}{initMultiField}}(WINDOW* title, WINDOW* firstField, WINDOW* secondField, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00045}00045 \textcolor{keywordtype}{void} \mbox{\hyperlink{multi_player_8h_abe5f9a63c911cdea5dabad277b979672}{refreshMultiScore}}(\textcolor{keywordtype}{int} pieces, \textcolor{keywordtype}{int} *pg1Score, \textcolor{keywordtype}{int} pg2Score, \textcolor{keywordtype}{int} *turn, WINDOW* score);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00047}00047 \textcolor{keywordtype}{int} \mbox{\hyperlink{multi_player_8h_a4a9d94f393ef94c6f5f2d8082fd44e51}{multiPlayer}}();}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00049}00049 \textcolor{keywordtype}{int} \mbox{\hyperlink{multi_player_8h_a4668a1e9617135822d76bd06de370d08}{startTheGame}}(\mbox{\hyperlink{structplayer}{player}}* pg1, \mbox{\hyperlink{structplayer}{player}}* pg2, \mbox{\hyperlink{structtet}{tet}}* piece, \textcolor{keywordtype}{int}* tetPieces, \textcolor{keywordtype}{int}* pieces, \textcolor{keywordtype}{int}* turn, WINDOW* preview, WINDOW* score);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00051}00051 \textcolor{keywordtype}{int} \mbox{\hyperlink{multi_player_8h_a1a347b806d29c671f2c26a024187e1c1}{checkAndReverseRows}}(\mbox{\hyperlink{structplayer}{player}}* pg1, \mbox{\hyperlink{structplayer}{player}}* pg2);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00053}00053 \textcolor{keywordtype}{void} \mbox{\hyperlink{multi_player_8h_a9c74fafa4eff9e5370ee9901013d0867}{reverseRowsGameField}}(\textcolor{keywordtype}{int} secondGamefield[][\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}], \textcolor{keywordtype}{int} counterRows);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00055}00055 \textcolor{keywordtype}{void} \mbox{\hyperlink{multi_player_8h_ac26f36e77707a96f65e78e21f9ab1363}{multiGameOver}}(\textcolor{keywordtype}{int} score, \textcolor{keywordtype}{int}* turn);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00057}00057 \textcolor{keywordtype}{int}* \mbox{\hyperlink{multi_player_8h_a8808434572e5d0f8507ed8278d341f5a}{changeTurn}}(\textcolor{keywordtype}{int} *turn);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00059}00059 \textcolor{keywordtype}{void} \mbox{\hyperlink{multi_player_8h_a26146d112c5ae606dda2d5b1000dabe9}{initMultiQuit}}();}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00061}00061 \textcolor{keywordtype}{void} \mbox{\hyperlink{multi_player_8h_af9061165b83682615bbc2e7c41afe3b7}{initWinner}}(\mbox{\hyperlink{structplayer}{player}} *pg1, \mbox{\hyperlink{structplayer}{player}} *pg2);}
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{multi_player_8h_source_l00063}00063 \textcolor{preprocessor}{\#endif }}
+
+\end{DoxyCode}

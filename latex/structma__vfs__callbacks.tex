@@ -1,0 +1,120 @@
+\hypertarget{structma__vfs__callbacks}{}\doxysection{ma\+\_\+vfs\+\_\+callbacks Struct Reference}
+\label{structma__vfs__callbacks}\index{ma\_vfs\_callbacks@{ma\_vfs\_callbacks}}
+
+
+{\ttfamily \#include $<$miniaudio.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__vfs__callbacks_ab8a21afbae7e8c10b52f2d1639780af7}{on\+Open}} )(\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, const char $\ast$p\+File\+Path, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} open\+Mode, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} $\ast$p\+File)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__vfs__callbacks_a9b63ee53b16c25877dbc59c7f2f65d87}{on\+OpenW}} )(\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, const wchar\+\_\+t $\ast$p\+File\+Path, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} open\+Mode, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} $\ast$p\+File)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__vfs__callbacks_a33e675a3a3cba3cb055487d5168db518}{on\+Close}} )(\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} file)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__vfs__callbacks_aa6915a7bcb57734f644e40e04dfd2d0a}{on\+Read}} )(\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} file, void $\ast$p\+Dst, size\+\_\+t size\+In\+Bytes, size\+\_\+t $\ast$p\+Bytes\+Read)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__vfs__callbacks_a147d7c66fe11fa5c9e3e9f165ea24f2e}{on\+Write}} )(\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} file, const void $\ast$p\+Src, size\+\_\+t size\+In\+Bytes, size\+\_\+t $\ast$p\+Bytes\+Written)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__vfs__callbacks_a3c80b605b66161653b9b4998f1f994b0}{on\+Seek}} )(\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} file, \mbox{\hyperlink{miniaudio_8h_ac9b5eb4c7382c62deda7b0c99024a9ab}{ma\+\_\+int64}} offset, \mbox{\hyperlink{miniaudio_8h_a8e77ba34b5253be29e5deae839ecbf46}{ma\+\_\+seek\+\_\+origin}} origin)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__vfs__callbacks_afee56d8b1d52adcd1deb630dd0ac2335}{on\+Tell}} )(\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} file, \mbox{\hyperlink{miniaudio_8h_ac9b5eb4c7382c62deda7b0c99024a9ab}{ma\+\_\+int64}} $\ast$p\+Cursor)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__vfs__callbacks_a72415cadd917ddc50b8394122dad6398}{on\+Info}} )(\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} file, \mbox{\hyperlink{structma__file__info}{ma\+\_\+file\+\_\+info}} $\ast$p\+Info)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09477}{9477}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structma__vfs__callbacks_a33e675a3a3cba3cb055487d5168db518}\label{structma__vfs__callbacks_a33e675a3a3cba3cb055487d5168db518}} 
+\index{ma\_vfs\_callbacks@{ma\_vfs\_callbacks}!onClose@{onClose}}
+\index{onClose@{onClose}!ma\_vfs\_callbacks@{ma\_vfs\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onClose}{onClose}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Close) (\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} file)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09481}{9481}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__vfs__callbacks_a72415cadd917ddc50b8394122dad6398}\label{structma__vfs__callbacks_a72415cadd917ddc50b8394122dad6398}} 
+\index{ma\_vfs\_callbacks@{ma\_vfs\_callbacks}!onInfo@{onInfo}}
+\index{onInfo@{onInfo}!ma\_vfs\_callbacks@{ma\_vfs\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onInfo}{onInfo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Info) (\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} file, \mbox{\hyperlink{structma__file__info}{ma\+\_\+file\+\_\+info}} $\ast$p\+Info)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09486}{9486}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__vfs__callbacks_ab8a21afbae7e8c10b52f2d1639780af7}\label{structma__vfs__callbacks_ab8a21afbae7e8c10b52f2d1639780af7}} 
+\index{ma\_vfs\_callbacks@{ma\_vfs\_callbacks}!onOpen@{onOpen}}
+\index{onOpen@{onOpen}!ma\_vfs\_callbacks@{ma\_vfs\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onOpen}{onOpen}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Open) (\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, const char $\ast$p\+File\+Path, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} open\+Mode, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} $\ast$p\+File)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09479}{9479}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__vfs__callbacks_a9b63ee53b16c25877dbc59c7f2f65d87}\label{structma__vfs__callbacks_a9b63ee53b16c25877dbc59c7f2f65d87}} 
+\index{ma\_vfs\_callbacks@{ma\_vfs\_callbacks}!onOpenW@{onOpenW}}
+\index{onOpenW@{onOpenW}!ma\_vfs\_callbacks@{ma\_vfs\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onOpenW}{onOpenW}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+OpenW) (\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, const wchar\+\_\+t $\ast$p\+File\+Path, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} open\+Mode, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} $\ast$p\+File)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09480}{9480}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__vfs__callbacks_aa6915a7bcb57734f644e40e04dfd2d0a}\label{structma__vfs__callbacks_aa6915a7bcb57734f644e40e04dfd2d0a}} 
+\index{ma\_vfs\_callbacks@{ma\_vfs\_callbacks}!onRead@{onRead}}
+\index{onRead@{onRead}!ma\_vfs\_callbacks@{ma\_vfs\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onRead}{onRead}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Read) (\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} file, void $\ast$p\+Dst, size\+\_\+t size\+In\+Bytes, size\+\_\+t $\ast$p\+Bytes\+Read)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09482}{9482}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__vfs__callbacks_a3c80b605b66161653b9b4998f1f994b0}\label{structma__vfs__callbacks_a3c80b605b66161653b9b4998f1f994b0}} 
+\index{ma\_vfs\_callbacks@{ma\_vfs\_callbacks}!onSeek@{onSeek}}
+\index{onSeek@{onSeek}!ma\_vfs\_callbacks@{ma\_vfs\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onSeek}{onSeek}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Seek) (\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} file, \mbox{\hyperlink{miniaudio_8h_ac9b5eb4c7382c62deda7b0c99024a9ab}{ma\+\_\+int64}} offset, \mbox{\hyperlink{miniaudio_8h_a8e77ba34b5253be29e5deae839ecbf46}{ma\+\_\+seek\+\_\+origin}} origin)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09484}{9484}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__vfs__callbacks_afee56d8b1d52adcd1deb630dd0ac2335}\label{structma__vfs__callbacks_afee56d8b1d52adcd1deb630dd0ac2335}} 
+\index{ma\_vfs\_callbacks@{ma\_vfs\_callbacks}!onTell@{onTell}}
+\index{onTell@{onTell}!ma\_vfs\_callbacks@{ma\_vfs\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onTell}{onTell}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Tell) (\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} file, \mbox{\hyperlink{miniaudio_8h_ac9b5eb4c7382c62deda7b0c99024a9ab}{ma\+\_\+int64}} $\ast$p\+Cursor)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09485}{9485}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__vfs__callbacks_a147d7c66fe11fa5c9e3e9f165ea24f2e}\label{structma__vfs__callbacks_a147d7c66fe11fa5c9e3e9f165ea24f2e}} 
+\index{ma\_vfs\_callbacks@{ma\_vfs\_callbacks}!onWrite@{onWrite}}
+\index{onWrite@{onWrite}!ma\_vfs\_callbacks@{ma\_vfs\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onWrite}{onWrite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Write) (\mbox{\hyperlink{miniaudio_8h_acd93ee2c07204c44fe7c97f33e68666a}{ma\+\_\+vfs}} $\ast$p\+VFS, \mbox{\hyperlink{miniaudio_8h_a5ae654899761644102fe83a684cae060}{ma\+\_\+vfs\+\_\+file}} file, const void $\ast$p\+Src, size\+\_\+t size\+In\+Bytes, size\+\_\+t $\ast$p\+Bytes\+Written)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09483}{9483}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{miniaudio_8h}{miniaudio.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,132 @@
+\hypertarget{structma__resampling__backend__vtable}{}\doxysection{ma\+\_\+resampling\+\_\+backend\+\_\+vtable Struct Reference}
+\label{structma__resampling__backend__vtable}\index{ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}}
+
+
+{\ttfamily \#include $<$miniaudio.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__resampling__backend__vtable_a9fd02e8757199f0cb1ed08bd3dd20a9c}{on\+Get\+Heap\+Size}} )(void $\ast$p\+User\+Data, const \mbox{\hyperlink{structma__resampler__config}{ma\+\_\+resampler\+\_\+config}} $\ast$p\+Config, size\+\_\+t $\ast$p\+Heap\+Size\+In\+Bytes)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__resampling__backend__vtable_ad69cc3e27beca469d95d4be8a1bba1f7}{on\+Init}} )(void $\ast$p\+User\+Data, const \mbox{\hyperlink{structma__resampler__config}{ma\+\_\+resampler\+\_\+config}} $\ast$p\+Config, void $\ast$p\+Heap, \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$$\ast$pp\+Backend)
+\item 
+void($\ast$ \mbox{\hyperlink{structma__resampling__backend__vtable_a16c7f198313ac1869d9568cfcb427d30}{on\+Uninit}} )(void $\ast$p\+User\+Data, \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$p\+Backend, const \mbox{\hyperlink{structma__allocation__callbacks}{ma\+\_\+allocation\+\_\+callbacks}} $\ast$p\+Allocation\+Callbacks)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__resampling__backend__vtable_af5c1e47296cdfcfc14bbee875fb9674c}{on\+Process}} )(void $\ast$p\+User\+Data, \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$p\+Backend, const void $\ast$p\+Frames\+In, \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} $\ast$p\+Frame\+Count\+In, void $\ast$p\+Frames\+Out, \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} $\ast$p\+Frame\+Count\+Out)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__resampling__backend__vtable_afe3e5987024a008a90adac93b43e8396}{on\+Set\+Rate}} )(void $\ast$p\+User\+Data, \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$p\+Backend, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} sample\+Rate\+In, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} sample\+Rate\+Out)
+\item 
+\mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}}($\ast$ \mbox{\hyperlink{structma__resampling__backend__vtable_a9dacfb29e8a0116ec74209bf29dae755}{on\+Get\+Input\+Latency}} )(void $\ast$p\+User\+Data, const \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$p\+Backend)
+\item 
+\mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}}($\ast$ \mbox{\hyperlink{structma__resampling__backend__vtable_ad0f6c8c1b19b05e820fc48985e1e078c}{on\+Get\+Output\+Latency}} )(void $\ast$p\+User\+Data, const \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$p\+Backend)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__resampling__backend__vtable_a81a7d1ec937e82316e9c3aaa8ebaf393}{on\+Get\+Required\+Input\+Frame\+Count}} )(void $\ast$p\+User\+Data, const \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$p\+Backend, \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} output\+Frame\+Count, \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} $\ast$p\+Input\+Frame\+Count)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__resampling__backend__vtable_af728ff12d8b958a0993faa1031e442f5}{on\+Get\+Expected\+Output\+Frame\+Count}} )(void $\ast$p\+User\+Data, const \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$p\+Backend, \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} input\+Frame\+Count, \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} $\ast$p\+Output\+Frame\+Count)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05085}{5085}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structma__resampling__backend__vtable_af728ff12d8b958a0993faa1031e442f5}\label{structma__resampling__backend__vtable_af728ff12d8b958a0993faa1031e442f5}} 
+\index{ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}!onGetExpectedOutputFrameCount@{onGetExpectedOutputFrameCount}}
+\index{onGetExpectedOutputFrameCount@{onGetExpectedOutputFrameCount}!ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}}
+\doxysubsubsection{\texorpdfstring{onGetExpectedOutputFrameCount}{onGetExpectedOutputFrameCount}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Get\+Expected\+Output\+Frame\+Count) (void $\ast$p\+User\+Data, const \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$p\+Backend, \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} input\+Frame\+Count, \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} $\ast$p\+Output\+Frame\+Count)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05095}{5095}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resampling__backend__vtable_a9fd02e8757199f0cb1ed08bd3dd20a9c}\label{structma__resampling__backend__vtable_a9fd02e8757199f0cb1ed08bd3dd20a9c}} 
+\index{ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}!onGetHeapSize@{onGetHeapSize}}
+\index{onGetHeapSize@{onGetHeapSize}!ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}}
+\doxysubsubsection{\texorpdfstring{onGetHeapSize}{onGetHeapSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Get\+Heap\+Size) (void $\ast$p\+User\+Data, const \mbox{\hyperlink{structma__resampler__config}{ma\+\_\+resampler\+\_\+config}} $\ast$p\+Config, size\+\_\+t $\ast$p\+Heap\+Size\+In\+Bytes)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05087}{5087}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resampling__backend__vtable_a9dacfb29e8a0116ec74209bf29dae755}\label{structma__resampling__backend__vtable_a9dacfb29e8a0116ec74209bf29dae755}} 
+\index{ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}!onGetInputLatency@{onGetInputLatency}}
+\index{onGetInputLatency@{onGetInputLatency}!ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}}
+\doxysubsubsection{\texorpdfstring{onGetInputLatency}{onGetInputLatency}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}}($\ast$ on\+Get\+Input\+Latency) (void $\ast$p\+User\+Data, const \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$p\+Backend)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05092}{5092}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resampling__backend__vtable_ad0f6c8c1b19b05e820fc48985e1e078c}\label{structma__resampling__backend__vtable_ad0f6c8c1b19b05e820fc48985e1e078c}} 
+\index{ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}!onGetOutputLatency@{onGetOutputLatency}}
+\index{onGetOutputLatency@{onGetOutputLatency}!ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}}
+\doxysubsubsection{\texorpdfstring{onGetOutputLatency}{onGetOutputLatency}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}}($\ast$ on\+Get\+Output\+Latency) (void $\ast$p\+User\+Data, const \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$p\+Backend)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05093}{5093}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resampling__backend__vtable_a81a7d1ec937e82316e9c3aaa8ebaf393}\label{structma__resampling__backend__vtable_a81a7d1ec937e82316e9c3aaa8ebaf393}} 
+\index{ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}!onGetRequiredInputFrameCount@{onGetRequiredInputFrameCount}}
+\index{onGetRequiredInputFrameCount@{onGetRequiredInputFrameCount}!ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}}
+\doxysubsubsection{\texorpdfstring{onGetRequiredInputFrameCount}{onGetRequiredInputFrameCount}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Get\+Required\+Input\+Frame\+Count) (void $\ast$p\+User\+Data, const \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$p\+Backend, \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} output\+Frame\+Count, \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} $\ast$p\+Input\+Frame\+Count)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05094}{5094}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resampling__backend__vtable_ad69cc3e27beca469d95d4be8a1bba1f7}\label{structma__resampling__backend__vtable_ad69cc3e27beca469d95d4be8a1bba1f7}} 
+\index{ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}!onInit@{onInit}}
+\index{onInit@{onInit}!ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}}
+\doxysubsubsection{\texorpdfstring{onInit}{onInit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Init) (void $\ast$p\+User\+Data, const \mbox{\hyperlink{structma__resampler__config}{ma\+\_\+resampler\+\_\+config}} $\ast$p\+Config, void $\ast$p\+Heap, \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$$\ast$pp\+Backend)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05088}{5088}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resampling__backend__vtable_af5c1e47296cdfcfc14bbee875fb9674c}\label{structma__resampling__backend__vtable_af5c1e47296cdfcfc14bbee875fb9674c}} 
+\index{ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}!onProcess@{onProcess}}
+\index{onProcess@{onProcess}!ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}}
+\doxysubsubsection{\texorpdfstring{onProcess}{onProcess}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Process) (void $\ast$p\+User\+Data, \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$p\+Backend, const void $\ast$p\+Frames\+In, \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} $\ast$p\+Frame\+Count\+In, void $\ast$p\+Frames\+Out, \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} $\ast$p\+Frame\+Count\+Out)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05090}{5090}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resampling__backend__vtable_afe3e5987024a008a90adac93b43e8396}\label{structma__resampling__backend__vtable_afe3e5987024a008a90adac93b43e8396}} 
+\index{ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}!onSetRate@{onSetRate}}
+\index{onSetRate@{onSetRate}!ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}}
+\doxysubsubsection{\texorpdfstring{onSetRate}{onSetRate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Set\+Rate) (void $\ast$p\+User\+Data, \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$p\+Backend, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} sample\+Rate\+In, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} sample\+Rate\+Out)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05091}{5091}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resampling__backend__vtable_a16c7f198313ac1869d9568cfcb427d30}\label{structma__resampling__backend__vtable_a16c7f198313ac1869d9568cfcb427d30}} 
+\index{ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}!onUninit@{onUninit}}
+\index{onUninit@{onUninit}!ma\_resampling\_backend\_vtable@{ma\_resampling\_backend\_vtable}}
+\doxysubsubsection{\texorpdfstring{onUninit}{onUninit}}
+{\footnotesize\ttfamily void($\ast$ on\+Uninit) (void $\ast$p\+User\+Data, \mbox{\hyperlink{miniaudio_8h_a4583dd0c53e9a7bdaf9463a3ee02e6c2}{ma\+\_\+resampling\+\_\+backend}} $\ast$p\+Backend, const \mbox{\hyperlink{structma__allocation__callbacks}{ma\+\_\+allocation\+\_\+callbacks}} $\ast$p\+Allocation\+Callbacks)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05089}{5089}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{miniaudio_8h}{miniaudio.\+h}}\end{DoxyCompactItemize}

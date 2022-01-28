@@ -462,7 +462,6 @@ void bigBrain(player *cpu, int* bestRow, int* zeroInterval, int tetraminos[])
     int firstBestRow    = 0;
     int firstClearSpots = 0;
     int start = 0;
-    int stampa = 0;
 
     /*rand*/
     int tet_type = 0;

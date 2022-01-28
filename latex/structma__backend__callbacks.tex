@@ -1,0 +1,180 @@
+\hypertarget{structma__backend__callbacks}{}\doxysection{ma\+\_\+backend\+\_\+callbacks Struct Reference}
+\label{structma__backend__callbacks}\index{ma\_backend\_callbacks@{ma\_backend\_callbacks}}
+
+
+{\ttfamily \#include $<$miniaudio.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__backend__callbacks_abcf0a842bd64b6b01e551a2801f86a0d}{on\+Context\+Init}} )(\mbox{\hyperlink{structma__context}{ma\+\_\+context}} $\ast$p\+Context, const \mbox{\hyperlink{structma__context__config}{ma\+\_\+context\+\_\+config}} $\ast$p\+Config, \mbox{\hyperlink{structma__backend__callbacks}{ma\+\_\+backend\+\_\+callbacks}} $\ast$p\+Callbacks)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__backend__callbacks_a1d11485cd748fa43f45211184558e84f}{on\+Context\+Uninit}} )(\mbox{\hyperlink{structma__context}{ma\+\_\+context}} $\ast$p\+Context)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__backend__callbacks_a3e29734ee96de7db6228bb1316298804}{on\+Context\+Enumerate\+Devices}} )(\mbox{\hyperlink{structma__context}{ma\+\_\+context}} $\ast$p\+Context, \mbox{\hyperlink{miniaudio_8h_ab27587a4d849c878f7ed0471b79fa50a}{ma\+\_\+enum\+\_\+devices\+\_\+callback\+\_\+proc}} callback, void $\ast$p\+User\+Data)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__backend__callbacks_a53440fc1858e8f8c27f2c7c07f2dc658}{on\+Context\+Get\+Device\+Info}} )(\mbox{\hyperlink{structma__context}{ma\+\_\+context}} $\ast$p\+Context, \mbox{\hyperlink{miniaudio_8h_a47643cf7ad53bfbc605a23a5a9545cc1}{ma\+\_\+device\+\_\+type}} device\+Type, const \mbox{\hyperlink{unionma__device__id}{ma\+\_\+device\+\_\+id}} $\ast$p\+Device\+ID, \mbox{\hyperlink{structma__device__info}{ma\+\_\+device\+\_\+info}} $\ast$p\+Device\+Info)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__backend__callbacks_a3e02131ffabe87e38831234138d30a07}{on\+Device\+Init}} )(\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device, const \mbox{\hyperlink{structma__device__config}{ma\+\_\+device\+\_\+config}} $\ast$p\+Config, \mbox{\hyperlink{structma__device__descriptor}{ma\+\_\+device\+\_\+descriptor}} $\ast$p\+Descriptor\+Playback, \mbox{\hyperlink{structma__device__descriptor}{ma\+\_\+device\+\_\+descriptor}} $\ast$p\+Descriptor\+Capture)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__backend__callbacks_a555c4a0fef0e34476297a605ba9633d1}{on\+Device\+Uninit}} )(\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__backend__callbacks_ab82628e14c5b72eda9d2551f2ba7fafb}{on\+Device\+Start}} )(\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__backend__callbacks_ae3bc1879f1f3a923eda2e2fd8d33a513}{on\+Device\+Stop}} )(\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__backend__callbacks_a2ab0f8dbbb8783cf8288b3820be9beab}{on\+Device\+Read}} )(\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device, void $\ast$p\+Frames, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} frame\+Count, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} $\ast$p\+Frames\+Read)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__backend__callbacks_af705aa95a9639768975f28c50cdf5868}{on\+Device\+Write}} )(\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device, const void $\ast$p\+Frames, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} frame\+Count, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} $\ast$p\+Frames\+Written)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__backend__callbacks_acf4f48cfb2d81addabce25fc2632d69b}{on\+Device\+Data\+Loop}} )(\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__backend__callbacks_a49431d7d52a6ffa585b760248d5f8f37}{on\+Device\+Data\+Loop\+Wakeup}} )(\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__backend__callbacks_a9ed62a4b0e13c4917404f3d9960b9946}{on\+Device\+Get\+Info}} )(\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device, \mbox{\hyperlink{miniaudio_8h_a47643cf7ad53bfbc605a23a5a9545cc1}{ma\+\_\+device\+\_\+type}} type, \mbox{\hyperlink{structma__device__info}{ma\+\_\+device\+\_\+info}} $\ast$p\+Device\+Info)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06718}{6718}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structma__backend__callbacks_a3e29734ee96de7db6228bb1316298804}\label{structma__backend__callbacks_a3e29734ee96de7db6228bb1316298804}} 
+\index{ma\_backend\_callbacks@{ma\_backend\_callbacks}!onContextEnumerateDevices@{onContextEnumerateDevices}}
+\index{onContextEnumerateDevices@{onContextEnumerateDevices}!ma\_backend\_callbacks@{ma\_backend\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onContextEnumerateDevices}{onContextEnumerateDevices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Context\+Enumerate\+Devices) (\mbox{\hyperlink{structma__context}{ma\+\_\+context}} $\ast$p\+Context, \mbox{\hyperlink{miniaudio_8h_ab27587a4d849c878f7ed0471b79fa50a}{ma\+\_\+enum\+\_\+devices\+\_\+callback\+\_\+proc}} callback, void $\ast$p\+User\+Data)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06722}{6722}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__backend__callbacks_a53440fc1858e8f8c27f2c7c07f2dc658}\label{structma__backend__callbacks_a53440fc1858e8f8c27f2c7c07f2dc658}} 
+\index{ma\_backend\_callbacks@{ma\_backend\_callbacks}!onContextGetDeviceInfo@{onContextGetDeviceInfo}}
+\index{onContextGetDeviceInfo@{onContextGetDeviceInfo}!ma\_backend\_callbacks@{ma\_backend\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onContextGetDeviceInfo}{onContextGetDeviceInfo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Context\+Get\+Device\+Info) (\mbox{\hyperlink{structma__context}{ma\+\_\+context}} $\ast$p\+Context, \mbox{\hyperlink{miniaudio_8h_a47643cf7ad53bfbc605a23a5a9545cc1}{ma\+\_\+device\+\_\+type}} device\+Type, const \mbox{\hyperlink{unionma__device__id}{ma\+\_\+device\+\_\+id}} $\ast$p\+Device\+ID, \mbox{\hyperlink{structma__device__info}{ma\+\_\+device\+\_\+info}} $\ast$p\+Device\+Info)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06723}{6723}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__backend__callbacks_abcf0a842bd64b6b01e551a2801f86a0d}\label{structma__backend__callbacks_abcf0a842bd64b6b01e551a2801f86a0d}} 
+\index{ma\_backend\_callbacks@{ma\_backend\_callbacks}!onContextInit@{onContextInit}}
+\index{onContextInit@{onContextInit}!ma\_backend\_callbacks@{ma\_backend\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onContextInit}{onContextInit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Context\+Init) (\mbox{\hyperlink{structma__context}{ma\+\_\+context}} $\ast$p\+Context, const \mbox{\hyperlink{structma__context__config}{ma\+\_\+context\+\_\+config}} $\ast$p\+Config, \mbox{\hyperlink{structma__backend__callbacks}{ma\+\_\+backend\+\_\+callbacks}} $\ast$p\+Callbacks)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06720}{6720}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__backend__callbacks_a1d11485cd748fa43f45211184558e84f}\label{structma__backend__callbacks_a1d11485cd748fa43f45211184558e84f}} 
+\index{ma\_backend\_callbacks@{ma\_backend\_callbacks}!onContextUninit@{onContextUninit}}
+\index{onContextUninit@{onContextUninit}!ma\_backend\_callbacks@{ma\_backend\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onContextUninit}{onContextUninit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Context\+Uninit) (\mbox{\hyperlink{structma__context}{ma\+\_\+context}} $\ast$p\+Context)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06721}{6721}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__backend__callbacks_acf4f48cfb2d81addabce25fc2632d69b}\label{structma__backend__callbacks_acf4f48cfb2d81addabce25fc2632d69b}} 
+\index{ma\_backend\_callbacks@{ma\_backend\_callbacks}!onDeviceDataLoop@{onDeviceDataLoop}}
+\index{onDeviceDataLoop@{onDeviceDataLoop}!ma\_backend\_callbacks@{ma\_backend\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onDeviceDataLoop}{onDeviceDataLoop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Device\+Data\+Loop) (\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06730}{6730}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__backend__callbacks_a49431d7d52a6ffa585b760248d5f8f37}\label{structma__backend__callbacks_a49431d7d52a6ffa585b760248d5f8f37}} 
+\index{ma\_backend\_callbacks@{ma\_backend\_callbacks}!onDeviceDataLoopWakeup@{onDeviceDataLoopWakeup}}
+\index{onDeviceDataLoopWakeup@{onDeviceDataLoopWakeup}!ma\_backend\_callbacks@{ma\_backend\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onDeviceDataLoopWakeup}{onDeviceDataLoopWakeup}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Device\+Data\+Loop\+Wakeup) (\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06731}{6731}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__backend__callbacks_a9ed62a4b0e13c4917404f3d9960b9946}\label{structma__backend__callbacks_a9ed62a4b0e13c4917404f3d9960b9946}} 
+\index{ma\_backend\_callbacks@{ma\_backend\_callbacks}!onDeviceGetInfo@{onDeviceGetInfo}}
+\index{onDeviceGetInfo@{onDeviceGetInfo}!ma\_backend\_callbacks@{ma\_backend\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onDeviceGetInfo}{onDeviceGetInfo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Device\+Get\+Info) (\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device, \mbox{\hyperlink{miniaudio_8h_a47643cf7ad53bfbc605a23a5a9545cc1}{ma\+\_\+device\+\_\+type}} type, \mbox{\hyperlink{structma__device__info}{ma\+\_\+device\+\_\+info}} $\ast$p\+Device\+Info)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06732}{6732}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__backend__callbacks_a3e02131ffabe87e38831234138d30a07}\label{structma__backend__callbacks_a3e02131ffabe87e38831234138d30a07}} 
+\index{ma\_backend\_callbacks@{ma\_backend\_callbacks}!onDeviceInit@{onDeviceInit}}
+\index{onDeviceInit@{onDeviceInit}!ma\_backend\_callbacks@{ma\_backend\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onDeviceInit}{onDeviceInit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Device\+Init) (\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device, const \mbox{\hyperlink{structma__device__config}{ma\+\_\+device\+\_\+config}} $\ast$p\+Config, \mbox{\hyperlink{structma__device__descriptor}{ma\+\_\+device\+\_\+descriptor}} $\ast$p\+Descriptor\+Playback, \mbox{\hyperlink{structma__device__descriptor}{ma\+\_\+device\+\_\+descriptor}} $\ast$p\+Descriptor\+Capture)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06724}{6724}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__backend__callbacks_a2ab0f8dbbb8783cf8288b3820be9beab}\label{structma__backend__callbacks_a2ab0f8dbbb8783cf8288b3820be9beab}} 
+\index{ma\_backend\_callbacks@{ma\_backend\_callbacks}!onDeviceRead@{onDeviceRead}}
+\index{onDeviceRead@{onDeviceRead}!ma\_backend\_callbacks@{ma\_backend\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onDeviceRead}{onDeviceRead}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Device\+Read) (\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device, void $\ast$p\+Frames, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} frame\+Count, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} $\ast$p\+Frames\+Read)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06728}{6728}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__backend__callbacks_ab82628e14c5b72eda9d2551f2ba7fafb}\label{structma__backend__callbacks_ab82628e14c5b72eda9d2551f2ba7fafb}} 
+\index{ma\_backend\_callbacks@{ma\_backend\_callbacks}!onDeviceStart@{onDeviceStart}}
+\index{onDeviceStart@{onDeviceStart}!ma\_backend\_callbacks@{ma\_backend\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onDeviceStart}{onDeviceStart}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Device\+Start) (\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06726}{6726}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__backend__callbacks_ae3bc1879f1f3a923eda2e2fd8d33a513}\label{structma__backend__callbacks_ae3bc1879f1f3a923eda2e2fd8d33a513}} 
+\index{ma\_backend\_callbacks@{ma\_backend\_callbacks}!onDeviceStop@{onDeviceStop}}
+\index{onDeviceStop@{onDeviceStop}!ma\_backend\_callbacks@{ma\_backend\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onDeviceStop}{onDeviceStop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Device\+Stop) (\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06727}{6727}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__backend__callbacks_a555c4a0fef0e34476297a605ba9633d1}\label{structma__backend__callbacks_a555c4a0fef0e34476297a605ba9633d1}} 
+\index{ma\_backend\_callbacks@{ma\_backend\_callbacks}!onDeviceUninit@{onDeviceUninit}}
+\index{onDeviceUninit@{onDeviceUninit}!ma\_backend\_callbacks@{ma\_backend\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onDeviceUninit}{onDeviceUninit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Device\+Uninit) (\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06725}{6725}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__backend__callbacks_af705aa95a9639768975f28c50cdf5868}\label{structma__backend__callbacks_af705aa95a9639768975f28c50cdf5868}} 
+\index{ma\_backend\_callbacks@{ma\_backend\_callbacks}!onDeviceWrite@{onDeviceWrite}}
+\index{onDeviceWrite@{onDeviceWrite}!ma\_backend\_callbacks@{ma\_backend\_callbacks}}
+\doxysubsubsection{\texorpdfstring{onDeviceWrite}{onDeviceWrite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Device\+Write) (\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device, const void $\ast$p\+Frames, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} frame\+Count, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} $\ast$p\+Frames\+Written)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06729}{6729}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{miniaudio_8h}{miniaudio.\+h}}\end{DoxyCompactItemize}

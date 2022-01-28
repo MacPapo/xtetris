@@ -1,0 +1,168 @@
+\hypertarget{structma__linear__resampler}{}\doxysection{ma\+\_\+linear\+\_\+resampler Struct Reference}
+\label{structma__linear__resampler}\index{ma\_linear\_resampler@{ma\_linear\_resampler}}
+
+
+{\ttfamily \#include $<$miniaudio.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structma__linear__resampler__config}{ma\+\_\+linear\+\_\+resampler\+\_\+config}} \mbox{\hyperlink{structma__linear__resampler_a0c4b4c1764595f2032df654255687947}{config}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} \mbox{\hyperlink{structma__linear__resampler_a3c7b264524d40dde899cc2de0b918d91}{in\+Advance\+Int}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} \mbox{\hyperlink{structma__linear__resampler_a1882d021a9fa7d6b1db9ea334bf4e98c}{in\+Advance\+Frac}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} \mbox{\hyperlink{structma__linear__resampler_a16a1e1e99f0ce53a0f3ee1c19a43a2bc}{in\+Time\+Int}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} \mbox{\hyperlink{structma__linear__resampler_ae6ce840270554db16377a5c0d004ee89}{in\+Time\+Frac}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>float $\ast$ \mbox{\hyperlink{structma__linear__resampler_adb8dfa04182628f39064a8c9b87aaa35}{f32}}\\
+\>\mbox{\hyperlink{miniaudio_8h_ae1364207a5e813f3b6ca0feae88baf35}{ma\_int16}} $\ast$ \mbox{\hyperlink{structma__linear__resampler_ab5f4bcaa1a9507750cea05b7b7c0c743}{s16}}\\
+\} \mbox{\hyperlink{structma__linear__resampler_a8dc3a1fe8886d8806a56ffeafe2a01ae}{x0}}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>float $\ast$ \mbox{\hyperlink{structma__linear__resampler_adb8dfa04182628f39064a8c9b87aaa35}{f32}}\\
+\>\mbox{\hyperlink{miniaudio_8h_ae1364207a5e813f3b6ca0feae88baf35}{ma\_int16}} $\ast$ \mbox{\hyperlink{structma__linear__resampler_ab5f4bcaa1a9507750cea05b7b7c0c743}{s16}}\\
+\} \mbox{\hyperlink{structma__linear__resampler_a2b7d434a301b979dea04af08ba2a6474}{x1}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{structma__lpf}{ma\+\_\+lpf}} \mbox{\hyperlink{structma__linear__resampler_a5c9167f9c6b3e2bcac93b3235c4f694b}{lpf}}
+\item 
+void $\ast$ \mbox{\hyperlink{structma__linear__resampler_a70e423a746fe79229a177931a9f1fb80}{\+\_\+p\+Heap}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} \mbox{\hyperlink{structma__linear__resampler_a792eafdc28df87fb85e0260796c95bdc}{\+\_\+owns\+Heap}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05045}{5045}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structma__linear__resampler_a792eafdc28df87fb85e0260796c95bdc}\label{structma__linear__resampler_a792eafdc28df87fb85e0260796c95bdc}} 
+\index{ma\_linear\_resampler@{ma\_linear\_resampler}!\_ownsHeap@{\_ownsHeap}}
+\index{\_ownsHeap@{\_ownsHeap}!ma\_linear\_resampler@{ma\_linear\_resampler}}
+\doxysubsubsection{\texorpdfstring{\_ownsHeap}{\_ownsHeap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} \+\_\+owns\+Heap}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05066}{5066}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__linear__resampler_a70e423a746fe79229a177931a9f1fb80}\label{structma__linear__resampler_a70e423a746fe79229a177931a9f1fb80}} 
+\index{ma\_linear\_resampler@{ma\_linear\_resampler}!\_pHeap@{\_pHeap}}
+\index{\_pHeap@{\_pHeap}!ma\_linear\_resampler@{ma\_linear\_resampler}}
+\doxysubsubsection{\texorpdfstring{\_pHeap}{\_pHeap}}
+{\footnotesize\ttfamily void$\ast$ \+\_\+p\+Heap}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05065}{5065}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__linear__resampler_a0c4b4c1764595f2032df654255687947}\label{structma__linear__resampler_a0c4b4c1764595f2032df654255687947}} 
+\index{ma\_linear\_resampler@{ma\_linear\_resampler}!config@{config}}
+\index{config@{config}!ma\_linear\_resampler@{ma\_linear\_resampler}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__linear__resampler__config}{ma\+\_\+linear\+\_\+resampler\+\_\+config}} config}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05047}{5047}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__linear__resampler_adb8dfa04182628f39064a8c9b87aaa35}\label{structma__linear__resampler_adb8dfa04182628f39064a8c9b87aaa35}} 
+\index{ma\_linear\_resampler@{ma\_linear\_resampler}!f32@{f32}}
+\index{f32@{f32}!ma\_linear\_resampler@{ma\_linear\_resampler}}
+\doxysubsubsection{\texorpdfstring{f32}{f32}}
+{\footnotesize\ttfamily float$\ast$ f32}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05054}{5054}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__linear__resampler_a1882d021a9fa7d6b1db9ea334bf4e98c}\label{structma__linear__resampler_a1882d021a9fa7d6b1db9ea334bf4e98c}} 
+\index{ma\_linear\_resampler@{ma\_linear\_resampler}!inAdvanceFrac@{inAdvanceFrac}}
+\index{inAdvanceFrac@{inAdvanceFrac}!ma\_linear\_resampler@{ma\_linear\_resampler}}
+\doxysubsubsection{\texorpdfstring{inAdvanceFrac}{inAdvanceFrac}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} in\+Advance\+Frac}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05049}{5049}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__linear__resampler_a3c7b264524d40dde899cc2de0b918d91}\label{structma__linear__resampler_a3c7b264524d40dde899cc2de0b918d91}} 
+\index{ma\_linear\_resampler@{ma\_linear\_resampler}!inAdvanceInt@{inAdvanceInt}}
+\index{inAdvanceInt@{inAdvanceInt}!ma\_linear\_resampler@{ma\_linear\_resampler}}
+\doxysubsubsection{\texorpdfstring{inAdvanceInt}{inAdvanceInt}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} in\+Advance\+Int}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05048}{5048}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__linear__resampler_ae6ce840270554db16377a5c0d004ee89}\label{structma__linear__resampler_ae6ce840270554db16377a5c0d004ee89}} 
+\index{ma\_linear\_resampler@{ma\_linear\_resampler}!inTimeFrac@{inTimeFrac}}
+\index{inTimeFrac@{inTimeFrac}!ma\_linear\_resampler@{ma\_linear\_resampler}}
+\doxysubsubsection{\texorpdfstring{inTimeFrac}{inTimeFrac}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} in\+Time\+Frac}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05051}{5051}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__linear__resampler_a16a1e1e99f0ce53a0f3ee1c19a43a2bc}\label{structma__linear__resampler_a16a1e1e99f0ce53a0f3ee1c19a43a2bc}} 
+\index{ma\_linear\_resampler@{ma\_linear\_resampler}!inTimeInt@{inTimeInt}}
+\index{inTimeInt@{inTimeInt}!ma\_linear\_resampler@{ma\_linear\_resampler}}
+\doxysubsubsection{\texorpdfstring{inTimeInt}{inTimeInt}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} in\+Time\+Int}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05050}{5050}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__linear__resampler_a5c9167f9c6b3e2bcac93b3235c4f694b}\label{structma__linear__resampler_a5c9167f9c6b3e2bcac93b3235c4f694b}} 
+\index{ma\_linear\_resampler@{ma\_linear\_resampler}!lpf@{lpf}}
+\index{lpf@{lpf}!ma\_linear\_resampler@{ma\_linear\_resampler}}
+\doxysubsubsection{\texorpdfstring{lpf}{lpf}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__lpf}{ma\+\_\+lpf}} lpf}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05062}{5062}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__linear__resampler_ab5f4bcaa1a9507750cea05b7b7c0c743}\label{structma__linear__resampler_ab5f4bcaa1a9507750cea05b7b7c0c743}} 
+\index{ma\_linear\_resampler@{ma\_linear\_resampler}!s16@{s16}}
+\index{s16@{s16}!ma\_linear\_resampler@{ma\_linear\_resampler}}
+\doxysubsubsection{\texorpdfstring{s16}{s16}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ae1364207a5e813f3b6ca0feae88baf35}{ma\+\_\+int16}}$\ast$ s16}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05055}{5055}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__linear__resampler_a8dc3a1fe8886d8806a56ffeafe2a01ae}\label{structma__linear__resampler_a8dc3a1fe8886d8806a56ffeafe2a01ae}} 
+\index{ma\_linear\_resampler@{ma\_linear\_resampler}!x0@{x0}}
+\index{x0@{x0}!ma\_linear\_resampler@{ma\_linear\_resampler}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily union  \{ ... \}  x0}
+
+\mbox{\Hypertarget{structma__linear__resampler_a2b7d434a301b979dea04af08ba2a6474}\label{structma__linear__resampler_a2b7d434a301b979dea04af08ba2a6474}} 
+\index{ma\_linear\_resampler@{ma\_linear\_resampler}!x1@{x1}}
+\index{x1@{x1}!ma\_linear\_resampler@{ma\_linear\_resampler}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily union  \{ ... \}  x1}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{miniaudio_8h}{miniaudio.\+h}}\end{DoxyCompactItemize}

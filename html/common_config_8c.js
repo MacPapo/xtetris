@@ -1,0 +1,25 @@
+var common_config_8c =
+[
+    [ "addPlayer", "common_config_8c.html#a78d7520cc29f3f00cb94777a5a73f900", null ],
+    [ "backPiece", "common_config_8c.html#a8b268da2f828639b422f64ffe2fba347", null ],
+    [ "calculateScoring", "common_config_8c.html#a88ae9c08b88d2172f44e00e96b24b4f7", null ],
+    [ "changePiece", "common_config_8c.html#a48388d8142c5ad56cf018e1bfa7a57ee", null ],
+    [ "checkDeleteRows", "common_config_8c.html#a9ddb536b3123afcec5dd51b5490b2d89", null ],
+    [ "checkGameOver", "common_config_8c.html#ad33e4cabe7aff25925be011efd60bb1f", null ],
+    [ "colorField", "common_config_8c.html#a09df2f7340b77a0035dc991b0bab6013", null ],
+    [ "fallingPiece", "common_config_8c.html#a36bb10fcd1e2c61d20ee66e7fe7f34db", null ],
+    [ "goDownTetramini", "common_config_8c.html#aa928c3ae83685eae2d3815a0f7e9acd4", null ],
+    [ "initGameMatrix", "common_config_8c.html#a9ccb7a89480072a6b702189d4ebb62f2", null ],
+    [ "initSecondPlayerWindow", "common_config_8c.html#a858366fc0378f84e1735d1074548dc60", null ],
+    [ "initTetVector", "common_config_8c.html#a4b6ec377465a3e1241e6e7af7a87e944", null ],
+    [ "initTopLine", "common_config_8c.html#aab597863a3c3617fe2f4fb18d63cc156", null ],
+    [ "nextPiece", "common_config_8c.html#a0f5439595e1db3d7abf710a68974bf8c", null ],
+    [ "refreshGameField", "common_config_8c.html#a9fbd54a7730f9b21bc053abe8be88eaa", null ],
+    [ "refreshPreview", "common_config_8c.html#abd1a8f24d564f65be9780801c13b6926", null ],
+    [ "resetPreview", "common_config_8c.html#abb2facf6ebf90cb9827e039cfd371d5e", null ],
+    [ "rotatingPiece", "common_config_8c.html#ab887cfe35ce8a6ff2b1b2e89cd406109", null ],
+    [ "smallerIntervall", "common_config_8c.html#a3811a7b537fec417dbc2bc1e8a81d91e", null ],
+    [ "cell", "common_config_8c.html#a64ba2bd62768463e7da1f113ddd74e90", null ],
+    [ "previewGamefield", "common_config_8c.html#a23d04796c24773e092aa265969dbf53b", null ],
+    [ "TETROMINOS", "common_config_8c.html#a101871d7ff6035c49c3d76c970cb6782", null ]
+];

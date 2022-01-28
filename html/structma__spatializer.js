@@ -1,0 +1,28 @@
+var structma__spatializer =
+[
+    [ "_ownsHeap", "structma__spatializer.html#a792eafdc28df87fb85e0260796c95bdc", null ],
+    [ "_pHeap", "structma__spatializer.html#a70e423a746fe79229a177931a9f1fb80", null ],
+    [ "attenuationModel", "structma__spatializer.html#ac7f928ad1433b19dbe12b63de41c3086", null ],
+    [ "channelsIn", "structma__spatializer.html#ac1badddef903127dbae4c3ec91f0334e", null ],
+    [ "channelsOut", "structma__spatializer.html#a748af983a82d9885a4cb45bbf7b7ef6f", null ],
+    [ "coneInnerAngleInRadians", "structma__spatializer.html#afb7c1c8c279dc27f1318ed993aedd0b2", null ],
+    [ "coneOuterAngleInRadians", "structma__spatializer.html#aa27c6f2abab6338b38c392a3c6b07fa6", null ],
+    [ "coneOuterGain", "structma__spatializer.html#ab1e6b0f4e4f5f0717f55481d36ec942d", null ],
+    [ "direction", "structma__spatializer.html#a09133925a6e1722326dd55a63a5a4e8d", null ],
+    [ "directionalAttenuationFactor", "structma__spatializer.html#a0a6c422ad649677c4dd6b3d1e25d40c1", null ],
+    [ "dopplerFactor", "structma__spatializer.html#ab11b237370284a81ec94078c1ceac07b", null ],
+    [ "dopplerPitch", "structma__spatializer.html#a1014c8a4b1e90b10ac63b77965694cdb", null ],
+    [ "gainer", "structma__spatializer.html#a7ba57b581b54debdad4184bf47327426", null ],
+    [ "gainSmoothTimeInFrames", "structma__spatializer.html#a6f00301538bd3e157d5e616d21504bf8", null ],
+    [ "handedness", "structma__spatializer.html#a6ed0be60d0698ac03b5f148be3ae01b8", null ],
+    [ "maxDistance", "structma__spatializer.html#af22920f041b5db58118ffb07b37e9a25", null ],
+    [ "maxGain", "structma__spatializer.html#a875166f440681bd98a8656b5672262c1", null ],
+    [ "minDistance", "structma__spatializer.html#a7bb20db4ed5573acd189559dc1b69b9d", null ],
+    [ "minGain", "structma__spatializer.html#a7fc28761273854c6b206bf6b3ffb1676", null ],
+    [ "pChannelMapIn", "structma__spatializer.html#aaed049cf0deaef2902068094c977cccc", null ],
+    [ "pNewChannelGainsOut", "structma__spatializer.html#adca0f5a07023c4beab1ea5ca10de07cb", null ],
+    [ "position", "structma__spatializer.html#a3d91e3b5985f0dceddae62497d4d3d8a", null ],
+    [ "positioning", "structma__spatializer.html#a7cd0aa0d3500cda23ade4daf9c6ebd7a", null ],
+    [ "rolloff", "structma__spatializer.html#a288ab4f685dcddaf123578cd579d3836", null ],
+    [ "velocity", "structma__spatializer.html#a72114e69b90616990ee8c05d1fc0a6de", null ]
+];

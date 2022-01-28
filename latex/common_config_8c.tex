@@ -1,0 +1,279 @@
+\hypertarget{common_config_8c}{}\doxysection{src/common\+Config.c File Reference}
+\label{common_config_8c}\index{src/commonConfig.c@{src/commonConfig.c}}
+{\ttfamily \#include \char`\"{}common\+Confing.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structplayer}{player}} \mbox{\hyperlink{common_config_8c_a78d7520cc29f3f00cb94777a5a73f900}{add\+Player}} ()
+\item 
+WINDOW $\ast$ \mbox{\hyperlink{common_config_8c_a858366fc0378f84e1735d1074548dc60}{init\+Second\+Player\+Window}} (WINDOW $\ast$pg\+Window)
+\item 
+void \mbox{\hyperlink{common_config_8c_a0f5439595e1db3d7abf710a68974bf8c}{next\+Piece}} (\mbox{\hyperlink{structtet}{tet}} $\ast$current\+\_\+piece, \mbox{\hyperlink{structtet}{tet}} $\ast$preview\+\_\+piece)
+\item 
+void \mbox{\hyperlink{common_config_8c_ab887cfe35ce8a6ff2b1b2e89cd406109}{rotating\+Piece}} (\mbox{\hyperlink{structtet}{tet}} $\ast$current\+\_\+piece)
+\item 
+void \mbox{\hyperlink{common_config_8c_a8b268da2f828639b422f64ffe2fba347}{back\+Piece}} (\mbox{\hyperlink{structtet}{tet}} $\ast$current\+\_\+piece, \mbox{\hyperlink{structtet}{tet}} $\ast$preview\+\_\+piece)
+\item 
+void \mbox{\hyperlink{common_config_8c_a48388d8142c5ad56cf018e1bfa7a57ee}{change\+Piece}} (WINDOW $\ast$score)
+\item 
+void \mbox{\hyperlink{common_config_8c_abd1a8f24d564f65be9780801c13b6926}{refresh\+Preview}} (WINDOW $\ast$preview, \mbox{\hyperlink{structtet}{tet}} $\ast$preview\+\_\+piece)
+\item 
+void \mbox{\hyperlink{common_config_8c_a9fbd54a7730f9b21bc053abe8be88eaa}{refresh\+Game\+Field}} (int $\ast$x, \mbox{\hyperlink{structtet}{tet}} $\ast$current\+\_\+piece, \mbox{\hyperlink{structplayer}{player}} $\ast$pg)
+\item 
+void \mbox{\hyperlink{common_config_8c_abb2facf6ebf90cb9827e039cfd371d5e}{reset\+Preview}} ()
+\item 
+void \mbox{\hyperlink{common_config_8c_aab597863a3c3617fe2f4fb18d63cc156}{init\+Top\+Line}} (WINDOW $\ast$field)
+\item 
+void \mbox{\hyperlink{common_config_8c_a09df2f7340b77a0035dc991b0bab6013}{color\+Field}} (\mbox{\hyperlink{structplayer}{player}} $\ast$pg)
+\item 
+void \mbox{\hyperlink{common_config_8c_a9ccb7a89480072a6b702189d4ebb62f2}{init\+Game\+Matrix}} (int game\+Field\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\+\_\+W}}\mbox{]})
+\item 
+void \mbox{\hyperlink{common_config_8c_a4b6ec377465a3e1241e6e7af7a87e944}{init\+Tet\+Vector}} (int $\ast$tet\+Pieces, int mod)
+\item 
+int \mbox{\hyperlink{common_config_8c_a88ae9c08b88d2172f44e00e96b24b4f7}{calculate\+Scoring}} (int rows)
+\item 
+void \mbox{\hyperlink{common_config_8c_a36bb10fcd1e2c61d20ee66e7fe7f34db}{falling\+Piece}} (\mbox{\hyperlink{structplayer}{player}} $\ast$pg)
+\item 
+int \mbox{\hyperlink{common_config_8c_a3811a7b537fec417dbc2bc1e8a81d91e}{smaller\+Intervall}} (int row, int col, int gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\+\_\+W}}\mbox{]})
+\item 
+int \mbox{\hyperlink{common_config_8c_a9ddb536b3123afcec5dd51b5490b2d89}{check\+Delete\+Rows}} (\mbox{\hyperlink{structplayer}{player}} $\ast$pg)
+\item 
+int \mbox{\hyperlink{common_config_8c_ad33e4cabe7aff25925be011efd60bb1f}{check\+Game\+Over}} (int gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\+\_\+W}}\mbox{]})
+\item 
+void \mbox{\hyperlink{common_config_8c_aa928c3ae83685eae2d3815a0f7e9acd4}{go\+Down\+Tetramini}} (int row, int gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\+\_\+W}}\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{common_config_8c_a23d04796c24773e092aa265969dbf53b}{preview\+Gamefield}} \mbox{[}\mbox{\hyperlink{common_confing_8h_a5b62c41f0c74994ce6ad7e0bed98cc51}{MATRIX\+\_\+H}}\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\+\_\+W}}\mbox{]}
+\item 
+\mbox{\hyperlink{structtet__location}{tet\+\_\+location}} \mbox{\hyperlink{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}{cell}} = \{0,0\}
+\item 
+\mbox{\hyperlink{structtet__location}{tet\+\_\+location}} \mbox{\hyperlink{common_config_8c_a101871d7ff6035c49c3d76c970cb6782}{TETROMINOS}} \mbox{[}\mbox{\hyperlink{common_confing_8h_ab1d32e9d1a0ac2fbb2ffc64907be5e60}{T\+\_\+\+NUM}}\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a6c1fc62a3cde1842bf3e691e9d20212a}{T\+\_\+\+ORI}}\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a41639d235a654d6539161a23b5ab14d1}{T\+\_\+\+CELL}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{common_config_8c_a78d7520cc29f3f00cb94777a5a73f900}\label{common_config_8c_a78d7520cc29f3f00cb94777a5a73f900}} 
+\index{commonConfig.c@{commonConfig.c}!addPlayer@{addPlayer}}
+\index{addPlayer@{addPlayer}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{addPlayer()}{addPlayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structplayer}{player}} add\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00047}{47}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_a8b268da2f828639b422f64ffe2fba347}\label{common_config_8c_a8b268da2f828639b422f64ffe2fba347}} 
+\index{commonConfig.c@{commonConfig.c}!backPiece@{backPiece}}
+\index{backPiece@{backPiece}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{backPiece()}{backPiece()}}
+{\footnotesize\ttfamily void back\+Piece (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtet}{tet}} $\ast$}]{current\+\_\+piece,  }\item[{\mbox{\hyperlink{structtet}{tet}} $\ast$}]{preview\+\_\+piece }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00088}{88}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_a88ae9c08b88d2172f44e00e96b24b4f7}\label{common_config_8c_a88ae9c08b88d2172f44e00e96b24b4f7}} 
+\index{commonConfig.c@{commonConfig.c}!calculateScoring@{calculateScoring}}
+\index{calculateScoring@{calculateScoring}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{calculateScoring()}{calculateScoring()}}
+{\footnotesize\ttfamily int calculate\+Scoring (\begin{DoxyParamCaption}\item[{int}]{rows }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00234}{234}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_a48388d8142c5ad56cf018e1bfa7a57ee}\label{common_config_8c_a48388d8142c5ad56cf018e1bfa7a57ee}} 
+\index{commonConfig.c@{commonConfig.c}!changePiece@{changePiece}}
+\index{changePiece@{changePiece}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{changePiece()}{changePiece()}}
+{\footnotesize\ttfamily void change\+Piece (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{score }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00100}{100}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_a9ddb536b3123afcec5dd51b5490b2d89}\label{common_config_8c_a9ddb536b3123afcec5dd51b5490b2d89}} 
+\index{commonConfig.c@{commonConfig.c}!checkDeleteRows@{checkDeleteRows}}
+\index{checkDeleteRows@{checkDeleteRows}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{checkDeleteRows()}{checkDeleteRows()}}
+{\footnotesize\ttfamily int check\+Delete\+Rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{pg }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00292}{292}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_ad33e4cabe7aff25925be011efd60bb1f}\label{common_config_8c_ad33e4cabe7aff25925be011efd60bb1f}} 
+\index{commonConfig.c@{commonConfig.c}!checkGameOver@{checkGameOver}}
+\index{checkGameOver@{checkGameOver}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{checkGameOver()}{checkGameOver()}}
+{\footnotesize\ttfamily int check\+Game\+Over (\begin{DoxyParamCaption}\item[{int}]{gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\+MATRIX\+\_\+\+W\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00326}{326}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_a09df2f7340b77a0035dc991b0bab6013}\label{common_config_8c_a09df2f7340b77a0035dc991b0bab6013}} 
+\index{commonConfig.c@{commonConfig.c}!colorField@{colorField}}
+\index{colorField@{colorField}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{colorField()}{colorField()}}
+{\footnotesize\ttfamily void color\+Field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{pg }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00186}{186}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_a36bb10fcd1e2c61d20ee66e7fe7f34db}\label{common_config_8c_a36bb10fcd1e2c61d20ee66e7fe7f34db}} 
+\index{commonConfig.c@{commonConfig.c}!fallingPiece@{fallingPiece}}
+\index{fallingPiece@{fallingPiece}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{fallingPiece()}{fallingPiece()}}
+{\footnotesize\ttfamily void falling\+Piece (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{pg }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00244}{244}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_aa928c3ae83685eae2d3815a0f7e9acd4}\label{common_config_8c_aa928c3ae83685eae2d3815a0f7e9acd4}} 
+\index{commonConfig.c@{commonConfig.c}!goDownTetramini@{goDownTetramini}}
+\index{goDownTetramini@{goDownTetramini}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{goDownTetramini()}{goDownTetramini()}}
+{\footnotesize\ttfamily void go\+Down\+Tetramini (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\+MATRIX\+\_\+\+W\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00337}{337}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_a9ccb7a89480072a6b702189d4ebb62f2}\label{common_config_8c_a9ccb7a89480072a6b702189d4ebb62f2}} 
+\index{commonConfig.c@{commonConfig.c}!initGameMatrix@{initGameMatrix}}
+\index{initGameMatrix@{initGameMatrix}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{initGameMatrix()}{initGameMatrix()}}
+{\footnotesize\ttfamily void init\+Game\+Matrix (\begin{DoxyParamCaption}\item[{int}]{game\+Field\mbox{[}$\,$\mbox{]}\mbox{[}\+MATRIX\+\_\+\+W\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00206}{206}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_a858366fc0378f84e1735d1074548dc60}\label{common_config_8c_a858366fc0378f84e1735d1074548dc60}} 
+\index{commonConfig.c@{commonConfig.c}!initSecondPlayerWindow@{initSecondPlayerWindow}}
+\index{initSecondPlayerWindow@{initSecondPlayerWindow}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{initSecondPlayerWindow()}{initSecondPlayerWindow()}}
+{\footnotesize\ttfamily WINDOW $\ast$ init\+Second\+Player\+Window (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{pg\+Window }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00054}{54}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_a4b6ec377465a3e1241e6e7af7a87e944}\label{common_config_8c_a4b6ec377465a3e1241e6e7af7a87e944}} 
+\index{commonConfig.c@{commonConfig.c}!initTetVector@{initTetVector}}
+\index{initTetVector@{initTetVector}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{initTetVector()}{initTetVector()}}
+{\footnotesize\ttfamily void init\+Tet\+Vector (\begin{DoxyParamCaption}\item[{int $\ast$}]{tet\+Pieces,  }\item[{int}]{mod }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00218}{218}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_aab597863a3c3617fe2f4fb18d63cc156}\label{common_config_8c_aab597863a3c3617fe2f4fb18d63cc156}} 
+\index{commonConfig.c@{commonConfig.c}!initTopLine@{initTopLine}}
+\index{initTopLine@{initTopLine}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{initTopLine()}{initTopLine()}}
+{\footnotesize\ttfamily void init\+Top\+Line (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{field }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00174}{174}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_a0f5439595e1db3d7abf710a68974bf8c}\label{common_config_8c_a0f5439595e1db3d7abf710a68974bf8c}} 
+\index{commonConfig.c@{commonConfig.c}!nextPiece@{nextPiece}}
+\index{nextPiece@{nextPiece}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{nextPiece()}{nextPiece()}}
+{\footnotesize\ttfamily void next\+Piece (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtet}{tet}} $\ast$}]{current\+\_\+piece,  }\item[{\mbox{\hyperlink{structtet}{tet}} $\ast$}]{preview\+\_\+piece }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00065}{65}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_a9fbd54a7730f9b21bc053abe8be88eaa}\label{common_config_8c_a9fbd54a7730f9b21bc053abe8be88eaa}} 
+\index{commonConfig.c@{commonConfig.c}!refreshGameField@{refreshGameField}}
+\index{refreshGameField@{refreshGameField}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{refreshGameField()}{refreshGameField()}}
+{\footnotesize\ttfamily void refresh\+Game\+Field (\begin{DoxyParamCaption}\item[{int $\ast$}]{x,  }\item[{\mbox{\hyperlink{structtet}{tet}} $\ast$}]{current\+\_\+piece,  }\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{pg }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00124}{124}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_abd1a8f24d564f65be9780801c13b6926}\label{common_config_8c_abd1a8f24d564f65be9780801c13b6926}} 
+\index{commonConfig.c@{commonConfig.c}!refreshPreview@{refreshPreview}}
+\index{refreshPreview@{refreshPreview}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{refreshPreview()}{refreshPreview()}}
+{\footnotesize\ttfamily void refresh\+Preview (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{preview,  }\item[{\mbox{\hyperlink{structtet}{tet}} $\ast$}]{preview\+\_\+piece }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00106}{106}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_abb2facf6ebf90cb9827e039cfd371d5e}\label{common_config_8c_abb2facf6ebf90cb9827e039cfd371d5e}} 
+\index{commonConfig.c@{commonConfig.c}!resetPreview@{resetPreview}}
+\index{resetPreview@{resetPreview}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{resetPreview()}{resetPreview()}}
+{\footnotesize\ttfamily void reset\+Preview (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00159}{159}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_ab887cfe35ce8a6ff2b1b2e89cd406109}\label{common_config_8c_ab887cfe35ce8a6ff2b1b2e89cd406109}} 
+\index{commonConfig.c@{commonConfig.c}!rotatingPiece@{rotatingPiece}}
+\index{rotatingPiece@{rotatingPiece}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{rotatingPiece()}{rotatingPiece()}}
+{\footnotesize\ttfamily void rotating\+Piece (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtet}{tet}} $\ast$}]{current\+\_\+piece }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00080}{80}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_a3811a7b537fec417dbc2bc1e8a81d91e}\label{common_config_8c_a3811a7b537fec417dbc2bc1e8a81d91e}} 
+\index{commonConfig.c@{commonConfig.c}!smallerIntervall@{smallerIntervall}}
+\index{smallerIntervall@{smallerIntervall}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{smallerIntervall()}{smallerIntervall()}}
+{\footnotesize\ttfamily int smaller\+Intervall (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{int}]{gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\+MATRIX\+\_\+\+W\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00275}{275}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}\label{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}} 
+\index{commonConfig.c@{commonConfig.c}!cell@{cell}}
+\index{cell@{cell}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{cell}{cell}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtet__location}{tet\+\_\+location}} cell = \{0,0\}}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00006}{6}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_a23d04796c24773e092aa265969dbf53b}\label{common_config_8c_a23d04796c24773e092aa265969dbf53b}} 
+\index{commonConfig.c@{commonConfig.c}!previewGamefield@{previewGamefield}}
+\index{previewGamefield@{previewGamefield}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{previewGamefield}{previewGamefield}}
+{\footnotesize\ttfamily int preview\+Gamefield\mbox{[}\mbox{\hyperlink{common_confing_8h_a5b62c41f0c74994ce6ad7e0bed98cc51}{MATRIX\+\_\+H}}\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\+\_\+W}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00003}{3}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+
+\mbox{\Hypertarget{common_config_8c_a101871d7ff6035c49c3d76c970cb6782}\label{common_config_8c_a101871d7ff6035c49c3d76c970cb6782}} 
+\index{commonConfig.c@{commonConfig.c}!TETROMINOS@{TETROMINOS}}
+\index{TETROMINOS@{TETROMINOS}!commonConfig.c@{commonConfig.c}}
+\doxysubsubsection{\texorpdfstring{TETROMINOS}{TETROMINOS}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtet__location}{tet\+\_\+location}} TETROMINOS\mbox{[}\mbox{\hyperlink{common_confing_8h_ab1d32e9d1a0ac2fbb2ffc64907be5e60}{T\+\_\+\+NUM}}\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a6c1fc62a3cde1842bf3e691e9d20212a}{T\+\_\+\+ORI}}\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a41639d235a654d6539161a23b5ab14d1}{T\+\_\+\+CELL}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{common_config_8c_source_l00008}{8}} of file \mbox{\hyperlink{common_config_8c_source}{common\+Config.\+c}}.
+

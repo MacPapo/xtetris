@@ -1,0 +1,133 @@
+\hypertarget{main_8c_source}{}\doxysection{main.\+c}
+\label{main_8c_source}\index{src/main.c@{src/main.c}}
+\mbox{\hyperlink{main_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{menu_8h}{menu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{common_confing_8h}{commonConfing.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00018}\mbox{\hyperlink{main_8c_abf77f70dc931f91a9f09e7b54d8278f5}{00018}} \textcolor{preprocessor}{\#define MINIAUDIO\_IMPLEMENTATION}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00019}00019 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{miniaudio_8h}{miniaudio.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00021}00021 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{single_player_8h}{singlePlayer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00022}00022 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{multi_player_8h}{multiPlayer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00023}00023 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{cpu_8h}{cpu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00025}00025 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{colors_8h}{colors.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00026}00026 \textcolor{preprocessor}{\#include <ncurses.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00036}\mbox{\hyperlink{main_8c_ab6ea2b08ab9f6115bb4fff1dc260a32a}{00036}} \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8c_ab6ea2b08ab9f6115bb4fff1dc260a32a}{data\_callback}}(\mbox{\hyperlink{structma__device}{ma\_device}}* pDevice, \textcolor{keywordtype}{void}* pOutput, \textcolor{keyword}{const} \textcolor{keywordtype}{void}* pInput, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\_uint32}} frameCount)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00037}00037 \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00038}00038     \mbox{\hyperlink{structma__decoder}{ma\_decoder}}* pDecoder = (\mbox{\hyperlink{structma__decoder}{ma\_decoder}}*)pDevice-\/>\mbox{\hyperlink{structma__device_a8d75dbe9027a94780bc2f31670400613}{pUserData}};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00039}00039     if (pDecoder == \mbox{\hyperlink{miniaudio_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}) \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00040}00040         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00041}00041     \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00043}00043     \textcolor{comment}{/* Reading PCM frames will loop based on what we specified when called ma\_data\_source\_set\_looping(). */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00044}00044     \mbox{\hyperlink{miniaudio_8h_a7fa9fe8571b6e9dfeb653c813dc90d9a}{ma\_data\_source\_read\_pcm\_frames}}(pDecoder, pOutput, frameCount, \mbox{\hyperlink{miniaudio_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00046}00046     (void)pInput;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00047}00047 \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00049}\mbox{\hyperlink{main_8c_a01217afeb444c30523e252def5f9ef0f}{00049}} \textcolor{keywordtype}{void} \mbox{\hyperlink{main_8c_a01217afeb444c30523e252def5f9ef0f}{paintExit}}()}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00050}00050 \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00051}00051     clear();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00052}00052     raw();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00053}00053     WINDOW *w\_byby;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00055}00055     \textcolor{keywordtype}{int} starty, startx;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00057}00057     starty = (LINES -\/ \mbox{\hyperlink{menu_8h_aad9137dd91e46c15c175e73690f84cd9}{BYBY\_H}}) / 2;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00058}00058     startx = (COLS  -\/ \mbox{\hyperlink{menu_8h_addaa49a16df94a3af7f6566b13ed2ff6}{BYBY\_W}}) / 2;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00059}00059     w\_byby = newwin(\mbox{\hyperlink{menu_8h_aad9137dd91e46c15c175e73690f84cd9}{BYBY\_H}}, \mbox{\hyperlink{menu_8h_addaa49a16df94a3af7f6566b13ed2ff6}{BYBY\_W}}, starty, startx);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00060}00060     box(w\_byby, \mbox{\hyperlink{menu_8h_acd52b954e74b0dc5efcb33387f726aa7}{BOX\_BYBY\_VE}}, \mbox{\hyperlink{menu_8h_a732466c056b72e24cea650fa69dc3e95}{BOX\_BYBY\_HO}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00061}00061     wbkgd(w\_byby, COLOR\_PAIR(2));}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00062}00062     mvwprintw(w\_byby, 0, 14, \textcolor{stringliteral}{"{}+ BYBY SEE YOU NEXT TIME +"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00063}00063     mvwprintw(w\_byby, 2, 3, \textcolor{stringliteral}{"{}Hope you enjoied this simple game..."{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00064}00064     mvwprintw(w\_byby, 4, 3, \textcolor{stringliteral}{"{}See you next time bro, have a nice day/night."{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00065}00065     wattrset(w\_byby, A\_REVERSE);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00066}00066     mvwprintw(w\_byby, 6, 15, \textcolor{stringliteral}{"{}PRESS ANY KEY TO EXIT..."{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00067}00067     wattroff(w\_byby, A\_REVERSE);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00068}00068     mvwprintw(w\_byby, 8, 5, \textcolor{stringliteral}{"{}+ By: @MacPapo @Blast291 @mastrodeimastri +"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00069}00069     refresh();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00070}00070     wrefresh(w\_byby);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00071}00071     getch();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00072}00072 \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00074}\mbox{\hyperlink{main_8c_a3c04138a5bfe5d72780bb7e82a18e627}{00074}} \textcolor{keywordtype}{int} \mbox{\hyperlink{main_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}** argv)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00075}00075 \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00076}00076     \textcolor{keywordtype}{int} mod = 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00078}00078     \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\_result}} result;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00079}00079     \mbox{\hyperlink{structma__decoder}{ma\_decoder}} decoder;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00080}00080     \mbox{\hyperlink{structma__device__config}{ma\_device\_config}} deviceConfig;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00081}00081     \mbox{\hyperlink{structma__device}{ma\_device}} device;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00083}00083     \textcolor{keywordflow}{if} (argc < 2) \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00084}00084         printf(\textcolor{stringliteral}{"{}No input file.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00085}00085         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00086}00086     \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00088}00088     result = \mbox{\hyperlink{miniaudio_8h_ac4f2ec7105ed416c05b4aeddaa68bca9}{ma\_decoder\_init\_file}}(argv[1], \mbox{\hyperlink{miniaudio_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}, \&decoder);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00089}00089     \textcolor{keywordflow}{if} (result != \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881afeff7bb1f14edcb913686c22017bcc0d}{MA\_SUCCESS}}) \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00090}00090         \textcolor{keywordflow}{return} -\/2;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00091}00091     \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00093}00093     \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00094}00094 \textcolor{comment}{    A decoder is a data source which means we just use ma\_data\_source\_set\_looping() to set the}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00095}00095 \textcolor{comment}{    looping state. We will read data using ma\_data\_source\_read\_pcm\_frames() in the data callback.}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00096}00096 \textcolor{comment}{    */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00097}00097     \mbox{\hyperlink{miniaudio_8h_a7f920aa7d554629bf8b77758739e6db4}{ma\_data\_source\_set\_looping}}(\&decoder, \mbox{\hyperlink{miniaudio_8h_a85706a0ea744986f43ac5ac197217ac3}{MA\_TRUE}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00099}00099     deviceConfig = \mbox{\hyperlink{miniaudio_8h_a6fcc231b4f9d0e58b9d38625054c5aa7}{ma\_device\_config\_init}}(\mbox{\hyperlink{miniaudio_8h_a47643cf7ad53bfbc605a23a5a9545cc1a80e7ad29829e58d4f1f3fd14a16137d1}{ma\_device\_type\_playback}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00100}00100     deviceConfig.\mbox{\hyperlink{structma__device__config_a9c537389f9b6a8fa745c9dd69783eb30}{playback}}.\mbox{\hyperlink{structma__device__config_a338f168041c6edcac29f22f061edc7f2}{format}}   = decoder.\mbox{\hyperlink{structma__decoder_a631ef9a580ee0597b1c219d99d32b399}{outputFormat}};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00101}00101     deviceConfig.\mbox{\hyperlink{structma__device__config_a9c537389f9b6a8fa745c9dd69783eb30}{playback}}.\mbox{\hyperlink{structma__device__config_a891061dccaeca55cfb4bc63614be3dbd}{channels}} = decoder.\mbox{\hyperlink{structma__decoder_a78b909b52686d48af3639ef35f8a421c}{outputChannels}};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00102}00102     deviceConfig.\mbox{\hyperlink{structma__device__config_a2252f74eeddbbd02e25a803473c477be}{sampleRate}}        = decoder.\mbox{\hyperlink{structma__decoder_a8f9b6e4f5d0fdc900209d01a1ca05677}{outputSampleRate}};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00103}00103     deviceConfig.\mbox{\hyperlink{structma__device__config_ad2e210d1db46866220cadbad1d728e56}{dataCallback}}      = \mbox{\hyperlink{main_8c_ab6ea2b08ab9f6115bb4fff1dc260a32a}{data\_callback}};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00104}00104     deviceConfig.\mbox{\hyperlink{structma__device__config_a8d75dbe9027a94780bc2f31670400613}{pUserData}}         = \&decoder;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00106}00106     \textcolor{keywordflow}{if} (\mbox{\hyperlink{miniaudio_8h_ab0847aff087d60776b827c180bdebeae}{ma\_device\_init}}(\mbox{\hyperlink{miniaudio_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}, \&deviceConfig, \&device) != \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881afeff7bb1f14edcb913686c22017bcc0d}{MA\_SUCCESS}}) \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00107}00107         printf(\textcolor{stringliteral}{"{}Failed to open playback device.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00108}00108         \mbox{\hyperlink{miniaudio_8h_a89c7b38a74a98bb4fde39c1a59cdbdcf}{ma\_decoder\_uninit}}(\&decoder);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00109}00109         \textcolor{keywordflow}{return} -\/3;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00110}00110     \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00112}00112     \textcolor{keywordflow}{if} (\mbox{\hyperlink{miniaudio_8h_ab93d08ca3c06cd496c92a8fca2c74410}{ma\_device\_start}}(\&device) != \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881afeff7bb1f14edcb913686c22017bcc0d}{MA\_SUCCESS}}) \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00113}00113         printf(\textcolor{stringliteral}{"{}Failed to start playback device.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00114}00114         \mbox{\hyperlink{miniaudio_8h_a0896c210d8ced92ad9bdf1733f630019}{ma\_device\_uninit}}(\&device);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00115}00115         \mbox{\hyperlink{miniaudio_8h_a89c7b38a74a98bb4fde39c1a59cdbdcf}{ma\_decoder\_uninit}}(\&decoder);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00116}00116         \textcolor{keywordflow}{return} -\/4;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00117}00117     \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00118}00118 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00120}00120     \textcolor{comment}{/* Initialize the memory with ncurses session \& start colors */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00121}00121 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00128}00128     initscr();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00136}00136     \mbox{\hyperlink{colors_8c_a69c5986a7ad1f3c1d94cd2038c556eea}{initializeColors}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00137}00137 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00138}00138     \textcolor{keywordflow}{do}  }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00139}00139     \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00140}00140         mod = \mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}(); }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00141}00141         \textcolor{keywordflow}{if}(mod == 0)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00142}00142             \mbox{\hyperlink{single_player_8c_af6255b703a46e4cedbe0787676b9a5b3}{singlePlayer}}();     }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00143}00143         \textcolor{keywordflow}{if}(mod == 1)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00144}00144             \mbox{\hyperlink{multi_player_8c_a4a9d94f393ef94c6f5f2d8082fd44e51}{multiPlayer}}();      }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00145}00145         \textcolor{keywordflow}{if}(mod == 2)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00146}00146             \mbox{\hyperlink{cpu_8c_a50720044ceef58f2b2c406f3f3cd60ae}{CPU}}();              }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00147}00147     \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00148}00148     \textcolor{keywordflow}{while} (mod != 4);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00149}00149     \mbox{\hyperlink{main_8c_a01217afeb444c30523e252def5f9ef0f}{paintExit}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00150}00150     \textcolor{comment}{/* Deallocates memory and ends ncurses */}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00157}00157     refresh();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00164}00164     endwin();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00165}00165 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00173}00173     \mbox{\hyperlink{miniaudio_8h_a0896c210d8ced92ad9bdf1733f630019}{ma\_device\_uninit}}(\&device);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00174}00174 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00182}00182     \mbox{\hyperlink{miniaudio_8h_a89c7b38a74a98bb4fde39c1a59cdbdcf}{ma\_decoder\_uninit}}(\&decoder);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00183}00183 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00184}00184     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00185}00185 \}}
+
+\end{DoxyCode}
