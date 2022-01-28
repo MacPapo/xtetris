@@ -522,7 +522,7 @@ void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* 
         refreshPreview(s_preview, &preview_piece);
         refreshGameField(&position_x, piece, pg1);
         
-    } while (pieces > 0 && !quit);
+    } while (pieces&& !quit);
 
     return ;
 }
