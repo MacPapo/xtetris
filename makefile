@@ -1,5 +1,5 @@
 # Declaring the compiler preferences
-CC=clang
+CC=gcc
 
 # Declaring the compiler flags
 CFLAGS=-g -Wall -Wextra
@@ -20,14 +20,6 @@ BIN=$(BINDIR)/xtetris
 SRCS=$(wildcard $(SRC)/*.c)
 OBJS=$(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(SRCS))
 HDRS=$(wildcard $(SRC)/*.h)
-
-# Declaring the test directories spot
-TEST=tests
-
-# Declaring the pattern that the make file has
-# to follow to retrive the correct test files
-TESTS=$(wildcard $(TEST)/*.c)
-TESTBINS=$(patsubst $(TEST)/*.c, $(TEST)/bin/%.o, $(TESTS))
 
 # Default make command that compile everything
 all: setup $(BIN)
@@ -57,17 +49,6 @@ $(BINDIR):
 
 $(OBJ):
 	$(MKDIR_P) $@
-
-$(TEST)/bin:
-	$(MKDIR_P) $@
-
-# rules for compiling test files
-$(TEST)/bin/%: $(TEST)/%.c
-	$(CC) $(CFLAGS) $< $(OBJS) -o $@ -lncurses
-
-# make test command for test only
-test: $(TEST)/bin $(TESTBINS)
-	for test in $(TESTBINS) ; do ./$$test ; done
 
 # make clean command for delete all the compiled files
 clean:
