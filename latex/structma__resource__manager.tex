@@ -1,0 +1,108 @@
+\hypertarget{structma__resource__manager}{}\doxysection{ma\+\_\+resource\+\_\+manager Struct Reference}
+\label{structma__resource__manager}\index{ma\_resource\_manager@{ma\_resource\_manager}}
+
+
+{\ttfamily \#include $<$miniaudio.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structma__resource__manager__config}{ma\+\_\+resource\+\_\+manager\+\_\+config}} \mbox{\hyperlink{structma__resource__manager_a04994ea0e9a9b2ed1cc901eea7837faf}{config}}
+\item 
+\mbox{\hyperlink{structma__resource__manager__data__buffer__node}{ma\+\_\+resource\+\_\+manager\+\_\+data\+\_\+buffer\+\_\+node}} $\ast$ \mbox{\hyperlink{structma__resource__manager_a55076a6a342c80e53dac9a47011595da}{p\+Root\+Data\+Buffer\+Node}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_abb2f3d8515b07902318e39956c1bcdcb}{ma\+\_\+mutex}} \mbox{\hyperlink{structma__resource__manager_a27d67760d186a001ce6f792482be72ba}{data\+Buffer\+BSTLock}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_abebab380593238dca3c9a9298cba8690}{ma\+\_\+thread}} \mbox{\hyperlink{structma__resource__manager_ad0ae92188068d7c5e378b5bffd91186c}{job\+Threads}} \mbox{[}\mbox{\hyperlink{miniaudio_8h_adfb4de7467527130ab4962ca232c6a7f}{MA\+\_\+\+RESOURCE\+\_\+\+MANAGER\+\_\+\+MAX\+\_\+\+JOB\+\_\+\+THREAD\+\_\+\+COUNT}}\mbox{]}
+\item 
+\mbox{\hyperlink{structma__job__queue}{ma\+\_\+job\+\_\+queue}} \mbox{\hyperlink{structma__resource__manager_ae5b92c98ef7a1b1848c9dde409a6c236}{job\+Queue}}
+\item 
+\mbox{\hyperlink{structma__default__vfs}{ma\+\_\+default\+\_\+vfs}} \mbox{\hyperlink{structma__resource__manager_ab0138ccdc53ded9824b914b676045638}{default\+VFS}}
+\item 
+\mbox{\hyperlink{structma__log}{ma\+\_\+log}} \mbox{\hyperlink{structma__resource__manager_af0e44b9faead1ab1cbe5dc09bb4a5e80}{log}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10078}{10078}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structma__resource__manager_a04994ea0e9a9b2ed1cc901eea7837faf}\label{structma__resource__manager_a04994ea0e9a9b2ed1cc901eea7837faf}} 
+\index{ma\_resource\_manager@{ma\_resource\_manager}!config@{config}}
+\index{config@{config}!ma\_resource\_manager@{ma\_resource\_manager}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__resource__manager__config}{ma\+\_\+resource\+\_\+manager\+\_\+config}} config}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10080}{10080}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resource__manager_a27d67760d186a001ce6f792482be72ba}\label{structma__resource__manager_a27d67760d186a001ce6f792482be72ba}} 
+\index{ma\_resource\_manager@{ma\_resource\_manager}!dataBufferBSTLock@{dataBufferBSTLock}}
+\index{dataBufferBSTLock@{dataBufferBSTLock}!ma\_resource\_manager@{ma\_resource\_manager}}
+\doxysubsubsection{\texorpdfstring{dataBufferBSTLock}{dataBufferBSTLock}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_abb2f3d8515b07902318e39956c1bcdcb}{ma\+\_\+mutex}} data\+Buffer\+BSTLock}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10083}{10083}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resource__manager_ab0138ccdc53ded9824b914b676045638}\label{structma__resource__manager_ab0138ccdc53ded9824b914b676045638}} 
+\index{ma\_resource\_manager@{ma\_resource\_manager}!defaultVFS@{defaultVFS}}
+\index{defaultVFS@{defaultVFS}!ma\_resource\_manager@{ma\_resource\_manager}}
+\doxysubsubsection{\texorpdfstring{defaultVFS}{defaultVFS}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__default__vfs}{ma\+\_\+default\+\_\+vfs}} default\+VFS}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10087}{10087}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resource__manager_ae5b92c98ef7a1b1848c9dde409a6c236}\label{structma__resource__manager_ae5b92c98ef7a1b1848c9dde409a6c236}} 
+\index{ma\_resource\_manager@{ma\_resource\_manager}!jobQueue@{jobQueue}}
+\index{jobQueue@{jobQueue}!ma\_resource\_manager@{ma\_resource\_manager}}
+\doxysubsubsection{\texorpdfstring{jobQueue}{jobQueue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__job__queue}{ma\+\_\+job\+\_\+queue}} job\+Queue}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10086}{10086}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resource__manager_ad0ae92188068d7c5e378b5bffd91186c}\label{structma__resource__manager_ad0ae92188068d7c5e378b5bffd91186c}} 
+\index{ma\_resource\_manager@{ma\_resource\_manager}!jobThreads@{jobThreads}}
+\index{jobThreads@{jobThreads}!ma\_resource\_manager@{ma\_resource\_manager}}
+\doxysubsubsection{\texorpdfstring{jobThreads}{jobThreads}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_abebab380593238dca3c9a9298cba8690}{ma\+\_\+thread}} job\+Threads\mbox{[}\mbox{\hyperlink{miniaudio_8h_adfb4de7467527130ab4962ca232c6a7f}{MA\+\_\+\+RESOURCE\+\_\+\+MANAGER\+\_\+\+MAX\+\_\+\+JOB\+\_\+\+THREAD\+\_\+\+COUNT}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10084}{10084}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resource__manager_af0e44b9faead1ab1cbe5dc09bb4a5e80}\label{structma__resource__manager_af0e44b9faead1ab1cbe5dc09bb4a5e80}} 
+\index{ma\_resource\_manager@{ma\_resource\_manager}!log@{log}}
+\index{log@{log}!ma\_resource\_manager@{ma\_resource\_manager}}
+\doxysubsubsection{\texorpdfstring{log}{log}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__log}{ma\+\_\+log}} log}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10088}{10088}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resource__manager_a55076a6a342c80e53dac9a47011595da}\label{structma__resource__manager_a55076a6a342c80e53dac9a47011595da}} 
+\index{ma\_resource\_manager@{ma\_resource\_manager}!pRootDataBufferNode@{pRootDataBufferNode}}
+\index{pRootDataBufferNode@{pRootDataBufferNode}!ma\_resource\_manager@{ma\_resource\_manager}}
+\doxysubsubsection{\texorpdfstring{pRootDataBufferNode}{pRootDataBufferNode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__resource__manager__data__buffer__node}{ma\+\_\+resource\+\_\+manager\+\_\+data\+\_\+buffer\+\_\+node}}$\ast$ p\+Root\+Data\+Buffer\+Node}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10081}{10081}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{miniaudio_8h}{miniaudio.\+h}}\end{DoxyCompactItemize}

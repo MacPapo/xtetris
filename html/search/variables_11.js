@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['rangebeginframes_0',['rangeBegInFrames',['../structma__data__source__base.html#adaa040122f5c7bf0bfd70a8f7812bf20',1,'ma_data_source_base']]],
+  ['rangebeginpcmframes_1',['rangeBegInPCMFrames',['../structma__resource__manager__data__source__config.html#a6793c290b71c748dc7aa18a95a0665da',1,'ma_resource_manager_data_source_config::rangeBegInPCMFrames()'],['../structma__sound__config.html#a6793c290b71c748dc7aa18a95a0665da',1,'ma_sound_config::rangeBegInPCMFrames()']]],
+  ['rangeendinframes_2',['rangeEndInFrames',['../structma__data__source__base.html#a0f2b96eef8aada8f533a0f8d7226c143',1,'ma_data_source_base']]],
+  ['rangeendinpcmframes_3',['rangeEndInPCMFrames',['../structma__resource__manager__data__source__config.html#a50f811a78bf6b9de01495c0f3bc0938c',1,'ma_resource_manager_data_source_config::rangeEndInPCMFrames()'],['../structma__sound__config.html#a50f811a78bf6b9de01495c0f3bc0938c',1,'ma_sound_config::rangeEndInPCMFrames()']]],
+  ['rb_4',['rb',['../structma__pcm__rb.html#a010c0d3b61f6eff6baca4141a994a718',1,'ma_pcm_rb::rb()'],['../structma__duplex__rb.html#ad4a189aad11139e2b134bb8b94740986',1,'ma_duplex_rb::rb()']]],
+  ['readpointerinpcmframes_5',['readPointerInPCMFrames',['../structma__decoder.html#af95bcf7fc271d51725dccf3d61c2663f',1,'ma_decoder']]],
+  ['recordingpreset_6',['recordingPreset',['../structma__device__config.html#ab6fe77b1ef4bc3b209c61083929905ca',1,'ma_device_config']]],
+  ['ref_7',['ref',['../structma__audio__buffer.html#a24fe3d6cdaf0218a71318edf93b2252e',1,'ma_audio_buffer']]],
+  ['refcount_8',['refcount',['../structma__job.html#aed4128d28a727c1e6d62c322fe82f16b',1,'ma_job']]],
+  ['refcount_9',['refCount',['../structma__resource__manager__data__buffer__node.html#ab488fb9d8d2cb79b7fe0a90711b360ae',1,'ma_resource_manager_data_buffer_node']]],
+  ['relativecursor_10',['relativeCursor',['../structma__paged__audio__buffer.html#a3bd4c8cac6ab43b31eddda8b51ec8d43',1,'ma_paged_audio_buffer::relativeCursor()'],['../structma__resource__manager__data__stream.html#a59c584c1d9d9f8aac0b9929874f3d64b',1,'ma_resource_manager_data_stream::relativeCursor()']]],
+  ['releaseaudioclient_11',['releaseAudioClient',['../structma__context__command____wasapi.html#adae29c7f527bccc672ec851f3024e7e6',1,'ma_context_command__wasapi']]],
+  ['reroute_12',['reroute',['../structma__job.html#ab38eb174f1b23ede5b36bc001a0e6158',1,'ma_job']]],
+  ['rerouted_13',['rerouted',['../structma__device__notification.html#a784387b39c19dc5fd10cd4c018686220',1,'ma_device_notification']]],
+  ['resampler_14',['resampler',['../structma__data__converter.html#a5be65ee5ef7b5ba8b4af8cf92e31811a',1,'ma_data_converter::resampler()'],['../structma__engine__node.html#aea295318fd17be526c1f974fa69e5eac',1,'ma_engine_node::resampler()']]],
+  ['resampling_15',['resampling',['../structma__data__converter__config.html#a79bdcb19fb9caf59907bc56cee3d4c4b',1,'ma_data_converter_config::resampling()'],['../structma__device__config.html#a79bdcb19fb9caf59907bc56cee3d4c4b',1,'ma_device_config::resampling()'],['../structma__device.html#a880d9b1b29d5aa8b9dad2516c80327e6',1,'ma_device::resampling()'],['../structma__decoder__config.html#a79bdcb19fb9caf59907bc56cee3d4c4b',1,'ma_decoder_config::resampling()']]],
+  ['resourcemanager_16',['resourceManager',['../structma__job.html#a32ca6b173c52bbda9a14c77981d500e3',1,'ma_job']]],
+  ['rolloff_17',['rolloff',['../structma__spatializer__config.html#a288ab4f685dcddaf123578cd579d3836',1,'ma_spatializer_config::rolloff()'],['../structma__spatializer.html#a288ab4f685dcddaf123578cd579d3836',1,'ma_spatializer::rolloff()']]],
+  ['row_18',['row',['../structtet__location.html#af1d3cff2e4538e23400e260bae3dadad',1,'tet_location']]]
+];

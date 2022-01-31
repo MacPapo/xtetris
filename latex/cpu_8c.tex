@@ -1,0 +1,339 @@
+\hypertarget{cpu_8c}{}\doxysection{src/cpu.c File Reference}
+\label{cpu_8c}\index{src/cpu.c@{src/cpu.c}}
+
+
+Questo è il file del grande cervello.  
+
+
+{\ttfamily \#include \char`\"{}multi\+Player.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cpu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}common\+Confing.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}single\+Player.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$ncurses.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{cpu_8c_a23238030bb103ef3ea8083d7910dea97}{color\+Field\+CPU}} (int game\+Field\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\+\_\+W}}\mbox{]}, \mbox{\hyperlink{structplayer}{player}} $\ast$cpu)
+\item 
+int \mbox{\hyperlink{cpu_8c_a3390ee12edb74d8264f7e77bba9940fc}{check\+Last\+Row}} (int gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\+\_\+W}}\mbox{]})
+\item 
+void \mbox{\hyperlink{cpu_8c_ae0bec8d044e6747d21c5be93437d1ecf}{falling\+AI}} (\mbox{\hyperlink{structplayer}{player}} $\ast$cpu)
+\item 
+void \mbox{\hyperlink{cpu_8c_ae35869836eae1a46b167341d8dd50dfd}{opening}} (\mbox{\hyperlink{structplayer}{player}} $\ast$cpu, int tetraminos\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{cpu_8c_a143e961f3422f8e251b50888b24d7ab1}{fill\+Possible\+Choices}} (int zeros, int $\ast$tet\+\_\+type, int $\ast$tet\+\_\+ori, int start, int $\ast$offset, int tet\+Left\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{cpu_8c_a69d930f3657fe7b18438df8f80a20847}{full\+Consecutive}} (int row, int gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\+\_\+W}}\mbox{]})
+\item 
+int \mbox{\hyperlink{cpu_8c_adb9fdd00029fe5827e08e059c5a99504}{is\+Completable}} (int row, int gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\+\_\+W}}\mbox{]})
+\item 
+int \mbox{\hyperlink{cpu_8c_a609334f899fc514ebdc2840675f40c70}{completion\+Spot}} (int best\+Row, int gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\+\_\+W}}\mbox{]}, int $\ast$start)
+\item 
+int \mbox{\hyperlink{cpu_8c_aadf18e24d62970d34aec449f0c4670f7}{analize\+Rows}} (\mbox{\hyperlink{structplayer}{player}} $\ast$cpu)
+\item 
+void \mbox{\hyperlink{cpu_8c_ae7354c91f2568c54754a5334a9f824e9}{big\+Brain}} (\mbox{\hyperlink{structplayer}{player}} $\ast$cpu, int $\ast$best\+Row, int $\ast$zero\+Interval, int tetraminos\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{cpu_8c_a0605a6fed14488838b0765c31eb5fe24}{refresh\+Cpu\+Score}} (int pieces, int $\ast$pg1\+Score, int $\ast$pg2\+Score, WINDOW $\ast$score)
+\item 
+void \mbox{\hyperlink{cpu_8c_a5ec1c79002445d0ff5502d1890b338a5}{start\+Cpu\+Game}} (\mbox{\hyperlink{structplayer}{player}} $\ast$pg1, \mbox{\hyperlink{structplayer}{player}} $\ast$cpu, \mbox{\hyperlink{structtet}{tet}} $\ast$piece, int $\ast$tet\+Pieces, WINDOW $\ast$s\+\_\+preview, WINDOW $\ast$s\+\_\+score)
+\item 
+int \mbox{\hyperlink{cpu_8c_a50720044ceef58f2b2c406f3f3cd60ae}{CPU}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Questo è il file del grande cervello. 
+
+\begin{DoxyAuthor}{Author}
+Jacopo Costantini Matteo Zambon Alvise Silvestri 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Fri Jan 28 02\+:21\+:51 2022 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{cpu_8c_source}{cpu.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{cpu_8c_aadf18e24d62970d34aec449f0c4670f7}\label{cpu_8c_aadf18e24d62970d34aec449f0c4670f7}} 
+\index{cpu.c@{cpu.c}!analizeRows@{analizeRows}}
+\index{analizeRows@{analizeRows}!cpu.c@{cpu.c}}
+\doxysubsubsection{\texorpdfstring{analizeRows()}{analizeRows()}}
+{\footnotesize\ttfamily int analize\+Rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{cpu }\end{DoxyParamCaption})}
+
+Analizza la riga per trovare se sia la più completabile
+
+
+\begin{DoxyParams}{Parameters}
+{\em cpu} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{cpu_8c_source_l00427}{427}} of file \mbox{\hyperlink{cpu_8c_source}{cpu.\+c}}.
+
+\mbox{\Hypertarget{cpu_8c_ae7354c91f2568c54754a5334a9f824e9}\label{cpu_8c_ae7354c91f2568c54754a5334a9f824e9}} 
+\index{cpu.c@{cpu.c}!bigBrain@{bigBrain}}
+\index{bigBrain@{bigBrain}!cpu.c@{cpu.c}}
+\doxysubsubsection{\texorpdfstring{bigBrain()}{bigBrain()}}
+{\footnotesize\ttfamily void big\+Brain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{cpu,  }\item[{int $\ast$}]{best\+Row,  }\item[{int $\ast$}]{zero\+Interval,  }\item[{int}]{tetraminos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Il grande cervello della nostra CPU Con il suo algoritmo cerca di essere competitiva
+
+
+\begin{DoxyParams}{Parameters}
+{\em cpu} & \\
+\hline
+{\em best\+Row} & \\
+\hline
+{\em zero\+Interval} & \\
+\hline
+{\em tetraminos} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{cpu_8c_source_l00458}{458}} of file \mbox{\hyperlink{cpu_8c_source}{cpu.\+c}}.
+
+\mbox{\Hypertarget{cpu_8c_a3390ee12edb74d8264f7e77bba9940fc}\label{cpu_8c_a3390ee12edb74d8264f7e77bba9940fc}} 
+\index{cpu.c@{cpu.c}!checkLastRow@{checkLastRow}}
+\index{checkLastRow@{checkLastRow}!cpu.c@{cpu.c}}
+\doxysubsubsection{\texorpdfstring{checkLastRow()}{checkLastRow()}}
+{\footnotesize\ttfamily int check\+Last\+Row (\begin{DoxyParamCaption}\item[{int}]{gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\+MATRIX\+\_\+\+W\mbox{]} }\end{DoxyParamCaption})}
+
+verifica se l\textquotesingle{}ultima riga è occupata per determinare il tipo di mossa
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{cpu_8c_source_l00060}{60}} of file \mbox{\hyperlink{cpu_8c_source}{cpu.\+c}}.
+
+\mbox{\Hypertarget{cpu_8c_a23238030bb103ef3ea8083d7910dea97}\label{cpu_8c_a23238030bb103ef3ea8083d7910dea97}} 
+\index{cpu.c@{cpu.c}!colorFieldCPU@{colorFieldCPU}}
+\index{colorFieldCPU@{colorFieldCPU}!cpu.c@{cpu.c}}
+\doxysubsubsection{\texorpdfstring{colorFieldCPU()}{colorFieldCPU()}}
+{\footnotesize\ttfamily void color\+Field\+CPU (\begin{DoxyParamCaption}\item[{int}]{game\+Field\mbox{[}$\,$\mbox{]}\mbox{[}\+MATRIX\+\_\+\+W\mbox{]},  }\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{cpu }\end{DoxyParamCaption})}
+
+Qui vengono colorati i tetramini della preview sulla window della cpu \texorpdfstring{$<$}{<} La funzione pulisce la window
+
+Disegna la Top line che non si può superare in game
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{cpu_8c_source_l00025}{25}} of file \mbox{\hyperlink{cpu_8c_source}{cpu.\+c}}.
+
+\mbox{\Hypertarget{cpu_8c_a609334f899fc514ebdc2840675f40c70}\label{cpu_8c_a609334f899fc514ebdc2840675f40c70}} 
+\index{cpu.c@{cpu.c}!completionSpot@{completionSpot}}
+\index{completionSpot@{completionSpot}!cpu.c@{cpu.c}}
+\doxysubsubsection{\texorpdfstring{completionSpot()}{completionSpot()}}
+{\footnotesize\ttfamily int completion\+Spot (\begin{DoxyParamCaption}\item[{int}]{best\+Row,  }\item[{int}]{gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\+MATRIX\+\_\+\+W\mbox{]},  }\item[{int $\ast$}]{start }\end{DoxyParamCaption})}
+
+Questa funzione trova lo spot migliore dove inserire il tetramino
+
+
+\begin{DoxyParams}{Parameters}
+{\em best\+Row} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{cpu_8c_source_l00392}{392}} of file \mbox{\hyperlink{cpu_8c_source}{cpu.\+c}}.
+
+\mbox{\Hypertarget{cpu_8c_a50720044ceef58f2b2c406f3f3cd60ae}\label{cpu_8c_a50720044ceef58f2b2c406f3f3cd60ae}} 
+\index{cpu.c@{cpu.c}!CPU@{CPU}}
+\index{CPU@{CPU}!cpu.c@{cpu.c}}
+\doxysubsubsection{\texorpdfstring{CPU()}{CPU()}}
+{\footnotesize\ttfamily int CPU (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+La funzione principale che inizializza i principali parametri
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{cpu_8c_source_l00640}{640}} of file \mbox{\hyperlink{cpu_8c_source}{cpu.\+c}}.
+
+\mbox{\Hypertarget{cpu_8c_ae0bec8d044e6747d21c5be93437d1ecf}\label{cpu_8c_ae0bec8d044e6747d21c5be93437d1ecf}} 
+\index{cpu.c@{cpu.c}!fallingAI@{fallingAI}}
+\index{fallingAI@{fallingAI}!cpu.c@{cpu.c}}
+\doxysubsubsection{\texorpdfstring{fallingAI()}{fallingAI()}}
+{\footnotesize\ttfamily void falling\+AI (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{cpu }\end{DoxyParamCaption})}
+
+Questa funzione fa cadere il tetramino scelto dalla cpu
+
+
+\begin{DoxyParams}{Parameters}
+{\em cpu} & \\
+\hline
+\end{DoxyParams}
+Colora la window basandosi sul proprio campo di gioco
+
+
+\begin{DoxyParams}{Parameters}
+{\em cpu} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{cpu_8c_source_l00077}{77}} of file \mbox{\hyperlink{cpu_8c_source}{cpu.\+c}}.
+
+\mbox{\Hypertarget{cpu_8c_a143e961f3422f8e251b50888b24d7ab1}\label{cpu_8c_a143e961f3422f8e251b50888b24d7ab1}} 
+\index{cpu.c@{cpu.c}!fillPossibleChoices@{fillPossibleChoices}}
+\index{fillPossibleChoices@{fillPossibleChoices}!cpu.c@{cpu.c}}
+\doxysubsubsection{\texorpdfstring{fillPossibleChoices()}{fillPossibleChoices()}}
+{\footnotesize\ttfamily void fill\+Possible\+Choices (\begin{DoxyParamCaption}\item[{int}]{zeros,  }\item[{int $\ast$}]{tet\+\_\+type,  }\item[{int $\ast$}]{tet\+\_\+ori,  }\item[{int}]{start,  }\item[{int $\ast$}]{offset,  }\item[{int}]{tet\+Left\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Questa funzione sceglie grazie ai parametri passati la scelta migliore del tetramino con la corrispondente orientazione
+
+
+\begin{DoxyParams}{Parameters}
+{\em zeros} & \\
+\hline
+{\em tet\+\_\+type} & \\
+\hline
+{\em tet\+\_\+ori} & \\
+\hline
+{\em start} & \\
+\hline
+{\em offset} & \\
+\hline
+{\em tet\+Left} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{cpu_8c_source_l00160}{160}} of file \mbox{\hyperlink{cpu_8c_source}{cpu.\+c}}.
+
+\mbox{\Hypertarget{cpu_8c_a69d930f3657fe7b18438df8f80a20847}\label{cpu_8c_a69d930f3657fe7b18438df8f80a20847}} 
+\index{cpu.c@{cpu.c}!fullConsecutive@{fullConsecutive}}
+\index{fullConsecutive@{fullConsecutive}!cpu.c@{cpu.c}}
+\doxysubsubsection{\texorpdfstring{fullConsecutive()}{fullConsecutive()}}
+{\footnotesize\ttfamily int full\+Consecutive (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\+MATRIX\+\_\+\+W\mbox{]} }\end{DoxyParamCaption})}
+
+Questa funzione controlla il numero numero maggiore di 1 consecutivi
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{cpu_8c_source_l00344}{344}} of file \mbox{\hyperlink{cpu_8c_source}{cpu.\+c}}.
+
+\mbox{\Hypertarget{cpu_8c_adb9fdd00029fe5827e08e059c5a99504}\label{cpu_8c_adb9fdd00029fe5827e08e059c5a99504}} 
+\index{cpu.c@{cpu.c}!isCompletable@{isCompletable}}
+\index{isCompletable@{isCompletable}!cpu.c@{cpu.c}}
+\doxysubsubsection{\texorpdfstring{isCompletable()}{isCompletable()}}
+{\footnotesize\ttfamily int is\+Completable (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{gamefield\mbox{[}$\,$\mbox{]}\mbox{[}\+MATRIX\+\_\+\+W\mbox{]} }\end{DoxyParamCaption})}
+
+Questa funzione controlla se le righe sopra la colonna più completabile siano vuote, se no restituisce che la righa più completabile non è la selezionata
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{cpu_8c_source_l00370}{370}} of file \mbox{\hyperlink{cpu_8c_source}{cpu.\+c}}.
+
+\mbox{\Hypertarget{cpu_8c_ae35869836eae1a46b167341d8dd50dfd}\label{cpu_8c_ae35869836eae1a46b167341d8dd50dfd}} 
+\index{cpu.c@{cpu.c}!opening@{opening}}
+\index{opening@{opening}!cpu.c@{cpu.c}}
+\doxysubsubsection{\texorpdfstring{opening()}{opening()}}
+{\footnotesize\ttfamily void opening (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{cpu,  }\item[{int}]{tetraminos\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Questa è la mossa della CPU quando il campo è completamente vuoto
+
+
+\begin{DoxyParams}{Parameters}
+{\em cpu} & \\
+\hline
+{\em tetraminos} & \\
+\hline
+\end{DoxyParams}
+\texorpdfstring{$<$}{<} Sottrae all\textquotesingle{}array dei tetramini il tetramino scelto
+
+Definition at line \mbox{\hyperlink{cpu_8c_source_l00122}{122}} of file \mbox{\hyperlink{cpu_8c_source}{cpu.\+c}}.
+
+\mbox{\Hypertarget{cpu_8c_a0605a6fed14488838b0765c31eb5fe24}\label{cpu_8c_a0605a6fed14488838b0765c31eb5fe24}} 
+\index{cpu.c@{cpu.c}!refreshCpuScore@{refreshCpuScore}}
+\index{refreshCpuScore@{refreshCpuScore}!cpu.c@{cpu.c}}
+\doxysubsubsection{\texorpdfstring{refreshCpuScore()}{refreshCpuScore()}}
+{\footnotesize\ttfamily void refresh\+Cpu\+Score (\begin{DoxyParamCaption}\item[{int}]{pieces,  }\item[{int $\ast$}]{pg1\+Score,  }\item[{int $\ast$}]{pg2\+Score,  }\item[{WINDOW $\ast$}]{score }\end{DoxyParamCaption})}
+
+Questa funzione aggiorna il valore degli score
+
+
+\begin{DoxyParams}{Parameters}
+{\em pieces} & \\
+\hline
+{\em pg1\+Score} & \\
+\hline
+{\em pg2\+Score} & \\
+\hline
+{\em score} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{cpu_8c_source_l00509}{509}} of file \mbox{\hyperlink{cpu_8c_source}{cpu.\+c}}.
+
+\mbox{\Hypertarget{cpu_8c_a5ec1c79002445d0ff5502d1890b338a5}\label{cpu_8c_a5ec1c79002445d0ff5502d1890b338a5}} 
+\index{cpu.c@{cpu.c}!startCpuGame@{startCpuGame}}
+\index{startCpuGame@{startCpuGame}!cpu.c@{cpu.c}}
+\doxysubsubsection{\texorpdfstring{startCpuGame()}{startCpuGame()}}
+{\footnotesize\ttfamily void start\+Cpu\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{pg1,  }\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{cpu,  }\item[{\mbox{\hyperlink{structtet}{tet}} $\ast$}]{piece,  }\item[{int $\ast$}]{tet\+Pieces,  }\item[{WINDOW $\ast$}]{s\+\_\+preview,  }\item[{WINDOW $\ast$}]{s\+\_\+score }\end{DoxyParamCaption})}
+
+Questo è la routine della nostra modalità player vs cpu
+
+
+\begin{DoxyParams}{Parameters}
+{\em pg1} & \\
+\hline
+{\em cpu} & \\
+\hline
+{\em piece} & \\
+\hline
+{\em tet\+Pieces} & \\
+\hline
+{\em s\+\_\+preview} & \\
+\hline
+{\em s\+\_\+score} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{cpu_8c_source_l00531}{531}} of file \mbox{\hyperlink{cpu_8c_source}{cpu.\+c}}.
+

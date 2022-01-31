@@ -1,0 +1,300 @@
+\hypertarget{menu_8c}{}\doxysection{src/menu.c File Reference}
+\label{menu_8c}\index{src/menu.c@{src/menu.c}}
+
+
+Menu interattivo del gioco.  
+
+
+{\ttfamily \#include \char`\"{}menu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}colors.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$ncurses.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{menu_8c_a0d1fd223df18ba043bf0370e3a2c3604}{HCENTER}}~((LINES -\/ \mbox{\hyperlink{menu_8h_ad0fca13b38e2132760c38730e2eeb9b7}{MENU\+\_\+\+TITLE\+\_\+H}}) / 2)
+\item 
+\#define \mbox{\hyperlink{menu_8c_a3d41dae96767cc9a4060d972d62b5322}{WCENTER}}~(( COLS  -\/ \mbox{\hyperlink{menu_8h_abdffeda5ea9c1de0dbda4d482a03ba13}{MENU\+\_\+\+TITLE\+\_\+W}}) / 2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{menu_8c_ad86d6d4df8e9ffc4e5253ce446cb0190}{init\+Title}} (WINDOW $\ast$title)
+\begin{DoxyCompactList}\small\item\em Prototipo tutte le funzioni. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8c_ad37d44088b37b682337ea520974b6c71}{init\+Switcher}} (WINDOW $\ast$\mbox{\hyperlink{menu_8h_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}})
+\item 
+void \mbox{\hyperlink{menu_8c_a4b99dc6c4c0c362c94d5cdc7a2e56d6a}{init\+Description}} (WINDOW $\ast$desc)
+\item 
+void \mbox{\hyperlink{menu_8c_aa9a28af0f9108f32433a5667a2daae37}{init\+Cmds}} (WINDOW $\ast$cmds)
+\item 
+void \mbox{\hyperlink{menu_8c_a8e73397303dc5e522fca35e8dc62f8d2}{init\+Menu}} (WINDOW $\ast$\mbox{\hyperlink{menu_8h_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}, WINDOW $\ast$title, WINDOW $\ast$cmds, WINDOW $\ast$desc)
+\item 
+void \mbox{\hyperlink{menu_8c_af3fb32f876c45b30bdb787516fec54ca}{describe\+Mod}} (WINDOW $\ast$desc, int mod)
+\item 
+void \mbox{\hyperlink{menu_8c_a32e2a1260c1f41ea1422396943db3733}{highlight\+Menu}} (WINDOW $\ast$\mbox{\hyperlink{menu_8h_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}, WINDOW $\ast$desc, int mod)
+\item 
+int \mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Menu interattivo del gioco. 
+
+\begin{DoxyAuthor}{Author}
+Jacopo Costantini Matteo Zambon Alvise Silvestri 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Fri Jan 28 00\+:14\+:30 2022 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{menu_8c_source}{menu.\+c}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{menu_8c_a0d1fd223df18ba043bf0370e3a2c3604}\label{menu_8c_a0d1fd223df18ba043bf0370e3a2c3604}} 
+\index{menu.c@{menu.c}!HCENTER@{HCENTER}}
+\index{HCENTER@{HCENTER}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{HCENTER}{HCENTER}}
+{\footnotesize\ttfamily \#define HCENTER~((LINES -\/ \mbox{\hyperlink{menu_8h_ad0fca13b38e2132760c38730e2eeb9b7}{MENU\+\_\+\+TITLE\+\_\+H}}) / 2)}
+
+
+
+Definition at line \mbox{\hyperlink{menu_8c_source_l00018}{18}} of file \mbox{\hyperlink{menu_8c_source}{menu.\+c}}.
+
+\mbox{\Hypertarget{menu_8c_a3d41dae96767cc9a4060d972d62b5322}\label{menu_8c_a3d41dae96767cc9a4060d972d62b5322}} 
+\index{menu.c@{menu.c}!WCENTER@{WCENTER}}
+\index{WCENTER@{WCENTER}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{WCENTER}{WCENTER}}
+{\footnotesize\ttfamily \#define WCENTER~(( COLS  -\/ \mbox{\hyperlink{menu_8h_abdffeda5ea9c1de0dbda4d482a03ba13}{MENU\+\_\+\+TITLE\+\_\+W}}) / 2)}
+
+
+
+Definition at line \mbox{\hyperlink{menu_8c_source_l00019}{19}} of file \mbox{\hyperlink{menu_8c_source}{menu.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{menu_8c_af3fb32f876c45b30bdb787516fec54ca}\label{menu_8c_af3fb32f876c45b30bdb787516fec54ca}} 
+\index{menu.c@{menu.c}!describeMod@{describeMod}}
+\index{describeMod@{describeMod}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{describeMod()}{describeMod()}}
+{\footnotesize\ttfamily void describe\+Mod (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{desc,  }\item[{int}]{mod }\end{DoxyParamCaption})}
+
+Casistiche di overing da parte dell\textquotesingle{}utente
+
+
+\begin{DoxyParams}{Parameters}
+{\em desc} & \\
+\hline
+{\em mod} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{menu_8c_source_l00264}{264}} of file \mbox{\hyperlink{menu_8c_source}{menu.\+c}}.
+
+\mbox{\Hypertarget{menu_8c_a32e2a1260c1f41ea1422396943db3733}\label{menu_8c_a32e2a1260c1f41ea1422396943db3733}} 
+\index{menu.c@{menu.c}!highlightMenu@{highlightMenu}}
+\index{highlightMenu@{highlightMenu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{highlightMenu()}{highlightMenu()}}
+{\footnotesize\ttfamily void highlight\+Menu (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{menu,  }\item[{WINDOW $\ast$}]{desc,  }\item[{int}]{mod }\end{DoxyParamCaption})}
+
+Funzione di evidenziazione delle voci selezionate
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & \\
+\hline
+{\em desc} & \\
+\hline
+{\em mod} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{menu_8c_source_l00332}{332}} of file \mbox{\hyperlink{menu_8c_source}{menu.\+c}}.
+
+\mbox{\Hypertarget{menu_8c_aa9a28af0f9108f32433a5667a2daae37}\label{menu_8c_aa9a28af0f9108f32433a5667a2daae37}} 
+\index{menu.c@{menu.c}!initCmds@{initCmds}}
+\index{initCmds@{initCmds}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{initCmds()}{initCmds()}}
+{\footnotesize\ttfamily void init\+Cmds (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{cmds }\end{DoxyParamCaption})}
+
+Inizializzo il cmds della window
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmds} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{menu_8c_source_l00221}{221}} of file \mbox{\hyperlink{menu_8c_source}{menu.\+c}}.
+
+\mbox{\Hypertarget{menu_8c_a4b99dc6c4c0c362c94d5cdc7a2e56d6a}\label{menu_8c_a4b99dc6c4c0c362c94d5cdc7a2e56d6a}} 
+\index{menu.c@{menu.c}!initDescription@{initDescription}}
+\index{initDescription@{initDescription}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{initDescription()}{initDescription()}}
+{\footnotesize\ttfamily void init\+Description (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{desc }\end{DoxyParamCaption})}
+
+Inizializzo la descrizione della window
+
+
+\begin{DoxyParams}{Parameters}
+{\em desc} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{menu_8c_source_l00201}{201}} of file \mbox{\hyperlink{menu_8c_source}{menu.\+c}}.
+
+\mbox{\Hypertarget{menu_8c_a8e73397303dc5e522fca35e8dc62f8d2}\label{menu_8c_a8e73397303dc5e522fca35e8dc62f8d2}} 
+\index{menu.c@{menu.c}!initMenu@{initMenu}}
+\index{initMenu@{initMenu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{initMenu()}{initMenu()}}
+{\footnotesize\ttfamily void init\+Menu (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{menu,  }\item[{WINDOW $\ast$}]{title,  }\item[{WINDOW $\ast$}]{cmds,  }\item[{WINDOW $\ast$}]{desc }\end{DoxyParamCaption})}
+
+Inizializzo tutte le windows
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & \\
+\hline
+{\em title} & \\
+\hline
+{\em cmds} & \\
+\hline
+{\em desc} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{menu_8c_source_l00245}{245}} of file \mbox{\hyperlink{menu_8c_source}{menu.\+c}}.
+
+\mbox{\Hypertarget{menu_8c_ad37d44088b37b682337ea520974b6c71}\label{menu_8c_ad37d44088b37b682337ea520974b6c71}} 
+\index{menu.c@{menu.c}!initSwitcher@{initSwitcher}}
+\index{initSwitcher@{initSwitcher}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{initSwitcher()}{initSwitcher()}}
+{\footnotesize\ttfamily void init\+Switcher (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{menu }\end{DoxyParamCaption})}
+
+Inizializzo il menu della window
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{menu_8c_source_l00181}{181}} of file \mbox{\hyperlink{menu_8c_source}{menu.\+c}}.
+
+\mbox{\Hypertarget{menu_8c_ad86d6d4df8e9ffc4e5253ce446cb0190}\label{menu_8c_ad86d6d4df8e9ffc4e5253ce446cb0190}} 
+\index{menu.c@{menu.c}!initTitle@{initTitle}}
+\index{initTitle@{initTitle}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{initTitle()}{initTitle()}}
+{\footnotesize\ttfamily void init\+Title (\begin{DoxyParamCaption}\item[{WINDOW $\ast$}]{title }\end{DoxyParamCaption})}
+
+
+
+Prototipo tutte le funzioni. 
+
+Inizializzo il titolo della window
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{menu_8c_source_l00160}{160}} of file \mbox{\hyperlink{menu_8c_source}{menu.\+c}}.
+
+\mbox{\Hypertarget{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}\label{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}} 
+\index{menu.c@{menu.c}!menu@{menu}}
+\index{menu@{menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily int menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Funzione di menu, qui il giocatore sceglie la modalità \texorpdfstring{$<$}{<} Qui si inizializzano tutte le window statiche
+
+\texorpdfstring{$<$}{<} Qui si inizializzano tutte le window dinamiche
+
+\texorpdfstring{$<$}{<} Inizializzo mod\+Counter \&\& user\+Choice
+
+\texorpdfstring{$<$}{<} Definisco i parametri per creare la menu box
+
+\texorpdfstring{$<$}{<} Definisco i parametri per creare la menu box
+
+\texorpdfstring{$<$}{<} Definisco i parametri per creare la menu box
+
+\texorpdfstring{$<$}{<} Definisco i parametri per creare la menu box
+
+\texorpdfstring{$<$}{<} Coloro il background con la palette 6
+
+Inizializzo il menu di gioco
+
+
+\begin{DoxyParams}{Parameters}
+{\em w\+\_\+menu} & \\
+\hline
+{\em w\+\_\+title} & \\
+\hline
+{\em w\+\_\+cmds} & \\
+\hline
+{\em w\+\_\+desc} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Creo la window dinamica contenente la descrizione delle modalità
+
+\texorpdfstring{$<$}{<} Coloro la window selezionata con la seguente palette
+
+\texorpdfstring{$<$}{<} Creo la window dinamica contenente le varie delle modalità
+
+\texorpdfstring{$<$}{<} Coloro la window selezionata con la seguente palette
+
+\texorpdfstring{$<$}{<} Inzializza la funzionalità di input da tastiera
+
+\texorpdfstring{$<$}{<} Questa funzione di ncurses fa si che non vengano disegnati nella schermata eventuali input da tastiera dell\textquotesingle{}utente
+
+\texorpdfstring{$<$}{<} Inizia la sequenza di istruzioni da eseguire
+
+Evidenzia la voce selezionata
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+\_\+menu} & \\
+\hline
+{\em s\+\_\+desc} & \\
+\hline
+{\em mod\+Counter} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Prendo l\textquotesingle{}input da tastiera da parte dell\textquotesingle{}utente
+
+\texorpdfstring{$<$}{<} Casistica della scelta dell\textquotesingle{}utente
+
+\texorpdfstring{$<$}{<} Salgo di modalità
+
+\texorpdfstring{$<$}{<} Se scorro verso l\textquotesingle{}alto quando sono alla prima voce passo all\textquotesingle{}ultima
+
+\texorpdfstring{$<$}{<} Scendo di modalità
+
+\texorpdfstring{$<$}{<} Se scorro verso il basso quando sono all\textquotesingle{}ultima voce passo alla prima
+
+Ritorno la modalità selezionata dall\textquotesingle{}utente
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{menu_8c_source_l00047}{47}} of file \mbox{\hyperlink{menu_8c_source}{menu.\+c}}.
+

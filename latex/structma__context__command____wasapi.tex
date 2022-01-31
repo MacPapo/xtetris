@@ -1,0 +1,151 @@
+\hypertarget{structma__context__command____wasapi}{}\doxysection{ma\+\_\+context\+\_\+command\+\_\+\+\_\+wasapi Struct Reference}
+\label{structma__context__command____wasapi}\index{ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}}
+
+
+{\ttfamily \#include $<$miniaudio.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structma__context__command____wasapi_a45a5b7c00a796a23f01673cef1dbe0a9}{code}}
+\item 
+\mbox{\hyperlink{structma__event}{ma\+\_\+event}} $\ast$ \mbox{\hyperlink{structma__context__command____wasapi_a6e3a1fffb9c60d31e5cb24c55c8e26af}{p\+Event}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>int \mbox{\hyperlink{structma__context__command____wasapi_a777bc37cf931ce4a8c9bdd25b8d2b38e}{\_unused}}\\
+\>\} \mbox{\hyperlink{structma__context__command____wasapi_a2acacd6ed840f53b479700ca97778eeb}{quit}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{miniaudio_8h_a47643cf7ad53bfbc605a23a5a9545cc1}{ma\_device\_type}} \mbox{\hyperlink{structma__context__command____wasapi_a2ccaf3da7a3df12524a20b7638165564}{deviceType}}\\
+\>\>void $\ast$ \mbox{\hyperlink{structma__context__command____wasapi_a13533758a01a5dfb5c596f6ddabec8e8}{pAudioClient}}\\
+\>\>void $\ast$$\ast$ \mbox{\hyperlink{structma__context__command____wasapi_a316a77adb18bd867dbd23a897b4e65af}{ppAudioClientService}}\\
+\>\>\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\_result}} $\ast$ \mbox{\hyperlink{structma__context__command____wasapi_a8ce3b408c26e9b810e86b14a5c6e7fe4}{pResult}}\\
+\>\} \mbox{\hyperlink{structma__context__command____wasapi_a00d9139d44a95b890570372e27483a82}{createAudioClient}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{structma__device}{ma\_device}} $\ast$ \mbox{\hyperlink{structma__context__command____wasapi_aaa8c9636561bd2a89152d430169e8da1}{pDevice}}\\
+\>\>\mbox{\hyperlink{miniaudio_8h_a47643cf7ad53bfbc605a23a5a9545cc1}{ma\_device\_type}} \mbox{\hyperlink{structma__context__command____wasapi_a2ccaf3da7a3df12524a20b7638165564}{deviceType}}\\
+\>\} \mbox{\hyperlink{structma__context__command____wasapi_adae29c7f527bccc672ec851f3024e7e6}{releaseAudioClient}}\\
+\} \mbox{\hyperlink{structma__context__command____wasapi_a831c07cc219f4186fa42f395c0b41227}{data}}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06768}{6768}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structma__context__command____wasapi_a777bc37cf931ce4a8c9bdd25b8d2b38e}\label{structma__context__command____wasapi_a777bc37cf931ce4a8c9bdd25b8d2b38e}} 
+\index{ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}!\_unused@{\_unused}}
+\index{\_unused@{\_unused}!ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}}
+\doxysubsubsection{\texorpdfstring{\_unused}{\_unused}}
+{\footnotesize\ttfamily int \+\_\+unused}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06776}{6776}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__command____wasapi_a45a5b7c00a796a23f01673cef1dbe0a9}\label{structma__context__command____wasapi_a45a5b7c00a796a23f01673cef1dbe0a9}} 
+\index{ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}!code@{code}}
+\index{code@{code}!ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}}
+\doxysubsubsection{\texorpdfstring{code}{code}}
+{\footnotesize\ttfamily int code}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06770}{6770}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__command____wasapi_a00d9139d44a95b890570372e27483a82}\label{structma__context__command____wasapi_a00d9139d44a95b890570372e27483a82}} 
+\index{ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}!createAudioClient@{createAudioClient}}
+\index{createAudioClient@{createAudioClient}!ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  create\+Audio\+Client}
+
+\mbox{\Hypertarget{structma__context__command____wasapi_a831c07cc219f4186fa42f395c0b41227}\label{structma__context__command____wasapi_a831c07cc219f4186fa42f395c0b41227}} 
+\index{ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}!data@{data}}
+\index{data@{data}!ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily union  \{ ... \}  data}
+
+\mbox{\Hypertarget{structma__context__command____wasapi_a2ccaf3da7a3df12524a20b7638165564}\label{structma__context__command____wasapi_a2ccaf3da7a3df12524a20b7638165564}} 
+\index{ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}!deviceType@{deviceType}}
+\index{deviceType@{deviceType}!ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}}
+\doxysubsubsection{\texorpdfstring{deviceType}{deviceType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a47643cf7ad53bfbc605a23a5a9545cc1}{ma\+\_\+device\+\_\+type}} device\+Type}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06780}{6780}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__command____wasapi_a13533758a01a5dfb5c596f6ddabec8e8}\label{structma__context__command____wasapi_a13533758a01a5dfb5c596f6ddabec8e8}} 
+\index{ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}!pAudioClient@{pAudioClient}}
+\index{pAudioClient@{pAudioClient}!ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}}
+\doxysubsubsection{\texorpdfstring{pAudioClient}{pAudioClient}}
+{\footnotesize\ttfamily void$\ast$ p\+Audio\+Client}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06781}{6781}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__command____wasapi_aaa8c9636561bd2a89152d430169e8da1}\label{structma__context__command____wasapi_aaa8c9636561bd2a89152d430169e8da1}} 
+\index{ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}!pDevice@{pDevice}}
+\index{pDevice@{pDevice}!ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}}
+\doxysubsubsection{\texorpdfstring{pDevice}{pDevice}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__device}{ma\+\_\+device}}$\ast$ p\+Device}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06787}{6787}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__command____wasapi_a6e3a1fffb9c60d31e5cb24c55c8e26af}\label{structma__context__command____wasapi_a6e3a1fffb9c60d31e5cb24c55c8e26af}} 
+\index{ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}!pEvent@{pEvent}}
+\index{pEvent@{pEvent}!ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}}
+\doxysubsubsection{\texorpdfstring{pEvent}{pEvent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__event}{ma\+\_\+event}}$\ast$ p\+Event}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06771}{6771}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__command____wasapi_a316a77adb18bd867dbd23a897b4e65af}\label{structma__context__command____wasapi_a316a77adb18bd867dbd23a897b4e65af}} 
+\index{ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}!ppAudioClientService@{ppAudioClientService}}
+\index{ppAudioClientService@{ppAudioClientService}!ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}}
+\doxysubsubsection{\texorpdfstring{ppAudioClientService}{ppAudioClientService}}
+{\footnotesize\ttfamily void$\ast$$\ast$ pp\+Audio\+Client\+Service}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06782}{6782}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__command____wasapi_a8ce3b408c26e9b810e86b14a5c6e7fe4}\label{structma__context__command____wasapi_a8ce3b408c26e9b810e86b14a5c6e7fe4}} 
+\index{ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}!pResult@{pResult}}
+\index{pResult@{pResult}!ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}}
+\doxysubsubsection{\texorpdfstring{pResult}{pResult}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}$\ast$ p\+Result}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06783}{6783}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__command____wasapi_a2acacd6ed840f53b479700ca97778eeb}\label{structma__context__command____wasapi_a2acacd6ed840f53b479700ca97778eeb}} 
+\index{ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}!quit@{quit}}
+\index{quit@{quit}!ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  quit}
+
+\mbox{\Hypertarget{structma__context__command____wasapi_adae29c7f527bccc672ec851f3024e7e6}\label{structma__context__command____wasapi_adae29c7f527bccc672ec851f3024e7e6}} 
+\index{ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}!releaseAudioClient@{releaseAudioClient}}
+\index{releaseAudioClient@{releaseAudioClient}!ma\_context\_command\_\_wasapi@{ma\_context\_command\_\_wasapi}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  release\+Audio\+Client}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{miniaudio_8h}{miniaudio.\+h}}\end{DoxyCompactItemize}
