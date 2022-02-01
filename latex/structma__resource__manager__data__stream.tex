@@ -1,0 +1,210 @@
+\hypertarget{structma__resource__manager__data__stream}{}\doxysection{ma\+\_\+resource\+\_\+manager\+\_\+data\+\_\+stream Struct Reference}
+\label{structma__resource__manager__data__stream}\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+
+
+{\ttfamily \#include $<$miniaudio.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structma__resource__manager__data__stream_ae22c6a9329ad1d9dadb32b2228c73fc5}{MA\+\_\+\+ATOMIC}} (8, \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}}) absolute\+Cursor
+\item 
+\mbox{\hyperlink{structma__resource__manager__data__stream_a868260e8932f57b5be98f99f08a13a2d}{MA\+\_\+\+ATOMIC}} (4, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}}) execution\+Counter
+\item 
+\mbox{\hyperlink{structma__resource__manager__data__stream_a8d4a4407bddf971811305f9a9daddfc7}{MA\+\_\+\+ATOMIC}} (4, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}}) execution\+Pointer
+\item 
+\mbox{\hyperlink{structma__resource__manager__data__stream_a65b0a592d9713589fea7e3139323be42}{MA\+\_\+\+ATOMIC}} (4, \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}}) is\+Looping
+\item 
+\mbox{\hyperlink{structma__resource__manager__data__stream_abe7d95518dbdbee1d686cc7ef83fdf64}{MA\+\_\+\+ATOMIC}} (4, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}}) page\+Frame\+Count\mbox{[}2\mbox{]}
+\item 
+\mbox{\hyperlink{structma__resource__manager__data__stream_a6518b4e22884a13bbb04a7d2cf713556}{MA\+\_\+\+ATOMIC}} (4, \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}) result
+\item 
+\mbox{\hyperlink{structma__resource__manager__data__stream_a3e18d2d23d61a7d8fe5ff1d137497bb9}{MA\+\_\+\+ATOMIC}} (4, \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}}) is\+Decoder\+At\+End
+\item 
+\mbox{\hyperlink{structma__resource__manager__data__stream_a7da089ca1048e979004e026e66197a32}{MA\+\_\+\+ATOMIC}} (4, \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}}) is\+Page\+Valid\mbox{[}2\mbox{]}
+\item 
+\mbox{\hyperlink{structma__resource__manager__data__stream_a3622fcc115cf7a484173dd8c2da60627}{MA\+\_\+\+ATOMIC}} (4, \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}}) seek\+Counter
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structma__data__source__base}{ma\+\_\+data\+\_\+source\+\_\+base}} \mbox{\hyperlink{structma__resource__manager__data__stream_a2b78bdf8e29afd85bb00336d5bf0a0bb}{ds}}
+\item 
+\mbox{\hyperlink{structma__resource__manager}{ma\+\_\+resource\+\_\+manager}} $\ast$ \mbox{\hyperlink{structma__resource__manager__data__stream_a7c6be9e7a2fc250a36b6c624ace774ce}{p\+Resource\+Manager}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} \mbox{\hyperlink{structma__resource__manager__data__stream_a344be6b51c9be0384ca9c211c8674d3b}{flags}}
+\item 
+\mbox{\hyperlink{structma__decoder}{ma\+\_\+decoder}} \mbox{\hyperlink{structma__resource__manager__data__stream_aefe84110b952ae45e4b6f6ada32df824}{decoder}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} \mbox{\hyperlink{structma__resource__manager__data__stream_a7a964bf900368fe235b30d10059f4480}{is\+Decoder\+Initialized}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} \mbox{\hyperlink{structma__resource__manager__data__stream_adbc6706e1584b259e1a21a2312c141be}{total\+Length\+In\+PCMFrames}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} \mbox{\hyperlink{structma__resource__manager__data__stream_a59c584c1d9d9f8aac0b9929874f3d64b}{relative\+Cursor}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} \mbox{\hyperlink{structma__resource__manager__data__stream_a4d3f04e65916ec7c220b808365ec92b2}{current\+Page\+Index}}
+\item 
+void $\ast$ \mbox{\hyperlink{structma__resource__manager__data__stream_a059135f6e9966575556107bc9ffc0bae}{p\+Page\+Data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10019}{10019}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structma__resource__manager__data__stream_a3e18d2d23d61a7d8fe5ff1d137497bb9}\label{structma__resource__manager__data__stream_a3e18d2d23d61a7d8fe5ff1d137497bb9}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!MA\_ATOMIC@{MA\_ATOMIC}}
+\index{MA\_ATOMIC@{MA\_ATOMIC}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{MA\_ATOMIC()}{MA\_ATOMIC()}\hspace{0.1cm}{\footnotesize\ttfamily [1/9]}}
+{\footnotesize\ttfamily MA\+\_\+\+ATOMIC (\begin{DoxyParamCaption}\item[{4}]{,  }\item[{\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_a65b0a592d9713589fea7e3139323be42}\label{structma__resource__manager__data__stream_a65b0a592d9713589fea7e3139323be42}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!MA\_ATOMIC@{MA\_ATOMIC}}
+\index{MA\_ATOMIC@{MA\_ATOMIC}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{MA\_ATOMIC()}{MA\_ATOMIC()}\hspace{0.1cm}{\footnotesize\ttfamily [2/9]}}
+{\footnotesize\ttfamily MA\+\_\+\+ATOMIC (\begin{DoxyParamCaption}\item[{4}]{,  }\item[{\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_a7da089ca1048e979004e026e66197a32}\label{structma__resource__manager__data__stream_a7da089ca1048e979004e026e66197a32}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!MA\_ATOMIC@{MA\_ATOMIC}}
+\index{MA\_ATOMIC@{MA\_ATOMIC}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{MA\_ATOMIC()}{MA\_ATOMIC()}\hspace{0.1cm}{\footnotesize\ttfamily [3/9]}}
+{\footnotesize\ttfamily MA\+\_\+\+ATOMIC (\begin{DoxyParamCaption}\item[{4}]{,  }\item[{\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_a3622fcc115cf7a484173dd8c2da60627}\label{structma__resource__manager__data__stream_a3622fcc115cf7a484173dd8c2da60627}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!MA\_ATOMIC@{MA\_ATOMIC}}
+\index{MA\_ATOMIC@{MA\_ATOMIC}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{MA\_ATOMIC()}{MA\_ATOMIC()}\hspace{0.1cm}{\footnotesize\ttfamily [4/9]}}
+{\footnotesize\ttfamily MA\+\_\+\+ATOMIC (\begin{DoxyParamCaption}\item[{4}]{,  }\item[{\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_a6518b4e22884a13bbb04a7d2cf713556}\label{structma__resource__manager__data__stream_a6518b4e22884a13bbb04a7d2cf713556}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!MA\_ATOMIC@{MA\_ATOMIC}}
+\index{MA\_ATOMIC@{MA\_ATOMIC}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{MA\_ATOMIC()}{MA\_ATOMIC()}\hspace{0.1cm}{\footnotesize\ttfamily [5/9]}}
+{\footnotesize\ttfamily MA\+\_\+\+ATOMIC (\begin{DoxyParamCaption}\item[{4}]{,  }\item[{\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_a868260e8932f57b5be98f99f08a13a2d}\label{structma__resource__manager__data__stream_a868260e8932f57b5be98f99f08a13a2d}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!MA\_ATOMIC@{MA\_ATOMIC}}
+\index{MA\_ATOMIC@{MA\_ATOMIC}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{MA\_ATOMIC()}{MA\_ATOMIC()}\hspace{0.1cm}{\footnotesize\ttfamily [6/9]}}
+{\footnotesize\ttfamily MA\+\_\+\+ATOMIC (\begin{DoxyParamCaption}\item[{4}]{,  }\item[{\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_a8d4a4407bddf971811305f9a9daddfc7}\label{structma__resource__manager__data__stream_a8d4a4407bddf971811305f9a9daddfc7}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!MA\_ATOMIC@{MA\_ATOMIC}}
+\index{MA\_ATOMIC@{MA\_ATOMIC}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{MA\_ATOMIC()}{MA\_ATOMIC()}\hspace{0.1cm}{\footnotesize\ttfamily [7/9]}}
+{\footnotesize\ttfamily MA\+\_\+\+ATOMIC (\begin{DoxyParamCaption}\item[{4}]{,  }\item[{\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_abe7d95518dbdbee1d686cc7ef83fdf64}\label{structma__resource__manager__data__stream_abe7d95518dbdbee1d686cc7ef83fdf64}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!MA\_ATOMIC@{MA\_ATOMIC}}
+\index{MA\_ATOMIC@{MA\_ATOMIC}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{MA\_ATOMIC()}{MA\_ATOMIC()}\hspace{0.1cm}{\footnotesize\ttfamily [8/9]}}
+{\footnotesize\ttfamily MA\+\_\+\+ATOMIC (\begin{DoxyParamCaption}\item[{4}]{,  }\item[{\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_ae22c6a9329ad1d9dadb32b2228c73fc5}\label{structma__resource__manager__data__stream_ae22c6a9329ad1d9dadb32b2228c73fc5}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!MA\_ATOMIC@{MA\_ATOMIC}}
+\index{MA\_ATOMIC@{MA\_ATOMIC}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{MA\_ATOMIC()}{MA\_ATOMIC()}\hspace{0.1cm}{\footnotesize\ttfamily [9/9]}}
+{\footnotesize\ttfamily MA\+\_\+\+ATOMIC (\begin{DoxyParamCaption}\item[{8}]{,  }\item[{\mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}}}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structma__resource__manager__data__stream_a4d3f04e65916ec7c220b808365ec92b2}\label{structma__resource__manager__data__stream_a4d3f04e65916ec7c220b808365ec92b2}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!currentPageIndex@{currentPageIndex}}
+\index{currentPageIndex@{currentPageIndex}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{currentPageIndex}{currentPageIndex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} current\+Page\+Index}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10029}{10029}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_aefe84110b952ae45e4b6f6ada32df824}\label{structma__resource__manager__data__stream_aefe84110b952ae45e4b6f6ada32df824}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!decoder@{decoder}}
+\index{decoder@{decoder}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{decoder}{decoder}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__decoder}{ma\+\_\+decoder}} decoder}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10024}{10024}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_a2b78bdf8e29afd85bb00336d5bf0a0bb}\label{structma__resource__manager__data__stream_a2b78bdf8e29afd85bb00336d5bf0a0bb}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!ds@{ds}}
+\index{ds@{ds}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{ds}{ds}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__data__source__base}{ma\+\_\+data\+\_\+source\+\_\+base}} ds}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10021}{10021}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_a344be6b51c9be0384ca9c211c8674d3b}\label{structma__resource__manager__data__stream_a344be6b51c9be0384ca9c211c8674d3b}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!flags@{flags}}
+\index{flags@{flags}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{flags}{flags}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} flags}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10023}{10023}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_a7a964bf900368fe235b30d10059f4480}\label{structma__resource__manager__data__stream_a7a964bf900368fe235b30d10059f4480}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!isDecoderInitialized@{isDecoderInitialized}}
+\index{isDecoderInitialized@{isDecoderInitialized}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{isDecoderInitialized}{isDecoderInitialized}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} is\+Decoder\+Initialized}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10025}{10025}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_a059135f6e9966575556107bc9ffc0bae}\label{structma__resource__manager__data__stream_a059135f6e9966575556107bc9ffc0bae}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!pPageData@{pPageData}}
+\index{pPageData@{pPageData}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{pPageData}{pPageData}}
+{\footnotesize\ttfamily void$\ast$ p\+Page\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10037}{10037}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_a7c6be9e7a2fc250a36b6c624ace774ce}\label{structma__resource__manager__data__stream_a7c6be9e7a2fc250a36b6c624ace774ce}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!pResourceManager@{pResourceManager}}
+\index{pResourceManager@{pResourceManager}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{pResourceManager}{pResourceManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__resource__manager}{ma\+\_\+resource\+\_\+manager}}$\ast$ p\+Resource\+Manager}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10022}{10022}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_a59c584c1d9d9f8aac0b9929874f3d64b}\label{structma__resource__manager__data__stream_a59c584c1d9d9f8aac0b9929874f3d64b}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!relativeCursor@{relativeCursor}}
+\index{relativeCursor@{relativeCursor}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{relativeCursor}{relativeCursor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} relative\+Cursor}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10027}{10027}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__resource__manager__data__stream_adbc6706e1584b259e1a21a2312c141be}\label{structma__resource__manager__data__stream_adbc6706e1584b259e1a21a2312c141be}} 
+\index{ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}!totalLengthInPCMFrames@{totalLengthInPCMFrames}}
+\index{totalLengthInPCMFrames@{totalLengthInPCMFrames}!ma\_resource\_manager\_data\_stream@{ma\_resource\_manager\_data\_stream}}
+\doxysubsubsection{\texorpdfstring{totalLengthInPCMFrames}{totalLengthInPCMFrames}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} total\+Length\+In\+PCMFrames}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l10026}{10026}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{miniaudio_8h}{miniaudio.\+h}}\end{DoxyCompactItemize}

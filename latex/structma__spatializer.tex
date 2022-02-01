@@ -1,0 +1,324 @@
+\hypertarget{structma__spatializer}{}\doxysection{ma\+\_\+spatializer Struct Reference}
+\label{structma__spatializer}\index{ma\_spatializer@{ma\_spatializer}}
+
+
+{\ttfamily \#include $<$miniaudio.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} \mbox{\hyperlink{structma__spatializer_ac1badddef903127dbae4c3ec91f0334e}{channels\+In}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} \mbox{\hyperlink{structma__spatializer_a748af983a82d9885a4cb45bbf7b7ef6f}{channels\+Out}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a1fc95b50a97f37464c83ba348861e808}{ma\+\_\+channel}} $\ast$ \mbox{\hyperlink{structma__spatializer_aaed049cf0deaef2902068094c977cccc}{p\+Channel\+Map\+In}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_ac7d5838fcd571ef464f74043187c0515}{ma\+\_\+attenuation\+\_\+model}} \mbox{\hyperlink{structma__spatializer_ac7f928ad1433b19dbe12b63de41c3086}{attenuation\+Model}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_aee426e1bf5960ecc12ff857b8a67af43}{ma\+\_\+positioning}} \mbox{\hyperlink{structma__spatializer_a7cd0aa0d3500cda23ade4daf9c6ebd7a}{positioning}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a3bdfb97d332d0a243fb463fb31c94a09}{ma\+\_\+handedness}} \mbox{\hyperlink{structma__spatializer_a6ed0be60d0698ac03b5f148be3ae01b8}{handedness}}
+\item 
+float \mbox{\hyperlink{structma__spatializer_a7fc28761273854c6b206bf6b3ffb1676}{min\+Gain}}
+\item 
+float \mbox{\hyperlink{structma__spatializer_a875166f440681bd98a8656b5672262c1}{max\+Gain}}
+\item 
+float \mbox{\hyperlink{structma__spatializer_a7bb20db4ed5573acd189559dc1b69b9d}{min\+Distance}}
+\item 
+float \mbox{\hyperlink{structma__spatializer_af22920f041b5db58118ffb07b37e9a25}{max\+Distance}}
+\item 
+float \mbox{\hyperlink{structma__spatializer_a288ab4f685dcddaf123578cd579d3836}{rolloff}}
+\item 
+float \mbox{\hyperlink{structma__spatializer_afb7c1c8c279dc27f1318ed993aedd0b2}{cone\+Inner\+Angle\+In\+Radians}}
+\item 
+float \mbox{\hyperlink{structma__spatializer_aa27c6f2abab6338b38c392a3c6b07fa6}{cone\+Outer\+Angle\+In\+Radians}}
+\item 
+float \mbox{\hyperlink{structma__spatializer_ab1e6b0f4e4f5f0717f55481d36ec942d}{cone\+Outer\+Gain}}
+\item 
+float \mbox{\hyperlink{structma__spatializer_ab11b237370284a81ec94078c1ceac07b}{doppler\+Factor}}
+\item 
+float \mbox{\hyperlink{structma__spatializer_a0a6c422ad649677c4dd6b3d1e25d40c1}{directional\+Attenuation\+Factor}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} \mbox{\hyperlink{structma__spatializer_a6f00301538bd3e157d5e616d21504bf8}{gain\+Smooth\+Time\+In\+Frames}}
+\item 
+\mbox{\hyperlink{structma__vec3f}{ma\+\_\+vec3f}} \mbox{\hyperlink{structma__spatializer_a3d91e3b5985f0dceddae62497d4d3d8a}{position}}
+\item 
+\mbox{\hyperlink{structma__vec3f}{ma\+\_\+vec3f}} \mbox{\hyperlink{structma__spatializer_a09133925a6e1722326dd55a63a5a4e8d}{direction}}
+\item 
+\mbox{\hyperlink{structma__vec3f}{ma\+\_\+vec3f}} \mbox{\hyperlink{structma__spatializer_a72114e69b90616990ee8c05d1fc0a6de}{velocity}}
+\item 
+float \mbox{\hyperlink{structma__spatializer_a1014c8a4b1e90b10ac63b77965694cdb}{doppler\+Pitch}}
+\item 
+\mbox{\hyperlink{structma__gainer}{ma\+\_\+gainer}} \mbox{\hyperlink{structma__spatializer_a7ba57b581b54debdad4184bf47327426}{gainer}}
+\item 
+float $\ast$ \mbox{\hyperlink{structma__spatializer_adca0f5a07023c4beab1ea5ca10de07cb}{p\+New\+Channel\+Gains\+Out}}
+\item 
+void $\ast$ \mbox{\hyperlink{structma__spatializer_a70e423a746fe79229a177931a9f1fb80}{\+\_\+p\+Heap}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} \mbox{\hyperlink{structma__spatializer_a792eafdc28df87fb85e0260796c95bdc}{\+\_\+owns\+Heap}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04949}{4949}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structma__spatializer_a792eafdc28df87fb85e0260796c95bdc}\label{structma__spatializer_a792eafdc28df87fb85e0260796c95bdc}} 
+\index{ma\_spatializer@{ma\_spatializer}!\_ownsHeap@{\_ownsHeap}}
+\index{\_ownsHeap@{\_ownsHeap}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{\_ownsHeap}{\_ownsHeap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} \+\_\+owns\+Heap}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04977}{4977}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a70e423a746fe79229a177931a9f1fb80}\label{structma__spatializer_a70e423a746fe79229a177931a9f1fb80}} 
+\index{ma\_spatializer@{ma\_spatializer}!\_pHeap@{\_pHeap}}
+\index{\_pHeap@{\_pHeap}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{\_pHeap}{\_pHeap}}
+{\footnotesize\ttfamily void$\ast$ \+\_\+p\+Heap}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04976}{4976}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_ac7f928ad1433b19dbe12b63de41c3086}\label{structma__spatializer_ac7f928ad1433b19dbe12b63de41c3086}} 
+\index{ma\_spatializer@{ma\_spatializer}!attenuationModel@{attenuationModel}}
+\index{attenuationModel@{attenuationModel}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{attenuationModel}{attenuationModel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ac7d5838fcd571ef464f74043187c0515}{ma\+\_\+attenuation\+\_\+model}} attenuation\+Model}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04954}{4954}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_ac1badddef903127dbae4c3ec91f0334e}\label{structma__spatializer_ac1badddef903127dbae4c3ec91f0334e}} 
+\index{ma\_spatializer@{ma\_spatializer}!channelsIn@{channelsIn}}
+\index{channelsIn@{channelsIn}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{channelsIn}{channelsIn}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} channels\+In}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04951}{4951}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a748af983a82d9885a4cb45bbf7b7ef6f}\label{structma__spatializer_a748af983a82d9885a4cb45bbf7b7ef6f}} 
+\index{ma\_spatializer@{ma\_spatializer}!channelsOut@{channelsOut}}
+\index{channelsOut@{channelsOut}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{channelsOut}{channelsOut}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} channels\+Out}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04952}{4952}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_afb7c1c8c279dc27f1318ed993aedd0b2}\label{structma__spatializer_afb7c1c8c279dc27f1318ed993aedd0b2}} 
+\index{ma\_spatializer@{ma\_spatializer}!coneInnerAngleInRadians@{coneInnerAngleInRadians}}
+\index{coneInnerAngleInRadians@{coneInnerAngleInRadians}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{coneInnerAngleInRadians}{coneInnerAngleInRadians}}
+{\footnotesize\ttfamily float cone\+Inner\+Angle\+In\+Radians}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04962}{4962}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_aa27c6f2abab6338b38c392a3c6b07fa6}\label{structma__spatializer_aa27c6f2abab6338b38c392a3c6b07fa6}} 
+\index{ma\_spatializer@{ma\_spatializer}!coneOuterAngleInRadians@{coneOuterAngleInRadians}}
+\index{coneOuterAngleInRadians@{coneOuterAngleInRadians}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{coneOuterAngleInRadians}{coneOuterAngleInRadians}}
+{\footnotesize\ttfamily float cone\+Outer\+Angle\+In\+Radians}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04963}{4963}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_ab1e6b0f4e4f5f0717f55481d36ec942d}\label{structma__spatializer_ab1e6b0f4e4f5f0717f55481d36ec942d}} 
+\index{ma\_spatializer@{ma\_spatializer}!coneOuterGain@{coneOuterGain}}
+\index{coneOuterGain@{coneOuterGain}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{coneOuterGain}{coneOuterGain}}
+{\footnotesize\ttfamily float cone\+Outer\+Gain}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04964}{4964}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a09133925a6e1722326dd55a63a5a4e8d}\label{structma__spatializer_a09133925a6e1722326dd55a63a5a4e8d}} 
+\index{ma\_spatializer@{ma\_spatializer}!direction@{direction}}
+\index{direction@{direction}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__vec3f}{ma\+\_\+vec3f}} direction}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04969}{4969}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a0a6c422ad649677c4dd6b3d1e25d40c1}\label{structma__spatializer_a0a6c422ad649677c4dd6b3d1e25d40c1}} 
+\index{ma\_spatializer@{ma\_spatializer}!directionalAttenuationFactor@{directionalAttenuationFactor}}
+\index{directionalAttenuationFactor@{directionalAttenuationFactor}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{directionalAttenuationFactor}{directionalAttenuationFactor}}
+{\footnotesize\ttfamily float directional\+Attenuation\+Factor}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04966}{4966}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_ab11b237370284a81ec94078c1ceac07b}\label{structma__spatializer_ab11b237370284a81ec94078c1ceac07b}} 
+\index{ma\_spatializer@{ma\_spatializer}!dopplerFactor@{dopplerFactor}}
+\index{dopplerFactor@{dopplerFactor}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{dopplerFactor}{dopplerFactor}}
+{\footnotesize\ttfamily float doppler\+Factor}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04965}{4965}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a1014c8a4b1e90b10ac63b77965694cdb}\label{structma__spatializer_a1014c8a4b1e90b10ac63b77965694cdb}} 
+\index{ma\_spatializer@{ma\_spatializer}!dopplerPitch@{dopplerPitch}}
+\index{dopplerPitch@{dopplerPitch}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{dopplerPitch}{dopplerPitch}}
+{\footnotesize\ttfamily float doppler\+Pitch}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04971}{4971}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a7ba57b581b54debdad4184bf47327426}\label{structma__spatializer_a7ba57b581b54debdad4184bf47327426}} 
+\index{ma\_spatializer@{ma\_spatializer}!gainer@{gainer}}
+\index{gainer@{gainer}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{gainer}{gainer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__gainer}{ma\+\_\+gainer}} gainer}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04972}{4972}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a6f00301538bd3e157d5e616d21504bf8}\label{structma__spatializer_a6f00301538bd3e157d5e616d21504bf8}} 
+\index{ma\_spatializer@{ma\_spatializer}!gainSmoothTimeInFrames@{gainSmoothTimeInFrames}}
+\index{gainSmoothTimeInFrames@{gainSmoothTimeInFrames}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{gainSmoothTimeInFrames}{gainSmoothTimeInFrames}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} gain\+Smooth\+Time\+In\+Frames}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04967}{4967}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a6ed0be60d0698ac03b5f148be3ae01b8}\label{structma__spatializer_a6ed0be60d0698ac03b5f148be3ae01b8}} 
+\index{ma\_spatializer@{ma\_spatializer}!handedness@{handedness}}
+\index{handedness@{handedness}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{handedness}{handedness}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a3bdfb97d332d0a243fb463fb31c94a09}{ma\+\_\+handedness}} handedness}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04956}{4956}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_af22920f041b5db58118ffb07b37e9a25}\label{structma__spatializer_af22920f041b5db58118ffb07b37e9a25}} 
+\index{ma\_spatializer@{ma\_spatializer}!maxDistance@{maxDistance}}
+\index{maxDistance@{maxDistance}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{maxDistance}{maxDistance}}
+{\footnotesize\ttfamily float max\+Distance}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04960}{4960}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a875166f440681bd98a8656b5672262c1}\label{structma__spatializer_a875166f440681bd98a8656b5672262c1}} 
+\index{ma\_spatializer@{ma\_spatializer}!maxGain@{maxGain}}
+\index{maxGain@{maxGain}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{maxGain}{maxGain}}
+{\footnotesize\ttfamily float max\+Gain}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04958}{4958}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a7bb20db4ed5573acd189559dc1b69b9d}\label{structma__spatializer_a7bb20db4ed5573acd189559dc1b69b9d}} 
+\index{ma\_spatializer@{ma\_spatializer}!minDistance@{minDistance}}
+\index{minDistance@{minDistance}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{minDistance}{minDistance}}
+{\footnotesize\ttfamily float min\+Distance}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04959}{4959}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a7fc28761273854c6b206bf6b3ffb1676}\label{structma__spatializer_a7fc28761273854c6b206bf6b3ffb1676}} 
+\index{ma\_spatializer@{ma\_spatializer}!minGain@{minGain}}
+\index{minGain@{minGain}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{minGain}{minGain}}
+{\footnotesize\ttfamily float min\+Gain}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04957}{4957}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_aaed049cf0deaef2902068094c977cccc}\label{structma__spatializer_aaed049cf0deaef2902068094c977cccc}} 
+\index{ma\_spatializer@{ma\_spatializer}!pChannelMapIn@{pChannelMapIn}}
+\index{pChannelMapIn@{pChannelMapIn}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{pChannelMapIn}{pChannelMapIn}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a1fc95b50a97f37464c83ba348861e808}{ma\+\_\+channel}}$\ast$ p\+Channel\+Map\+In}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04953}{4953}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_adca0f5a07023c4beab1ea5ca10de07cb}\label{structma__spatializer_adca0f5a07023c4beab1ea5ca10de07cb}} 
+\index{ma\_spatializer@{ma\_spatializer}!pNewChannelGainsOut@{pNewChannelGainsOut}}
+\index{pNewChannelGainsOut@{pNewChannelGainsOut}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{pNewChannelGainsOut}{pNewChannelGainsOut}}
+{\footnotesize\ttfamily float$\ast$ p\+New\+Channel\+Gains\+Out}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04973}{4973}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a3d91e3b5985f0dceddae62497d4d3d8a}\label{structma__spatializer_a3d91e3b5985f0dceddae62497d4d3d8a}} 
+\index{ma\_spatializer@{ma\_spatializer}!position@{position}}
+\index{position@{position}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__vec3f}{ma\+\_\+vec3f}} position}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04968}{4968}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a7cd0aa0d3500cda23ade4daf9c6ebd7a}\label{structma__spatializer_a7cd0aa0d3500cda23ade4daf9c6ebd7a}} 
+\index{ma\_spatializer@{ma\_spatializer}!positioning@{positioning}}
+\index{positioning@{positioning}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{positioning}{positioning}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_aee426e1bf5960ecc12ff857b8a67af43}{ma\+\_\+positioning}} positioning}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04955}{4955}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a288ab4f685dcddaf123578cd579d3836}\label{structma__spatializer_a288ab4f685dcddaf123578cd579d3836}} 
+\index{ma\_spatializer@{ma\_spatializer}!rolloff@{rolloff}}
+\index{rolloff@{rolloff}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{rolloff}{rolloff}}
+{\footnotesize\ttfamily float rolloff}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04961}{4961}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__spatializer_a72114e69b90616990ee8c05d1fc0a6de}\label{structma__spatializer_a72114e69b90616990ee8c05d1fc0a6de}} 
+\index{ma\_spatializer@{ma\_spatializer}!velocity@{velocity}}
+\index{velocity@{velocity}!ma\_spatializer@{ma\_spatializer}}
+\doxysubsubsection{\texorpdfstring{velocity}{velocity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__vec3f}{ma\+\_\+vec3f}} velocity}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l04970}{4970}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{miniaudio_8h}{miniaudio.\+h}}\end{DoxyCompactItemize}

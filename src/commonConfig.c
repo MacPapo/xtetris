@@ -156,6 +156,34 @@ void refreshGameField(int* x, tet* current_piece, player *pg)
     wrefresh(pg->window);
 }
 
+void paintHelp()
+{
+    WINDOW *w_help;
+    int starty, startx;
+    starty = (LINES - HELP_H) / 2;
+    startx = (COLS  - HELP_W) / 2 + 3;
+
+    refresh();
+    w_help = newwin(HELP_H, HELP_W, starty, startx);
+    wbkgd(w_help, COLOR_PAIR(2));
+    mvwprintw(w_help, 0, 25, "| HELP PAGE |");
+    mvwprintw(w_help, 2, 14, "Vuoi una mano con i comandi del gioco??");
+    mvwprintw(w_help, 4, 24, "-- SELEZIONE --");
+    mvwprintw(w_help, 6, 10, "[ N ]  ==> prossimo tetramino");
+    mvwprintw(w_help, 7, 10, "[ B ]  ==> tetramino precedente");
+    mvwprintw(w_help, 8, 10, "[ R ]  ==> ruotare il tetramino");
+    mvwprintw(w_help, 10, 24, "-- MOVIMENTO --");
+    mvwprintw(w_help, 12, 10, "[ < ]  ==> muove il tetramino a sinistra");
+    mvwprintw(w_help, 13, 10, "[ > ]  ==> muove il tetramino a destra");
+    mvwprintw(w_help, 14, 10, "[ v ]  ==> la mossa desiderata");
+    wrefresh(w_help);
+
+    getch();
+    delwin(w_help);
+    touchwin(stdscr);
+    refresh();
+}
+
 void resetPreview()
 {
     int row;

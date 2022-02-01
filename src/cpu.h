@@ -32,7 +32,8 @@ void bigBrain(player* cpu, int* bestRow, int* zeroInterval, int tetraminos[]);
 
 void colorFieldCPU(int gameField[][MATRIX_W], player *cpu);
 
-void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* s_preview, WINDOW* s_score);
+void startCpuGame(player* pg1, player* cpu, tet* piece, int* tetPieces, WINDOW*s_preview, WINDOW* s_score, WINDOW* w_title, WINDOW* w_field, WINDOW* w_sfield, WINDOW* w_preview, WINDOW* w_score, WINDOW* w_save, WINDOW* w_cmds );
+
 
 int CPU();
 

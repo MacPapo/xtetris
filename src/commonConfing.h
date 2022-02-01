@@ -107,6 +107,8 @@ int calculateScoring(int rows);
 
 void backPiece(tet* current_piece, tet* preview_piece);
 
+void paintHelp();
+
 void rotatingPiece(tet* current_piece);
 
 void nextPiece(tet* current_piece, tet* preview_piece);

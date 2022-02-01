@@ -1,0 +1,84 @@
+\hypertarget{structma__decoding__backend__vtable}{}\doxysection{ma\+\_\+decoding\+\_\+backend\+\_\+vtable Struct Reference}
+\label{structma__decoding__backend__vtable}\index{ma\_decoding\_backend\_vtable@{ma\_decoding\_backend\_vtable}}
+
+
+{\ttfamily \#include $<$miniaudio.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__decoding__backend__vtable_a15898a0394cd636723de434f5a9760fc}{on\+Init}} )(void $\ast$p\+User\+Data, \mbox{\hyperlink{miniaudio_8h_a5d8dd29f2e869f426e69d6e2afaf1968}{ma\+\_\+read\+\_\+proc}} on\+Read, \mbox{\hyperlink{miniaudio_8h_a4734104118d5c3ac957ba1528fe8f601}{ma\+\_\+seek\+\_\+proc}} on\+Seek, \mbox{\hyperlink{miniaudio_8h_a534fd7eebdd083252de721e8e1bdc025}{ma\+\_\+tell\+\_\+proc}} on\+Tell, void $\ast$p\+Read\+Seek\+Tell\+User\+Data, const \mbox{\hyperlink{structma__decoding__backend__config}{ma\+\_\+decoding\+\_\+backend\+\_\+config}} $\ast$p\+Config, const \mbox{\hyperlink{structma__allocation__callbacks}{ma\+\_\+allocation\+\_\+callbacks}} $\ast$p\+Allocation\+Callbacks, \mbox{\hyperlink{miniaudio_8h_ab021ebfb2ec1a5020dc74aed82a7b09f}{ma\+\_\+data\+\_\+source}} $\ast$$\ast$pp\+Backend)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__decoding__backend__vtable_a00a91cccbd22dc8d0ee124b47c530fdf}{on\+Init\+File}} )(void $\ast$p\+User\+Data, const char $\ast$p\+File\+Path, const \mbox{\hyperlink{structma__decoding__backend__config}{ma\+\_\+decoding\+\_\+backend\+\_\+config}} $\ast$p\+Config, const \mbox{\hyperlink{structma__allocation__callbacks}{ma\+\_\+allocation\+\_\+callbacks}} $\ast$p\+Allocation\+Callbacks, \mbox{\hyperlink{miniaudio_8h_ab021ebfb2ec1a5020dc74aed82a7b09f}{ma\+\_\+data\+\_\+source}} $\ast$$\ast$pp\+Backend)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__decoding__backend__vtable_a2c75e69950f02545da67e0b303281bc3}{on\+Init\+FileW}} )(void $\ast$p\+User\+Data, const wchar\+\_\+t $\ast$p\+File\+Path, const \mbox{\hyperlink{structma__decoding__backend__config}{ma\+\_\+decoding\+\_\+backend\+\_\+config}} $\ast$p\+Config, const \mbox{\hyperlink{structma__allocation__callbacks}{ma\+\_\+allocation\+\_\+callbacks}} $\ast$p\+Allocation\+Callbacks, \mbox{\hyperlink{miniaudio_8h_ab021ebfb2ec1a5020dc74aed82a7b09f}{ma\+\_\+data\+\_\+source}} $\ast$$\ast$pp\+Backend)
+\item 
+\mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ \mbox{\hyperlink{structma__decoding__backend__vtable_aa0f11bdbbda7daa91dd72723235714f3}{on\+Init\+Memory}} )(void $\ast$p\+User\+Data, const void $\ast$p\+Data, size\+\_\+t data\+Size, const \mbox{\hyperlink{structma__decoding__backend__config}{ma\+\_\+decoding\+\_\+backend\+\_\+config}} $\ast$p\+Config, const \mbox{\hyperlink{structma__allocation__callbacks}{ma\+\_\+allocation\+\_\+callbacks}} $\ast$p\+Allocation\+Callbacks, \mbox{\hyperlink{miniaudio_8h_ab021ebfb2ec1a5020dc74aed82a7b09f}{ma\+\_\+data\+\_\+source}} $\ast$$\ast$pp\+Backend)
+\item 
+void($\ast$ \mbox{\hyperlink{structma__decoding__backend__vtable_a455f535ea65be69076ff390a778943aa}{on\+Uninit}} )(void $\ast$p\+User\+Data, \mbox{\hyperlink{miniaudio_8h_ab021ebfb2ec1a5020dc74aed82a7b09f}{ma\+\_\+data\+\_\+source}} $\ast$p\+Backend, const \mbox{\hyperlink{structma__allocation__callbacks}{ma\+\_\+allocation\+\_\+callbacks}} $\ast$p\+Allocation\+Callbacks)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09548}{9548}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structma__decoding__backend__vtable_a15898a0394cd636723de434f5a9760fc}\label{structma__decoding__backend__vtable_a15898a0394cd636723de434f5a9760fc}} 
+\index{ma\_decoding\_backend\_vtable@{ma\_decoding\_backend\_vtable}!onInit@{onInit}}
+\index{onInit@{onInit}!ma\_decoding\_backend\_vtable@{ma\_decoding\_backend\_vtable}}
+\doxysubsubsection{\texorpdfstring{onInit}{onInit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Init) (void $\ast$p\+User\+Data, \mbox{\hyperlink{miniaudio_8h_a5d8dd29f2e869f426e69d6e2afaf1968}{ma\+\_\+read\+\_\+proc}} on\+Read, \mbox{\hyperlink{miniaudio_8h_a4734104118d5c3ac957ba1528fe8f601}{ma\+\_\+seek\+\_\+proc}} on\+Seek, \mbox{\hyperlink{miniaudio_8h_a534fd7eebdd083252de721e8e1bdc025}{ma\+\_\+tell\+\_\+proc}} on\+Tell, void $\ast$p\+Read\+Seek\+Tell\+User\+Data, const \mbox{\hyperlink{structma__decoding__backend__config}{ma\+\_\+decoding\+\_\+backend\+\_\+config}} $\ast$p\+Config, const \mbox{\hyperlink{structma__allocation__callbacks}{ma\+\_\+allocation\+\_\+callbacks}} $\ast$p\+Allocation\+Callbacks, \mbox{\hyperlink{miniaudio_8h_ab021ebfb2ec1a5020dc74aed82a7b09f}{ma\+\_\+data\+\_\+source}} $\ast$$\ast$pp\+Backend)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09550}{9550}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__decoding__backend__vtable_a00a91cccbd22dc8d0ee124b47c530fdf}\label{structma__decoding__backend__vtable_a00a91cccbd22dc8d0ee124b47c530fdf}} 
+\index{ma\_decoding\_backend\_vtable@{ma\_decoding\_backend\_vtable}!onInitFile@{onInitFile}}
+\index{onInitFile@{onInitFile}!ma\_decoding\_backend\_vtable@{ma\_decoding\_backend\_vtable}}
+\doxysubsubsection{\texorpdfstring{onInitFile}{onInitFile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Init\+File) (void $\ast$p\+User\+Data, const char $\ast$p\+File\+Path, const \mbox{\hyperlink{structma__decoding__backend__config}{ma\+\_\+decoding\+\_\+backend\+\_\+config}} $\ast$p\+Config, const \mbox{\hyperlink{structma__allocation__callbacks}{ma\+\_\+allocation\+\_\+callbacks}} $\ast$p\+Allocation\+Callbacks, \mbox{\hyperlink{miniaudio_8h_ab021ebfb2ec1a5020dc74aed82a7b09f}{ma\+\_\+data\+\_\+source}} $\ast$$\ast$pp\+Backend)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09551}{9551}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__decoding__backend__vtable_a2c75e69950f02545da67e0b303281bc3}\label{structma__decoding__backend__vtable_a2c75e69950f02545da67e0b303281bc3}} 
+\index{ma\_decoding\_backend\_vtable@{ma\_decoding\_backend\_vtable}!onInitFileW@{onInitFileW}}
+\index{onInitFileW@{onInitFileW}!ma\_decoding\_backend\_vtable@{ma\_decoding\_backend\_vtable}}
+\doxysubsubsection{\texorpdfstring{onInitFileW}{onInitFileW}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Init\+FileW) (void $\ast$p\+User\+Data, const wchar\+\_\+t $\ast$p\+File\+Path, const \mbox{\hyperlink{structma__decoding__backend__config}{ma\+\_\+decoding\+\_\+backend\+\_\+config}} $\ast$p\+Config, const \mbox{\hyperlink{structma__allocation__callbacks}{ma\+\_\+allocation\+\_\+callbacks}} $\ast$p\+Allocation\+Callbacks, \mbox{\hyperlink{miniaudio_8h_ab021ebfb2ec1a5020dc74aed82a7b09f}{ma\+\_\+data\+\_\+source}} $\ast$$\ast$pp\+Backend)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09552}{9552}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__decoding__backend__vtable_aa0f11bdbbda7daa91dd72723235714f3}\label{structma__decoding__backend__vtable_aa0f11bdbbda7daa91dd72723235714f3}} 
+\index{ma\_decoding\_backend\_vtable@{ma\_decoding\_backend\_vtable}!onInitMemory@{onInitMemory}}
+\index{onInitMemory@{onInitMemory}!ma\_decoding\_backend\_vtable@{ma\_decoding\_backend\_vtable}}
+\doxysubsubsection{\texorpdfstring{onInitMemory}{onInitMemory}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_ad1a04e53edf78c58e00613a1207bc881}{ma\+\_\+result}}($\ast$ on\+Init\+Memory) (void $\ast$p\+User\+Data, const void $\ast$p\+Data, size\+\_\+t data\+Size, const \mbox{\hyperlink{structma__decoding__backend__config}{ma\+\_\+decoding\+\_\+backend\+\_\+config}} $\ast$p\+Config, const \mbox{\hyperlink{structma__allocation__callbacks}{ma\+\_\+allocation\+\_\+callbacks}} $\ast$p\+Allocation\+Callbacks, \mbox{\hyperlink{miniaudio_8h_ab021ebfb2ec1a5020dc74aed82a7b09f}{ma\+\_\+data\+\_\+source}} $\ast$$\ast$pp\+Backend)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09553}{9553}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__decoding__backend__vtable_a455f535ea65be69076ff390a778943aa}\label{structma__decoding__backend__vtable_a455f535ea65be69076ff390a778943aa}} 
+\index{ma\_decoding\_backend\_vtable@{ma\_decoding\_backend\_vtable}!onUninit@{onUninit}}
+\index{onUninit@{onUninit}!ma\_decoding\_backend\_vtable@{ma\_decoding\_backend\_vtable}}
+\doxysubsubsection{\texorpdfstring{onUninit}{onUninit}}
+{\footnotesize\ttfamily void($\ast$ on\+Uninit) (void $\ast$p\+User\+Data, \mbox{\hyperlink{miniaudio_8h_ab021ebfb2ec1a5020dc74aed82a7b09f}{ma\+\_\+data\+\_\+source}} $\ast$p\+Backend, const \mbox{\hyperlink{structma__allocation__callbacks}{ma\+\_\+allocation\+\_\+callbacks}} $\ast$p\+Allocation\+Callbacks)}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09554}{9554}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{miniaudio_8h}{miniaudio.\+h}}\end{DoxyCompactItemize}

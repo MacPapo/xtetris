@@ -1,0 +1,482 @@
+\hypertarget{structma__job}{}\doxysection{ma\+\_\+job Struct Reference}
+\label{structma__job}\index{ma\_job@{ma\_job}}
+
+
+{\ttfamily \#include $<$miniaudio.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structma__job_a708f17b6ca961dd22db6649cc079fed7}{MA\+\_\+\+ATOMIC}} (8, \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}}) next
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{miniaudio_8h_a695da6c34b9e69ee88e373e4a06f7a6c}{ma\_uint16}} \mbox{\hyperlink{structma__job_a5ce6830fd4ff3a54ce20a3c080edd980}{code}}\\
+\>\>\mbox{\hyperlink{miniaudio_8h_a695da6c34b9e69ee88e373e4a06f7a6c}{ma\_uint16}} \mbox{\hyperlink{structma__job_ae9e213dd7eea4764fbc80d7880473690}{slot}}\\
+\>\>\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\_uint32}} \mbox{\hyperlink{structma__job_aed4128d28a727c1e6d62c322fe82f16b}{refcount}}\\
+\>\} \mbox{\hyperlink{structma__job_a9bb7886be93f4cd36e607657809bf96c}{breakup}}\\
+\>\mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\_uint64}} \mbox{\hyperlink{structma__job_ad7581b492681d1a41e73e68b8d56e507}{allocation}}\\
+\} \mbox{\hyperlink{structma__job_a31e7112fc68527b4cb9cadabbe84c507}{toc}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} \mbox{\hyperlink{structma__job_ae0c78f1918a70d4239ea11c5046daada}{order}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{miniaudio_8h_a4efc0af4d4eb40fd086a1a38fe2a04c4}{ma\_job\_proc}} \mbox{\hyperlink{structma__job_a5a02226c2e55ad6ebd3cae4970914669}{proc}}\\
+\>\>\mbox{\hyperlink{miniaudio_8h_a2ae1e2674a2cb382328214cca039c8bf}{ma\_uintptr}} \mbox{\hyperlink{structma__job_a151f5d1a6a18741c06237b275bdd6675}{data0}}\\
+\>\>\mbox{\hyperlink{miniaudio_8h_a2ae1e2674a2cb382328214cca039c8bf}{ma\_uintptr}} \mbox{\hyperlink{structma__job_abb95c323ba8af04da0340c92d2c46ff5}{data1}}\\
+\>\} \mbox{\hyperlink{structma__job_a8a38a2f9865bde1a052e7e35e1a1ba97}{custom}}\\
+\>union \{\\
+\>\>struct \{\\
+\>\>\>void $\ast$ \mbox{\hyperlink{structma__job_ac111f7a89910943e229cf01c76606e4c}{pResourceManager}}\\
+\>\>\>void $\ast$ \mbox{\hyperlink{structma__job_a6fa8898a956c2bbcde4e45a00329ab21}{pDataBufferNode}}\\
+\>\>\>char $\ast$ \mbox{\hyperlink{structma__job_a8730989cf37d48bdda4ac424951bbe34}{pFilePath}}\\
+\>\>\>wchar\_t $\ast$ \mbox{\hyperlink{structma__job_a39a63d105705b0ecad87c6a19457971f}{pFilePathW}}\\
+\>\>\>\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\_bool32}} \mbox{\hyperlink{structma__job_acd0d4c1d5e0cef6a7bf77fd019b2d0d3}{decode}}\\
+\>\>\>\mbox{\hyperlink{miniaudio_8h_a2984a9deefeefcef329d261271633e07}{ma\_async\_notification}} $\ast$ \mbox{\hyperlink{structma__job_abb99929507a0e8bf190e01d8101b0449}{pInitNotification}}\\
+\>\>\>\mbox{\hyperlink{miniaudio_8h_a2984a9deefeefcef329d261271633e07}{ma\_async\_notification}} $\ast$ \mbox{\hyperlink{structma__job_aa42fed3d9fe5a22944cdea777a8b0c48}{pDoneNotification}}\\
+\>\>\>\mbox{\hyperlink{structma__fence}{ma\_fence}} $\ast$ \mbox{\hyperlink{structma__job_a2f701c62fe3016ecfeb089e2a3e6c5ec}{pInitFence}}\\
+\>\>\>\mbox{\hyperlink{structma__fence}{ma\_fence}} $\ast$ \mbox{\hyperlink{structma__job_afcd243f4afc7df9364832b45c09da08c}{pDoneFence}}\\
+\>\>\} \mbox{\hyperlink{structma__job_ab0b4fe8c6170a3f894c7c39c5e40d41e}{loadDataBufferNode}}\\
+\>\>struct \{\\
+\>\>\>void $\ast$ \mbox{\hyperlink{structma__job_ac111f7a89910943e229cf01c76606e4c}{pResourceManager}}\\
+\>\>\>void $\ast$ \mbox{\hyperlink{structma__job_a6fa8898a956c2bbcde4e45a00329ab21}{pDataBufferNode}}\\
+\>\>\>\mbox{\hyperlink{miniaudio_8h_a2984a9deefeefcef329d261271633e07}{ma\_async\_notification}} $\ast$ \mbox{\hyperlink{structma__job_aa42fed3d9fe5a22944cdea777a8b0c48}{pDoneNotification}}\\
+\>\>\>\mbox{\hyperlink{structma__fence}{ma\_fence}} $\ast$ \mbox{\hyperlink{structma__job_afcd243f4afc7df9364832b45c09da08c}{pDoneFence}}\\
+\>\>\} \mbox{\hyperlink{structma__job_a2fd71476e8bc85142a02158fdbbfde78}{freeDataBufferNode}}\\
+\>\>struct \{\\
+\>\>\>void $\ast$ \mbox{\hyperlink{structma__job_ac111f7a89910943e229cf01c76606e4c}{pResourceManager}}\\
+\>\>\>void $\ast$ \mbox{\hyperlink{structma__job_a6fa8898a956c2bbcde4e45a00329ab21}{pDataBufferNode}}\\
+\>\>\>void $\ast$ \mbox{\hyperlink{structma__job_a2c063726a47e72130071af1cd7fa65e6}{pDecoder}}\\
+\>\>\>\mbox{\hyperlink{miniaudio_8h_a2984a9deefeefcef329d261271633e07}{ma\_async\_notification}} $\ast$ \mbox{\hyperlink{structma__job_aa42fed3d9fe5a22944cdea777a8b0c48}{pDoneNotification}}\\
+\>\>\>\mbox{\hyperlink{structma__fence}{ma\_fence}} $\ast$ \mbox{\hyperlink{structma__job_afcd243f4afc7df9364832b45c09da08c}{pDoneFence}}\\
+\>\>\} \mbox{\hyperlink{structma__job_ac97caab76d4de46ba10dae3ebc13057b}{pageDataBufferNode}}\\
+\>\>struct \{\\
+\>\>\>void $\ast$ \mbox{\hyperlink{structma__job_a142f40317eab0f5952949d1edc352f5a}{pDataBuffer}}\\
+\>\>\>\mbox{\hyperlink{miniaudio_8h_a2984a9deefeefcef329d261271633e07}{ma\_async\_notification}} $\ast$ \mbox{\hyperlink{structma__job_abb99929507a0e8bf190e01d8101b0449}{pInitNotification}}\\
+\>\>\>\mbox{\hyperlink{miniaudio_8h_a2984a9deefeefcef329d261271633e07}{ma\_async\_notification}} $\ast$ \mbox{\hyperlink{structma__job_aa42fed3d9fe5a22944cdea777a8b0c48}{pDoneNotification}}\\
+\>\>\>\mbox{\hyperlink{structma__fence}{ma\_fence}} $\ast$ \mbox{\hyperlink{structma__job_a2f701c62fe3016ecfeb089e2a3e6c5ec}{pInitFence}}\\
+\>\>\>\mbox{\hyperlink{structma__fence}{ma\_fence}} $\ast$ \mbox{\hyperlink{structma__job_afcd243f4afc7df9364832b45c09da08c}{pDoneFence}}\\
+\>\>\} \mbox{\hyperlink{structma__job_adc839ab05a6e855665fa8f460a4aa76d}{loadDataBuffer}}\\
+\>\>struct \{\\
+\>\>\>void $\ast$ \mbox{\hyperlink{structma__job_a142f40317eab0f5952949d1edc352f5a}{pDataBuffer}}\\
+\>\>\>\mbox{\hyperlink{miniaudio_8h_a2984a9deefeefcef329d261271633e07}{ma\_async\_notification}} $\ast$ \mbox{\hyperlink{structma__job_aa42fed3d9fe5a22944cdea777a8b0c48}{pDoneNotification}}\\
+\>\>\>\mbox{\hyperlink{structma__fence}{ma\_fence}} $\ast$ \mbox{\hyperlink{structma__job_afcd243f4afc7df9364832b45c09da08c}{pDoneFence}}\\
+\>\>\} \mbox{\hyperlink{structma__job_a50dc82e9be4d55c433fa92de293edc8a}{freeDataBuffer}}\\
+\>\>struct \{\\
+\>\>\>void $\ast$ \mbox{\hyperlink{structma__job_a551134ed4b2da814e047f345a41e272a}{pDataStream}}\\
+\>\>\>char $\ast$ \mbox{\hyperlink{structma__job_a8730989cf37d48bdda4ac424951bbe34}{pFilePath}}\\
+\>\>\>wchar\_t $\ast$ \mbox{\hyperlink{structma__job_a39a63d105705b0ecad87c6a19457971f}{pFilePathW}}\\
+\>\>\>\mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\_uint64}} \mbox{\hyperlink{structma__job_a141fd115d25f197fc9a4ef6c15e2bec4}{initialSeekPoint}}\\
+\>\>\>\mbox{\hyperlink{miniaudio_8h_a2984a9deefeefcef329d261271633e07}{ma\_async\_notification}} $\ast$ \mbox{\hyperlink{structma__job_abb99929507a0e8bf190e01d8101b0449}{pInitNotification}}\\
+\>\>\>\mbox{\hyperlink{structma__fence}{ma\_fence}} $\ast$ \mbox{\hyperlink{structma__job_a2f701c62fe3016ecfeb089e2a3e6c5ec}{pInitFence}}\\
+\>\>\} \mbox{\hyperlink{structma__job_a8bd7cc5aa10f0606293335190e079abe}{loadDataStream}}\\
+\>\>struct \{\\
+\>\>\>void $\ast$ \mbox{\hyperlink{structma__job_a551134ed4b2da814e047f345a41e272a}{pDataStream}}\\
+\>\>\>\mbox{\hyperlink{miniaudio_8h_a2984a9deefeefcef329d261271633e07}{ma\_async\_notification}} $\ast$ \mbox{\hyperlink{structma__job_aa42fed3d9fe5a22944cdea777a8b0c48}{pDoneNotification}}\\
+\>\>\>\mbox{\hyperlink{structma__fence}{ma\_fence}} $\ast$ \mbox{\hyperlink{structma__job_afcd243f4afc7df9364832b45c09da08c}{pDoneFence}}\\
+\>\>\} \mbox{\hyperlink{structma__job_ac3ac748ca62f69ebecf14bb8c79b518d}{freeDataStream}}\\
+\>\>struct \{\\
+\>\>\>void $\ast$ \mbox{\hyperlink{structma__job_a551134ed4b2da814e047f345a41e272a}{pDataStream}}\\
+\>\>\>\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\_uint32}} \mbox{\hyperlink{structma__job_a44bb7866d77c0225c8023ce7d64faec2}{pageIndex}}\\
+\>\>\} \mbox{\hyperlink{structma__job_a1be8538d1d118887f2a5aefdec158c90}{pageDataStream}}\\
+\>\>struct \{\\
+\>\>\>void $\ast$ \mbox{\hyperlink{structma__job_a551134ed4b2da814e047f345a41e272a}{pDataStream}}\\
+\>\>\>\mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\_uint64}} \mbox{\hyperlink{structma__job_ad835fb4d28b00e99aa7b8110332faa02}{frameIndex}}\\
+\>\>\} \mbox{\hyperlink{structma__job_a1fad6119254938287b26ae3906bee805}{seekDataStream}}\\
+\>\} \mbox{\hyperlink{structma__job_a32ca6b173c52bbda9a14c77981d500e3}{resourceManager}}\\
+\>union \{\\
+\>\>union \{\\
+\>\>\>struct \{\\
+\>\>\>\>void $\ast$ \mbox{\hyperlink{structma__job_aabd7f202a88795b2cfc123bda876e5fb}{pDevice}}\\
+\>\>\>\>\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\_uint32}} \mbox{\hyperlink{structma__job_a4bc35366d48df26c487c00343dc24858}{deviceType}}\\
+\>\>\>\} \mbox{\hyperlink{structma__job_ab38eb174f1b23ede5b36bc001a0e6158}{reroute}}\\
+\>\>\} \mbox{\hyperlink{structma__job_a2572f2c474abf45aadbebd45223ba2b3}{aaudio}}\\
+\>\} \mbox{\hyperlink{structma__job_ada9ba5d9994f5571764a47cf67020f15}{device}}\\
+\} \mbox{\hyperlink{structma__job_a2ccb27f09201ad22ac5c9de8fef87620}{data}}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05884}{5884}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structma__job_a708f17b6ca961dd22db6649cc079fed7}\label{structma__job_a708f17b6ca961dd22db6649cc079fed7}} 
+\index{ma\_job@{ma\_job}!MA\_ATOMIC@{MA\_ATOMIC}}
+\index{MA\_ATOMIC@{MA\_ATOMIC}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{MA\_ATOMIC()}{MA\_ATOMIC()}}
+{\footnotesize\ttfamily MA\+\_\+\+ATOMIC (\begin{DoxyParamCaption}\item[{8}]{,  }\item[{\mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}}}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structma__job_a2572f2c474abf45aadbebd45223ba2b3}\label{structma__job_a2572f2c474abf45aadbebd45223ba2b3}} 
+\index{ma\_job@{ma\_job}!aaudio@{aaudio}}
+\index{aaudio@{aaudio}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily union  \{ ... \}  aaudio}
+
+\mbox{\Hypertarget{structma__job_ad7581b492681d1a41e73e68b8d56e507}\label{structma__job_ad7581b492681d1a41e73e68b8d56e507}} 
+\index{ma\_job@{ma\_job}!allocation@{allocation}}
+\index{allocation@{allocation}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{allocation}{allocation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} allocation}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05894}{5894}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_a9bb7886be93f4cd36e607657809bf96c}\label{structma__job_a9bb7886be93f4cd36e607657809bf96c}} 
+\index{ma\_job@{ma\_job}!breakup@{breakup}}
+\index{breakup@{breakup}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  breakup}
+
+\mbox{\Hypertarget{structma__job_a5ce6830fd4ff3a54ce20a3c080edd980}\label{structma__job_a5ce6830fd4ff3a54ce20a3c080edd980}} 
+\index{ma\_job@{ma\_job}!code@{code}}
+\index{code@{code}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{code}{code}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a695da6c34b9e69ee88e373e4a06f7a6c}{ma\+\_\+uint16}} code}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05890}{5890}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_a8a38a2f9865bde1a052e7e35e1a1ba97}\label{structma__job_a8a38a2f9865bde1a052e7e35e1a1ba97}} 
+\index{ma\_job@{ma\_job}!custom@{custom}}
+\index{custom@{custom}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  custom}
+
+\mbox{\Hypertarget{structma__job_a2ccb27f09201ad22ac5c9de8fef87620}\label{structma__job_a2ccb27f09201ad22ac5c9de8fef87620}} 
+\index{ma\_job@{ma\_job}!data@{data}}
+\index{data@{data}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily union  \{ ... \}  data}
+
+\mbox{\Hypertarget{structma__job_a151f5d1a6a18741c06237b275bdd6675}\label{structma__job_a151f5d1a6a18741c06237b275bdd6675}} 
+\index{ma\_job@{ma\_job}!data0@{data0}}
+\index{data0@{data0}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{data0}{data0}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a2ae1e2674a2cb382328214cca039c8bf}{ma\+\_\+uintptr}} data0}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05905}{5905}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_abb95c323ba8af04da0340c92d2c46ff5}\label{structma__job_abb95c323ba8af04da0340c92d2c46ff5}} 
+\index{ma\_job@{ma\_job}!data1@{data1}}
+\index{data1@{data1}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{data1}{data1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a2ae1e2674a2cb382328214cca039c8bf}{ma\+\_\+uintptr}} data1}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05906}{5906}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_acd0d4c1d5e0cef6a7bf77fd019b2d0d3}\label{structma__job_acd0d4c1d5e0cef6a7bf77fd019b2d0d3}} 
+\index{ma\_job@{ma\_job}!decode@{decode}}
+\index{decode@{decode}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{decode}{decode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} decode}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05918}{5918}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_ada9ba5d9994f5571764a47cf67020f15}\label{structma__job_ada9ba5d9994f5571764a47cf67020f15}} 
+\index{ma\_job@{ma\_job}!device@{device}}
+\index{device@{device}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily union  \{ ... \}  device}
+
+\mbox{\Hypertarget{structma__job_a4bc35366d48df26c487c00343dc24858}\label{structma__job_a4bc35366d48df26c487c00343dc24858}} 
+\index{ma\_job@{ma\_job}!deviceType@{deviceType}}
+\index{deviceType@{deviceType}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{deviceType}{deviceType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} device\+Type}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05990}{5990}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_ad835fb4d28b00e99aa7b8110332faa02}\label{structma__job_ad835fb4d28b00e99aa7b8110332faa02}} 
+\index{ma\_job@{ma\_job}!frameIndex@{frameIndex}}
+\index{frameIndex@{frameIndex}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{frameIndex}{frameIndex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} frame\+Index}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05978}{5978}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_a50dc82e9be4d55c433fa92de293edc8a}\label{structma__job_a50dc82e9be4d55c433fa92de293edc8a}} 
+\index{ma\_job@{ma\_job}!freeDataBuffer@{freeDataBuffer}}
+\index{freeDataBuffer@{freeDataBuffer}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  free\+Data\+Buffer}
+
+\mbox{\Hypertarget{structma__job_a2fd71476e8bc85142a02158fdbbfde78}\label{structma__job_a2fd71476e8bc85142a02158fdbbfde78}} 
+\index{ma\_job@{ma\_job}!freeDataBufferNode@{freeDataBufferNode}}
+\index{freeDataBufferNode@{freeDataBufferNode}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  free\+Data\+Buffer\+Node}
+
+\mbox{\Hypertarget{structma__job_ac3ac748ca62f69ebecf14bb8c79b518d}\label{structma__job_ac3ac748ca62f69ebecf14bb8c79b518d}} 
+\index{ma\_job@{ma\_job}!freeDataStream@{freeDataStream}}
+\index{freeDataStream@{freeDataStream}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  free\+Data\+Stream}
+
+\mbox{\Hypertarget{structma__job_a141fd115d25f197fc9a4ef6c15e2bec4}\label{structma__job_a141fd115d25f197fc9a4ef6c15e2bec4}} 
+\index{ma\_job@{ma\_job}!initialSeekPoint@{initialSeekPoint}}
+\index{initialSeekPoint@{initialSeekPoint}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{initialSeekPoint}{initialSeekPoint}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a4360475a027c8f01e79ca87226b1d96d}{ma\+\_\+uint64}} initial\+Seek\+Point}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05960}{5960}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_adc839ab05a6e855665fa8f460a4aa76d}\label{structma__job_adc839ab05a6e855665fa8f460a4aa76d}} 
+\index{ma\_job@{ma\_job}!loadDataBuffer@{loadDataBuffer}}
+\index{loadDataBuffer@{loadDataBuffer}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  load\+Data\+Buffer}
+
+\mbox{\Hypertarget{structma__job_ab0b4fe8c6170a3f894c7c39c5e40d41e}\label{structma__job_ab0b4fe8c6170a3f894c7c39c5e40d41e}} 
+\index{ma\_job@{ma\_job}!loadDataBufferNode@{loadDataBufferNode}}
+\index{loadDataBufferNode@{loadDataBufferNode}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  load\+Data\+Buffer\+Node}
+
+\mbox{\Hypertarget{structma__job_a8bd7cc5aa10f0606293335190e079abe}\label{structma__job_a8bd7cc5aa10f0606293335190e079abe}} 
+\index{ma\_job@{ma\_job}!loadDataStream@{loadDataStream}}
+\index{loadDataStream@{loadDataStream}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  load\+Data\+Stream}
+
+\mbox{\Hypertarget{structma__job_ae0c78f1918a70d4239ea11c5046daada}\label{structma__job_ae0c78f1918a70d4239ea11c5046daada}} 
+\index{ma\_job@{ma\_job}!order@{order}}
+\index{order@{order}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{order}{order}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} order}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05897}{5897}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_ac97caab76d4de46ba10dae3ebc13057b}\label{structma__job_ac97caab76d4de46ba10dae3ebc13057b}} 
+\index{ma\_job@{ma\_job}!pageDataBufferNode@{pageDataBufferNode}}
+\index{pageDataBufferNode@{pageDataBufferNode}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  page\+Data\+Buffer\+Node}
+
+\mbox{\Hypertarget{structma__job_a1be8538d1d118887f2a5aefdec158c90}\label{structma__job_a1be8538d1d118887f2a5aefdec158c90}} 
+\index{ma\_job@{ma\_job}!pageDataStream@{pageDataStream}}
+\index{pageDataStream@{pageDataStream}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  page\+Data\+Stream}
+
+\mbox{\Hypertarget{structma__job_a44bb7866d77c0225c8023ce7d64faec2}\label{structma__job_a44bb7866d77c0225c8023ce7d64faec2}} 
+\index{ma\_job@{ma\_job}!pageIndex@{pageIndex}}
+\index{pageIndex@{pageIndex}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{pageIndex}{pageIndex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} page\+Index}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05973}{5973}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_a142f40317eab0f5952949d1edc352f5a}\label{structma__job_a142f40317eab0f5952949d1edc352f5a}} 
+\index{ma\_job@{ma\_job}!pDataBuffer@{pDataBuffer}}
+\index{pDataBuffer@{pDataBuffer}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{pDataBuffer}{pDataBuffer}}
+{\footnotesize\ttfamily void$\ast$ p\+Data\+Buffer}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05942}{5942}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_a6fa8898a956c2bbcde4e45a00329ab21}\label{structma__job_a6fa8898a956c2bbcde4e45a00329ab21}} 
+\index{ma\_job@{ma\_job}!pDataBufferNode@{pDataBufferNode}}
+\index{pDataBufferNode@{pDataBufferNode}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{pDataBufferNode}{pDataBufferNode}}
+{\footnotesize\ttfamily void$\ast$ p\+Data\+Buffer\+Node}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05915}{5915}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_a551134ed4b2da814e047f345a41e272a}\label{structma__job_a551134ed4b2da814e047f345a41e272a}} 
+\index{ma\_job@{ma\_job}!pDataStream@{pDataStream}}
+\index{pDataStream@{pDataStream}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{pDataStream}{pDataStream}}
+{\footnotesize\ttfamily void$\ast$ p\+Data\+Stream}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05957}{5957}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_a2c063726a47e72130071af1cd7fa65e6}\label{structma__job_a2c063726a47e72130071af1cd7fa65e6}} 
+\index{ma\_job@{ma\_job}!pDecoder@{pDecoder}}
+\index{pDecoder@{pDecoder}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{pDecoder}{pDecoder}}
+{\footnotesize\ttfamily void$\ast$ p\+Decoder}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05935}{5935}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_aabd7f202a88795b2cfc123bda876e5fb}\label{structma__job_aabd7f202a88795b2cfc123bda876e5fb}} 
+\index{ma\_job@{ma\_job}!pDevice@{pDevice}}
+\index{pDevice@{pDevice}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{pDevice}{pDevice}}
+{\footnotesize\ttfamily void$\ast$ p\+Device}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05989}{5989}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_afcd243f4afc7df9364832b45c09da08c}\label{structma__job_afcd243f4afc7df9364832b45c09da08c}} 
+\index{ma\_job@{ma\_job}!pDoneFence@{pDoneFence}}
+\index{pDoneFence@{pDoneFence}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{pDoneFence}{pDoneFence}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__fence}{ma\+\_\+fence}}$\ast$ p\+Done\+Fence}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05922}{5922}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_aa42fed3d9fe5a22944cdea777a8b0c48}\label{structma__job_aa42fed3d9fe5a22944cdea777a8b0c48}} 
+\index{ma\_job@{ma\_job}!pDoneNotification@{pDoneNotification}}
+\index{pDoneNotification@{pDoneNotification}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{pDoneNotification}{pDoneNotification}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a2984a9deefeefcef329d261271633e07}{ma\+\_\+async\+\_\+notification}}$\ast$ p\+Done\+Notification}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05920}{5920}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_a8730989cf37d48bdda4ac424951bbe34}\label{structma__job_a8730989cf37d48bdda4ac424951bbe34}} 
+\index{ma\_job@{ma\_job}!pFilePath@{pFilePath}}
+\index{pFilePath@{pFilePath}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{pFilePath}{pFilePath}}
+{\footnotesize\ttfamily char$\ast$ p\+File\+Path}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05916}{5916}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_a39a63d105705b0ecad87c6a19457971f}\label{structma__job_a39a63d105705b0ecad87c6a19457971f}} 
+\index{ma\_job@{ma\_job}!pFilePathW@{pFilePathW}}
+\index{pFilePathW@{pFilePathW}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{pFilePathW}{pFilePathW}}
+{\footnotesize\ttfamily wchar\+\_\+t$\ast$ p\+File\+PathW}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05917}{5917}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_a2f701c62fe3016ecfeb089e2a3e6c5ec}\label{structma__job_a2f701c62fe3016ecfeb089e2a3e6c5ec}} 
+\index{ma\_job@{ma\_job}!pInitFence@{pInitFence}}
+\index{pInitFence@{pInitFence}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{pInitFence}{pInitFence}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__fence}{ma\+\_\+fence}}$\ast$ p\+Init\+Fence}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05921}{5921}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_abb99929507a0e8bf190e01d8101b0449}\label{structma__job_abb99929507a0e8bf190e01d8101b0449}} 
+\index{ma\_job@{ma\_job}!pInitNotification@{pInitNotification}}
+\index{pInitNotification@{pInitNotification}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{pInitNotification}{pInitNotification}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a2984a9deefeefcef329d261271633e07}{ma\+\_\+async\+\_\+notification}}$\ast$ p\+Init\+Notification}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05919}{5919}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_ac111f7a89910943e229cf01c76606e4c}\label{structma__job_ac111f7a89910943e229cf01c76606e4c}} 
+\index{ma\_job@{ma\_job}!pResourceManager@{pResourceManager}}
+\index{pResourceManager@{pResourceManager}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{pResourceManager}{pResourceManager}}
+{\footnotesize\ttfamily void$\ast$ p\+Resource\+Manager}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05914}{5914}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_a5a02226c2e55ad6ebd3cae4970914669}\label{structma__job_a5a02226c2e55ad6ebd3cae4970914669}} 
+\index{ma\_job@{ma\_job}!proc@{proc}}
+\index{proc@{proc}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{proc}{proc}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a4efc0af4d4eb40fd086a1a38fe2a04c4}{ma\+\_\+job\+\_\+proc}} proc}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05904}{5904}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_aed4128d28a727c1e6d62c322fe82f16b}\label{structma__job_aed4128d28a727c1e6d62c322fe82f16b}} 
+\index{ma\_job@{ma\_job}!refcount@{refcount}}
+\index{refcount@{refcount}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{refcount}{refcount}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} refcount}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05892}{5892}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_ab38eb174f1b23ede5b36bc001a0e6158}\label{structma__job_ab38eb174f1b23ede5b36bc001a0e6158}} 
+\index{ma\_job@{ma\_job}!reroute@{reroute}}
+\index{reroute@{reroute}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  reroute}
+
+\mbox{\Hypertarget{structma__job_a32ca6b173c52bbda9a14c77981d500e3}\label{structma__job_a32ca6b173c52bbda9a14c77981d500e3}} 
+\index{ma\_job@{ma\_job}!resourceManager@{resourceManager}}
+\index{resourceManager@{resourceManager}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily union  \{ ... \}  resource\+Manager}
+
+\mbox{\Hypertarget{structma__job_a1fad6119254938287b26ae3906bee805}\label{structma__job_a1fad6119254938287b26ae3906bee805}} 
+\index{ma\_job@{ma\_job}!seekDataStream@{seekDataStream}}
+\index{seekDataStream@{seekDataStream}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  seek\+Data\+Stream}
+
+\mbox{\Hypertarget{structma__job_ae9e213dd7eea4764fbc80d7880473690}\label{structma__job_ae9e213dd7eea4764fbc80d7880473690}} 
+\index{ma\_job@{ma\_job}!slot@{slot}}
+\index{slot@{slot}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{slot}{slot}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a695da6c34b9e69ee88e373e4a06f7a6c}{ma\+\_\+uint16}} slot}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l05891}{5891}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__job_a31e7112fc68527b4cb9cadabbe84c507}\label{structma__job_a31e7112fc68527b4cb9cadabbe84c507}} 
+\index{ma\_job@{ma\_job}!toc@{toc}}
+\index{toc@{toc}!ma\_job@{ma\_job}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily union  \{ ... \}  toc}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{miniaudio_8h}{miniaudio.\+h}}\end{DoxyCompactItemize}

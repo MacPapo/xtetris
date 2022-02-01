@@ -1,0 +1,254 @@
+\hypertarget{structma__context__config}{}\doxysection{ma\+\_\+context\+\_\+config Struct Reference}
+\label{structma__context__config}\index{ma\_context\_config@{ma\_context\_config}}
+
+
+{\ttfamily \#include $<$miniaudio.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structma__log}{ma\+\_\+log}} $\ast$ \mbox{\hyperlink{structma__context__config_a766b92b0d9bbf911897c6ef2b4b12f16}{p\+Log}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a5b6285121d082017c1e2c7452f95afec}{ma\+\_\+thread\+\_\+priority}} \mbox{\hyperlink{structma__context__config_a671af96e93b976959f427242302b9253}{thread\+Priority}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structma__context__config_af55aa7e4c15867be4695123ff0803935}{thread\+Stack\+Size}}
+\item 
+void $\ast$ \mbox{\hyperlink{structma__context__config_a8d75dbe9027a94780bc2f31670400613}{p\+User\+Data}}
+\item 
+\mbox{\hyperlink{structma__allocation__callbacks}{ma\+\_\+allocation\+\_\+callbacks}} \mbox{\hyperlink{structma__context__config_aad6a039bdb94baa28e8cc2c9e0581a37}{allocation\+Callbacks}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\_bool32}} \mbox{\hyperlink{structma__context__config_afeb301288eb801ebc7a64a7c19678c36}{useVerboseDeviceEnumeration}}\\
+\} \mbox{\hyperlink{structma__context__config_a3fad1170be46fd0dfbeaca85f106a45e}{alsa}}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>const char $\ast$ \mbox{\hyperlink{structma__context__config_afb85544c1989a30f55de4347fd982bf6}{pApplicationName}}\\
+\>const char $\ast$ \mbox{\hyperlink{structma__context__config_a08492b68c9fb9de40a80a9de6ae8f4b5}{pServerName}}\\
+\>\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\_bool32}} \mbox{\hyperlink{structma__context__config_adb96852fc365628aba58e028a192691b}{tryAutoSpawn}}\\
+\} \mbox{\hyperlink{structma__context__config_a32e4a189db52e597af53b117f29d8b0e}{pulse}}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{miniaudio_8h_a3c2fbf7563d9b9c7929003e44f81aa37}{ma\_ios\_session\_category}} \mbox{\hyperlink{structma__context__config_abeb2156d8b746bcce9a892b72ab37b88}{sessionCategory}}\\
+\>\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\_uint32}} \mbox{\hyperlink{structma__context__config_a647a2d20eb1ca741ecf6f4fafc5af520}{sessionCategoryOptions}}\\
+\>\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\_bool32}} \mbox{\hyperlink{structma__context__config_a233f5e12e745b979a656568130cc18c3}{noAudioSessionActivate}}\\
+\>\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\_bool32}} \mbox{\hyperlink{structma__context__config_aa591b9a047e1f91741a56c7efad616cb}{noAudioSessionDeactivate}}\\
+\} \mbox{\hyperlink{structma__context__config_aa56638aec09269dc48420ac12b3b80e8}{coreaudio}}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>const char $\ast$ \mbox{\hyperlink{structma__context__config_a7a14a9831fcd0085b56a18b8840f67fd}{pClientName}}\\
+\>\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\_bool32}} \mbox{\hyperlink{structma__context__config_aea978d4128bc959492ed92bd1aac3621}{tryStartServer}}\\
+\} \mbox{\hyperlink{structma__context__config_adbc7824ebffab8423abbdb4ff7110fe8}{jack}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{structma__backend__callbacks}{ma\+\_\+backend\+\_\+callbacks}} \mbox{\hyperlink{structma__context__config_a81c4bb5c5cea8f1ca66f29212296cbb5}{custom}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06735}{6735}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structma__context__config_aad6a039bdb94baa28e8cc2c9e0581a37}\label{structma__context__config_aad6a039bdb94baa28e8cc2c9e0581a37}} 
+\index{ma\_context\_config@{ma\_context\_config}!allocationCallbacks@{allocationCallbacks}}
+\index{allocationCallbacks@{allocationCallbacks}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{allocationCallbacks}{allocationCallbacks}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__allocation__callbacks}{ma\+\_\+allocation\+\_\+callbacks}} allocation\+Callbacks}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06741}{6741}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_a3fad1170be46fd0dfbeaca85f106a45e}\label{structma__context__config_a3fad1170be46fd0dfbeaca85f106a45e}} 
+\index{ma\_context\_config@{ma\_context\_config}!alsa@{alsa}}
+\index{alsa@{alsa}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  alsa}
+
+\mbox{\Hypertarget{structma__context__config_aa56638aec09269dc48420ac12b3b80e8}\label{structma__context__config_aa56638aec09269dc48420ac12b3b80e8}} 
+\index{ma\_context\_config@{ma\_context\_config}!coreaudio@{coreaudio}}
+\index{coreaudio@{coreaudio}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  coreaudio}
+
+\mbox{\Hypertarget{structma__context__config_a81c4bb5c5cea8f1ca66f29212296cbb5}\label{structma__context__config_a81c4bb5c5cea8f1ca66f29212296cbb5}} 
+\index{ma\_context\_config@{ma\_context\_config}!custom@{custom}}
+\index{custom@{custom}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{custom}{custom}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__backend__callbacks}{ma\+\_\+backend\+\_\+callbacks}} custom}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06764}{6764}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_adbc7824ebffab8423abbdb4ff7110fe8}\label{structma__context__config_adbc7824ebffab8423abbdb4ff7110fe8}} 
+\index{ma\_context\_config@{ma\_context\_config}!jack@{jack}}
+\index{jack@{jack}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  jack}
+
+\mbox{\Hypertarget{structma__context__config_a233f5e12e745b979a656568130cc18c3}\label{structma__context__config_a233f5e12e745b979a656568130cc18c3}} 
+\index{ma\_context\_config@{ma\_context\_config}!noAudioSessionActivate@{noAudioSessionActivate}}
+\index{noAudioSessionActivate@{noAudioSessionActivate}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{noAudioSessionActivate}{noAudioSessionActivate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} no\+Audio\+Session\+Activate}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06756}{6756}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_aa591b9a047e1f91741a56c7efad616cb}\label{structma__context__config_aa591b9a047e1f91741a56c7efad616cb}} 
+\index{ma\_context\_config@{ma\_context\_config}!noAudioSessionDeactivate@{noAudioSessionDeactivate}}
+\index{noAudioSessionDeactivate@{noAudioSessionDeactivate}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{noAudioSessionDeactivate}{noAudioSessionDeactivate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} no\+Audio\+Session\+Deactivate}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06757}{6757}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_afb85544c1989a30f55de4347fd982bf6}\label{structma__context__config_afb85544c1989a30f55de4347fd982bf6}} 
+\index{ma\_context\_config@{ma\_context\_config}!pApplicationName@{pApplicationName}}
+\index{pApplicationName@{pApplicationName}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{pApplicationName}{pApplicationName}}
+{\footnotesize\ttfamily const char$\ast$ p\+Application\+Name}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06748}{6748}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_a7a14a9831fcd0085b56a18b8840f67fd}\label{structma__context__config_a7a14a9831fcd0085b56a18b8840f67fd}} 
+\index{ma\_context\_config@{ma\_context\_config}!pClientName@{pClientName}}
+\index{pClientName@{pClientName}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{pClientName}{pClientName}}
+{\footnotesize\ttfamily const char$\ast$ p\+Client\+Name}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06761}{6761}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_a766b92b0d9bbf911897c6ef2b4b12f16}\label{structma__context__config_a766b92b0d9bbf911897c6ef2b4b12f16}} 
+\index{ma\_context\_config@{ma\_context\_config}!pLog@{pLog}}
+\index{pLog@{pLog}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{pLog}{pLog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__log}{ma\+\_\+log}}$\ast$ p\+Log}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06737}{6737}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_a08492b68c9fb9de40a80a9de6ae8f4b5}\label{structma__context__config_a08492b68c9fb9de40a80a9de6ae8f4b5}} 
+\index{ma\_context\_config@{ma\_context\_config}!pServerName@{pServerName}}
+\index{pServerName@{pServerName}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{pServerName}{pServerName}}
+{\footnotesize\ttfamily const char$\ast$ p\+Server\+Name}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06749}{6749}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_a32e4a189db52e597af53b117f29d8b0e}\label{structma__context__config_a32e4a189db52e597af53b117f29d8b0e}} 
+\index{ma\_context\_config@{ma\_context\_config}!pulse@{pulse}}
+\index{pulse@{pulse}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  pulse}
+
+\mbox{\Hypertarget{structma__context__config_a8d75dbe9027a94780bc2f31670400613}\label{structma__context__config_a8d75dbe9027a94780bc2f31670400613}} 
+\index{ma\_context\_config@{ma\_context\_config}!pUserData@{pUserData}}
+\index{pUserData@{pUserData}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{pUserData}{pUserData}}
+{\footnotesize\ttfamily void$\ast$ p\+User\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06740}{6740}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_abeb2156d8b746bcce9a892b72ab37b88}\label{structma__context__config_abeb2156d8b746bcce9a892b72ab37b88}} 
+\index{ma\_context\_config@{ma\_context\_config}!sessionCategory@{sessionCategory}}
+\index{sessionCategory@{sessionCategory}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{sessionCategory}{sessionCategory}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a3c2fbf7563d9b9c7929003e44f81aa37}{ma\+\_\+ios\+\_\+session\+\_\+category}} session\+Category}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06754}{6754}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_a647a2d20eb1ca741ecf6f4fafc5af520}\label{structma__context__config_a647a2d20eb1ca741ecf6f4fafc5af520}} 
+\index{ma\_context\_config@{ma\_context\_config}!sessionCategoryOptions@{sessionCategoryOptions}}
+\index{sessionCategoryOptions@{sessionCategoryOptions}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{sessionCategoryOptions}{sessionCategoryOptions}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} session\+Category\+Options}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06755}{6755}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_a671af96e93b976959f427242302b9253}\label{structma__context__config_a671af96e93b976959f427242302b9253}} 
+\index{ma\_context\_config@{ma\_context\_config}!threadPriority@{threadPriority}}
+\index{threadPriority@{threadPriority}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{threadPriority}{threadPriority}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a5b6285121d082017c1e2c7452f95afec}{ma\+\_\+thread\+\_\+priority}} thread\+Priority}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06738}{6738}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_af55aa7e4c15867be4695123ff0803935}\label{structma__context__config_af55aa7e4c15867be4695123ff0803935}} 
+\index{ma\_context\_config@{ma\_context\_config}!threadStackSize@{threadStackSize}}
+\index{threadStackSize@{threadStackSize}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{threadStackSize}{threadStackSize}}
+{\footnotesize\ttfamily size\+\_\+t thread\+Stack\+Size}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06739}{6739}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_adb96852fc365628aba58e028a192691b}\label{structma__context__config_adb96852fc365628aba58e028a192691b}} 
+\index{ma\_context\_config@{ma\_context\_config}!tryAutoSpawn@{tryAutoSpawn}}
+\index{tryAutoSpawn@{tryAutoSpawn}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{tryAutoSpawn}{tryAutoSpawn}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} try\+Auto\+Spawn}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06750}{6750}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_aea978d4128bc959492ed92bd1aac3621}\label{structma__context__config_aea978d4128bc959492ed92bd1aac3621}} 
+\index{ma\_context\_config@{ma\_context\_config}!tryStartServer@{tryStartServer}}
+\index{tryStartServer@{tryStartServer}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{tryStartServer}{tryStartServer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} try\+Start\+Server}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06762}{6762}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__context__config_afeb301288eb801ebc7a64a7c19678c36}\label{structma__context__config_afeb301288eb801ebc7a64a7c19678c36}} 
+\index{ma\_context\_config@{ma\_context\_config}!useVerboseDeviceEnumeration@{useVerboseDeviceEnumeration}}
+\index{useVerboseDeviceEnumeration@{useVerboseDeviceEnumeration}!ma\_context\_config@{ma\_context\_config}}
+\doxysubsubsection{\texorpdfstring{useVerboseDeviceEnumeration}{useVerboseDeviceEnumeration}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} use\+Verbose\+Device\+Enumeration}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l06744}{6744}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{miniaudio_8h}{miniaudio.\+h}}\end{DoxyCompactItemize}

@@ -103,7 +103,7 @@ int multiPlayer()
      * @param s_score
      *
      */
-    lastAction = startTheGame(&pg1, &pg2, &piece, tetPieces, &pieces, &turn, s_preview, s_score);
+    lastAction = startTheGame(&pg1, &pg2, &piece, tetPieces, &pieces, &turn, s_preview, s_score, w_title, w_field, w_preview, w_sfield, w_score, w_save, w_cmds);
 
     if (lastAction == 1)
     {
@@ -139,7 +139,7 @@ int multiPlayer()
  *
  * @return
  */
-int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* pieces, int* turn, WINDOW* preview, WINDOW* score)
+int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* pieces, int* turn, WINDOW*s_preview, WINDOW* s_score, WINDOW* w_title, WINDOW* w_field, WINDOW* w_sfield, WINDOW* w_preview, WINDOW* w_score, WINDOW* w_save, WINDOW* w_cmds )
 {
     int choice = 0;
     int action = 0;
@@ -153,9 +153,9 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
     if (*pieces == 0)
         return 1;
 
-    refreshPreview(preview, &preview_piece); /**< Aggiorno i valori in preview e ridisegna la sua window dinamica */
+    refreshPreview(s_preview, &preview_piece); /**< Aggiorno i valori in preview e ridisegna la sua window dinamica */
     refreshGameField(&positionX, piece, pg1); /**< Aggiorno i valori in gamefield e ridisegna la sua window dinamica */
-    refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, score); /**< Aggiorno i valori in score e ridisegna la sua window dinamica */
+    refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, s_score); /**< Aggiorno i valori in score e ridisegna la sua window dinamica */
 
     do /**< Inizia la sequenza di istruzioni da eseguire */
     {
@@ -173,7 +173,7 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
 
         countCurrentPiece = tetPieces[piece->tet];
         if (countCurrentPiece == 0)
-            changePiece(score);
+            changePiece(s_score);
 
         switch (choice) /**< Casistica della scelta dell'utente */
         {
@@ -187,7 +187,13 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
                  * @return next piece
                  */
                 nextPiece(piece, &preview_piece);
-                refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, score);
+                refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, s_score);
+                break;
+
+            
+                case 'h':
+                paintHelp();
+                initMultiField(w_title, w_field, w_preview, w_sfield, w_score, w_save, w_cmds);
                 break;
 
             /* case: back piece */
@@ -201,7 +207,7 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
                  * @return
                  */
                 backPiece(piece, &preview_piece);
-                refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, score);
+                refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, s_score);
                 break;
 
             /* case: rotate piece */
@@ -237,7 +243,7 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
                     tetPieces[piece->tet] -= 1; /**< Decremento il tetraminno corrente di 1 */
                     *pieces -= 1; /**< Decremento il numero generale di tetramini disponibili */
                     *currentScore += checkAndReverseRows(pg1, pg2);
-                    refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, score); /**< Riscrivo lo score con i nuovi valori */
+                    refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, s_score); /**< Riscrivo lo score con i nuovi valori */
                     action = 1;
                 }
                 break;
@@ -247,15 +253,14 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
                 return 0;
                 break;
 
-            case 'h':
-                break;
-
             default:
                 break;
         }
 
-        refreshPreview(preview, &preview_piece);
+        refreshPreview(s_preview, &preview_piece);
         refreshGameField(&positionX, piece, pg1);
+        refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, s_score); /**< Aggiorno i valori in score e ridisegna la sua window dinamica */
+
 
     } while (!action);
     
@@ -266,6 +271,7 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
     }
 
     colorField(pg1);
+
     /**
      * Ricorsione della funzione startGame
      *
@@ -280,7 +286,7 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
      *
      * @return
      */
-    return startTheGame(pg2, pg1, piece, tetPieces, pieces, changeTurn(turn), preview, score);
+    return startTheGame(pg2, pg1, piece, tetPieces, pieces, changeTurn(turn), s_preview, s_score , w_title, w_field, w_preview, w_sfield, w_score, w_save, w_cmds);
     
 }
 

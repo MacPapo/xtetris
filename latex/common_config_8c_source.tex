@@ -1,0 +1,367 @@
+\hypertarget{common_config_8c_source}{}\doxysection{common\+Config.\+c}
+\label{common_config_8c_source}\index{src/commonConfig.c@{src/commonConfig.c}}
+\mbox{\hyperlink{common_config_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{common_confing_8h}{commonConfing.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00003}\mbox{\hyperlink{common_config_8c_a23d04796c24773e092aa265969dbf53b}{00003}} \textcolor{keywordtype}{int} \mbox{\hyperlink{common_config_8c_a23d04796c24773e092aa265969dbf53b}{previewGamefield}}[\mbox{\hyperlink{common_confing_8h_a5b62c41f0c74994ce6ad7e0bed98cc51}{MATRIX\_H}}][\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}];}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00005}00005 \textcolor{comment}{/* tridimensional array for tetramini */}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00006}\mbox{\hyperlink{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}{00006}} \mbox{\hyperlink{structtet__location}{tet\_location}} \mbox{\hyperlink{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}{cell}} = \{0,0\};}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00008}\mbox{\hyperlink{common_config_8c_a101871d7ff6035c49c3d76c970cb6782}{00008}} \mbox{\hyperlink{structtet__location}{tet\_location}} \mbox{\hyperlink{common_config_8c_a101871d7ff6035c49c3d76c970cb6782}{TETROMINOS}}[\mbox{\hyperlink{common_confing_8h_ab1d32e9d1a0ac2fbb2ffc64907be5e60}{T\_NUM}}][\mbox{\hyperlink{common_confing_8h_a6c1fc62a3cde1842bf3e691e9d20212a}{T\_ORI}}][\mbox{\hyperlink{common_confing_8h_a41639d235a654d6539161a23b5ab14d1}{T\_CELL}}] =}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00009}00009 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00010}00010   \textcolor{comment}{// I}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00011}00011   \{ \{ \{0, 0\}, \{0, 1\}, \{0, 2\}, \{0, 3\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00012}00012     \{ \{0, 0\}, \{1, 0\}, \{2, 0\}, \{3, 0\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00013}00013     \{ \{0, 0\}, \{0, 1\}, \{0, 2\}, \{0, 3\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00014}00014     \{ \{0, 0\}, \{1, 0\}, \{2, 0\}, \{3, 0\} \} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00015}00015   \textcolor{comment}{// J}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00016}00016   \{ \{ \{0, 0\}, \{0, 1\}, \{0, 2\}, \{1, 2\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00017}00017     \{ \{0, 0\}, \{0, 1\}, \{1, 0\}, \{2, 0\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00018}00018     \{ \{0, 0\}, \{1, 0\}, \{1, 1\}, \{1, 2\} \} ,}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00019}00019     \{ \{0, 1\}, \{1, 1\}, \{2, 0\}, \{2, 1\} \} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00020}00020   \textcolor{comment}{// L}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00021}00021   \{ \{ \{1, 0\}, \{0, 0\}, \{0, 1\}, \{0, 2\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00022}00022     \{ \{2, 1\}, \{0, 0\}, \{1, 0\}, \{2, 0\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00023}00023     \{ \{0, 2\}, \{1, 2\}, \{1, 1\}, \{1, 0\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00024}00024     \{ \{0, 0\}, \{0, 1\}, \{1, 1\}, \{2, 1\} \} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00025}00025   \textcolor{comment}{// O}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00026}00026   \{ \{ \{0, 0\}, \{0, 1\}, \{1, 0\}, \{1, 1\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00027}00027     \{ \{0, 0\}, \{0, 1\}, \{1, 0\}, \{1, 1\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00028}00028     \{ \{0, 0\}, \{0, 1\}, \{1, 0\}, \{1, 1\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00029}00029     \{ \{0, 0\}, \{0, 1\}, \{1, 0\}, \{1, 1\} \} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00030}00030   \textcolor{comment}{// S}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00031}00031   \{ \{ \{0, 1\}, \{0, 2\}, \{1, 0\}, \{1, 1\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00032}00032     \{ \{0, 0\}, \{1, 0\}, \{1, 1\}, \{2, 1\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00033}00033     \{ \{0, 1\}, \{0, 2\}, \{1, 0\}, \{1, 1\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00034}00034     \{ \{0, 0\}, \{1, 0\}, \{1, 1\}, \{2, 1\} \} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00035}00035   \textcolor{comment}{// T}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00036}00036   \{ \{ \{0, 0\}, \{0, 1\}, \{1, 1\}, \{0, 2\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00037}00037     \{ \{1, 0\}, \{0, 1\}, \{1, 1\}, \{2, 1\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00038}00038     \{ \{1, 0\}, \{0, 1\}, \{1, 1\}, \{1, 2\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00039}00039     \{ \{0, 0\}, \{1, 0\}, \{1, 1\}, \{2, 0\} \} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00040}00040   \textcolor{comment}{// Z}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00041}00041   \{ \{ \{0, 0\}, \{0, 1\}, \{1, 1\}, \{1, 2\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00042}00042     \{ \{1, 0\}, \{2, 0\}, \{0, 1\}, \{1, 1\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00043}00043     \{ \{0, 0\}, \{0, 1\}, \{1, 1\}, \{1, 2\} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00044}00044     \{ \{1, 0\}, \{2, 0\}, \{0, 1\}, \{1, 1\} \} \},}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00045}00045 \};}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00047}\mbox{\hyperlink{common_config_8c_a78d7520cc29f3f00cb94777a5a73f900}{00047}} \mbox{\hyperlink{structplayer}{player}} \mbox{\hyperlink{common_config_8c_a78d7520cc29f3f00cb94777a5a73f900}{addPlayer}}()}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00048}00048 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00049}00049     \mbox{\hyperlink{structplayer}{player}} \mbox{\hyperlink{structplayer}{player}};}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00050}00050     \mbox{\hyperlink{structplayer}{player}}.\mbox{\hyperlink{structplayer_aef160b7437d94056f1dc59646cd5b87d}{score}} = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00051}00051     \textcolor{keywordflow}{return} \mbox{\hyperlink{structplayer}{player}};}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00052}00052 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00054}\mbox{\hyperlink{common_config_8c_a858366fc0378f84e1735d1074548dc60}{00054}} WINDOW* \mbox{\hyperlink{common_config_8c_a858366fc0378f84e1735d1074548dc60}{initSecondPlayerWindow}}(WINDOW* pgWindow)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00055}00055 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00056}00056     \textcolor{keywordtype}{int} fieldY, fieldX;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00057}00057     fieldY   = \mbox{\hyperlink{common_confing_8h_a0d1fd223df18ba043bf0370e3a2c3604}{HCENTER}} + 1;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00058}00058     fieldX   = \mbox{\hyperlink{common_confing_8h_a3d41dae96767cc9a4060d972d62b5322}{WCENTER}} + \mbox{\hyperlink{common_confing_8h_a6d2da9e6eb376cfb9017e28e1b88fd6a}{SCORE\_W}} + \mbox{\hyperlink{common_confing_8h_a18b1814120500de5799c74b28ba053ea}{FIELD\_W}} / 2 -\/ 5;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00059}00059     pgWindow = newwin(\mbox{\hyperlink{common_confing_8h_ab713cc8c65f445eedab26be097e145d8}{FIELD\_H}} -\/ 2, \mbox{\hyperlink{common_confing_8h_a18b1814120500de5799c74b28ba053ea}{FIELD\_W}} -\/ 2, fieldY, fieldX);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00060}00060     wbkgd(pgWindow, COLOR\_PAIR(0));}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00061}00061     wrefresh(pgWindow);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00062}00062     \textcolor{keywordflow}{return} pgWindow;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00063}00063 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00065}\mbox{\hyperlink{common_config_8c_a0f5439595e1db3d7abf710a68974bf8c}{00065}} \textcolor{keywordtype}{void} \mbox{\hyperlink{common_config_8c_a0f5439595e1db3d7abf710a68974bf8c}{nextPiece}}(\mbox{\hyperlink{structtet}{tet}}* current\_piece, \mbox{\hyperlink{structtet}{tet}}* preview\_piece)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00066}00066 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00067}00067     current\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}} += 1;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00068}00068     \textcolor{keywordflow}{if}(current\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}} < 6)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00069}00069         preview\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}} = current\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}} + 1;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00070}00070     \textcolor{keywordflow}{if}(current\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}} == 6)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00071}00071         preview\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}} = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00072}00072     \textcolor{keywordflow}{if}(current\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}} > 6)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00073}00073     \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00074}00074         current\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}} = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00075}00075         preview\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}} = 1;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00076}00076     \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00077}00077     }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00078}00078 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00080}\mbox{\hyperlink{common_config_8c_ab887cfe35ce8a6ff2b1b2e89cd406109}{00080}} \textcolor{keywordtype}{void} \mbox{\hyperlink{common_config_8c_ab887cfe35ce8a6ff2b1b2e89cd406109}{rotatingPiece}}(\mbox{\hyperlink{structtet}{tet}}* current\_piece)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00081}00081 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00082}00082     \textcolor{keywordflow}{if}(current\_piece-\/>\mbox{\hyperlink{structtet_aa1702572bed13ccae6d4e179fd232d93}{ori}} == 3)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00083}00083         current\_piece-\/>\mbox{\hyperlink{structtet_aa1702572bed13ccae6d4e179fd232d93}{ori}} = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00084}00084     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00085}00085         current\_piece-\/>\mbox{\hyperlink{structtet_aa1702572bed13ccae6d4e179fd232d93}{ori}} += 1;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00086}00086 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00088}\mbox{\hyperlink{common_config_8c_a8b268da2f828639b422f64ffe2fba347}{00088}} \textcolor{keywordtype}{void} \mbox{\hyperlink{common_config_8c_a8b268da2f828639b422f64ffe2fba347}{backPiece}}(\mbox{\hyperlink{structtet}{tet}}* current\_piece, \mbox{\hyperlink{structtet}{tet}}* preview\_piece)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00089}00089 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00090}00090     current\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}} -\/= 1;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00091}00091     \textcolor{keywordflow}{if} ( current\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}} < 0 )}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00092}00092     \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00093}00093         current\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}} = 6;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00094}00094         preview\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}}  = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00095}00095     \} \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00096}00096         preview\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}} = current\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}} + 1;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00097}00097 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00100}\mbox{\hyperlink{common_config_8c_a48388d8142c5ad56cf018e1bfa7a57ee}{00100}} \textcolor{keywordtype}{void} \mbox{\hyperlink{common_config_8c_a48388d8142c5ad56cf018e1bfa7a57ee}{changePiece}}(WINDOW* score)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00101}00101 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00102}00102     mvwprintw(score, 5, (\mbox{\hyperlink{common_confing_8h_a6d2da9e6eb376cfb9017e28e1b88fd6a}{SCORE\_W}} -\/ 13) / 2, \textcolor{stringliteral}{"{}CAMBIA PEZZO!"{}});}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00103}00103     wrefresh(score);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00104}00104 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00106}\mbox{\hyperlink{common_config_8c_abd1a8f24d564f65be9780801c13b6926}{00106}} \textcolor{keywordtype}{void} \mbox{\hyperlink{common_config_8c_abd1a8f24d564f65be9780801c13b6926}{refreshPreview}}(WINDOW* preview , \mbox{\hyperlink{structtet}{tet}}* preview\_piece)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00107}00107 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00108}00108     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00109}00109     \textcolor{keywordtype}{int} preview\_tet = preview\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}};}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00110}00110     \textcolor{keywordtype}{int} preview\_ori = preview\_piece-\/>\mbox{\hyperlink{structtet_aa1702572bed13ccae6d4e179fd232d93}{ori}};}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00112}00112     \textcolor{comment}{/* Clearing the previeus box */}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00113}00113     werase(preview);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00114}00114     \textcolor{keywordflow}{for}(i = 0; i < \mbox{\hyperlink{common_confing_8h_a2b9d03c41fd678c73cbe7b235b29de19}{TETS\_CELL}}; ++i)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00115}00115     \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00116}00116         wattron(preview, COLOR\_PAIR(preview\_tet + 10));}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00117}00117         \mbox{\hyperlink{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}{cell}} = \mbox{\hyperlink{common_config_8c_a101871d7ff6035c49c3d76c970cb6782}{TETROMINOS}}[preview\_tet][preview\_ori][i];}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00118}00118         mvwprintw(preview, \mbox{\hyperlink{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}{cell}}.\mbox{\hyperlink{structtet__location_af1d3cff2e4538e23400e260bae3dadad}{row}} + 2, 1 + (\mbox{\hyperlink{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}{cell}}.\mbox{\hyperlink{structtet__location_afb52e720f5f0c483db5861f9e42e924e}{col}} + 2) * 2, \textcolor{stringliteral}{"{}  "{}});}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00119}00119         wattroff(preview, COLOR\_PAIR(preview\_tet + 10));}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00120}00120     \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00121}00121     wrefresh(preview);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00122}00122 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00123}00123 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00124}\mbox{\hyperlink{common_config_8c_a9fbd54a7730f9b21bc053abe8be88eaa}{00124}} \textcolor{keywordtype}{void} \mbox{\hyperlink{common_config_8c_a9fbd54a7730f9b21bc053abe8be88eaa}{refreshGameField}}(\textcolor{keywordtype}{int}* x, \mbox{\hyperlink{structtet}{tet}}* current\_piece, \mbox{\hyperlink{structplayer}{player}} *pg)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00125}00125 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00126}00126     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00127}00127     \mbox{\hyperlink{common_config_8c_abb2facf6ebf90cb9827e039cfd371d5e}{resetPreview}}();}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00128}00128     wrefresh(pg-\/>\mbox{\hyperlink{structplayer_a0be00a12c1375a8dedc45ff82141e217}{window}});}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00130}00130     \textcolor{keywordtype}{int} current\_tet = current\_piece-\/>\mbox{\hyperlink{structtet_a5d548d311e681b9d13e59499f10222e2}{tet}};}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00131}00131     \textcolor{keywordtype}{int} current\_ori = current\_piece-\/>\mbox{\hyperlink{structtet_aa1702572bed13ccae6d4e179fd232d93}{ori}};}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00133}00133     \textcolor{keywordflow}{for}(i = 0; i < \mbox{\hyperlink{common_confing_8h_a2b9d03c41fd678c73cbe7b235b29de19}{TETS\_CELL}}; ++i)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00134}00134     \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00135}00135         wattron(pg-\/>\mbox{\hyperlink{structplayer_a0be00a12c1375a8dedc45ff82141e217}{window}}, COLOR\_PAIR(current\_tet + 10));}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00136}00136         \mbox{\hyperlink{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}{cell}} = \mbox{\hyperlink{common_config_8c_a101871d7ff6035c49c3d76c970cb6782}{TETROMINOS}}[current\_tet][current\_ori][i];}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00137}00137         mvwprintw(pg-\/>\mbox{\hyperlink{structplayer_a0be00a12c1375a8dedc45ff82141e217}{window}}, \mbox{\hyperlink{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}{cell}}.\mbox{\hyperlink{structtet__location_af1d3cff2e4538e23400e260bae3dadad}{row}}, (\mbox{\hyperlink{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}{cell}}.\mbox{\hyperlink{structtet__location_afb52e720f5f0c483db5861f9e42e924e}{col}}) * 2 + *x, \textcolor{stringliteral}{"{}  "{}});}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00138}00138         wattroff(pg-\/>\mbox{\hyperlink{structplayer_a0be00a12c1375a8dedc45ff82141e217}{window}}, COLOR\_PAIR(current\_tet + 10));}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00139}00139 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00140}00140         \textcolor{keywordflow}{if}(\mbox{\hyperlink{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}{cell}}.\mbox{\hyperlink{structtet__location_afb52e720f5f0c483db5861f9e42e924e}{col}} + *x < 0)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00141}00141         \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00142}00142             \mbox{\hyperlink{common_config_8c_a09df2f7340b77a0035dc991b0bab6013}{colorField}}(pg);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00143}00143             *x += 2;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00144}00144             \mbox{\hyperlink{common_config_8c_a9fbd54a7730f9b21bc053abe8be88eaa}{refreshGameField}}(x, current\_piece, pg);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00145}00145         \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00146}00146 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00147}00147         \textcolor{keywordflow}{if}( (\mbox{\hyperlink{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}{cell}}.\mbox{\hyperlink{structtet__location_afb52e720f5f0c483db5861f9e42e924e}{col}}) * 2 + *x > \mbox{\hyperlink{common_confing_8h_a18b1814120500de5799c74b28ba053ea}{FIELD\_W}} -\/ 3)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00148}00148         \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00149}00149             \mbox{\hyperlink{common_config_8c_a09df2f7340b77a0035dc991b0bab6013}{colorField}}(pg);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00150}00150             *x -\/= 2;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00151}00151             \mbox{\hyperlink{common_config_8c_a9fbd54a7730f9b21bc053abe8be88eaa}{refreshGameField}}(x, current\_piece, pg);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00152}00152         \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00153}00153         \mbox{\hyperlink{common_config_8c_a23d04796c24773e092aa265969dbf53b}{previewGamefield}}[\mbox{\hyperlink{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}{cell}}.\mbox{\hyperlink{structtet__location_af1d3cff2e4538e23400e260bae3dadad}{row}}][\mbox{\hyperlink{common_config_8c_a64ba2bd62768463e7da1f113ddd74e90}{cell}}.\mbox{\hyperlink{structtet__location_afb52e720f5f0c483db5861f9e42e924e}{col}} + (*x / 2)] = current\_tet + 1;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00154}00154     \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00155}00155     \mbox{\hyperlink{common_config_8c_aab597863a3c3617fe2f4fb18d63cc156}{initTopLine}}(pg-\/>\mbox{\hyperlink{structplayer_a0be00a12c1375a8dedc45ff82141e217}{window}});}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00156}00156     wrefresh(pg-\/>\mbox{\hyperlink{structplayer_a0be00a12c1375a8dedc45ff82141e217}{window}});}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00157}00157 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00159}\mbox{\hyperlink{common_config_8c_abb2facf6ebf90cb9827e039cfd371d5e}{00159}} \textcolor{keywordtype}{void} \mbox{\hyperlink{common_config_8c_abb2facf6ebf90cb9827e039cfd371d5e}{resetPreview}}()}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00160}00160 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00161}00161     \textcolor{keywordtype}{int} row;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00162}00162     \textcolor{keywordtype}{int} col;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00163}00163 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00164}00164     \textcolor{keywordflow}{for}( row = 0; row < \mbox{\hyperlink{common_confing_8h_a39c31bd0f2bab9340754a610a43941a2}{MATRIX\_H\_PREV}}; row++)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00165}00165     \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00166}00166         \textcolor{keywordflow}{for}( col = 0; col < \mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}; col++)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00167}00167         \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00168}00168             \textcolor{keywordflow}{if}(\mbox{\hyperlink{common_config_8c_a23d04796c24773e092aa265969dbf53b}{previewGamefield}}[row][col] != 0)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00169}00169                 \mbox{\hyperlink{common_config_8c_a23d04796c24773e092aa265969dbf53b}{previewGamefield}}[row][col] = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00170}00170         \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00171}00171     \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00172}00172 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00173}00173 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00174}\mbox{\hyperlink{common_config_8c_aab597863a3c3617fe2f4fb18d63cc156}{00174}} \textcolor{keywordtype}{void} \mbox{\hyperlink{common_config_8c_aab597863a3c3617fe2f4fb18d63cc156}{initTopLine}}(WINDOW* field)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00175}00175 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00176}00176     \textcolor{keywordtype}{int} col;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00177}00177     \textcolor{keywordflow}{for} (col = 0; col < \mbox{\hyperlink{common_confing_8h_a18b1814120500de5799c74b28ba053ea}{FIELD\_W}} -\/ 2; col++)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00178}00178     \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00179}00179         wattron(field, COLOR\_PAIR(19));}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00180}00180         mvwprintw(field, \mbox{\hyperlink{common_confing_8h_ad558688b438891e9826ce1bf6dc824a0}{TOP\_LINE}} -\/ 1, col, \textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00181}00181         wattroff(field, COLOR\_PAIR(19));}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00182}00182     \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00183}00183     wrefresh(field);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00184}00184 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00185}00185 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00186}\mbox{\hyperlink{common_config_8c_a09df2f7340b77a0035dc991b0bab6013}{00186}} \textcolor{keywordtype}{void} \mbox{\hyperlink{common_config_8c_a09df2f7340b77a0035dc991b0bab6013}{colorField}}(\mbox{\hyperlink{structplayer}{player}} *pg)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00187}00187 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00188}00188     \textcolor{keywordtype}{int} i, j;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00189}00189     werase(pg-\/>\mbox{\hyperlink{structplayer_a0be00a12c1375a8dedc45ff82141e217}{window}});}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00190}00190     \textcolor{keywordflow}{for}(i = 0; i < \mbox{\hyperlink{common_confing_8h_a5b62c41f0c74994ce6ad7e0bed98cc51}{MATRIX\_H}}; i++)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00191}00191     \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00192}00192         \textcolor{keywordflow}{for}(j = 0; j < \mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}; j++)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00193}00193         \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00194}00194             \textcolor{keywordflow}{if}(pg-\/>\mbox{\hyperlink{structplayer_a3321fe2aa5a8643dbe0dfe985bf042ff}{gameField}}[i][j] != 0)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00195}00195             \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00196}00196                 wattron(pg-\/>\mbox{\hyperlink{structplayer_a0be00a12c1375a8dedc45ff82141e217}{window}}, COLOR\_PAIR(pg-\/>\mbox{\hyperlink{structplayer_a3321fe2aa5a8643dbe0dfe985bf042ff}{gameField}}[i][j] + 9));}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00197}00197                 mvwprintw(pg-\/>\mbox{\hyperlink{structplayer_a0be00a12c1375a8dedc45ff82141e217}{window}}, i, j*2, \textcolor{stringliteral}{"{}  "{}});}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00198}00198                 wattroff(pg-\/>\mbox{\hyperlink{structplayer_a0be00a12c1375a8dedc45ff82141e217}{window}}, COLOR\_PAIR(pg-\/>\mbox{\hyperlink{structplayer_a3321fe2aa5a8643dbe0dfe985bf042ff}{gameField}}[i][j] + 9));}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00199}00199             \} }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00200}00200         \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00201}00201     \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00202}00202     \mbox{\hyperlink{common_config_8c_aab597863a3c3617fe2f4fb18d63cc156}{initTopLine}}(pg-\/>\mbox{\hyperlink{structplayer_a0be00a12c1375a8dedc45ff82141e217}{window}});}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00203}00203     wrefresh(pg-\/>\mbox{\hyperlink{structplayer_a0be00a12c1375a8dedc45ff82141e217}{window}});}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00204}00204 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00205}00205 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00206}\mbox{\hyperlink{common_config_8c_a9ccb7a89480072a6b702189d4ebb62f2}{00206}} \textcolor{keywordtype}{void} \mbox{\hyperlink{common_config_8c_a9ccb7a89480072a6b702189d4ebb62f2}{initGameMatrix}}(\textcolor{keywordtype}{int} gameField[][\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}])}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00207}00207 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00208}00208     \textcolor{keywordtype}{int} row, cols;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00209}00209     \textcolor{keywordflow}{for}(row = 0; row < \mbox{\hyperlink{common_confing_8h_a5b62c41f0c74994ce6ad7e0bed98cc51}{MATRIX\_H}}; ++row)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00210}00210         \textcolor{keywordflow}{for}(cols = 0; cols < \mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}; ++cols)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00211}00211         \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00212}00212             gameField[row][cols] = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00213}00213             \textcolor{keywordflow}{if}(row < \mbox{\hyperlink{common_confing_8h_a39c31bd0f2bab9340754a610a43941a2}{MATRIX\_H\_PREV}})}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00214}00214                 \mbox{\hyperlink{common_config_8c_a23d04796c24773e092aa265969dbf53b}{previewGamefield}}[row][cols] = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00215}00215         \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00216}00216 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00217}00217 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00218}\mbox{\hyperlink{common_config_8c_a4b6ec377465a3e1241e6e7af7a87e944}{00218}} \textcolor{keywordtype}{void} \mbox{\hyperlink{common_config_8c_a4b6ec377465a3e1241e6e7af7a87e944}{initTetVector}}(\textcolor{keywordtype}{int} *tetPieces, \textcolor{keywordtype}{int} mod)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00219}00219 \{  }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00220}00220     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00221}00221     \textcolor{keywordflow}{if} (mod == 0)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00222}00222     \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00223}00223         \textcolor{keywordflow}{for} (i = 0; i < \mbox{\hyperlink{common_confing_8h_ab1d32e9d1a0ac2fbb2ffc64907be5e60}{T\_NUM}}; i++)  }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00224}00224         tetPieces[i] = \mbox{\hyperlink{common_confing_8h_a12986c410527090ae46ad9eadf61af45}{T\_PIECES}};}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00225}00225     \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00226}00226 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00227}00227     \textcolor{keywordflow}{if} (mod == 1 || mod == 2)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00228}00228     \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00229}00229         \textcolor{keywordflow}{for} (i = 0; i < \mbox{\hyperlink{common_confing_8h_ab1d32e9d1a0ac2fbb2ffc64907be5e60}{T\_NUM}}; i++)  }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00230}00230         tetPieces[i] = \mbox{\hyperlink{common_confing_8h_a12986c410527090ae46ad9eadf61af45}{T\_PIECES}} * 2;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00231}00231     \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00232}00232 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00233}00233 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00234}\mbox{\hyperlink{common_config_8c_a88ae9c08b88d2172f44e00e96b24b4f7}{00234}} \textcolor{keywordtype}{int} \mbox{\hyperlink{common_config_8c_a88ae9c08b88d2172f44e00e96b24b4f7}{calculateScoring}}(\textcolor{keywordtype}{int} rows)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00235}00235 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00236}00236     \textcolor{keywordflow}{if} (rows == 0) \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00237}00237     \textcolor{keywordflow}{if} (rows == 1) \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00238}00238     \textcolor{keywordflow}{if} (rows == 2) \textcolor{keywordflow}{return} 3;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00239}00239     \textcolor{keywordflow}{if} (rows == 3) \textcolor{keywordflow}{return} 6;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00240}00240     \textcolor{keywordflow}{if} (rows == 4) \textcolor{keywordflow}{return} 12;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00241}00241     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00242}00242 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00243}00243 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00244}\mbox{\hyperlink{common_config_8c_a36bb10fcd1e2c61d20ee66e7fe7f34db}{00244}} \textcolor{keywordtype}{void} \mbox{\hyperlink{common_config_8c_a36bb10fcd1e2c61d20ee66e7fe7f34db}{fallingPiece}}(\mbox{\hyperlink{structplayer}{player}} *pg)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00245}00245 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00246}00246 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00247}00247     \textcolor{keywordtype}{int} row, col;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00248}00248     \textcolor{keywordtype}{int} counter = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00249}00249     \textcolor{keywordflow}{for}(row = 0; row < \mbox{\hyperlink{common_confing_8h_ad558688b438891e9826ce1bf6dc824a0}{TOP\_LINE}}; row++)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00250}00250     \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00251}00251         \textcolor{keywordflow}{for}(col = 0; col < \mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}; col++)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00252}00252         \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00253}00253             \textcolor{keywordflow}{if}(\mbox{\hyperlink{common_config_8c_a23d04796c24773e092aa265969dbf53b}{previewGamefield}}[row][col] != 0)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00254}00254             \{   }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00255}00255                 \textcolor{keywordflow}{if}(counter == 0 || counter > \mbox{\hyperlink{common_config_8c_a3811a7b537fec417dbc2bc1e8a81d91e}{smallerIntervall}}(row, col, pg-\/>\mbox{\hyperlink{structplayer_a3321fe2aa5a8643dbe0dfe985bf042ff}{gameField}}))}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00256}00256                     counter = \mbox{\hyperlink{common_config_8c_a3811a7b537fec417dbc2bc1e8a81d91e}{smallerIntervall}}(row, col, pg-\/>\mbox{\hyperlink{structplayer_a3321fe2aa5a8643dbe0dfe985bf042ff}{gameField}});}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00257}00257             \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00258}00258         \}   }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00259}00259     \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00260}00260 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00261}00261     \textcolor{keywordflow}{for}(row = 0; row < \mbox{\hyperlink{common_confing_8h_a39c31bd0f2bab9340754a610a43941a2}{MATRIX\_H\_PREV}}; row++)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00262}00262     \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00263}00263         \textcolor{keywordflow}{for}(col = 0; col < \mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}; col++)     }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00264}00264         \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00265}00265             \textcolor{keywordflow}{if}(\mbox{\hyperlink{common_config_8c_a23d04796c24773e092aa265969dbf53b}{previewGamefield}}[row][col] != 0)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00266}00266             \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00267}00267                 pg-\/>\mbox{\hyperlink{structplayer_a3321fe2aa5a8643dbe0dfe985bf042ff}{gameField}}[row + counter][col] = \mbox{\hyperlink{common_config_8c_a23d04796c24773e092aa265969dbf53b}{previewGamefield}}[row][col];}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00268}00268             \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00269}00269         \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00270}00270     \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00271}00271 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00272}00272     \mbox{\hyperlink{common_config_8c_a09df2f7340b77a0035dc991b0bab6013}{colorField}}(pg);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00273}00273 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00274}00274 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00275}\mbox{\hyperlink{common_config_8c_a3811a7b537fec417dbc2bc1e8a81d91e}{00275}} \textcolor{keywordtype}{int} \mbox{\hyperlink{common_config_8c_a3811a7b537fec417dbc2bc1e8a81d91e}{smallerIntervall}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, \textcolor{keywordtype}{int} gamefield[][\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}])}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00276}00276 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00277}00277 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00278}00278     \textcolor{keywordtype}{int} counter = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00279}00279     \textcolor{keywordtype}{int} current\_row;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00280}00280     \textcolor{keywordtype}{int} current\_col = col;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00281}00281 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00282}00282     \textcolor{keywordflow}{for}(current\_row = \mbox{\hyperlink{common_confing_8h_a5b62c41f0c74994ce6ad7e0bed98cc51}{MATRIX\_H}} -\/ 1; current\_row > row; current\_row-\/-\/)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00283}00283     \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00284}00284         \textcolor{keywordflow}{if}(gamefield[current\_row][current\_col] != 0)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00285}00285             counter = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00286}00286         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(gamefield[current\_row][current\_col] == 0)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00287}00287             counter++;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00288}00288     \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00289}00289     \textcolor{keywordflow}{return} counter;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00290}00290 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00291}00291 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00292}\mbox{\hyperlink{common_config_8c_a9ddb536b3123afcec5dd51b5490b2d89}{00292}} \textcolor{keywordtype}{int} \mbox{\hyperlink{common_config_8c_a9ddb536b3123afcec5dd51b5490b2d89}{checkDeleteRows}}(\mbox{\hyperlink{structplayer}{player}} *pg)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00293}00293 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00294}00294     keypad(pg-\/>\mbox{\hyperlink{structplayer_a0be00a12c1375a8dedc45ff82141e217}{window}}, FALSE);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00295}00295     \textcolor{keywordtype}{int} counter\_rows  = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00296}00296     \textcolor{keywordtype}{int} is\_delete\_row = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00297}00297     \textcolor{keywordtype}{int} counter\_numbers;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00298}00298 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00299}00299     \textcolor{keywordtype}{int} row, col;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00300}00300     \textcolor{keywordflow}{for} (row = \mbox{\hyperlink{common_confing_8h_a5b62c41f0c74994ce6ad7e0bed98cc51}{MATRIX\_H}} -\/ 1; row >= \mbox{\hyperlink{common_confing_8h_ad558688b438891e9826ce1bf6dc824a0}{TOP\_LINE}}; row-\/-\/)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00301}00301     \{   }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00302}00302         is\_delete\_row = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00303}00303         counter\_numbers = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00304}00304         \textcolor{keywordflow}{for} (col = 0; col < \mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}; col++)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00305}00305         \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00306}00306             \textcolor{keywordflow}{if} (pg-\/>\mbox{\hyperlink{structplayer_a3321fe2aa5a8643dbe0dfe985bf042ff}{gameField}}[row][col] != 0)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00307}00307                 counter\_numbers += 1;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00308}00308         \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00309}00309 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00310}00310         \textcolor{keywordflow}{if} (counter\_numbers == \mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}})}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00311}00311         \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00312}00312             is\_delete\_row = 1;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00313}00313             counter\_rows += 1;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00314}00314             halfdelay(10);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00315}00315             \mbox{\hyperlink{common_config_8c_aa928c3ae83685eae2d3815a0f7e9acd4}{goDownTetramini}}(row, pg-\/>\mbox{\hyperlink{structplayer_a3321fe2aa5a8643dbe0dfe985bf042ff}{gameField}});}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00316}00316             \mbox{\hyperlink{common_config_8c_a09df2f7340b77a0035dc991b0bab6013}{colorField}}(pg);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00317}00317         \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00318}00318         }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00319}00319         \textcolor{keywordflow}{if} (is\_delete\_row == 1)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00320}00320             row = row + 1;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00321}00321     \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00322}00322 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00323}00323     \textcolor{keywordflow}{return} \mbox{\hyperlink{common_config_8c_a88ae9c08b88d2172f44e00e96b24b4f7}{calculateScoring}}(counter\_rows);}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00324}00324 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00325}00325 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00326}\mbox{\hyperlink{common_config_8c_ad33e4cabe7aff25925be011efd60bb1f}{00326}} \textcolor{keywordtype}{int} \mbox{\hyperlink{common_config_8c_ad33e4cabe7aff25925be011efd60bb1f}{checkGameOver}}(\textcolor{keywordtype}{int} gamefield[][\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}])}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00327}00327 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00328}00328     \textcolor{keywordtype}{int} col;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00329}00329     \textcolor{keywordflow}{for} (col = 0; col < \mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}; col++)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00330}00330     \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00331}00331         \textcolor{keywordflow}{if} (gamefield[\mbox{\hyperlink{common_confing_8h_ad558688b438891e9826ce1bf6dc824a0}{TOP\_LINE}} -\/ 1][col] != 0)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00332}00332             \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00333}00333     \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00334}00334     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00335}00335 \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00336}00336 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00337}\mbox{\hyperlink{common_config_8c_aa928c3ae83685eae2d3815a0f7e9acd4}{00337}} \textcolor{keywordtype}{void} \mbox{\hyperlink{common_config_8c_aa928c3ae83685eae2d3815a0f7e9acd4}{goDownTetramini}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} gamefield[][\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}])}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00338}00338 \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00339}00339     \textcolor{keywordtype}{int} currentRow;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00340}00340     \textcolor{keywordtype}{int} cols;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00341}00341 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00342}00342     \textcolor{keywordtype}{int} box = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00343}00343     \textcolor{keywordtype}{int} next\_box = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00344}00344 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00345}00345     \textcolor{keywordflow}{for} (cols = 0; cols < \mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}; cols++)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00346}00346         gamefield[row][cols] = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00347}00347 }
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00348}00348     \textcolor{keywordflow}{for} (currentRow = row -\/ 1; currentRow >= \mbox{\hyperlink{common_confing_8h_ad558688b438891e9826ce1bf6dc824a0}{TOP\_LINE}}; currentRow-\/-\/)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00349}00349     \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00350}00350         \textcolor{keywordflow}{for} (cols = 0; cols < \mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}; cols++)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00351}00351         \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00352}00352             box = gamefield[currentRow][cols];}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00353}00353             next\_box = gamefield[currentRow + 1][cols];}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00354}00354             \textcolor{keywordflow}{if} (box != 0 \&\& next\_box == 0)}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00355}00355             \{}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00356}00356                 gamefield[currentRow + 1][cols] = box;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00357}00357                 gamefield[currentRow][cols] = 0;}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00358}00358             \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00359}00359         \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00360}00360     \}}
+\DoxyCodeLine{\Hypertarget{common_config_8c_source_l00361}00361 \}}
+
+\end{DoxyCode}

@@ -46,7 +46,7 @@ void refreshMultiScore(int pieces, int *pg1Score, int pg2Score, int *turn, WINDO
 
 int multiPlayer();
 
-int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* pieces, int* turn, WINDOW* preview, WINDOW* score);
+int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* pieces, int* turn, WINDOW*s_preview, WINDOW* s_score, WINDOW* w_title, WINDOW* w_field, WINDOW* w_sfield, WINDOW* w_preview, WINDOW* w_score, WINDOW* w_save, WINDOW* w_cmds );
 
 int checkAndReverseRows(player* pg1, player* pg2);
 

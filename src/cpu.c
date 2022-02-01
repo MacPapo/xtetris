@@ -529,7 +529,7 @@ void refreshCpuScore(int pieces, int *pg1Score, int *pg2Score, WINDOW* score)
  * @param s_preview
  * @param s_score
  */
-void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* s_preview, WINDOW* s_score)
+void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* s_preview, WINDOW* s_score, WINDOW* w_title, WINDOW* w_field, WINDOW* w_sfield, WINDOW* w_preview, WINDOW* w_score, WINDOW* w_save, WINDOW* w_cmds )
 {
     int pieces = T_NUM * (T_PIECES * 2);
     int quit = 0;
@@ -567,6 +567,12 @@ void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* 
                 nextPiece(piece, &preview_piece);
                 refreshCpuScore(tetPieces[piece->tet], currentScore, cpuScore, s_score);
                 break;
+
+             case 'h':
+                paintHelp();
+                initMultiField(w_title, w_field, w_preview, w_sfield, w_score, w_save, w_cmds);
+                break;
+
 
             /* case: back piece */
             case 'b':
@@ -663,7 +669,7 @@ int CPU()
     s_preview = initMultiPreviewWindow(s_preview);
     s_score = initMultiScoreWindow(s_score);
     
-    startCpuGame(&pg1, &cpu, &piece, tetPieces, s_preview, s_score);
+    startCpuGame(&pg1, &cpu, &piece, tetPieces, s_preview, s_score, w_title, w_field, w_preview, w_sfield, w_score, w_save, w_cmds);
         
     refresh();
     getch();
