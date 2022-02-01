@@ -13,10 +13,7 @@ By
 
 ### Some Picturs of the Project 📺
 
-<div style="text-align:center">
-<h4>👾 Game Menu 👾</h4>
-  <img src="/other/xmenu.gif" style="display:block; margin:auto; width:60%; max-width:100%"/></a>
-</div>
+![screen-gif](./other/xmenu.gif)
 
 * * *
 
