@@ -13,7 +13,7 @@ By
 
 ### Some Picturs of the Project 📺
 
-![screen-gif](./other/xmenu.gif)
+![XTETRIS MENU](./other/xmenu.gif)
 
 * * *
 
