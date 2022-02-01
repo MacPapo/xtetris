@@ -108,5 +108,8 @@ Enjoy 👾
   
 ## Documentation
 
-DOXYGEN DOC 
-work in progress ⚠️
+[DOXYGEN DOCUMENTATION 👨🏻‍💻](https://macpapo.github.io/xtetris/)
+
+This is the webpage for the doxygen project documentation.
+
+Happy Nerding !! 🛠
