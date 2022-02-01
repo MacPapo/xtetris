@@ -10,55 +10,12 @@ By
 
 ### Advanced Version of the original 1984 game TETRIS 🕹
 
-### Todo List [ALL DONE  💪🏻]
 
-- [x] Game Menu
-  - [x] Add background & primitive boxes
-  - [x] Add dynamic windows
-  - [x] Add text highlighting
-  - [x] Sync selected text with the description
-  - [x] Optimize windows refresh
-  - [x] Add music
-  
-- [x] Single Player Mod 
-  - [x] Add background & static windows
-  - [x] Add dynamic windows
-  - [x] Add game matrix
-  - [x] Add falling function
-  - [x] Add row deletion function
-  - [x] Add scoring function
-  - [x] Add help box
-  - [x] Add quit & game over banner with score
-  
-- [x] Multi Player Mod
-  - [x] Add background & static windows
-  - [x] Add dynamic windows
-  - [x] Add game matrixs
-  - [x] Add turn methods for players interaction
-  - [x] Add falling function
-  - [x] Add row deletion function
-  - [x] Add field inversion for the other player
-  - [x] Add scoring function
-  - [x] Add help box
-  - [x] Add quit & game over banner with score
-  
-- [x] Player vs CPU
-  - [x] Add background & static windows
-  - [x] Add dynamic windows
-  - [x] Add game matrixs
-  - [x] Add falling function for the player
-  - [x] Add Big Brain function for the CPU to interact 
-  - [x] Add row deletion function
-  - [x] Add field inversion for the other player
-  - [x] Add scoring function
-  - [x] Add help box
-  - [x] Add quit & game over banner with score
-  
-###Some Picturs of the Project 📺
+### Some Picturs of the Project 📺
 
 <div style="text-align:center">
 <h4>👾 Game Menu 👾</h4>
-  <img src="/other/./xmenu.gif" style="display:block; margin:auto; width:60%; max-width:100%"/></a>
+  <img src="/other/xmenu.gif" style="display:block; margin:auto; width:60%; max-width:100%"/></a>
 </div>
 
 * * *
@@ -108,6 +65,50 @@ make fly
 Enjoy 👾
 * * *
 
+### Todo List [ALL DONE  💪🏻]
+
+- [x] Game Menu
+  - [x] Add background & primitive boxes
+  - [x] Add dynamic windows
+  - [x] Add text highlighting
+  - [x] Sync selected text with the description
+  - [x] Optimize windows refresh
+  - [x] Add music
+  
+- [x] Single Player Mod 
+  - [x] Add background & static windows
+  - [x] Add dynamic windows
+  - [x] Add game matrix
+  - [x] Add falling function
+  - [x] Add row deletion function
+  - [x] Add scoring function
+  - [x] Add help box
+  - [x] Add quit & game over banner with score
+  
+- [x] Multi Player Mod
+  - [x] Add background & static windows
+  - [x] Add dynamic windows
+  - [x] Add game matrixs
+  - [x] Add turn methods for players interaction
+  - [x] Add falling function
+  - [x] Add row deletion function
+  - [x] Add field inversion for the other player
+  - [x] Add scoring function
+  - [x] Add help box
+  - [x] Add quit & game over banner with score
+  
+- [x] Player vs CPU
+  - [x] Add background & static windows
+  - [x] Add dynamic windows
+  - [x] Add game matrixs
+  - [x] Add falling function for the player
+  - [x] Add Big Brain function for the CPU to interact 
+  - [x] Add row deletion function
+  - [x] Add field inversion for the other player
+  - [x] Add scoring function
+  - [x] Add help box
+  - [x] Add quit & game over banner with score
+  
 ## Documentation
 
 DOXYGEN DOC 
