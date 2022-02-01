@@ -155,6 +155,7 @@ int singlePlayer()
             case 'h':
                 paintHelp();
                 initField(w_title, w_field, w_preview, w_score, w_save, w_cmds);
+                initPlayerWindow(pg.window);
                 break;
             
             case KEY_RIGHT:
@@ -204,7 +205,7 @@ int singlePlayer()
             initGameOver(pg.score);
             return 0;
         }
-
+        colorField(&pg);
         refreshPreview(s_preview, &preview_piece);
         refreshGameField(&position_x, &current_piece, &pg);
         refreshScore(s_score, tetPieces[current_piece.tet], pg.score);

@@ -191,9 +191,13 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
                 break;
 
             
-                case 'h':
+            case 'h':
                 paintHelp();
                 initMultiField(w_title, w_field, w_preview, w_sfield, w_score, w_save, w_cmds);
+                initFirstPlayerWindow(pg1->window);
+                initSecondPlayerWindow(pg2->window);
+                refreshGameField(&positionX, piece, pg2);
+                refreshGameField(&positionX, piece, pg1);
                 break;
 
             /* case: back piece */
@@ -257,10 +261,11 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
                 break;
         }
 
+        colorField(pg1);
         refreshPreview(s_preview, &preview_piece);
         refreshGameField(&positionX, piece, pg1);
         refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, s_score); /**< Aggiorno i valori in score e ridisegna la sua window dinamica */
-
+        
 
     } while (!action);
     

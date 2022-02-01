@@ -570,6 +570,8 @@ void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* 
              case 'h':
                 paintHelp();
                 initMultiField(w_title, w_field, w_preview, w_sfield, w_score, w_save, w_cmds);
+                initFirstPlayerWindow(pg1->window);
+                initSecondPlayerWindow(cpu->window);
                 break;
 
 
@@ -628,7 +630,9 @@ void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* 
             initGameOver(pg1->score);
             return ;
         }
-            
+        colorField(pg1);  
+        colorField(cpu);
+        refreshCpuScore(tetPieces[piece->tet], currentScore, cpuScore, s_score);
         refreshPreview(s_preview, &preview_piece);
         refreshGameField(&position_x, piece, pg1);
         

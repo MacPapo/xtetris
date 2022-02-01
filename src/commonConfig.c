@@ -178,10 +178,9 @@ void paintHelp()
     mvwprintw(w_help, 14, 10, "[ v ]  ==> la mossa desiderata");
     wrefresh(w_help);
 
-    getch();
+    wgetch(w_help);
     delwin(w_help);
     touchwin(stdscr);
-    refresh();
 }
 
 void resetPreview()
