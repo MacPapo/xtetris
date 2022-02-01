@@ -455,7 +455,7 @@ int analizeRows(player *cpu)
  * @param zeroInterval
  * @param tetraminos
  */
-void bigBrain(player *cpu, int* bestRow, int* zeroInterval, int tetraminos[])
+void bigBrain(player *cpu, int tetraminos[])
 {
     /* init some handy variable */
     int i;
@@ -535,9 +535,6 @@ void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* 
     int choice = 0;
     int countCurrentPiece;
 
-    int bestRow = 0;
-    int zeroInterval = 0;
-
     int position_x = 0;
 
     int *currentScore = &pg1->score;
@@ -601,7 +598,7 @@ void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* 
                     fallingPiece(pg1);
                     tetPieces[piece->tet] -= 1;
                     pieces -= 1;
-                    bigBrain(cpu, &bestRow, &zeroInterval, tetPieces);
+                    bigBrain(cpu, tetPieces);
                     *currentScore += checkAndReverseRows(pg1, cpu);
                     *cpuScore += checkAndReverseRows(cpu, pg1);
                     wrefresh(cpu->window);

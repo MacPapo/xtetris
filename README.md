@@ -5,28 +5,60 @@
 
 By
 [Jacopo Costantini](https://github.com/MacPapo),
-### 891938
 [Alvise Silvestri](https://github.com/mastrodeimastri),
 [Matteo Zambon](https://github.com/Blast291).
 
 ### Advanced Version of the original 1984 game TETRIS 🕹
 
-### Todo List
-- [x] Multiplayer
-  - [x] Riempire campi con tetramini e matrice
-  - [x] Inversione righe campo avversario
-  - [x] Definire sequenza di gioco
-  - [x] Raddoppiare Previw e score
-  - [x] Game Over
-  - [x] Definire logica dei parametri
+### Todo List [ALL DONE  💪🏻]
+
+- [x] Game Menu
+  - [x] Add background & primitive boxes
+  - [x] Add dynamic windows
+  - [x] Add text highlighting
+  - [x] Sync selected text with the description
+  - [x] Optimize windows refresh
+  - [x] Add music
+  
+- [x] Single Player Mod 
+  - [x] Add background & static windows
+  - [x] Add dynamic windows
+  - [x] Add game matrix
+  - [x] Add falling function
+  - [x] Add row deletion function
+  - [x] Add scoring function
+  - [x] Add help box
+  - [x] Add quit & game over banner with score
+  
+- [x] Multi Player Mod
+  - [x] Add background & static windows
+  - [x] Add dynamic windows
+  - [x] Add game matrixs
+  - [x] Add turn methods for players interaction
+  - [x] Add falling function
+  - [x] Add row deletion function
+  - [x] Add field inversion for the other player
+  - [x] Add scoring function
+  - [x] Add help box
+  - [x] Add quit & game over banner with score
   
 - [x] Player vs CPU
-  - [x] Creazione AI
+  - [x] Add background & static windows
+  - [x] Add dynamic windows
+  - [x] Add game matrixs
+  - [x] Add falling function for the player
+  - [x] Add Big Brain function for the CPU to interact 
+  - [x] Add row deletion function
+  - [x] Add field inversion for the other player
+  - [x] Add scoring function
+  - [x] Add help box
+  - [x] Add quit & game over banner with score
+  
 ###Some Picturs of the Project 📺
 
 <div style="text-align:center">
 <h4>👾 Game Menu 👾</h4>
-  <img src="/other/./XTETRIS_BUILD_PRE_ALPHA_V0.0.gif" style="display:block; margin:auto; width:60%; max-width:100%"/></a>
+  <img src="/other/./xmenu.gif" style="display:block; margin:auto; width:60%; max-width:100%"/></a>
 </div>
 
 * * *

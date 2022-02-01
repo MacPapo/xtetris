@@ -1,0 +1,17 @@
+# ignoring macOS files
+.DS_Store
+*.DS_Store
+
+# ignoring vscode directories
+.vscode
+*.vscode
+.ccls-cache
+*.ccls-cache
+
+# ignoring folders
+bin/
+obj/
+test/
+# ignoring files
+*a.out
+*a.out.dSYM

@@ -28,7 +28,7 @@ int checkLastRow(int gamefield[][MATRIX_W]);
 
 int completionSpot(int bastRow, int gamefield[][MATRIX_W], int* start);
 
-void bigBrain(player* cpu, int* bestRow, int* zeroInterval, int tetraminos[]);
+void bigBrain(player* cpu, int tetraminos[]);
 
 void colorFieldCPU(int gameField[][MATRIX_W], player *cpu);
 
