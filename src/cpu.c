@@ -556,6 +556,7 @@ void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* 
         colorField(pg1);
 
         countCurrentPiece = tetPieces[piece->tet];
+        refreshCpuScore(tetPieces[piece->tet], currentScore, cpuScore, s_score);
         if (countCurrentPiece == 0)
             changePiece(s_score);
 
@@ -632,7 +633,6 @@ void startCpuGame(player *pg1, player* cpu, tet *piece, int* tetPieces, WINDOW* 
         }
         colorField(pg1);  
         colorField(cpu);
-        refreshCpuScore(tetPieces[piece->tet], currentScore, cpuScore, s_score);
         refreshPreview(s_preview, &preview_piece);
         refreshGameField(&position_x, piece, pg1);
         

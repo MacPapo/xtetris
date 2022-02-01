@@ -172,6 +172,7 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
         colorField(pg1);
 
         countCurrentPiece = tetPieces[piece->tet];
+        refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, s_score); /**< Aggiorno i valori in score e ridisegna la sua window dinamica */
         if (countCurrentPiece == 0)
             changePiece(s_score);
 
@@ -264,7 +265,6 @@ int startTheGame(player* pg1, player* pg2, tet* piece, int* tetPieces, int* piec
         colorField(pg1);
         refreshPreview(s_preview, &preview_piece);
         refreshGameField(&positionX, piece, pg1);
-        refreshMultiScore(tetPieces[piece->tet], currentScore, pg2->score, turn, s_score); /**< Aggiorno i valori in score e ridisegna la sua window dinamica */
         
 
     } while (!action);

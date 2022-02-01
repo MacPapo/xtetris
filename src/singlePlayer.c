@@ -111,6 +111,7 @@ int singlePlayer()
         colorField(&pg);
 
         countCurrentPiece = tetPieces[current_piece.tet]; /**< Conta i pezzi rimanenti dello stesso tetramino */
+        refreshScore(s_score, tetPieces[current_piece.tet], pg.score);
         if (countCurrentPiece == 0) 
             changePiece(s_score); 
 
@@ -208,7 +209,6 @@ int singlePlayer()
         colorField(&pg);
         refreshPreview(s_preview, &preview_piece);
         refreshGameField(&position_x, &current_piece, &pg);
-        refreshScore(s_score, tetPieces[current_piece.tet], pg.score);
         
     } while(pieces);
     //@}
