@@ -56,7 +56,7 @@ git clone https://github.com/mastrodeimastri/XTETRIS.git
 ```
 Now enter inside the XTETRIS directory
 ```shell
-cd XTETRIS
+cd xtetris
 ```
 type `make setup` to build the project directory
 ```shell
