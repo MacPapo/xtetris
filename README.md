@@ -38,16 +38,13 @@ sudo apt-get install libncurses5-dev libncursesw5-dev
 
 Simply clone the repository on your desire directory
 ```shell
-git clone https://github.com/mastrodeimastri/XTETRIS.git
+git clone https://github.com/MacPapo/xtetris.git
 ```
 Now enter inside the XTETRIS directory
 ```shell
 cd xtetris
 ```
-type `make setup` to build the project directory
-```shell
-make setup
-```
+
 Than simply `make` to build the project
 ```shell
 make
