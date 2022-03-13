@@ -61,6 +61,12 @@ Than simply `make` to build the project
 ```shell
 make
 ```
+
+For BSD's systems use `gmake` instead
+```shell
+gmake
+```
+
 And now you are good to go 🎉
 
 The last command is `make fly`
@@ -68,6 +74,10 @@ The last command is `make fly`
 make fly
 ```
 
+Or `gmake fly` for BSD's systems
+```shell
+gmake fly
+```
 Enjoy 👾
 * * *
 
