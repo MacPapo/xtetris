@@ -4,8 +4,16 @@ CC=gcc
 # Declaring the compiler flags
 CFLAGS=-g -Wall -Wextra
 
-NCURSES=-lncurses
 MKDIR_P=mkdir -p
+UNAME:=$(shell uname)
+
+ifeq ($(UNAME), Linux)
+	NCURSES=-lncurses -lpthread -lm -ldl
+ifeq ($(UNAME), *BSD)
+	NCURSES=-lncurses -lpthread -lm
+else
+	NCURSES=-lncurses
+endif
 
 # Declaring the main directories spot
 SRC=src
@@ -26,11 +34,6 @@ all: setup $(BIN)
 
 # setup all the directories
 setup: binDir objDir
-
-# make release command for production only
-release: CFLAGS=-Wall -Wextra -O2 -DNDEBUG
-release: clean
-release: $(BIN)
 
 # rules for compiling objects files
 $(BIN): $(OBJS)
