@@ -23,7 +23,7 @@ The game is 100% [ncurses](https://github.com/mirror/ncurses) based
 
 For insatalling the program you need to install first ncurses on your computer.
 
-**macOS **
+**macOS 🍎**
 ```shell
 brew install ncurses
 ```
@@ -31,7 +31,19 @@ brew install ncurses
 
 Debian based :
 ```shell
-sudo apt-get install libncurses5-dev libncursesw5-dev
+sudo apt-get install libncurses6
+```
+
+**BSD 👺**
+
+FreeBSD 👹:
+``` shell
+pkg install gmake
+```
+
+OpenBSD 🐡 & NetBSD 🚩:
+``` shell
+pkg_add gmake
 ```
 
 ### What Now? 🪄
