@@ -7,11 +7,23 @@ CFLAGS=-g -Wall -Wextra
 MKDIR_P=mkdir -p
 UNAME:=$(shell uname)
 
+# Linux flags
 ifeq ($(UNAME), Linux)
 	NCURSES=-lncurses -lpthread -lm -ldl
+endif
+
+# BSD's flags
 ifeq ($(UNAME), *BSD)
 	NCURSES=-lncurses -lpthread -lm
-else
+endif
+
+# MacOS flags
+ifeq ($(UNAME), Darwin)
+	NCURSES=-lncurses
+endif
+
+# Windows flags
+ifeq ($(UNAME), Darwin)
 	NCURSES=-lncurses
 endif
 
