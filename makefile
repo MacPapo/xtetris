@@ -1,5 +1,3 @@
-# Declaring the compiler preferences
-CC=gcc
 
 # Declaring the compiler flags
 CFLAGS=-g -Wall -Wextra
@@ -7,24 +5,36 @@ CFLAGS=-g -Wall -Wextra
 MKDIR_P=mkdir -p
 UNAME:=$(shell uname)
 
-# Linux flags
-ifeq ($(UNAME), Linux)
-	NCURSES=-lncurses -lpthread -lm -ldl
-endif
-
-# BSD's flags
-ifeq ($(UNAME), *BSD)
-	NCURSES=-lncurses -lpthread -lm
-endif
-
 # MacOS flags
 ifeq ($(UNAME), Darwin)
 	NCURSES=-lncurses
+	CC=clang
+endif
+
+# Linux flags
+ifeq ($(UNAME), Linux)
+	NCURSES=-lncurses -lpthread -lm -ldl
+	CC=gcc
 endif
 
 # Windows flags
-ifeq ($(UNAME), Darwin)
+ifeq ($(UNAME), Windows_NT)
 	NCURSES=-lncurses
+	CC=gcc
+endif
+
+# BSD's flags
+ifeq ($(UNAME), OpenBSD)
+	NCURSES=-lncurses -lpthread -lm
+	CC=clang
+endif
+ifeq ($(UNAME), FreeBSD)
+	NCURSES=-lncurses -lpthread -lm
+	CC=clang
+endif
+ifeq ($(UNAME), NetBSD)
+	NCURSES=-lncurses -lpthread -lm
+	CC=clang
 endif
 
 # Declaring the main directories spot
