@@ -10,8 +10,6 @@
  *
  */
 
-
-#include "main.h"
 #include "menu.h"
 #include "commonConfing.h"
 

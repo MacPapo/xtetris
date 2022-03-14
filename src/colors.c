@@ -1,5 +1,5 @@
-#include <ncurses.h>
 #include "colors.h"
+#include <ncurses.h>
 
 void initializeColors()
 {

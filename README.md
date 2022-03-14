@@ -33,6 +33,10 @@ Debian based :
 ```shell
 sudo apt-get install libncurses6
 ```
+Fedora based :
+```shell
+sudo dnf install ncurses-devel
+```
 
 **BSD 👺**
 
