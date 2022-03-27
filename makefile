@@ -1,3 +1,4 @@
+.PHONY: clean
 
 # Declaring the compiler flags
 CFLAGS=-g -Wall -Wextra
@@ -52,7 +53,7 @@ OBJS=$(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(SRCS))
 HDRS=$(wildcard $(SRC)/*.h)
 
 # Default make command that compile everything
-all: setup $(BIN)
+all: setup clean $(BIN)
 
 # setup all the directories
 setup: binDir objDir

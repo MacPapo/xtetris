@@ -10,7 +10,7 @@ void initializeColors()
 	init_pair(1, COLOR_WHITE, COLOR_BLUE);
 
 	/* TITLE COLORS */
-	init_pair(2, COLOR_BLUE, COLOR_WHITE);
+	init_pair(2, COLOR_RED, COLOR_WHITE);
 
 	/* MENU COLORS */
 	init_pair(3, COLOR_WHITE, COLOR_BLUE);
@@ -19,7 +19,7 @@ void initializeColors()
 	init_pair(4, COLOR_WHITE, COLOR_BLUE);
 
 	/* CMDS COLORS*/
-	init_pair(5, COLOR_BLUE, COLOR_WHITE);
+	init_pair(5, COLOR_RED, COLOR_WHITE);
 
 	init_pair(6, COLOR_WHITE, COLOR_RED);
 

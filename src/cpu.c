@@ -468,7 +468,7 @@ void bigBrain(player *cpu, int tetraminos[])
     int tet_ori  = 0;
 
     int offset;
-
+    
     if (!checkLastRow(cpu->gameField))
         opening(cpu, tetraminos);
     else
