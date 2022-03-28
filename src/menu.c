@@ -86,7 +86,7 @@ int menu()
     s_menu = newwin( ( MENU_H - 2 ), ( DESC_W - 2 ), menuY, menuX ); /**< Creo la window dinamica contenente le varie delle modalità */
 
     wbkgd( s_desc, COLOR_PAIR( 2 ) );                                /**< Coloro la window selezionata con la seguente palette */
-    wbkgd(s_menu, COLOR_PAIR( 3 ) );                                 /**< Coloro la window selezionata con la seguente palette */
+    wbkgd( s_menu, COLOR_PAIR( 3 ) );                                 /**< Coloro la window selezionata con la seguente palette */
 
     /* defining key input & echo disable */
     keypad( s_menu, TRUE );  /**< Inzializza la funzionalità di input da tastiera */
@@ -136,12 +136,12 @@ int menu()
          *
          * @return
          */
-        if( ( userChoice == 10 ) && ( modCounter != 3 ) )
+        if( ( userChoice == 10 ) && ( modCounter != 3) )
             return modCounter;
     }
     while( userChoice != 'q' );
 
-    return 4;
+    return ( 4 );
 }
 
 //* End of Main function *****************************************************/
@@ -159,7 +159,7 @@ void initTitle( WINDOW* title )
     int t_starty, t_startx;
 
     /* defining parameters for centering title box*/
-    t_starty = ( HCENTER  - (MENU_TITLE_Y + MENU_Y) );
+    t_starty = ( HCENTER  - ( MENU_TITLE_Y + MENU_Y ) );
     t_startx = WCENTER;
 
     /* creating title window */
