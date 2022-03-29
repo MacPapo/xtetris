@@ -23,21 +23,24 @@
  */
 int singlePlayer()
 {
-    /* declaring the game windows */
-    WINDOW *w_title = NULL, *w_field = NULL, *w_preview = NULL, *w_score = NULL, *w_save = NULL, *w_cmds = NULL; /**< Qui si inizializzano tutte le window statiche */
-    WINDOW *s_preview = NULL, *s_score = NULL; /**< Qui si inizializzano tutte le window dinamiche */
+    int choice;
+    int pieces;
+    int position_x;
+    int countCurrentPiece;
+    int tetPieces[T_NUM];
 
     tet current_piece = {0,0};  /**< Current piece contiene le opzioni del pezzo corrente */
     tet preview_piece = {0,0};  /**< Preview piece contiene le opzioni del pezzo mostrato in preview */
 
-    int choice = 0;
-    int position_x = 0;
-    int countCurrentPiece = 0;
+    /* declaring the game windows */
+    WINDOW *w_title   = NULL, *w_field = NULL, *w_preview = NULL, *w_score = NULL, *w_save = NULL, *w_cmds = NULL; /**< Qui si inizializzano tutte le window statiche */
+    WINDOW *s_preview = NULL, *s_score = NULL; /**< Qui si inizializzano tutte le window dinamiche */
 
-    int pieces = T_NUM * T_PIECES;
-
-    int tetPieces[T_NUM];
-    player pg = addPlayer();
+    choice            = 0;
+    position_x        = 0;
+    countCurrentPiece = 0;
+    pieces            = ( T_NUM * T_PIECES );
+    player pg         = addPlayer();
 
 
     /**
@@ -61,7 +64,7 @@ int singlePlayer()
      * @param gameField
      *
      */
-    initGameMatrix(pg.gameField);
+    initGameMatrix( pg.gameField );
 
     /**
      * Inizializza il vettore del tetramino
@@ -70,7 +73,7 @@ int singlePlayer()
      * @param 0
      *
      */
-    initTetVector(tetPieces, 0);
+    initTetVector( tetPieces, 0 );
     /**
      * Stampa l'intero campo di gioco con tutte le window statiche
      *
@@ -82,25 +85,26 @@ int singlePlayer()
      * @param w_cmds
      *
      */
-    initField(w_title, w_field, w_preview, w_score, w_save, w_cmds);
+    initField( w_title, w_field, w_preview, w_score, w_save, w_cmds );
 
 
-    pg.window = initPlayerWindow(pg.window); /**< Da le info per modellare la window, tutti i suoi parametri */
-    s_preview = initPreviewWindow(s_preview); /**<  Da le informazioni per modellare la window dinamica preview */
-    s_score = initScoreWindow(s_score); /**< Da le info per modellare la window dinamica score */
+    pg.window = initPlayerWindow( pg.window ); /**< Da le info per modellare la window, tutti i suoi parametri */
+    s_preview = initPreviewWindow( s_preview ); /**<  Da le informazioni per modellare la window dinamica preview */
+    s_score   = initScoreWindow( s_score ); /**< Da le info per modellare la window dinamica score */
 
     /* Single player routine */
 
-    preview_piece.tet = current_piece.tet + 1; /**< Aggiorno la preview con il prossimo tetramino */
-    refreshPreview(s_preview ,&preview_piece); /**< Aggiorno i valori in preview e ridisegna la sua window dinamica */
-    refreshGameField(&position_x, &current_piece, &pg); /**< Aggiorna i valori nel gamefield e ridisegna la sua window dinamica */
-    refreshScore(s_score ,tetPieces[current_piece.tet], pg.score); /**< Aggiorna i valori dello score e ridisegna la sua window dinamica */
+    preview_piece.tet = ( current_piece.tet + 1 ); /**< Aggiorno la preview con il prossimo tetramino */
+
+    refreshPreview( s_preview ,&preview_piece ); /**< Aggiorno i valori in preview e ridisegna la sua window dinamica */
+    refreshGameField( &position_x, &current_piece, &pg ); /**< Aggiorna i valori nel gamefield e ridisegna la sua window dinamica */
+    refreshScore( s_score ,tetPieces[ current_piece.tet ], pg.score ); /**< Aggiorna i valori dello score e ridisegna la sua window dinamica */
 
     //@{
     do                          /**< Inizia la sequenza di istruzioni da eseguire */
     {
-        keypad(pg.window, TRUE); /**< Inzializza la funzionalità di input da tastiera */
-        choice = wgetch(pg.window); /**< Prendo l'input da tastiera da parte dell'utente */
+        keypad( pg.window, TRUE ); /**< Inzializza la funzionalità di input da tastiera */
+        choice = wgetch( pg.window ); /**< Prendo l'input da tastiera da parte dell'utente */
 
         /**
          * Coloro il campo con i valori salvati nella matrice di gioco
@@ -108,14 +112,15 @@ int singlePlayer()
          * @param pg
          *
          */
-        colorField(&pg);
+        colorField( &pg );
+        countCurrentPiece = tetPieces[ current_piece.tet ]; /**< Conta i pezzi rimanenti dello stesso tetramino */
 
-        countCurrentPiece = tetPieces[current_piece.tet]; /**< Conta i pezzi rimanenti dello stesso tetramino */
-        refreshScore(s_score, tetPieces[current_piece.tet], pg.score);
-        if (countCurrentPiece == 0) 
-            changePiece(s_score); 
+        refreshScore( s_score, tetPieces[ current_piece.tet ], pg.score );
 
-        switch (choice)         /**< Casistica della scelta dell'utente */
+        if ( countCurrentPiece == 0 )
+            changePiece( s_score );
+
+        switch ( choice )         /**< Casistica della scelta dell'utente */
         {
             case 'n':
                 /**
@@ -126,8 +131,9 @@ int singlePlayer()
                  *
                  * @return next piece
                  */
-                nextPiece(&current_piece, &preview_piece);
-                refreshScore(s_score, tetPieces[current_piece.tet], pg.score); /**< Riscrivo lo score con i nuovi valori */
+                nextPiece( &current_piece, &preview_piece );
+
+                refreshScore( s_score, tetPieces[ current_piece.tet ], pg.score ); /**< Riscrivo lo score con i nuovi valori */
                 break;
 
             case 'b':
@@ -139,8 +145,8 @@ int singlePlayer()
                  *
                  * @return previus piece
                  */
-                backPiece(&current_piece, &preview_piece);
-                refreshScore(s_score, tetPieces[current_piece.tet], pg.score); /**< Riscrivo lo score con i nuovi valori */
+                backPiece( &current_piece, &preview_piece );
+                refreshScore( s_score, tetPieces[ current_piece.tet ], pg.score ); /**< Riscrivo lo score con i nuovi valori */
                 break;
             
             case 'r':
@@ -150,13 +156,14 @@ int singlePlayer()
                  * @param current_piece
                  *
                  */
-                rotatingPiece(&current_piece);
+                rotatingPiece( &current_piece );
                 break;
             
             case 'h':
                 paintHelp();
-                initField(w_title, w_field, w_preview, w_score, w_save, w_cmds);
-                initPlayerWindow(pg.window);
+
+                initField( w_title, w_field, w_preview, w_score, w_save, w_cmds );
+                initPlayerWindow( pg.window );
                 break;
             
             case KEY_RIGHT:
@@ -168,7 +175,7 @@ int singlePlayer()
                 break;
             
             case KEY_DOWN:
-                if (countCurrentPiece) /**< Se la condizione è soddisfatta eseguo le seguenti azioni */
+                if ( countCurrentPiece ) /**< Se la condizione è soddisfatta eseguo le seguenti azioni */
                 {
                     /**
                      * Fa cadere il tetramino scelto
@@ -177,8 +184,9 @@ int singlePlayer()
                      *
                      * @return
                      */
-                    fallingPiece(&pg);
-                    tetPieces[current_piece.tet] -= 1; /**< Decremento il tetraminno corrente di 1 */
+                    fallingPiece( &pg );
+
+                    tetPieces[ current_piece.tet ] -= 1; /**< Decremento il tetraminno corrente di 1 */
                     pieces -= 1; /**< Decremento il numero generale di tetramini disponibili */
                     /**
                      * Controllo se è possibile eliminare una o più righe nel campo
@@ -187,32 +195,36 @@ int singlePlayer()
                      *
                      * @return
                      */
-                    pg.score += checkDeleteRows(&pg);
-                    refreshScore(s_score, tetPieces[current_piece.tet], pg.score); /**< Riscrivo lo score con i nuovi valori */
+                    pg.score += checkDeleteRows( &pg );
+
+                    refreshScore( s_score, tetPieces[ current_piece.tet ], pg.score ); /**< Riscrivo lo score con i nuovi valori */
                 }
                 break;
 
             case 'q':
-                initQuit(pg.score); /**< Esco dal while */
-                return 1;
+                initQuit( pg.score ); /**< Esco dal while */
+                return ( 1 );
                 break;
         
             default:
                 break;
         }
 
-        if (checkGameOver(pg.gameField)) /**< Se la condizione è soddisfatta il gioco va in gameover */
+        if ( checkGameOver( pg.gameField ) ) /**< Se la condizione è soddisfatta il gioco va in gameover */
         {
-            initGameOver(pg.score);
-            return 0;
+            initGameOver( pg.score );
+            return ( 0 );
         }
-        colorField(&pg);
-        refreshPreview(s_preview, &preview_piece);
-        refreshGameField(&position_x, &current_piece, &pg);
+
+        colorField( &pg );
+
+        refreshPreview( s_preview, &preview_piece );
+        refreshGameField( &position_x, &current_piece, &pg );
         
-    } while(pieces);
+    } while( pieces );
     //@}
-    return initReturnToMenu(pg.score); /**< Ritorno al menu */
+
+    return ( initReturnToMenu( pg.score ) ); /**< Ritorno al menu */
 }
 
 //* Init the base field funcs ************************************************/
@@ -222,18 +234,19 @@ int singlePlayer()
  *
  * @param title
  */
-void initSinglePlayerTitle(WINDOW* title)
+void initSinglePlayerTitle( WINDOW* title )
 {
     int titleY, titleX;
 
-    titleY = HCENTER - TITLE_H - 1;
-    titleX = WCENTER - 3 - SCORE_W/2;
+    titleY = ( HCENTER - ( TITLE_H - 1 ) );
+    titleX = ( ( WCENTER - 3 ) - ( SCORE_W / 2 ) );
 
-    title = newwin(TITLE_H, TITLE_W, titleY, titleX);
-    box(title, V_LINES, H_LINES);
-    wbkgd(title, COLOR_PAIR(2));
-    mvwprintw(title, 1, 20, "SINGLE PLAYER");
-    wrefresh(title);
+    title = newwin( TITLE_H, TITLE_W, titleY, titleX );
+    box( title, V_LINES, H_LINES );
+    wbkgd( title, COLOR_PAIR( 2 ) );
+
+    mvwprintw( title, 1, 20, "SINGLE PLAYER" );
+    wrefresh( title );
 }
 
 /**
@@ -241,16 +254,17 @@ void initSinglePlayerTitle(WINDOW* title)
  *
  * @param field
  */
-void initSinglePlayerField(WINDOW* field)
+void initSinglePlayerField( WINDOW* field )
 {
     int fieldY, fieldX;
 
     fieldY = HCENTER;
-    fieldX = WCENTER - SCORE_W/2;
+    fieldX = ( WCENTER - ( SCORE_W / 2 ) );
 
-    field = newwin(FIELD_H, FIELD_W, fieldY, fieldX);
-    box(field, V_LINES, H_LINES);
-    wbkgd(field, COLOR_PAIR(2));
+    field = newwin( FIELD_H, FIELD_W, fieldY, fieldX );
+    box( field, V_LINES, H_LINES );
+    wbkgd( field, COLOR_PAIR( 2 ) );
+
     wrefresh(field);
 }
 
@@ -259,19 +273,21 @@ void initSinglePlayerField(WINDOW* field)
  *
  * @param field
  */
-void initSinglePlayerCmds(WINDOW* cmds)
+void initSinglePlayerCmds( WINDOW* cmds )
 {
    int cmdsY, cmdsX;
 
-   cmdsY = HCENTER + FIELD_H + 1;
-   cmdsX = WCENTER - SCORE_W/2 - 3;
+   cmdsY = ( HCENTER + ( FIELD_H + 1 ) );
+   cmdsX = ( WCENTER - ( ( SCORE_W / 2 ) - 3 ) );
 
-   cmds = newwin(CMDS_H, CMDS_W, cmdsY, cmdsX);
-   box(cmds, V_LINES, H_LINES);
-   wbkgd(cmds, COLOR_PAIR(2));
-   mvwprintw(cmds, 0, 19, "| COMMANDS |");
-   mvwprintw(cmds, 1, 9, "[ 'R' ] [ 'N' ] [ < ] [ v ] [ > ]");
-   wrefresh(cmds);
+   cmds = newwin( CMDS_H, CMDS_W, cmdsY, cmdsX );
+   box( cmds, V_LINES, H_LINES);
+   wbkgd( cmds, COLOR_PAIR( 2 ) );
+
+   mvwprintw( cmds, 0, 19, "| COMMANDS |" );
+   mvwprintw( cmds, 1, 9, "[ 'R' ] [ 'N' ] [ < ] [ v ] [ > ]" );
+
+   wrefresh( cmds );
 }
 
 /**
@@ -279,18 +295,20 @@ void initSinglePlayerCmds(WINDOW* cmds)
  *
  * @param field
  */
-void initSinglePlayerPreview(WINDOW* preview)
+void initSinglePlayerPreview( WINDOW* preview )
 {
     int previewY, previewX;
 
     previewY = HCENTER;
-    previewX = WCENTER - SCORE_W/2 + FIELD_W + 2;
+    previewX = ( WCENTER - ( ( SCORE_W / 2 ) + ( FIELD_W + 2 ) ) );
 
-    preview = newwin(PREVIEW_H, PREVIEW_W, previewY, previewX);
-    box( preview, V_LINES, H_LINES);
-    wbkgd(preview, COLOR_PAIR(2));
-    mvwprintw(preview , 0 , 5 , "| PREVIEW |");
-    wrefresh(preview);
+    preview = newwin( PREVIEW_H, PREVIEW_W, previewY, previewX );
+    box( preview, V_LINES, H_LINES );
+    wbkgd( preview, COLOR_PAIR( 2 ) );
+
+    mvwprintw( preview , 0 , 5 , "| PREVIEW |" );
+
+    wrefresh( preview );
 }
 
 /**
@@ -298,18 +316,20 @@ void initSinglePlayerPreview(WINDOW* preview)
  *
  * @param field
  */
-void initSinglePlayerScore(WINDOW* score)
+void initSinglePlayerScore( WINDOW* score )
 {
     int scoreY, scoreX;
 
-    scoreY = HCENTER + PREVIEW_H + 1;
-    scoreX = WCENTER - SCORE_W/2 + FIELD_W + 2;
+    scoreY = ( HCENTER + ( PREVIEW_H + 1 ) );
+    scoreX = ( WCENTER - ( ( SCORE_W / 2 ) + ( FIELD_W + 2 ) ) );
 
-    score = newwin(SCORE_H, SCORE_W, scoreY, scoreX);
-    box(score , V_LINES, H_LINES);
-    wbkgd(score, COLOR_PAIR(2));
-    mvwprintw(score , 0 , 6 , "| SCORE |");
-    wrefresh(score);
+    score = newwin( SCORE_H, SCORE_W, scoreY, scoreX );
+    box( score , V_LINES, H_LINES );
+    wbkgd( score, COLOR_PAIR( 2 ) );
+
+    mvwprintw( score , 0 , 6 , "| SCORE |" );
+
+    wrefresh( score );
 }
 
 /**
@@ -317,21 +337,23 @@ void initSinglePlayerScore(WINDOW* score)
  *
  * @param field
  */
-void initSinglePlayerSave(WINDOW *save)
+void initSinglePlayerSave( WINDOW *save )
 {
     int saveY, saveX;
 
-    saveY = HCENTER + PREVIEW_H + SCORE_H + 3;
-    saveX = WCENTER - SCORE_W/2 + FIELD_W + 2;
+    saveY = ( HCENTER + ( PREVIEW_H + ( SCORE_H + 3 ) ) );
+    saveX = ( WCENTER - ( ( SCORE_W / 2 ) + ( FIELD_W + 2 ) ) );
 
-    save = newwin(SAVE_H, SAVE_W, saveY, saveX);
-    box(save, V_LINES, H_LINES);
-    wbkgd(save, COLOR_PAIR(3));
-    mvwprintw(save, 0, 6, "| SAVE |");
-    mvwprintw(save, 1, 1, "'H' to help page");
-    mvwprintw(save, 2, 1, "'S' to save game");
-    mvwprintw(save, 3, 1, "'Q' return to menu");
-    wrefresh(save);
+    save = newwin( SAVE_H, SAVE_W, saveY, saveX );
+    box( save, V_LINES, H_LINES );
+    wbkgd( save, COLOR_PAIR( 3 ) );
+
+    mvwprintw( save, 0, 6, "| SAVE |" );
+    mvwprintw( save, 1, 1, "'H' to help page" );
+    mvwprintw( save, 2, 1, "'S' to save game" );
+    mvwprintw( save, 3, 1, "'Q' return to menu" );
+
+    wrefresh( save );
 }
 
 /**
@@ -339,15 +361,17 @@ void initSinglePlayerSave(WINDOW *save)
  *
  * @param field
  */
-void initField(WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds)
+void initField( WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds )
 {
     refresh();
-    initSinglePlayerTitle(title);
-    initSinglePlayerField(field);
-    initSinglePlayerPreview(preview);
-    initSinglePlayerScore(score);
-    initSinglePlayerSave(save);
-    initSinglePlayerCmds(cmds);
+
+    initSinglePlayerTitle( title );
+    initSinglePlayerField( field );
+    initSinglePlayerPreview( preview );
+    initSinglePlayerScore( score );
+    initSinglePlayerSave( save );
+    initSinglePlayerCmds( cmds );
+
     refresh();
 }
 
@@ -356,26 +380,30 @@ void initField(WINDOW* title, WINDOW* field, WINDOW* preview, WINDOW* score, WIN
  *
  * @param field
  */
-void initGameOver(int score)
+void initGameOver( int score )
 {
-    clear();
     int starty, startx;
-
     WINDOW* w_gameover;
-    starty = (LINES - GAMEOVER_H) / 2;
-    startx = (COLS  - GAMEOVER_W) / 2;
 
+    starty = ( ( LINES - GAMEOVER_H ) / 2 );
+    startx = ( ( COLS  - GAMEOVER_W ) / 2 );
+
+    clear();
     refresh();
 
-    w_gameover = newwin(GAMEOVER_H, GAMEOVER_W, starty, startx);
-    box(w_gameover, V_LINES, H_LINES);
-    wbkgd(w_gameover, COLOR_PAIR(3));
-    mvwprintw(w_gameover, 0, 21, "| GAME OVER |");
-    mvwprintw(w_gameover, 3,  2, "You lose bro!! try again");
-    mvwprintw(w_gameover, 5,  2, "Your score is: ");
-    mvwprintw(w_gameover, 5,  17, "%d", score);
-    mvwprintw(w_gameover, 7, 21, "PRESS ANY KEY");
-    wrefresh(w_gameover);
+    w_gameover = newwin( GAMEOVER_H, GAMEOVER_W, starty, startx );
+    box( w_gameover, V_LINES, H_LINES );
+    wbkgd( w_gameover, COLOR_PAIR( 3 ) );
+
+    mvwprintw( w_gameover, 0,  21, "| GAME OVER |" );
+    mvwprintw( w_gameover, 3,  2, "You lose bro!! try again" );
+    mvwprintw( w_gameover, 5,  2, "Your score is: " );
+    mvwprintw( w_gameover, 5,  17, "%d", score );
+    mvwprintw( w_gameover, 7,  21, "PRESS ANY KEY" );
+
+    wrefresh( w_gameover );
+    refresh();
+
     getch();
 }
 
@@ -384,24 +412,29 @@ void initGameOver(int score)
  *
  * @param field
  */
-void initQuit(int score)
+void initQuit( int score )
 {
-    clear();
-    WINDOW* w_quit;
     int starty, startx;
-    starty =  (LINES - MQUIT_H) / 2;
-    startx =  (COLS  - MQUIT_W) / 2;
+    WINDOW* w_quit;
 
+    starty = ( (LINES - MQUIT_H) / 2 );
+    startx = ( (COLS  - MQUIT_W) / 2 );
+
+    clear();
     refresh();
-    w_quit = newwin(MQUIT_H, MQUIT_W, starty, startx);
-    box(w_quit, V_LINES, H_LINES);
-    wbkgd(w_quit, COLOR_PAIR(3));
-    mvwprintw(w_quit, 0, 20, "| QUIT |");
-    mvwprintw(w_quit, 3,  2, "Your score is: ");
-    mvwprintw(w_quit, 3,  17, "%d", score);
-    mvwprintw(w_quit, 7,  21, "PRESS ANY KEY");
-    wrefresh(w_quit);
+
+    w_quit = newwin( MQUIT_H, MQUIT_W, starty, startx );
+    box( w_quit, V_LINES, H_LINES );
+    wbkgd( w_quit, COLOR_PAIR( 3 ) );
+
+    mvwprintw( w_quit, 0,  20, "| QUIT |" );
+    mvwprintw( w_quit, 3,  2, "Your score is: " );
+    mvwprintw( w_quit, 3,  17, "%d", score );
+    mvwprintw( w_quit, 7,  21, "PRESS ANY KEY" );
+
+    wrefresh( w_quit );
     refresh();
+
     getch();
 }
 
@@ -410,15 +443,18 @@ void initQuit(int score)
  *
  * @param field
  */
-WINDOW* initPlayerWindow(WINDOW* pgWindow)
+WINDOW* initPlayerWindow( WINDOW* pgWindow )
 {
     int fieldY, fieldX;
-    fieldY   = HCENTER + 1;
-    fieldX   = WCENTER - SCORE_W/2 + 1;
-    pgWindow = newwin(FIELD_H - 2, FIELD_W - 2, fieldY, fieldX);
-    wbkgd(pgWindow, COLOR_PAIR(0));
-    wrefresh(pgWindow);
-    return pgWindow;
+
+    fieldY   = ( HCENTER + 1 );
+    fieldX   = WCENTER - ( ( SCORE_W / 2 ) + 1 );
+
+    pgWindow = newwin( ( FIELD_H - 2 ), ( FIELD_W - 2 ), fieldY, fieldX );
+    wbkgd( pgWindow, COLOR_PAIR( 0 ) );
+
+    wrefresh( pgWindow );
+    return ( pgWindow );
 }
 
 /**
@@ -426,15 +462,18 @@ WINDOW* initPlayerWindow(WINDOW* pgWindow)
  *
  * @param field
  */
-WINDOW* initPreviewWindow(WINDOW* preview)
+WINDOW* initPreviewWindow( WINDOW* preview )
 {
     int previewY, previewX;
-    previewY = HCENTER + 1;
-    previewX = WCENTER - SCORE_W/2 + FIELD_W + 3;
-    preview = newwin(PREVIEW_H - 2, PREVIEW_W - 2, previewY, previewX);
-    wbkgd(preview, COLOR_PAIR(0));
-    wrefresh(preview);
-    return preview;
+
+    previewY = ( HCENTER + 1 );
+    previewX = ( WCENTER - ( ( SCORE_W / 2 ) + ( FIELD_W + 3 ) ) );
+
+    preview = newwin( ( PREVIEW_H - 2 ), ( PREVIEW_W - 2 ), previewY, previewX );
+    wbkgd( preview, COLOR_PAIR( 0 ) );
+
+    wrefresh( preview );
+    return ( preview );
 }
 
 /**
@@ -442,15 +481,18 @@ WINDOW* initPreviewWindow(WINDOW* preview)
  *
  * @param field
  */
-WINDOW* initScoreWindow(WINDOW* score)
+WINDOW* initScoreWindow( WINDOW* score )
 {
     int scoreY, scoreX;
-    scoreY   = HCENTER + PREVIEW_H + 2;
-    scoreX   = WCENTER - SCORE_W/2 + FIELD_W + 3;
-    score = newwin(SCORE_H - 2, SCORE_W - 2, scoreY, scoreX);        
-    wbkgd(score, COLOR_PAIR(0));
-    wrefresh(score);
-    return score;
+
+    scoreY   = ( HCENTER + ( PREVIEW_H + 2 ) );
+    scoreX   = ( WCENTER - ( ( SCORE_W / 2 ) + ( FIELD_W + 3 ) ) );
+
+    score = newwin( ( SCORE_H - 2 ), ( SCORE_W - 2 ), scoreY, scoreX );
+    wbkgd( score, COLOR_PAIR( 0 ) );
+
+    wrefresh( score );
+    return ( score );
 }
 
 /**
@@ -458,26 +500,32 @@ WINDOW* initScoreWindow(WINDOW* score)
  *
  * @param field
  */
-int initReturnToMenu(int score)
+int initReturnToMenu( int score )
 {
-    clear();
+
     WINDOW* returnToMenu;
     int starty, startx;
-    starty =  (LINES - MQUIT_H) / 2;
-    startx =  (COLS  - MQUIT_W) / 2;
 
+    starty = ( ( LINES - MQUIT_H ) / 2 );
+    startx = ( ( COLS  - MQUIT_W ) / 2 );
+
+    clear();
     refresh();
-    returnToMenu = newwin(MQUIT_H, MQUIT_W, starty, startx);
-    box(returnToMenu, V_LINES, H_LINES);
-    wbkgd(returnToMenu, COLOR_PAIR(3));
-    mvwprintw(returnToMenu, 0, 20, "| RETURN TO MENU |");
-    mvwprintw(returnToMenu, 3,  2, "Sorry Bro! You have finisched all pieces! ");
-    mvwprintw(returnToMenu, 4,  2, "Your score is: ");
-    mvwprintw(returnToMenu, 4,  17, "%d", score);
-    mvwprintw(returnToMenu, 7,  21, "PRESS ANY KEY");
-    wrefresh(returnToMenu);
+
+    returnToMenu = newwin( MQUIT_H, MQUIT_W, starty, startx );
+    box( returnToMenu, V_LINES, H_LINES );
+    wbkgd( returnToMenu, COLOR_PAIR( 3 ) );
+
+    mvwprintw( returnToMenu, 0,  20, "| RETURN TO MENU |" );
+    mvwprintw( returnToMenu, 3,  2, "Sorry Bro! You have finisched all pieces! " );
+    mvwprintw( returnToMenu, 4,  2, "Your score is: " );
+    mvwprintw( returnToMenu, 4,  17, "%d", score );
+    mvwprintw( returnToMenu, 7,  21, "PRESS ANY KEY" );
+
+    wrefresh( returnToMenu );
     getch();
-    return 1;
+
+    return ( 1 );
 }
 
 /**
@@ -485,12 +533,14 @@ int initReturnToMenu(int score)
  *
  * @param field
  */
-void refreshScore(WINDOW* s_score ,int pieces, int score)
+void refreshScore( WINDOW* s_score ,int pieces, int score )
 {
-    werase(s_score);
-    mvwprintw(s_score, 1, 1, "Disponibili: ");
-    mvwprintw(s_score, 1, 14, "%d", pieces);
-    mvwprintw(s_score, 3, 1, "Punteggio: ");
-    mvwprintw(s_score, 3, 14, "%d", score);
-    wrefresh(s_score);
+    werase( s_score );
+
+    mvwprintw( s_score, 1, 1, "Disponibili: " );
+    mvwprintw( s_score, 1, 14, "%d", pieces );
+    mvwprintw( s_score, 3, 1, "Punteggio: " );
+    mvwprintw( s_score, 3, 14, "%d", score );
+
+    wrefresh( s_score );
 }

@@ -15,8 +15,8 @@
 
 
 /* define the center of the screen */
-#define HCENTER ((LINES - MENU_TITLE_H) / 2)
-#define WCENTER (( COLS  - MENU_TITLE_W) / 2)
+#define HCENTER ( ( LINES - MENU_TITLE_H ) / 2 )
+#define WCENTER ( ( COLS  - MENU_TITLE_W ) / 2 )
 
 //* Prototype all the functions **************************************************/
 
@@ -126,7 +126,7 @@ int menu()
                 break;
 
             default:
-                highlightMenu(s_menu, s_desc, modCounter);
+                highlightMenu( s_menu, s_desc, modCounter );
                 break;
         }
 
@@ -181,7 +181,7 @@ void initSwitcher( WINDOW* menu )
     int m_starty, m_startx;
 
     /* defining parameters for centering menu box*/
-    m_starty =  ( HCENTER - (MENU_TITLE_Y) );
+    m_starty =  ( HCENTER - ( MENU_TITLE_Y ) );
     m_startx =  WCENTER;
 
     /* creating menu window and window borders */
@@ -203,7 +203,7 @@ void initDescription( WINDOW* desc )
     int d_starty, d_startx;
 
     /* defining parameters for creating description box*/
-    d_starty =  ( HCENTER - (MENU_TITLE_Y) );
+    d_starty =  ( HCENTER - ( MENU_TITLE_Y ) );
     d_startx =  ( WCENTER + MENU_W + 2 );
 
     /* creating description window and window borders */
@@ -211,8 +211,8 @@ void initDescription( WINDOW* desc )
     box( desc, BOX_VE, BOX_HO );
     wbkgd( desc, COLOR_PAIR( 4 ) );
 
-    mvwprintw(desc, 0, PCENTER_D, "| DESCRIPTION |");
-    wrefresh(desc);
+    mvwprintw( desc, 0, PCENTER_D, "| DESCRIPTION |" );
+    wrefresh( desc );
 }
 
 /**

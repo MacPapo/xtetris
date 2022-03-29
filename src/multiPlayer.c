@@ -13,6 +13,7 @@
 #include "multiPlayer.h"
 #include "commonConfing.h"
 #include <ncurses.h>
+#include <stdbool.h>
 #include <time.h>
 #include <stdlib.h>
 
@@ -120,7 +121,7 @@ int multiPlayer()
      * @return
      */
     if ( lastAction == 1 )
-        initWinner(&pg1, &pg2);
+        initWinner( &pg1, &pg2 );
         
     refresh();
     getch();
@@ -148,14 +149,14 @@ int startTheGame( player* pg1, player* pg2, tet* piece, int* tetPieces, int* pie
     int action;
     int positionX;
     int countCurrentPiece;
-    int *currentScore;
-    tet preview_piece = { piece->tet + 1, 0 };
+
+    int *currentScore  = &pg1->score;
+    tet  preview_piece = { piece->tet + 1, 0 };
 
     choice            = 0;
     action            = 0;
     positionX         = 0;
     countCurrentPiece = 0;
-    *currentScore     = pg1->score;
 
     if ( *pieces == 0 )
         return ( 1 );
@@ -361,18 +362,20 @@ void initMultiPlayerField( WINDOW* firstField, WINDOW* secondField )
  *
  * @param cmds
  */
-void initMultiPlayerCmds(WINDOW *cmds)
+void initMultiPlayerCmds( WINDOW *cmds )
 {
     int cmdsY, cmdsX;
 
-    cmdsY = HCENTER + FIELD_H + 1;
-    cmdsX = WCENTER - SCORE_W - 3;
+    cmdsY = ( HCENTER + ( FIELD_H + 1 ) );
+    cmdsX = ( WCENTER - ( SCORE_W - 3 ) );
 
-    cmds = newwin(MCMDS_H, MCMDS_W, cmdsY, cmdsX);
+    cmds = newwin( MCMDS_H, MCMDS_W, cmdsY, cmdsX );
     box(cmds, V_LINES, H_LINES);
-    wbkgd(cmds, COLOR_PAIR(2));
-    mvwprintw(cmds, 0, 31, "| COMMANDS |");
-    mvwprintw(cmds, 1, 10, "[ 'R' rotation ] [ 'N' next piece ] [ < ] [ v ] [ > ]");
+    wbkgd( cmds, COLOR_PAIR( 2 ) );
+
+    mvwprintw( cmds, 0, 31, "| COMMANDS |" );
+    mvwprintw( cmds, 1, 10, "[ 'R' rotation ] [ 'N' next piece ] [ < ] [ v ] [ > ]" );
+
     wrefresh(cmds);
 }
 
@@ -382,18 +385,20 @@ void initMultiPlayerCmds(WINDOW *cmds)
  *
  * @param preview
  */
-void initMultiPlayerPreview(WINDOW* preview)
+void initMultiPlayerPreview( WINDOW* preview )
 {
     int previewY, previewX;
 
     previewY = HCENTER;
-    previewX = WCENTER - SCORE_W + FIELD_W + 2;
+    previewX = ( WCENTER - ( SCORE_W + ( FIELD_W + 2 ) ) );
 
-    preview = newwin(PREVIEW_H, PREVIEW_W, previewY, previewX);
-    box( preview, V_LINES, H_LINES);
-    wbkgd(preview, COLOR_PAIR(2));
-    mvwprintw(preview , 0 , 5 , "| PREVIEW |");
-    wrefresh(preview);
+    preview = newwin( PREVIEW_H, PREVIEW_W, previewY, previewX );
+    box( preview, V_LINES, H_LINES );
+    wbkgd( preview, COLOR_PAIR( 2 ) );
+
+    mvwprintw( preview , 0 , 5 , "| PREVIEW |" );
+
+    wrefresh( preview );
 }
 
 
@@ -402,18 +407,20 @@ void initMultiPlayerPreview(WINDOW* preview)
  *
  * @param score
  */
-void initMultiPlayerScore(WINDOW* score)
+void initMultiPlayerScore( WINDOW* score )
 {
     int scoreY, scoreX;
 
-    scoreY = HCENTER + PREVIEW_H + 1;
-    scoreX = WCENTER - SCORE_W + FIELD_W + 2;
+    scoreY = ( HCENTER + ( PREVIEW_H + 1 ) );
+    scoreX = ( WCENTER - ( SCORE_W + ( FIELD_W + 2 ) ) );
 
-    score = newwin(SCORE_H, SCORE_W, scoreY, scoreX);
-    box(score , V_LINES, H_LINES);
-    wbkgd(score, COLOR_PAIR(2));
-    mvwprintw(score , 0 , 6 , "| SCORE |");
-    wrefresh(score);
+    score = newwin( SCORE_H, SCORE_W, scoreY, scoreX );
+    box( score , V_LINES, H_LINES );
+    wbkgd( score, COLOR_PAIR( 2 ) );
+
+    mvwprintw( score , 0 , 6 , "| SCORE |" );
+
+    wrefresh( score );
 }
 
 /**
@@ -421,21 +428,23 @@ void initMultiPlayerScore(WINDOW* score)
  *
  * @param save
  */
-void initMultiPlayerSave(WINDOW* save)
+void initMultiPlayerSave( WINDOW* save )
 {
     int saveY, saveX;
 
-    saveY = HCENTER + PREVIEW_H + SCORE_H + 3;
-    saveX = WCENTER - SCORE_W + FIELD_W + 2;
+    saveY = ( HCENTER + ( PREVIEW_H + ( SCORE_H + 3 ) ) );
+    saveX = ( WCENTER - ( SCORE_W + ( FIELD_W + 2 ) ) );
 
-    save = newwin(SAVE_H, SAVE_W, saveY, saveX);
-    box(save, V_LINES, H_LINES);
-    wbkgd(save, COLOR_PAIR(3));
-    mvwprintw(save, 0, 6, "| SAVE |");
-    mvwprintw(save, 1, 1, "'H' to help page");
-    mvwprintw(save, 2, 1, "'S' to save game");
-    mvwprintw(save, 3, 1, "'Q' return to menu");
-    wrefresh(save);
+    save = newwin( SAVE_H, SAVE_W, saveY, saveX );
+    box( save, V_LINES, H_LINES );
+    wbkgd( save, COLOR_PAIR ( 3 ) );
+
+    mvwprintw( save, 0, 6, "| SAVE |" );
+    mvwprintw( save, 1, 1, "'H' to help page" );
+    mvwprintw( save, 2, 1, "'S' to save game" );
+    mvwprintw( save, 3, 1, "'Q' return to menu" );
+
+    wrefresh( save );
 }
 
 /**
@@ -443,15 +452,19 @@ void initMultiPlayerSave(WINDOW* save)
  *
  * @param pgWindow
  */
-WINDOW* initFirstPlayerWindow(WINDOW* pgWindow)
+WINDOW* initFirstPlayerWindow( WINDOW* pgWindow )
 {
     int fieldY, fieldX;
-    fieldY   = HCENTER + 1;
-    fieldX   = WCENTER - SCORE_W + 1;
-    pgWindow = newwin(FIELD_H - 2, FIELD_W - 2, fieldY, fieldX);
-    wbkgd(pgWindow, COLOR_PAIR(0));
-    wrefresh(pgWindow);
-    return pgWindow;
+
+    fieldY   = ( HCENTER + 1 );
+    fieldX   = ( WCENTER - ( SCORE_W + 1 ) );
+
+    pgWindow = newwin( ( FIELD_H - 2 ), ( FIELD_W - 2 ), fieldY, fieldX );
+    wbkgd( pgWindow, COLOR_PAIR( 0 ) );
+
+    wrefresh( pgWindow );
+
+    return ( pgWindow );
 }
 
 /**
@@ -461,15 +474,19 @@ WINDOW* initFirstPlayerWindow(WINDOW* pgWindow)
  *
  * @return
  */
-WINDOW* initMultiPreviewWindow(WINDOW* preview)
+WINDOW* initMultiPreviewWindow( WINDOW* preview )
 {
     int previewY, previewX;
-    previewY = HCENTER + 1;
-    previewX = WCENTER - SCORE_W + FIELD_W + 3;
-    preview = newwin(PREVIEW_H - 2, PREVIEW_W - 2, previewY, previewX);
-    wbkgd(preview, COLOR_PAIR(0));
-    wrefresh(preview);
-    return preview;
+
+    previewY = ( HCENTER + 1 );
+    previewX = ( WCENTER - ( SCORE_W + ( FIELD_W + 3 ) ) );
+
+    preview = newwin( ( PREVIEW_H - 2 ), ( PREVIEW_W - 2 ), previewY, previewX );
+    wbkgd( preview, COLOR_PAIR( 0 ) );
+
+    wrefresh( preview );
+
+    return ( preview );
 }
 
 /**
@@ -479,15 +496,19 @@ WINDOW* initMultiPreviewWindow(WINDOW* preview)
  *
  * @return
  */
-WINDOW* initMultiScoreWindow(WINDOW* score)
+WINDOW* initMultiScoreWindow( WINDOW* score )
 {
     int scoreY, scoreX;
-    scoreY   = HCENTER + PREVIEW_H + 2;
-    scoreX   = WCENTER - SCORE_W + FIELD_W + 3;
-    score = newwin(SCORE_H - 2, SCORE_W - 2, scoreY, scoreX);        
-    wbkgd(score, COLOR_PAIR(0));
-    wrefresh(score);
-    return score;
+
+    scoreY   = ( HCENTER + ( PREVIEW_H + 2 ) );
+    scoreX   = ( WCENTER - ( SCORE_W + ( FIELD_W + 3 ) ) );
+
+    score = newwin( ( SCORE_H - 2 ), ( SCORE_W - 2 ), scoreY, scoreX );
+    wbkgd( score, COLOR_PAIR( 0 ) );
+
+    wrefresh( score );
+
+    return ( score );
 }
 
 /**
@@ -501,15 +522,17 @@ WINDOW* initMultiScoreWindow(WINDOW* score)
  * @param save
  * @param cmds
  */
-void initMultiField(WINDOW* title, WINDOW* firstField, WINDOW *secondField, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds)
+void initMultiField( WINDOW* title, WINDOW* firstField, WINDOW *secondField, WINDOW* preview, WINDOW* score, WINDOW* save, WINDOW* cmds )
 {
     refresh();
-    initMultiPlayerTitle(title);
-    initMultiPlayerField(firstField, secondField);
-    initMultiPlayerPreview(preview);
-    initMultiPlayerScore(score);
-    initMultiPlayerSave(save);
-    initMultiPlayerCmds(cmds);
+
+    initMultiPlayerTitle( title );
+    initMultiPlayerField( firstField, secondField );
+    initMultiPlayerPreview( preview );
+    initMultiPlayerScore( score );
+    initMultiPlayerSave( save );
+    initMultiPlayerCmds( cmds );
+
     refresh();
 }
 
@@ -522,24 +545,27 @@ void initMultiField(WINDOW* title, WINDOW* firstField, WINDOW *secondField, WIND
  * @param turn
  * @param score
  */
-void refreshMultiScore(int pieces, int *pg1Score, int pg2Score,int *turn, WINDOW* score)
+void refreshMultiScore( int pieces, int *pg1Score, int pg2Score,int *turn, WINDOW* score )
 {
-    werase(score);
-    mvwprintw(score, 1, 1, "Disponibili: ");
-    mvwprintw(score, 1, 14, "%d", pieces);
-    mvwprintw(score, 3, 1, "Punteggio PG1: ");
-    mvwprintw(score, 4, 1, "Punteggio PG2: ");
-    if (*turn == FIRST_PLAYER)
+    werase( score );
+
+    mvwprintw( score, 1, 1, "Disponibili: " );
+    mvwprintw( score, 1, 14, "%d", pieces );
+    mvwprintw( score, 3, 1, "Punteggio PG1: " );
+    mvwprintw( score, 4, 1, "Punteggio PG2: " );
+
+    if ( *turn == FIRST_PLAYER )
     {
-        mvwprintw(score, 3, 16, "%d", *pg1Score);
-        mvwprintw(score, 4, 16, "%d", pg2Score);
+        mvwprintw( score, 3, 16, "%d", *pg1Score );
+        mvwprintw( score, 4, 16, "%d",  pg2Score );
     }
-    if (*turn == SECOND_PLAYER)
+    if ( *turn == SECOND_PLAYER )
     {
-        mvwprintw(score, 4, 16, "%d", *pg1Score);
-        mvwprintw(score, 3, 16, "%d", pg2Score);
-    }  
-    wrefresh(score);
+        mvwprintw( score, 4, 16, "%d", *pg1Score );
+        mvwprintw( score, 3, 16, "%d",  pg2Score );
+    }
+
+    wrefresh( score );
 }
 
 
@@ -547,24 +573,21 @@ void refreshMultiScore(int pieces, int *pg1Score, int pg2Score,int *turn, WINDOW
  * Inverte le righe se il numero di righe è maggiore o uguale a 3 righe
  *
  */
-void reverseRowsGameField(int secondGamefield[][MATRIX_W], int counterRows)
+void reverseRowsGameField( int secondGamefield[][ MATRIX_W ], int counterRows )
 {
     int row, col;
     int cell;
 
-    for (row = MATRIX_H - 1; row > (MATRIX_H - 1) - counterRows; row--)
-    {
-        for (col = 0; col < MATRIX_W; col++)
+    for ( row = ( MATRIX_H - 1 ); row > ( (MATRIX_H - 1) - counterRows ); --row)
+        for ( col = 0; col < MATRIX_W; ++col )
         {
-            cell = secondGamefield[row][col];
-            if ( cell == 0)
-            {
-                secondGamefield[row][col] = (rand() % (T_NUM - 1)) + 1;
-            } else {
-                secondGamefield[row][col] = 0;
-            }
+            cell = secondGamefield[ row ][ col ];
+
+            if ( cell == 0 )
+                secondGamefield[ row ][ col ] = ( ( rand() % ( T_NUM - 1 ) ) + 1 );
+            else
+                secondGamefield[ row ][ col ] = 0;
         }
-    }
 }
 
 /**
@@ -575,44 +598,49 @@ void reverseRowsGameField(int secondGamefield[][MATRIX_W], int counterRows)
  *
  * @return
  */
-int checkAndReverseRows(player* pg1, player* pg2)
+int checkAndReverseRows( player* pg1, player* pg2 )
 {
-    keypad(pg1->window, FALSE);
-    int counterRows  = 0;
-    int isDeleteRow = 0;
+    int row, col;
+    int counterRows;
+    int isDeleteRow;
     int counterNumbers;
 
-    int row, col;
-    for (row = MATRIX_H - 1; row >= TOP_LINE; row--)
-    {   
-        isDeleteRow = 0;
-        counterNumbers = 0;
-        for (col = 0; col < MATRIX_W; col++)
-        {
-            if (pg1->gameField[row][col] != 0)
-                counterNumbers += 1;
-        }
+    counterRows = 0;
+    isDeleteRow = false;
 
-        if (counterNumbers == MATRIX_W)
+    keypad(pg1->window, FALSE);
+
+    for ( row = ( MATRIX_H - 1 ); row >= TOP_LINE; --row)
+    {   
+        isDeleteRow = false;
+        counterNumbers = 0;
+
+        for ( col = 0; col < MATRIX_W; ++col )
+            if ( pg1->gameField[ row ][ col ] != 0 )
+                counterNumbers += 1;
+
+        if ( counterNumbers == MATRIX_W )
         {
-            isDeleteRow = 1;
+            isDeleteRow = true;
             counterRows += 1;
             halfdelay(10);
-            goDownTetramini(row, pg1->gameField);
-            colorField(pg1);
+            goDownTetramini( row, pg1->gameField );
+
+            colorField( pg1 );
         }
         
-        if (isDeleteRow == 1)
-            row = row + 1;
+        if ( isDeleteRow == true)
+            row += 1;
     }
 
-    if (counterRows >= 3)
+    if ( counterRows >= 3 )
     {
-        reverseRowsGameField(pg2->gameField, counterRows);
-        colorField(pg2);
+        reverseRowsGameField( pg2->gameField, counterRows );
+
+        colorField( pg2 );
     }
 
-    return calculateScoring(counterRows);
+    return calculateScoring( counterRows );
 }
 
 /**
@@ -621,33 +649,41 @@ int checkAndReverseRows(player* pg1, player* pg2)
  * @param score
  * @param turn
  */
-void multiGameOver(int score, int* turn)
+void multiGameOver( int score, int* turn )
 {
-    clear();
-
     int starty, startx;
-    starty =  (LINES - GAMEOVER_H) / 2;
-    startx =  (COLS  - GAMEOVER_W) / 2;
-    
-    refresh();
     WINDOW* w_gameover;
-    w_gameover = newwin(GAMEOVER_H, GAMEOVER_W, starty, startx);
-    box(w_gameover, V_LINES, H_LINES);
-    wbkgd(w_gameover, COLOR_PAIR(3));
-    mvwprintw(w_gameover, 0, 21, "| GAME OVER |");
-    if (*turn == FIRST_PLAYER)
-    {
-        mvwprintw(w_gameover, 3,  2, "Second player win the game !!");
-        mvwprintw(w_gameover, 5,  2, "Player's score: ");
-        mvwprintw(w_gameover, 5,  17, "%d", score);
-    } else if (*turn == SECOND_PLAYER) {
-        mvwprintw(w_gameover, 3,  2, "First player win the game !!");
-        mvwprintw(w_gameover, 5,  2, "Player's score: ");
-        mvwprintw(w_gameover, 5,  17, "%d", score);
-    }
-    mvwprintw(w_gameover, 7, 21, "PRESS ANY KEY");
-    wrefresh(w_gameover);
+
+    starty = ( (LINES - GAMEOVER_H) / 2 );
+    startx = ( (COLS  - GAMEOVER_W) / 2 );
+
+    clear();
     refresh();
+
+    w_gameover = newwin( GAMEOVER_H, GAMEOVER_W, starty, startx );
+    box( w_gameover, V_LINES, H_LINES );
+    wbkgd( w_gameover, COLOR_PAIR( 3 ) );
+
+    mvwprintw( w_gameover, 0, 21, "| GAME OVER |" );
+
+    if ( *turn == FIRST_PLAYER )
+    {
+        mvwprintw( w_gameover, 3,  2, "Second player win the game !!" );
+        mvwprintw( w_gameover, 5,  2, "Player's score: " );
+        mvwprintw( w_gameover, 5,  17, "%d", score );
+    }
+    else if ( *turn == SECOND_PLAYER )
+    {
+        mvwprintw( w_gameover, 3,  2, "First player win the game !!" );
+        mvwprintw( w_gameover, 5,  2, "Player's score: " );
+        mvwprintw( w_gameover, 5,  17, "%d", score );
+    }
+
+    mvwprintw( w_gameover, 7, 21, "PRESS ANY KEY" );
+
+    wrefresh( w_gameover );
+    refresh();
+
     getch();
 }
 
@@ -658,19 +694,21 @@ void multiGameOver(int score, int* turn)
  *
  * @return
  */
-int* changeTurn(int *turn)
+int* changeTurn( int *turn )
 {
-    if (*turn == FIRST_PLAYER)
+    if ( *turn == FIRST_PLAYER )
     {
         *turn = SECOND_PLAYER;
-        return turn;
+        return ( turn );
     }
-    if (*turn == SECOND_PLAYER)
+
+    if ( *turn == SECOND_PLAYER )
     {
         *turn = FIRST_PLAYER;
-        return turn;
+        return ( turn );
     }
-    return turn;
+
+    return ( turn );
 }
 
 /**
@@ -679,21 +717,26 @@ int* changeTurn(int *turn)
  */
 void initMultiQuit()
 {
-    clear();
-    WINDOW* w_quit;
     int starty, startx;
-    starty =  (LINES - MQUIT_H) / 2;
-    startx =  (COLS  - MQUIT_W) / 2;
+    WINDOW* w_quit;
 
+    starty =  ( ( LINES - MQUIT_H ) / 2 );
+    startx =  ( ( COLS  - MQUIT_W ) / 2 );
+
+    clear();
     refresh();
-    w_quit = newwin(MQUIT_H, MQUIT_W, starty, startx);
-    box(w_quit, V_LINES, H_LINES);
-    wbkgd(w_quit, COLOR_PAIR(3));
-    mvwprintw(w_quit, 0, 20, "| QUIT |");
-    mvwprintw(w_quit, 3,  2, "IT WAS GREAT PLAY WITH YOU!");
-    wrefresh(w_quit);
+
+    w_quit = newwin( MQUIT_H, MQUIT_W, starty, startx );
+    box( w_quit, V_LINES, H_LINES );
+    wbkgd( w_quit, COLOR_PAIR( 3 ) );
+
+    mvwprintw( w_quit, 0, 20, "| QUIT |" );
+    mvwprintw( w_quit, 3,  2, "IT WAS GREAT PLAY WITH YOU!" );
+
+    wrefresh( w_quit );
+    refresh();
+
     getch();
-    refresh();
 }
 
 /**
@@ -702,34 +745,41 @@ void initMultiQuit()
  * @param pg1
  * @param pg2
  */
-void initWinner(player *pg1, player *pg2)
+void initWinner( player *pg1, player *pg2 )
 {
-    clear();
-    WINDOW* w_winner;
     int starty, startx;
-    starty =  (LINES - MQUIT_H) / 2;
-    startx =  (COLS  - MQUIT_W) / 2;
+    WINDOW* w_winner;
 
+    starty = ( (LINES - MQUIT_H) / 2 );
+    startx = ( (COLS  - MQUIT_W) / 2 );
+
+    clear();
     refresh();
-    w_winner = newwin(MQUIT_H, MQUIT_W, starty, startx);
-    box(w_winner, V_LINES, H_LINES);
-    wbkgd(w_winner, COLOR_PAIR(3));
-    mvwprintw(w_winner, 0, 20, "| WINNER |");
 
-    if (pg1->score > pg2->score)
+    w_winner = newwin( MQUIT_H, MQUIT_W, starty, startx );
+    box( w_winner, V_LINES, H_LINES );
+    wbkgd( w_winner, COLOR_PAIR( 3 ) );
+
+    mvwprintw( w_winner, 0, 20, "| WINNER |" );
+
+    if ( pg1->score > pg2->score )
     {
-        mvwprintw(w_winner, 3,  2, "First player win the game !!");
-        mvwprintw(w_winner, 5,  2, "Player's score: ");
-        mvwprintw(w_winner, 5,  17, "%d", pg1->score);
-    } else if (pg1->score < pg2->score) {
-        mvwprintw(w_winner, 3,  2, "Second player win the game !!");
-        mvwprintw(w_winner, 5,  2, "Player's score: ");
-        mvwprintw(w_winner, 5,  17, "%d", pg2->score);
-    } else {
-        mvwprintw(w_winner, 3,  2, "Congratulations to both of you, no one wins");
+        mvwprintw( w_winner, 3,  2, "First player win the game !!" );
+        mvwprintw( w_winner, 5,  2, "Player's score: " );
+        mvwprintw( w_winner, 5,  17, "%d", pg1->score );
     }
-    wrefresh(w_winner);
+    else if ( pg1->score < pg2->score )
+    {
+        mvwprintw( w_winner, 3,  2, "Second player win the game !!" );
+        mvwprintw( w_winner, 5,  2, "Player's score: " );
+        mvwprintw( w_winner, 5,  17, "%d", pg2->score );
+    }
+    else
+        mvwprintw(w_winner, 3,  2, "Congratulations to both of you, no one wins" );
+
+    wrefresh( w_winner );
     refresh();
+
     getch();
 }
 
