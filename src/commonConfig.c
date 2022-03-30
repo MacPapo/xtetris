@@ -57,7 +57,7 @@ WINDOW* initSecondPlayerWindow( WINDOW* pgWindow )
     int fieldY, fieldX;
 
     fieldY   = HCENTER + 1;
-    fieldX   = ( WCENTER + ( SCORE_W + ( ( FIELD_W / 2 ) - 5 ) ) );
+    fieldX   =  WCENTER + SCORE_W + FIELD_W / 2  - 5 ;
 
     pgWindow = newwin( ( FIELD_H - 2 ), ( FIELD_W - 2 ), fieldY, fieldX );
     wbkgd( pgWindow, COLOR_PAIR( 0 ) );
@@ -212,13 +212,9 @@ void resetPreview()
     int col;
 
     for( row = 0; row < MATRIX_H_PREV; row++ )
-    {
         for( col = 0; col < MATRIX_W; col++ )
-        {
             if(previewGamefield[ row ][ col ] != 0 )
                 previewGamefield[ row ][ col ] = 0;
-        }
-    }
 }
 
 void initTopLine( WINDOW* field )

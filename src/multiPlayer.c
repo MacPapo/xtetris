@@ -315,8 +315,8 @@ void initMultiPlayerTitle( WINDOW* title )
 {
     int titleY, titleX;
 
-    titleY = ( HCENTER - ( MTITLE_H - 1 ) );
-    titleX = ( ( WCENTER - 3 ) - SCORE_W );
+    titleY = ( HCENTER -  MTITLE_H - 1  );
+    titleX = (  (WCENTER - 3)  - SCORE_W );
 
     title = newwin( MTITLE_H, MTITLE_W, titleY, titleX );
     box( title, V_LINES, H_LINES );
@@ -340,19 +340,18 @@ void initMultiPlayerField( WINDOW* firstField, WINDOW* secondField )
     fieldY = HCENTER;
     fieldX = ( WCENTER - SCORE_W );
 
-    sfieldY = ( (LINES  - FIELD_H) / 2);
-    sfieldX = ( ( ( fieldX + FIELD_W ) + 2 ) + ( SCORE_W + 2 ) );
+    sfieldY = ( ( LINES  - FIELD_H ) / 2);
+    sfieldX = ( ( fieldX + FIELD_W ) + ( SCORE_W + 4 ) );
 
     firstField = newwin( FIELD_H, FIELD_W, fieldY, fieldX );
     box( firstField, V_LINES, H_LINES );
     wbkgd( firstField, COLOR_PAIR( 2 ) );
 
-    wrefresh(firstField);
-
     secondField = newwin( FIELD_H, FIELD_W, sfieldY, sfieldX );
     box( secondField, V_LINES, H_LINES );
     wbkgd( secondField, COLOR_PAIR( 2 ) );
 
+    wrefresh(firstField);
     wrefresh( secondField );
 }
 
@@ -366,8 +365,8 @@ void initMultiPlayerCmds( WINDOW *cmds )
 {
     int cmdsY, cmdsX;
 
-    cmdsY = ( HCENTER + ( FIELD_H + 1 ) );
-    cmdsX = ( WCENTER - ( SCORE_W - 3 ) );
+    cmdsY = ( ( HCENTER +  FIELD_H ) + 1 );
+    cmdsX = ( ( WCENTER -  SCORE_W ) - 3 );
 
     cmds = newwin( MCMDS_H, MCMDS_W, cmdsY, cmdsX );
     box(cmds, V_LINES, H_LINES);
@@ -376,7 +375,7 @@ void initMultiPlayerCmds( WINDOW *cmds )
     mvwprintw( cmds, 0, 31, "| COMMANDS |" );
     mvwprintw( cmds, 1, 10, "[ 'R' rotation ] [ 'N' next piece ] [ < ] [ v ] [ > ]" );
 
-    wrefresh(cmds);
+    wrefresh( cmds );
 }
 
 
@@ -390,7 +389,7 @@ void initMultiPlayerPreview( WINDOW* preview )
     int previewY, previewX;
 
     previewY = HCENTER;
-    previewX = ( WCENTER - ( SCORE_W + ( FIELD_W + 2 ) ) );
+    previewX = ( ( WCENTER -  SCORE_W ) +  ( FIELD_W + 2 ) );
 
     preview = newwin( PREVIEW_H, PREVIEW_W, previewY, previewX );
     box( preview, V_LINES, H_LINES );
@@ -411,8 +410,8 @@ void initMultiPlayerScore( WINDOW* score )
 {
     int scoreY, scoreX;
 
-    scoreY = ( HCENTER + ( PREVIEW_H + 1 ) );
-    scoreX = ( WCENTER - ( SCORE_W + ( FIELD_W + 2 ) ) );
+    scoreY = ( ( HCENTER +  PREVIEW_H ) + 1  );
+    scoreX = ( ( WCENTER -  SCORE_W ) + ( FIELD_W + 2 ) );
 
     score = newwin( SCORE_H, SCORE_W, scoreY, scoreX );
     box( score , V_LINES, H_LINES );
@@ -432,8 +431,8 @@ void initMultiPlayerSave( WINDOW* save )
 {
     int saveY, saveX;
 
-    saveY = ( HCENTER + ( PREVIEW_H + ( SCORE_H + 3 ) ) );
-    saveX = ( WCENTER - ( SCORE_W + ( FIELD_W + 2 ) ) );
+    saveY = ( ( HCENTER +  PREVIEW_H ) + ( SCORE_H + 3 ) );
+    saveX = ( ( WCENTER -  SCORE_W   ) + ( FIELD_W + 2 ) );
 
     save = newwin( SAVE_H, SAVE_W, saveY, saveX );
     box( save, V_LINES, H_LINES );
@@ -457,7 +456,7 @@ WINDOW* initFirstPlayerWindow( WINDOW* pgWindow )
     int fieldY, fieldX;
 
     fieldY   = ( HCENTER + 1 );
-    fieldX   = ( WCENTER - ( SCORE_W + 1 ) );
+    fieldX   = ( ( WCENTER -  SCORE_W ) + 1 );
 
     pgWindow = newwin( ( FIELD_H - 2 ), ( FIELD_W - 2 ), fieldY, fieldX );
     wbkgd( pgWindow, COLOR_PAIR( 0 ) );
@@ -479,7 +478,7 @@ WINDOW* initMultiPreviewWindow( WINDOW* preview )
     int previewY, previewX;
 
     previewY = ( HCENTER + 1 );
-    previewX = ( WCENTER - ( SCORE_W + ( FIELD_W + 3 ) ) );
+    previewX = ( ( WCENTER -  SCORE_W ) + ( FIELD_W + 3 ) );
 
     preview = newwin( ( PREVIEW_H - 2 ), ( PREVIEW_W - 2 ), previewY, previewX );
     wbkgd( preview, COLOR_PAIR( 0 ) );
@@ -500,8 +499,8 @@ WINDOW* initMultiScoreWindow( WINDOW* score )
 {
     int scoreY, scoreX;
 
-    scoreY   = ( HCENTER + ( PREVIEW_H + 2 ) );
-    scoreX   = ( WCENTER - ( SCORE_W + ( FIELD_W + 3 ) ) );
+    scoreY   = ( ( HCENTER +  PREVIEW_H ) + 2 );
+    scoreX   = ( ( WCENTER - SCORE_W ) + ( FIELD_W + 3 ) );
 
     score = newwin( ( SCORE_H - 2 ), ( SCORE_W - 2 ), scoreY, scoreX );
     wbkgd( score, COLOR_PAIR( 0 ) );
@@ -782,7 +781,3 @@ void initWinner( player *pg1, player *pg2 )
 
     getch();
 }
-
-
-
-

@@ -557,16 +557,14 @@ void startCpuGame( player *pg1, player* cpu, tet *piece, int* tetPieces,
     int choice;
     int countCurrentPiece;
     int position_x;
-    int *currentScore;
-    int *cpuScore;
+    int *currentScore = &pg1->score;
+    int *cpuScore     = &cpu->score;
 
     tet preview_piece = { ( piece->tet + 1 ), 0 };
 
     quit          = false;
     choice        = 0;
     position_x    = 0;
-    *currentScore = pg1->score;
-    *cpuScore     = cpu->score;
     pieces        = ( T_NUM * ( T_PIECES * 2 ) );
 
     refreshPreview( s_preview, &preview_piece );

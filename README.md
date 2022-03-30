@@ -31,7 +31,7 @@ brew install ncurses
 
 Debian based :
 ```shell
-sudo apt-get install libncurses6
+sudo apt-get install libncurses6 libncurses5-dev
 ```
 Fedora based :
 ```shell

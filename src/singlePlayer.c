@@ -238,7 +238,7 @@ void initSinglePlayerTitle( WINDOW* title )
 {
     int titleY, titleX;
 
-    titleY = ( HCENTER - ( TITLE_H - 1 ) );
+    titleY = ( ( HCENTER - TITLE_H ) - 1);
     titleX = ( ( WCENTER - 3 ) - ( SCORE_W / 2 ) );
 
     title = newwin( TITLE_H, TITLE_W, titleY, titleX );
@@ -277,8 +277,8 @@ void initSinglePlayerCmds( WINDOW* cmds )
 {
    int cmdsY, cmdsX;
 
-   cmdsY = ( HCENTER + ( FIELD_H + 1 ) );
-   cmdsX = ( WCENTER - ( ( SCORE_W / 2 ) - 3 ) );
+   cmdsY = ( ( HCENTER + FIELD_H ) + 1 );
+   cmdsX = ( ( WCENTER - 3 ) - ( SCORE_W / 2 ) );
 
    cmds = newwin( CMDS_H, CMDS_W, cmdsY, cmdsX );
    box( cmds, V_LINES, H_LINES);
@@ -300,7 +300,7 @@ void initSinglePlayerPreview( WINDOW* preview )
     int previewY, previewX;
 
     previewY = HCENTER;
-    previewX = ( WCENTER - ( ( SCORE_W / 2 ) + ( FIELD_W + 2 ) ) );
+    previewX = ( ( ( WCENTER + FIELD_W ) - (SCORE_W / 2) )  + 2 );
 
     preview = newwin( PREVIEW_H, PREVIEW_W, previewY, previewX );
     box( preview, V_LINES, H_LINES );
@@ -320,8 +320,8 @@ void initSinglePlayerScore( WINDOW* score )
 {
     int scoreY, scoreX;
 
-    scoreY = ( HCENTER + ( PREVIEW_H + 1 ) );
-    scoreX = ( WCENTER - ( ( SCORE_W / 2 ) + ( FIELD_W + 2 ) ) );
+    scoreY = ( HCENTER +PREVIEW_H + 1 );
+    scoreX = ( ( ( WCENTER + FIELD_W ) - ( SCORE_W / 2 ) ) + 2);
 
     score = newwin( SCORE_H, SCORE_W, scoreY, scoreX );
     box( score , V_LINES, H_LINES );
@@ -341,8 +341,8 @@ void initSinglePlayerSave( WINDOW *save )
 {
     int saveY, saveX;
 
-    saveY = ( HCENTER + ( PREVIEW_H + ( SCORE_H + 3 ) ) );
-    saveX = ( WCENTER - ( ( SCORE_W / 2 ) + ( FIELD_W + 2 ) ) );
+    saveY = ( HCENTER + PREVIEW_H + SCORE_H + 3);
+    saveX = ( ( ( WCENTER + FIELD_W ) - ( SCORE_W / 2 ) )  + 2);
 
     save = newwin( SAVE_H, SAVE_W, saveY, saveX );
     box( save, V_LINES, H_LINES );
@@ -448,7 +448,7 @@ WINDOW* initPlayerWindow( WINDOW* pgWindow )
     int fieldY, fieldX;
 
     fieldY   = ( HCENTER + 1 );
-    fieldX   = WCENTER - ( ( SCORE_W / 2 ) + 1 );
+    fieldX   = ( ( WCENTER - ( SCORE_W / 2 ) ) + 1 );
 
     pgWindow = newwin( ( FIELD_H - 2 ), ( FIELD_W - 2 ), fieldY, fieldX );
     wbkgd( pgWindow, COLOR_PAIR( 0 ) );
@@ -467,7 +467,7 @@ WINDOW* initPreviewWindow( WINDOW* preview )
     int previewY, previewX;
 
     previewY = ( HCENTER + 1 );
-    previewX = ( WCENTER - ( ( SCORE_W / 2 ) + ( FIELD_W + 3 ) ) );
+    previewX = ( ( ( ( WCENTER + FIELD_W ) - ( SCORE_W / 2 ) ) + 3 ) );
 
     preview = newwin( ( PREVIEW_H - 2 ), ( PREVIEW_W - 2 ), previewY, previewX );
     wbkgd( preview, COLOR_PAIR( 0 ) );
@@ -485,8 +485,8 @@ WINDOW* initScoreWindow( WINDOW* score )
 {
     int scoreY, scoreX;
 
-    scoreY   = ( HCENTER + ( PREVIEW_H + 2 ) );
-    scoreX   = ( WCENTER - ( ( SCORE_W / 2 ) + ( FIELD_W + 3 ) ) );
+    scoreY   = ( ( HCENTER + PREVIEW_H ) + 2 );
+    scoreX   = ( ( ( WCENTER + FIELD_W ) - ( SCORE_W / 2 ) ) + 3);
 
     score = newwin( ( SCORE_H - 2 ), ( SCORE_W - 2 ), scoreY, scoreX );
     wbkgd( score, COLOR_PAIR( 0 ) );
