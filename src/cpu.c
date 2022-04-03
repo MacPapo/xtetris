@@ -417,11 +417,11 @@ int completionSpot( int bestRow, int gamefield[][ MATRIX_W ], int* start )
                 else
                     *start = ( cols - minZeros );
             }
-            
+
             counterMinZeros = 0;
         }
     }
-    
+
     return ( minZeros );
 }
 
@@ -611,7 +611,7 @@ void startCpuGame( player *pg1, player* cpu, tet *piece, int* tetPieces,
             case KEY_LEFT:
                 position_x -= 2;
                 break;
-            
+
             case KEY_RIGHT:
                 position_x += 2;
                 break;
@@ -630,7 +630,7 @@ void startCpuGame( player *pg1, player* cpu, tet *piece, int* tetPieces,
 
                     wrefresh( cpu->window );
                     refreshCpuScore( tetPieces[ piece->tet ], currentScore, cpuScore, s_score );
-                }                
+                }
                 break;
 
             case 'q':
@@ -663,7 +663,7 @@ void startCpuGame( player *pg1, player* cpu, tet *piece, int* tetPieces,
 
         refreshPreview( s_preview, &preview_piece );
         refreshGameField( &position_x, piece, pg1 );
-        
+
     } while ( ( pieces ) && ( !quit ) );
 
     return ;
@@ -702,9 +702,9 @@ int CPU()
     cpu.window = initSecondPlayerWindow( cpu.window );
     s_preview = initMultiPreviewWindow( s_preview );
     s_score = initMultiScoreWindow( s_score );
-    
+
     startCpuGame( &pg1, &cpu, &piece, tetPieces, s_preview, s_score, w_title, w_field, w_preview, w_sfield, w_score, w_save, w_cmds );
-        
+
     refresh();
     getch();
 

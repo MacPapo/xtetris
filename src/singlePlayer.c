@@ -148,7 +148,7 @@ int singlePlayer()
                 backPiece( &current_piece, &preview_piece );
                 refreshScore( s_score, tetPieces[ current_piece.tet ], pg.score ); /**< Riscrivo lo score con i nuovi valori */
                 break;
-            
+
             case 'r':
                 /**
                  * Ruoto di 90 gradi il tetramino
@@ -158,22 +158,22 @@ int singlePlayer()
                  */
                 rotatingPiece( &current_piece );
                 break;
-            
+
             case 'h':
                 paintHelp();
 
                 initField( w_title, w_field, w_preview, w_score, w_save, w_cmds );
                 initPlayerWindow( pg.window );
                 break;
-            
+
             case KEY_RIGHT:
                 position_x += 2; /**< Muovo il tetramino nella preview di una posizione a destra */
                 break;
-            
+
             case KEY_LEFT:
                 position_x -= 2; /**< Muovo il tetramino nella preview di una posizione a sinistra */
                 break;
-            
+
             case KEY_DOWN:
                 if ( countCurrentPiece ) /**< Se la condizione è soddisfatta eseguo le seguenti azioni */
                 {
@@ -205,7 +205,7 @@ int singlePlayer()
                 initQuit( pg.score ); /**< Esco dal while */
                 return ( 1 );
                 break;
-        
+
             default:
                 break;
         }
@@ -220,7 +220,7 @@ int singlePlayer()
 
         refreshPreview( s_preview, &preview_piece );
         refreshGameField( &position_x, &current_piece, &pg );
-        
+
     } while( pieces );
     //@}
 
@@ -275,19 +275,19 @@ void initSinglePlayerField( WINDOW* field )
  */
 void initSinglePlayerCmds( WINDOW* cmds )
 {
-   int cmdsY, cmdsX;
+    int cmdsY, cmdsX;
 
-   cmdsY = ( ( HCENTER + FIELD_H ) + 1 );
-   cmdsX = ( ( WCENTER - 3 ) - ( SCORE_W / 2 ) );
+    cmdsY = ( ( HCENTER + FIELD_H ) + 1 );
+    cmdsX = ( ( WCENTER - 3 ) - ( SCORE_W / 2 ) );
 
-   cmds = newwin( CMDS_H, CMDS_W, cmdsY, cmdsX );
-   box( cmds, V_LINES, H_LINES);
-   wbkgd( cmds, COLOR_PAIR( 2 ) );
+    cmds = newwin( CMDS_H, CMDS_W, cmdsY, cmdsX );
+    box( cmds, V_LINES, H_LINES);
+    wbkgd( cmds, COLOR_PAIR( 2 ) );
 
-   mvwprintw( cmds, 0, 19, "| COMMANDS |" );
-   mvwprintw( cmds, 1, 9, "[ 'R' ] [ 'N' ] [ < ] [ v ] [ > ]" );
+    mvwprintw( cmds, 0, 19, "| COMMANDS |" );
+    mvwprintw( cmds, 1, 9, "[ 'R' ] [ 'N' ] [ < ] [ v ] [ > ]" );
 
-   wrefresh( cmds );
+    wrefresh( cmds );
 }
 
 /**

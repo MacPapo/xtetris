@@ -122,7 +122,7 @@ int multiPlayer()
      */
     if ( lastAction == 1 )
         initWinner( &pg1, &pg2 );
-        
+
     refresh();
     getch();
 
@@ -303,7 +303,7 @@ int startTheGame( player* pg1, player* pg2, tet* piece, int* tetPieces, int* pie
      * @return
      */
     return startTheGame( pg2, pg1, piece, tetPieces, pieces, changeTurn( turn ), s_preview, s_score , w_title, w_field, w_preview, w_sfield, w_score, w_save, w_cmds );
-    
+
 }
 
 /**
@@ -610,7 +610,7 @@ int checkAndReverseRows( player* pg1, player* pg2 )
     keypad(pg1->window, FALSE);
 
     for ( row = ( MATRIX_H - 1 ); row >= TOP_LINE; --row)
-    {   
+    {
         isDeleteRow = false;
         counterNumbers = 0;
 
@@ -627,7 +627,7 @@ int checkAndReverseRows( player* pg1, player* pg2 )
 
             colorField( pg1 );
         }
-        
+
         if ( isDeleteRow == true)
             row += 1;
     }

@@ -268,7 +268,7 @@ void initGameMatrix( int gameField[][ MATRIX_W ] )
 }
 
 void initTetVector( int *tetPieces, int mod )
-{  
+{
     int i;
 
     if ( mod == 0 )
@@ -287,7 +287,7 @@ int calculateScoring( int rows )
 
     if ( rows == 1 )
         return ( 1 );
-    
+
     if ( rows == 2 )
         return ( 3 );
 
@@ -354,7 +354,7 @@ int checkDeleteRows( player *pg )
     keypad(pg->window, FALSE);
 
     for( row = ( MATRIX_H - 1 ); row >= TOP_LINE; --row )
-    {   
+    {
         isDeleteRow = false;
         counterNumbers = 0;
 
@@ -370,7 +370,7 @@ int checkDeleteRows( player *pg )
             goDownTetramini( row, pg->gameField );
             colorField( pg );
         }
-        
+
         if ( isDeleteRow == true )
             row += 1;
     }
