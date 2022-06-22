@@ -1,7 +1,7 @@
 .PHONY: clean
 
 # Declaring the compiler flags
-CFLAGS=-g -Wall -Wextra
+CFLAGS=-O3
 
 MKDIR_P=mkdir -p
 UNAME:=$(shell uname)
