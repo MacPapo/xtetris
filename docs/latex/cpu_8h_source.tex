@@ -1,0 +1,46 @@
+\hypertarget{cpu_8h_source}{}\doxysection{cpu.\+h}
+\label{cpu_8h_source}\index{src/cpu.h@{src/cpu.h}}
+\mbox{\hyperlink{cpu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef CPU\_H\_}}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00002}00002 \textcolor{preprocessor}{\#define CPU\_H\_}}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{common_confing_8h}{commonConfing.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{single_player_8h}{singlePlayer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00006}00006 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{multi_player_8h}{multiPlayer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00008}00008 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00009}00009 \textcolor{preprocessor}{\#include <ncurses.h>}}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00011}\mbox{\hyperlink{cpu_8h_aa0ee46cce2a01a1a1a7c974f8e6bc9ab}{00011}} \textcolor{keywordtype}{void} \mbox{\hyperlink{cpu_8h_aa0ee46cce2a01a1a1a7c974f8e6bc9ab}{fallingAi}}(\mbox{\hyperlink{structplayer}{player}}* cpu);}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00013}00013 \textcolor{keywordtype}{void} \mbox{\hyperlink{cpu_8h_a86c1d6f6f19bd2959a736e9b8410ff61}{refreshCpuScore}}(\textcolor{keywordtype}{int} pieces, \textcolor{keywordtype}{int} *pg1Score, \textcolor{keywordtype}{int} *cpuScore, WINDOW* score);}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00015}00015 \textcolor{keywordtype}{void} \mbox{\hyperlink{cpu_8h_ae35869836eae1a46b167341d8dd50dfd}{opening}}(\mbox{\hyperlink{structplayer}{player}}* cpu, \textcolor{keywordtype}{int} tetraminos[]);}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00017}00017 \textcolor{keywordtype}{void} \mbox{\hyperlink{cpu_8h_a853357994e11d82ea0cf2262b874105e}{fillPossibleChoices}}(\textcolor{keywordtype}{int} zeros, \textcolor{keywordtype}{int}* tet\_type, \textcolor{keywordtype}{int}* tet\_ory, \textcolor{keywordtype}{int} start,\textcolor{keywordtype}{int}* offset, \textcolor{keywordtype}{int} tetLeft[]);}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00019}00019 \textcolor{keywordtype}{int} \mbox{\hyperlink{cpu_8h_a69d930f3657fe7b18438df8f80a20847}{fullConsecutive}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} gamefield[][\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}]);}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00021}00021 \textcolor{keywordtype}{int} \mbox{\hyperlink{cpu_8h_adb9fdd00029fe5827e08e059c5a99504}{isCompletable}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} gamefield[][\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}]);}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00023}\mbox{\hyperlink{cpu_8h_ab0f31be0d475d20907900a8c8a19c7c8}{00023}} \textcolor{keywordtype}{int} \mbox{\hyperlink{cpu_8h_ab0f31be0d475d20907900a8c8a19c7c8}{belowCotrol}}(\textcolor{keywordtype}{int} bestRow, \textcolor{keywordtype}{int} start, \textcolor{keywordtype}{int} zero, \textcolor{keywordtype}{int} gamefield[][\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}]);}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00025}00025 \textcolor{keywordtype}{int} \mbox{\hyperlink{cpu_8h_aadf18e24d62970d34aec449f0c4670f7}{analizeRows}}(\mbox{\hyperlink{structplayer}{player}}* cpu);}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00027}00027 \textcolor{keywordtype}{int} \mbox{\hyperlink{cpu_8h_a3390ee12edb74d8264f7e77bba9940fc}{checkLastRow}}(\textcolor{keywordtype}{int} gamefield[][\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}]);}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00029}00029 \textcolor{keywordtype}{int} \mbox{\hyperlink{cpu_8h_a9d469e9d185f030668b8a47312f4c0e6}{completionSpot}}(\textcolor{keywordtype}{int} bastRow, \textcolor{keywordtype}{int} gamefield[][\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}], \textcolor{keywordtype}{int}* start);}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00031}00031 \textcolor{keywordtype}{void} \mbox{\hyperlink{cpu_8h_ae7354c91f2568c54754a5334a9f824e9}{bigBrain}}(\mbox{\hyperlink{structplayer}{player}}* cpu, \textcolor{keywordtype}{int}* bestRow, \textcolor{keywordtype}{int}* zeroInterval, \textcolor{keywordtype}{int} tetraminos[]);}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00033}00033 \textcolor{keywordtype}{void} \mbox{\hyperlink{cpu_8h_a23238030bb103ef3ea8083d7910dea97}{colorFieldCPU}}(\textcolor{keywordtype}{int} gameField[][\mbox{\hyperlink{common_confing_8h_a7ecfe72df85a49d000937954e69375c7}{MATRIX\_W}}], \mbox{\hyperlink{structplayer}{player}} *cpu);}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00035}00035 \textcolor{keywordtype}{void} \mbox{\hyperlink{cpu_8h_a5ec1c79002445d0ff5502d1890b338a5}{startCpuGame}}(\mbox{\hyperlink{structplayer}{player}} *pg1, \mbox{\hyperlink{structplayer}{player}}* cpu, \mbox{\hyperlink{structtet}{tet}} *piece, \textcolor{keywordtype}{int}* tetPieces, WINDOW* s\_preview, WINDOW* s\_score);}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00037}00037 \textcolor{keywordtype}{int} \mbox{\hyperlink{cpu_8h_a50720044ceef58f2b2c406f3f3cd60ae}{CPU}}();}
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{cpu_8h_source_l00040}00040 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

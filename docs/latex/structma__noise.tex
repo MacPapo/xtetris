@@ -1,0 +1,146 @@
+\hypertarget{structma__noise}{}\doxysection{ma\+\_\+noise Struct Reference}
+\label{structma__noise}\index{ma\_noise@{ma\_noise}}
+
+
+{\ttfamily \#include $<$miniaudio.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structma__data__source__vtable}{ma\+\_\+data\+\_\+source\+\_\+vtable}} \mbox{\hyperlink{structma__noise_afc4a913ba21ea42d94cc772f880cb10f}{ds}}
+\item 
+\mbox{\hyperlink{structma__noise__config}{ma\+\_\+noise\+\_\+config}} \mbox{\hyperlink{structma__noise_ae6794302eb4e4e8e9a4b5d34a9338480}{config}}
+\item 
+\mbox{\hyperlink{structma__lcg}{ma\+\_\+lcg}} \mbox{\hyperlink{structma__noise_a8dd353bd165e8f8a8e949afe6667340e}{lcg}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>double $\ast$$\ast$ \mbox{\hyperlink{structma__noise_ab30f0edf086e725c63b559541c99e6fa}{bin}}\\
+\>\>double $\ast$ \mbox{\hyperlink{structma__noise_a4e78b651b917f28438cef6354ae8af4f}{accumulation}}\\
+\>\>\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\_uint32}} $\ast$ \mbox{\hyperlink{structma__noise_a15de2ee92addfdb0e76df8c17e05904f}{counter}}\\
+\>\} \mbox{\hyperlink{structma__noise_a3d60e3575f058367890b34eadc877243}{pink}}\\
+\>struct \{\\
+\>\>double $\ast$ \mbox{\hyperlink{structma__noise_a4e78b651b917f28438cef6354ae8af4f}{accumulation}}\\
+\>\} \mbox{\hyperlink{structma__noise_a09dcfada8740312e3e8a1ce8dd16d67d}{brownian}}\\
+\} \mbox{\hyperlink{structma__noise_a17538ede8c9008deb677a2cee1f583bf}{state}}\\
+
+\end{tabbing}\item 
+void $\ast$ \mbox{\hyperlink{structma__noise_a70e423a746fe79229a177931a9f1fb80}{\+\_\+p\+Heap}}
+\item 
+\mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} \mbox{\hyperlink{structma__noise_a792eafdc28df87fb85e0260796c95bdc}{\+\_\+owns\+Heap}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09814}{9814}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structma__noise_a792eafdc28df87fb85e0260796c95bdc}\label{structma__noise_a792eafdc28df87fb85e0260796c95bdc}} 
+\index{ma\_noise@{ma\_noise}!\_ownsHeap@{\_ownsHeap}}
+\index{\_ownsHeap@{\_ownsHeap}!ma\_noise@{ma\_noise}}
+\doxysubsubsection{\texorpdfstring{\_ownsHeap}{\_ownsHeap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a547261c6f1890548f4990f0cbbd39859}{ma\+\_\+bool32}} \+\_\+owns\+Heap}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09835}{9835}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__noise_a70e423a746fe79229a177931a9f1fb80}\label{structma__noise_a70e423a746fe79229a177931a9f1fb80}} 
+\index{ma\_noise@{ma\_noise}!\_pHeap@{\_pHeap}}
+\index{\_pHeap@{\_pHeap}!ma\_noise@{ma\_noise}}
+\doxysubsubsection{\texorpdfstring{\_pHeap}{\_pHeap}}
+{\footnotesize\ttfamily void$\ast$ \+\_\+p\+Heap}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09834}{9834}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__noise_a4e78b651b917f28438cef6354ae8af4f}\label{structma__noise_a4e78b651b917f28438cef6354ae8af4f}} 
+\index{ma\_noise@{ma\_noise}!accumulation@{accumulation}}
+\index{accumulation@{accumulation}!ma\_noise@{ma\_noise}}
+\doxysubsubsection{\texorpdfstring{accumulation}{accumulation}}
+{\footnotesize\ttfamily double$\ast$ accumulation}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09824}{9824}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__noise_ab30f0edf086e725c63b559541c99e6fa}\label{structma__noise_ab30f0edf086e725c63b559541c99e6fa}} 
+\index{ma\_noise@{ma\_noise}!bin@{bin}}
+\index{bin@{bin}!ma\_noise@{ma\_noise}}
+\doxysubsubsection{\texorpdfstring{bin}{bin}}
+{\footnotesize\ttfamily double$\ast$$\ast$ bin}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09823}{9823}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__noise_a09dcfada8740312e3e8a1ce8dd16d67d}\label{structma__noise_a09dcfada8740312e3e8a1ce8dd16d67d}} 
+\index{ma\_noise@{ma\_noise}!brownian@{brownian}}
+\index{brownian@{brownian}!ma\_noise@{ma\_noise}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  brownian}
+
+\mbox{\Hypertarget{structma__noise_ae6794302eb4e4e8e9a4b5d34a9338480}\label{structma__noise_ae6794302eb4e4e8e9a4b5d34a9338480}} 
+\index{ma\_noise@{ma\_noise}!config@{config}}
+\index{config@{config}!ma\_noise@{ma\_noise}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__noise__config}{ma\+\_\+noise\+\_\+config}} config}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09817}{9817}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__noise_a15de2ee92addfdb0e76df8c17e05904f}\label{structma__noise_a15de2ee92addfdb0e76df8c17e05904f}} 
+\index{ma\_noise@{ma\_noise}!counter@{counter}}
+\index{counter@{counter}!ma\_noise@{ma\_noise}}
+\doxysubsubsection{\texorpdfstring{counter}{counter}}
+{\footnotesize\ttfamily \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}}$\ast$ counter}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09825}{9825}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__noise_afc4a913ba21ea42d94cc772f880cb10f}\label{structma__noise_afc4a913ba21ea42d94cc772f880cb10f}} 
+\index{ma\_noise@{ma\_noise}!ds@{ds}}
+\index{ds@{ds}!ma\_noise@{ma\_noise}}
+\doxysubsubsection{\texorpdfstring{ds}{ds}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__data__source__vtable}{ma\+\_\+data\+\_\+source\+\_\+vtable}} ds}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09816}{9816}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__noise_a8dd353bd165e8f8a8e949afe6667340e}\label{structma__noise_a8dd353bd165e8f8a8e949afe6667340e}} 
+\index{ma\_noise@{ma\_noise}!lcg@{lcg}}
+\index{lcg@{lcg}!ma\_noise@{ma\_noise}}
+\doxysubsubsection{\texorpdfstring{lcg}{lcg}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structma__lcg}{ma\+\_\+lcg}} lcg}
+
+
+
+Definition at line \mbox{\hyperlink{miniaudio_8h_source_l09818}{9818}} of file \mbox{\hyperlink{miniaudio_8h_source}{miniaudio.\+h}}.
+
+\mbox{\Hypertarget{structma__noise_a3d60e3575f058367890b34eadc877243}\label{structma__noise_a3d60e3575f058367890b34eadc877243}} 
+\index{ma\_noise@{ma\_noise}!pink@{pink}}
+\index{pink@{pink}!ma\_noise@{ma\_noise}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  pink}
+
+\mbox{\Hypertarget{structma__noise_a17538ede8c9008deb677a2cee1f583bf}\label{structma__noise_a17538ede8c9008deb677a2cee1f583bf}} 
+\index{ma\_noise@{ma\_noise}!state@{state}}
+\index{state@{state}!ma\_noise@{ma\_noise}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily union  \{ ... \}  state}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{miniaudio_8h}{miniaudio.\+h}}\end{DoxyCompactItemize}

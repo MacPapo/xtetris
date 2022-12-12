@@ -1,0 +1,154 @@
+\hypertarget{main_8c}{}\doxysection{src/main.c File Reference}
+\label{main_8c}\index{src/main.c@{src/main.c}}
+
+
+The main file.  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}menu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}common\+Confing.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}miniaudio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}single\+Player.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}multi\+Player.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cpu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}colors.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$ncurses.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8c_abf77f70dc931f91a9f09e7b54d8278f5}{MINIAUDIO\+\_\+\+IMPLEMENTATION}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_ab6ea2b08ab9f6115bb4fff1dc260a32a}{data\+\_\+callback}} (\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$p\+Device, void $\ast$p\+Output, const void $\ast$p\+Input, \mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}} frame\+Count)
+\item 
+void \mbox{\hyperlink{main_8c_a01217afeb444c30523e252def5f9ef0f}{paint\+Exit}} ()
+\item 
+int \mbox{\hyperlink{main_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main file. 
+
+\begin{DoxyAuthor}{Author}
+Jacopo Costantini Matteo Zambon Alvise Silvestri 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Fri Jan 28 00\+:05\+:07 2022
+\end{DoxyDate}
+Where the magic happen 
+
+Definition in file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{main_8c_abf77f70dc931f91a9f09e7b54d8278f5}\label{main_8c_abf77f70dc931f91a9f09e7b54d8278f5}} 
+\index{main.c@{main.c}!MINIAUDIO\_IMPLEMENTATION@{MINIAUDIO\_IMPLEMENTATION}}
+\index{MINIAUDIO\_IMPLEMENTATION@{MINIAUDIO\_IMPLEMENTATION}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{MINIAUDIO\_IMPLEMENTATION}{MINIAUDIO\_IMPLEMENTATION}}
+{\footnotesize\ttfamily \#define MINIAUDIO\+\_\+\+IMPLEMENTATION}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00018}{18}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_ab6ea2b08ab9f6115bb4fff1dc260a32a}\label{main_8c_ab6ea2b08ab9f6115bb4fff1dc260a32a}} 
+\index{main.c@{main.c}!data\_callback@{data\_callback}}
+\index{data\_callback@{data\_callback}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{data\_callback()}{data\_callback()}}
+{\footnotesize\ttfamily void data\+\_\+callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structma__device}{ma\+\_\+device}} $\ast$}]{p\+Device,  }\item[{void $\ast$}]{p\+Output,  }\item[{const void $\ast$}]{p\+Input,  }\item[{\mbox{\hyperlink{miniaudio_8h_a46937d096112f0d30ba68ef4d568b287}{ma\+\_\+uint32}}}]{frame\+Count }\end{DoxyParamCaption})}
+
+Qui si inizializza il loop dei decoder musicali
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Device} & \\
+\hline
+{\em p\+Output} & \\
+\hline
+{\em p\+Input} & \\
+\hline
+{\em frame\+Count} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00036}{36}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\mbox{\Hypertarget{main_8c_a3c04138a5bfe5d72780bb7e82a18e627}\label{main_8c_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+Inizializzo lo standar screen
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Inizializzo la palette di colori
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Inizia la sequenza di istruzioni da eseguire
+
+\texorpdfstring{$<$}{<} Prendo l\textquotesingle{}input da tastiera da parte dell\textquotesingle{}utente nel menu
+
+\texorpdfstring{$<$}{<} Funzione single player
+
+\texorpdfstring{$<$}{<} Funzione multiplayer
+
+\texorpdfstring{$<$}{<} Funzione player\+VScpu
+
+Refresh della schermata
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Elimino la window e dealloco la memoria
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Dealloco i devices della libreria musicale
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Dealloco i decoder della libreria musicale
+
+
+\begin{DoxyParams}{Parameters}
+{\em decoder} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00074}{74}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+\mbox{\Hypertarget{main_8c_a01217afeb444c30523e252def5f9ef0f}\label{main_8c_a01217afeb444c30523e252def5f9ef0f}} 
+\index{main.c@{main.c}!paintExit@{paintExit}}
+\index{paintExit@{paintExit}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{paintExit()}{paintExit()}}
+{\footnotesize\ttfamily void paint\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00049}{49}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+

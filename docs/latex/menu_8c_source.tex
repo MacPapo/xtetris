@@ -1,0 +1,276 @@
+\hypertarget{menu_8c_source}{}\doxysection{menu.\+c}
+\label{menu_8c_source}\index{src/menu.c@{src/menu.c}}
+\mbox{\hyperlink{menu_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{menu_8h}{menu.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{colors_8h}{colors.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00013}00013 \textcolor{preprocessor}{\#include <ncurses.h>}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00014}00014 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00017}00017 \textcolor{comment}{/* define the center of the screen */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00018}\mbox{\hyperlink{menu_8c_a0d1fd223df18ba043bf0370e3a2c3604}{00018}} \textcolor{preprocessor}{\#define HCENTER ((LINES -\/ MENU\_TITLE\_H) / 2)}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00019}\mbox{\hyperlink{menu_8c_a3d41dae96767cc9a4060d972d62b5322}{00019}} \textcolor{preprocessor}{\#define WCENTER (( COLS  -\/ MENU\_TITLE\_W) / 2)}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00021}00021 \textcolor{comment}{//* Prototype all the functions **************************************************/}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00023}00023 \textcolor{comment}{/* Prototype the init functions for painting the objects */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00027}00027 \textcolor{keywordtype}{void} \mbox{\hyperlink{menu_8c_ad86d6d4df8e9ffc4e5253ce446cb0190}{initTitle}}(WINDOW* title);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00028}00028 \textcolor{keywordtype}{void} \mbox{\hyperlink{menu_8c_ad37d44088b37b682337ea520974b6c71}{initSwitcher}}(WINDOW* \mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00029}00029 \textcolor{keywordtype}{void} \mbox{\hyperlink{menu_8c_a4b99dc6c4c0c362c94d5cdc7a2e56d6a}{initDescription}}(WINDOW* desc);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00030}00030 \textcolor{keywordtype}{void} \mbox{\hyperlink{menu_8c_aa9a28af0f9108f32433a5667a2daae37}{initCmds}}(WINDOW* cmds);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00031}00031 \textcolor{keywordtype}{void} \mbox{\hyperlink{menu_8c_a8e73397303dc5e522fca35e8dc62f8d2}{initMenu}}(WINDOW* \mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}, WINDOW* title, WINDOW* cmds, WINDOW* desc);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00033}00033 \textcolor{comment}{/* Prototype the text based functions for the highlight and the description */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00034}00034 \textcolor{keywordtype}{void} \mbox{\hyperlink{menu_8c_af3fb32f876c45b30bdb787516fec54ca}{describeMod}}(WINDOW* desc, \textcolor{keywordtype}{int} mod);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00035}00035 \textcolor{keywordtype}{void} \mbox{\hyperlink{menu_8c_a32e2a1260c1f41ea1422396943db3733}{highlightMenu}}(WINDOW* \mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}, WINDOW* desc, \textcolor{keywordtype}{int} mod );}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00038}00038 \textcolor{comment}{//* End of prototyping *******************************************************/}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00040}00040 \textcolor{comment}{//* Main function ************************************************************/}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00047}\mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{00047}} \textcolor{keywordtype}{int} \mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}()}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00048}00048 \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00049}00049     \textcolor{comment}{/* declaring windows */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00050}00050     WINDOW *w\_menu = \mbox{\hyperlink{miniaudio_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}, *w\_title = \mbox{\hyperlink{miniaudio_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}, *w\_cmds = \mbox{\hyperlink{miniaudio_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}, *w\_desc = \mbox{\hyperlink{miniaudio_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}; }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00051}00051     WINDOW *s\_menu, *s\_desc; }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00053}00053     \textcolor{keywordtype}{int} menuY, descY;}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00054}00054     \textcolor{keywordtype}{int} menuX, descX;}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00055}00055     \textcolor{keywordtype}{int} modCounter;}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00056}00056     \textcolor{keywordtype}{int} user\_choice;}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00058}00058     \textcolor{comment}{/* initialize modCounter \& userChoice */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00059}00059     modCounter = user\_choice = 0; }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00061}00061     \textcolor{comment}{/* defining parameter for creating menu box */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00062}00062     menuY = \mbox{\hyperlink{menu_8c_a0d1fd223df18ba043bf0370e3a2c3604}{HCENTER}} -\/ (\mbox{\hyperlink{menu_8h_a5b5015f1b5feae64388090ef4026607b}{MENU\_TITLE\_Y}}) + 1; }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00063}00063     menuX = \mbox{\hyperlink{menu_8c_a3d41dae96767cc9a4060d972d62b5322}{WCENTER}} + 1; }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00064}00064     \textcolor{comment}{/* defining parameters for creating description box*/}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00065}00065     descY =  \mbox{\hyperlink{menu_8c_a0d1fd223df18ba043bf0370e3a2c3604}{HCENTER}} -\/ (\mbox{\hyperlink{menu_8h_a5b5015f1b5feae64388090ef4026607b}{MENU\_TITLE\_Y}}) + 1; }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00066}00066     descX =  \mbox{\hyperlink{menu_8c_a3d41dae96767cc9a4060d972d62b5322}{WCENTER}} + \mbox{\hyperlink{menu_8h_a8ab012c9b505a97138d6f18221340188}{MENU\_W}} + 3; }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00068}00068     \textcolor{comment}{/* background color \& initialize the menu */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00069}00069     bkgd(COLOR\_PAIR(6));        }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00081}00081     \mbox{\hyperlink{menu_8c_a8e73397303dc5e522fca35e8dc62f8d2}{initMenu}}(w\_menu, w\_title, w\_cmds, w\_desc);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00083}00083     \textcolor{comment}{/* creating the 2 little box that contain the text */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00084}00084     s\_desc = newwin(\mbox{\hyperlink{menu_8h_a85ac2c4e9bf435ae5a933aeba1c9afe4}{DESC\_H}} -\/ 2, \mbox{\hyperlink{menu_8h_a32f3768500696c7117bc69f8b37c046b}{DESC\_W}} -\/ 2, descY, descX); }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00085}00085     wbkgd(s\_desc, COLOR\_PAIR(3)); }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00086}00086     s\_menu = newwin(\mbox{\hyperlink{menu_8h_a9552ba249c0540ffe9a08a05d1b92504}{MENU\_H}} -\/ 2, \mbox{\hyperlink{menu_8h_a32f3768500696c7117bc69f8b37c046b}{DESC\_W}} -\/ 2, menuY, menuX); }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00087}00087     wbkgd(s\_menu, COLOR\_PAIR(3)); }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00089}00089     \textcolor{comment}{/* defining key input \& echo disable */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00090}00090     keypad(s\_menu, TRUE);  }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00091}00091     noecho();                   }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00092}00092     curs\_set(0);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00094}00094     \textcolor{keywordflow}{do} }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00095}00095     \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00105}00105         \mbox{\hyperlink{menu_8c_a32e2a1260c1f41ea1422396943db3733}{highlightMenu}}(s\_menu, s\_desc, modCounter);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00106}00106         user\_choice = wgetch(s\_menu); }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00107}00107         \textcolor{keywordflow}{switch} (user\_choice)  }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00108}00108         \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00109}00109             \textcolor{keywordflow}{case} KEY\_UP:}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00110}00110                 modCounter-\/-\/;   }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00111}00111                 \mbox{\hyperlink{menu_8c_a32e2a1260c1f41ea1422396943db3733}{highlightMenu}}(s\_menu, s\_desc, modCounter);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00112}00112                 \textcolor{keywordflow}{if}(modCounter == -\/1)}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00113}00113                 \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00114}00114                     modCounter = 4;  }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00115}00115                     halfdelay(1);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00116}00116                 \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00117}00117                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00118}00118 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00119}00119             \textcolor{keywordflow}{case} KEY\_DOWN:}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00120}00120                 modCounter++; }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00121}00121                 \mbox{\hyperlink{menu_8c_a32e2a1260c1f41ea1422396943db3733}{highlightMenu}}(s\_menu, s\_desc, modCounter);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00122}00122                 \textcolor{keywordflow}{if}(modCounter == 5)}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00123}00123                 \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00124}00124                     modCounter = 0; }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00125}00125                     halfdelay(1);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00126}00126                 \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00127}00127                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00128}00128 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00129}00129             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00130}00130                 \mbox{\hyperlink{menu_8c_a32e2a1260c1f41ea1422396943db3733}{highlightMenu}}(s\_menu, s\_desc, modCounter);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00131}00131                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00132}00132         \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00133}00133         halfdelay(1);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00134}00134         \textcolor{keywordflow}{if}(user\_choice == 10 \&\& modCounter != 3)}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00135}00135         \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00142}00142             \textcolor{keywordflow}{return} modCounter;}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00143}00143         \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00144}00144     \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00145}00145     \textcolor{keywordflow}{while}(user\_choice != \textcolor{charliteral}{'q'});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00146}00146 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00147}00147     \textcolor{keywordflow}{return} 4;}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00148}00148 \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00149}00149 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00150}00150 \textcolor{comment}{//* End of Main function *****************************************************/}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00151}00151 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00152}00152 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00153}00153 \textcolor{comment}{//* Init Funcs ***************************************************************/}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00160}\mbox{\hyperlink{menu_8c_ad86d6d4df8e9ffc4e5253ce446cb0190}{00160}} \textcolor{keywordtype}{void} \mbox{\hyperlink{menu_8c_ad86d6d4df8e9ffc4e5253ce446cb0190}{initTitle}}(WINDOW* title)}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00161}00161 \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00162}00162     \textcolor{keywordtype}{int} t\_starty, t\_startx;}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00163}00163 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00164}00164     \textcolor{comment}{/* defining parameters for centering title box*/}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00165}00165     t\_starty = \mbox{\hyperlink{menu_8c_a0d1fd223df18ba043bf0370e3a2c3604}{HCENTER}}  -\/ (\mbox{\hyperlink{menu_8h_a5b5015f1b5feae64388090ef4026607b}{MENU\_TITLE\_Y}} + \mbox{\hyperlink{menu_8h_ab5f43ff9ab0e3f21e92d4729d84e57ac}{MENU\_Y}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00166}00166     t\_startx = \mbox{\hyperlink{menu_8c_a3d41dae96767cc9a4060d972d62b5322}{WCENTER}};}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00167}00167     \textcolor{comment}{/* creating title window */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00168}00168     title = newwin(\mbox{\hyperlink{menu_8h_ad0fca13b38e2132760c38730e2eeb9b7}{MENU\_TITLE\_H}}, \mbox{\hyperlink{menu_8h_abdffeda5ea9c1de0dbda4d482a03ba13}{MENU\_TITLE\_W}}, t\_starty, t\_startx); \textcolor{comment}{/* parameters ( higth, width, start\_y, start\_x  ) */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00169}00169     box(title, \mbox{\hyperlink{menu_8h_a8fe932d46c255d9b1e9085aa3382e04b}{BOX\_TITLE\_VE}}, \mbox{\hyperlink{menu_8h_a665fbc274d6c8caa50fc316fab14286f}{BOX\_TITLE\_HO}}); \textcolor{comment}{/* creating title box window, parameters ( *window, vertical\_line, horizontal\_lines ) */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00170}00170     wbkgd(title, COLOR\_PAIR(2));}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00171}00171     mvwprintw(title, \mbox{\hyperlink{menu_8h_aabb8911c3fd19804cb0aa864997c5ff6}{XTPP\_Y}}, \mbox{\hyperlink{menu_8h_aeb8dde745895e111329997947315bb10}{XTPP\_X}}, \textcolor{stringliteral}{"{}XTETRIS PROJECT"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00172}00172     wrefresh(title);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00173}00173 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00174}00174 \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00175}00175 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00181}\mbox{\hyperlink{menu_8c_ad37d44088b37b682337ea520974b6c71}{00181}} \textcolor{keywordtype}{void} \mbox{\hyperlink{menu_8c_ad37d44088b37b682337ea520974b6c71}{initSwitcher}}(WINDOW* \mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}})}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00182}00182 \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00183}00183     \textcolor{keywordtype}{int} m\_starty, m\_startx;}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00184}00184 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00185}00185     \textcolor{comment}{/* defining parameters for centering menu box*/}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00186}00186     m\_starty =  \mbox{\hyperlink{menu_8c_a0d1fd223df18ba043bf0370e3a2c3604}{HCENTER}} -\/ (\mbox{\hyperlink{menu_8h_a5b5015f1b5feae64388090ef4026607b}{MENU\_TITLE\_Y}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00187}00187     m\_startx =  \mbox{\hyperlink{menu_8c_a3d41dae96767cc9a4060d972d62b5322}{WCENTER}};}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00188}00188     \textcolor{comment}{/* creating menu window and window borders */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00189}00189     \mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}} = newwin(\mbox{\hyperlink{menu_8h_a9552ba249c0540ffe9a08a05d1b92504}{MENU\_H}}, \mbox{\hyperlink{menu_8h_a8ab012c9b505a97138d6f18221340188}{MENU\_W}}, m\_starty, m\_startx);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00190}00190     box(\mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}, \mbox{\hyperlink{menu_8h_a6c6e2acf6546e270d7ec9acdcee73658}{BOX\_MENU\_VE}}, \mbox{\hyperlink{menu_8h_ac8d8d8b8503e525e842e19433b6a1ab5}{BOX\_MENU\_HO}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00191}00191     wbkgd(\mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}, COLOR\_PAIR(3));}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00192}00192     mvwprintw(\mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}, 0, \mbox{\hyperlink{menu_8h_a2f2ef1d5582ceafc186928cbc13de01d}{PCENTER\_M}}, \textcolor{stringliteral}{"{}| GAME MENU |"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00193}00193     wrefresh(\mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00194}00194 \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00195}00195 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00201}\mbox{\hyperlink{menu_8c_a4b99dc6c4c0c362c94d5cdc7a2e56d6a}{00201}} \textcolor{keywordtype}{void} \mbox{\hyperlink{menu_8c_a4b99dc6c4c0c362c94d5cdc7a2e56d6a}{initDescription}}(WINDOW* desc)}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00202}00202 \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00203}00203     \textcolor{keywordtype}{int} d\_starty, d\_startx;}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00204}00204 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00205}00205     \textcolor{comment}{/* defining parameters for creating description box*/}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00206}00206     d\_starty =  \mbox{\hyperlink{menu_8c_a0d1fd223df18ba043bf0370e3a2c3604}{HCENTER}} -\/ (\mbox{\hyperlink{menu_8h_a5b5015f1b5feae64388090ef4026607b}{MENU\_TITLE\_Y}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00207}00207     d\_startx =  \mbox{\hyperlink{menu_8c_a3d41dae96767cc9a4060d972d62b5322}{WCENTER}} + \mbox{\hyperlink{menu_8h_a8ab012c9b505a97138d6f18221340188}{MENU\_W}} + 2;}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00208}00208     \textcolor{comment}{/* creating description window and window borders */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00209}00209     desc = newwin(\mbox{\hyperlink{menu_8h_a85ac2c4e9bf435ae5a933aeba1c9afe4}{DESC\_H}}, \mbox{\hyperlink{menu_8h_a32f3768500696c7117bc69f8b37c046b}{DESC\_W}}, d\_starty, d\_startx);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00210}00210     box(desc, \mbox{\hyperlink{menu_8h_a07f22c396d39b19b42128e0a9b5a97cc}{BOX\_DESC\_VE}}, \mbox{\hyperlink{menu_8h_a02b5a7a4e716f5b8d9de9123f1532dfe}{BOX\_DESC\_HO}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00211}00211     mvwprintw(desc, 0, \mbox{\hyperlink{menu_8h_aed67cfb4fbd51f781685f113df0198b1}{PCENTER\_D}}, \textcolor{stringliteral}{"{}| DESCRIPTION |"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00212}00212     wbkgd(desc, COLOR\_PAIR(4));}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00213}00213     wrefresh(desc);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00214}00214 \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00215}00215 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00221}\mbox{\hyperlink{menu_8c_aa9a28af0f9108f32433a5667a2daae37}{00221}} \textcolor{keywordtype}{void} \mbox{\hyperlink{menu_8c_aa9a28af0f9108f32433a5667a2daae37}{initCmds}}(WINDOW* cmds)}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00222}00222 \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00223}00223     \textcolor{keywordtype}{int} c\_starty, c\_startx;}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00224}00224 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00225}00225     \textcolor{comment}{/* defining parameters for centering cmds box*/}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00226}00226     c\_starty = \mbox{\hyperlink{menu_8c_a0d1fd223df18ba043bf0370e3a2c3604}{HCENTER}} -\/ (\mbox{\hyperlink{menu_8h_a5b5015f1b5feae64388090ef4026607b}{MENU\_TITLE\_Y}} + \mbox{\hyperlink{menu_8h_ab5f43ff9ab0e3f21e92d4729d84e57ac}{MENU\_Y}}) + \mbox{\hyperlink{menu_8h_a13a657bc1c0d2dfb0a15fa1b331dcc5a}{MENU\_CMDS\_Y}} + 1;}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00227}00227     c\_startx = \mbox{\hyperlink{menu_8c_a3d41dae96767cc9a4060d972d62b5322}{WCENTER}};}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00228}00228     \textcolor{comment}{/* creating cmds window and window borders */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00229}00229     cmds = newwin(\mbox{\hyperlink{menu_8h_a047395f4e597a81e69cd9a63e0c82da0}{MENU\_CMDS\_H}}, \mbox{\hyperlink{menu_8h_a1905babf3400fed1b063c937c2fe7085}{MENU\_CMDS\_W}}, c\_starty, c\_startx);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00230}00230     box(cmds, \mbox{\hyperlink{menu_8h_a66e56e9aa8804766c5c6561a84f0909a}{BOX\_CMDS\_VE}}, \mbox{\hyperlink{menu_8h_ae2061ffcfd583e2bcf966fba8687bfb9}{BOX\_CMDS\_HO}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00231}00231     wbkgd(cmds, COLOR\_PAIR(5));}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00232}00232     mvwprintw(cmds, 0, \mbox{\hyperlink{menu_8h_a3234f6c4d2969de0b2ff86222a605fad}{PCENTER\_C}}, \textcolor{stringliteral}{"{}| COMMANDS |"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00233}00233     mvwprintw(cmds, \mbox{\hyperlink{menu_8h_abab57d57c5cd4714e771daae98319d92}{CMDSP\_Y}}, \mbox{\hyperlink{menu_8h_a57c079b07dbd08e33413c4de15050b05}{CMDSP\_X}}, \textcolor{stringliteral}{"{}[ UP ]  [ DOWN ]  [ ENTER to select ]"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00234}00234     wrefresh(cmds);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00235}00235 \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00236}00236 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00245}\mbox{\hyperlink{menu_8c_a8e73397303dc5e522fca35e8dc62f8d2}{00245}} \textcolor{keywordtype}{void} \mbox{\hyperlink{menu_8c_a8e73397303dc5e522fca35e8dc62f8d2}{initMenu}}(WINDOW* \mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}, WINDOW* title, WINDOW* cmds, WINDOW* desc)}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00246}00246 \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00247}00247     refresh();}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00248}00248     \mbox{\hyperlink{menu_8c_ad86d6d4df8e9ffc4e5253ce446cb0190}{initTitle}}(title);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00249}00249     \mbox{\hyperlink{menu_8c_ad37d44088b37b682337ea520974b6c71}{initSwitcher}}(\mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00250}00250     \mbox{\hyperlink{menu_8c_a4b99dc6c4c0c362c94d5cdc7a2e56d6a}{initDescription}}(desc);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00251}00251     \mbox{\hyperlink{menu_8c_aa9a28af0f9108f32433a5667a2daae37}{initCmds}}(cmds);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00252}00252 \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00253}00253 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00254}00254 \textcolor{comment}{//* End Init Funcs **********************************************************/}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00255}00255 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00256}00256 \textcolor{comment}{//* Text based funcs *********************************************************/}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00257}00257 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00264}\mbox{\hyperlink{menu_8c_af3fb32f876c45b30bdb787516fec54ca}{00264}} \textcolor{comment}{}\textcolor{keywordtype}{void} \mbox{\hyperlink{menu_8c_af3fb32f876c45b30bdb787516fec54ca}{describeMod}}(WINDOW* desc, \textcolor{keywordtype}{int} mod)}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00265}00265 \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00266}00266     werase(desc);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00267}00267     \textcolor{comment}{/* SINGLE PLAYER */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00268}00268     \textcolor{keywordflow}{if}( mod == 0 )}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00269}00269     \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00270}00270         mvwprintw(desc, 0, 2, \textcolor{stringliteral}{"{}The player has 20 pieces"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00271}00271         mvwprintw(desc, 1, 2, \textcolor{stringliteral}{"{}for each tetramino."{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00272}00272         mvwprintw(desc, 2, 2, \textcolor{stringliteral}{"{}Rules for making points:"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00273}00273         mvwprintw(desc, 3, 2, \textcolor{stringliteral}{"{}1) One   row   1 pt"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00274}00274         mvwprintw(desc, 4, 2, \textcolor{stringliteral}{"{}2) Two   rows  3 pt"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00275}00275         mvwprintw(desc, 5, 2, \textcolor{stringliteral}{"{}3) Three rows  6 pt"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00276}00276         mvwprintw(desc, 6, 2, \textcolor{stringliteral}{"{}4) Four  rows 12 pt"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00277}00277     \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00278}00278 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00279}00279     \textcolor{comment}{/* MULTI PLAYER*/}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00280}00280     \textcolor{keywordflow}{if}( mod == 1 )}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00281}00281     \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00282}00282         mvwprintw(desc, 0, 2, \textcolor{stringliteral}{"{}Player share 20 pieces"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00283}00283         mvwprintw(desc, 1, 2, \textcolor{stringliteral}{"{}for each tetramino."{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00284}00284         mvwprintw(desc, 2, 2, \textcolor{stringliteral}{"{}Rules for making points:"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00285}00285         mvwprintw(desc, 3, 2, \textcolor{stringliteral}{"{}1) One   row   1 pt"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00286}00286         mvwprintw(desc, 4, 2, \textcolor{stringliteral}{"{}2) Two   rows  3 pt"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00287}00287         mvwprintw(desc, 5, 2, \textcolor{stringliteral}{"{}3) Three rows  6 pt"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00288}00288         mvwprintw(desc, 6, 2, \textcolor{stringliteral}{"{}4) Four  rows 12 pt"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00289}00289     \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00290}00290 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00291}00291     \textcolor{comment}{/* PLAYER VS CPU */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00292}00292     \textcolor{keywordflow}{if}( mod == 2 )}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00293}00293     \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00294}00294         mvwprintw(desc, 0, 2, \textcolor{stringliteral}{"{}Player and CPU share 20"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00295}00295         mvwprintw(desc, 1, 2, \textcolor{stringliteral}{"{}pieces for each tetramino."{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00296}00296         mvwprintw(desc, 2, 2, \textcolor{stringliteral}{"{}Rules for making points:"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00297}00297         mvwprintw(desc, 3, 2, \textcolor{stringliteral}{"{}1) One   row   1 pt"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00298}00298         mvwprintw(desc, 4, 2, \textcolor{stringliteral}{"{}2) Two   rows  3 pt"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00299}00299         mvwprintw(desc, 5, 2, \textcolor{stringliteral}{"{}3) Three rows  6 pt"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00300}00300         mvwprintw(desc, 6, 2, \textcolor{stringliteral}{"{}4) Four  rows 12 pt"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00301}00301     \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00302}00302 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00303}00303     \textcolor{comment}{/* ABOUT DEVELOPERS */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00304}00304     \textcolor{keywordflow}{if}( mod == 3 )}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00305}00305     \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00306}00306         mvwprintw(desc, 0, 2, \textcolor{stringliteral}{"{}GITHUB:"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00307}00307         mvwprintw(desc, 1, 2, \textcolor{stringliteral}{"{}Jacopo Costantini"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00308}00308         mvwprintw(desc, 2, 2, \textcolor{stringliteral}{"{}-\/> @MacPapo"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00309}00309         mvwprintw(desc, 3, 2, \textcolor{stringliteral}{"{}Matteo Zambon"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00310}00310         mvwprintw(desc, 4, 2, \textcolor{stringliteral}{"{}-\/> @Blast291"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00311}00311         mvwprintw(desc, 5, 2, \textcolor{stringliteral}{"{}Alvise Silvestri"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00312}00312         mvwprintw(desc, 6, 2, \textcolor{stringliteral}{"{}-\/> @mastrodeimastri"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00313}00313     \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00314}00314 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00315}00315     \textcolor{comment}{/* EXIT */}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00316}00316     \textcolor{keywordflow}{if}( mod == 4 )}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00317}00317     \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00318}00318         mvwprintw(desc, 1, 2, \textcolor{stringliteral}{"{}EXIT"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00319}00319         mvwprintw(desc, 2, 2, \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00320}00320         mvwprintw(desc, 3, 2, \textcolor{stringliteral}{"{}BY BY !! XD"{}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00321}00321     \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00322}00322     wrefresh(desc);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00323}00323 \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00324}00324 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00332}\mbox{\hyperlink{menu_8c_a32e2a1260c1f41ea1422396943db3733}{00332}} \textcolor{keywordtype}{void} \mbox{\hyperlink{menu_8c_a32e2a1260c1f41ea1422396943db3733}{highlightMenu}}(WINDOW* \mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}, WINDOW* desc, \textcolor{keywordtype}{int} mod )}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00333}00333 \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00334}00334     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00335}00335     \textcolor{keywordtype}{char} mod\_list[\mbox{\hyperlink{menu_8h_abce96437734c313a3b019c7b8783aeb6}{NMOD}}][\mbox{\hyperlink{menu_8h_a0a17e798903d849940984f0126967d44}{MOD\_LENGHT}}] = \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00336}00336         \textcolor{stringliteral}{"{}Single Player"{}},}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00337}00337         \textcolor{stringliteral}{"{}Multi Player"{}},}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00338}00338         \textcolor{stringliteral}{"{}Player VS CPU"{}},}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00339}00339         \textcolor{stringliteral}{"{}About Developers"{}},}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00340}00340         \textcolor{stringliteral}{"{}Exit"{}}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00341}00341     \};}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00342}00342 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00343}00343     \textcolor{keywordflow}{for}( i = 0; i < \mbox{\hyperlink{menu_8h_abce96437734c313a3b019c7b8783aeb6}{NMOD}}; i++ )}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00344}00344     \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00345}00345         \textcolor{keywordflow}{if}( i == mod )}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00346}00346         \{}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00347}00347             wattrset(\mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}, A\_STANDOUT);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00348}00348             \mbox{\hyperlink{menu_8c_af3fb32f876c45b30bdb787516fec54ca}{describeMod}}(desc, mod);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00349}00349             wrefresh(desc);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00350}00350         \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00351}00351 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00352}00352         mvwprintw(\mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}, i + 1, 2, \textcolor{stringliteral}{"{}\%s"{}}, mod\_list[i]);}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00353}00353         wattroff(\mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}}, A\_STANDOUT );}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00354}00354         wrefresh(\mbox{\hyperlink{menu_8c_ae83fcdbeb2b6757fc741ae953b633ee1}{menu}});}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00355}00355     \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00356}00356 \}}
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00357}00357 }
+\DoxyCodeLine{\Hypertarget{menu_8c_source_l00358}00358 \textcolor{comment}{//* End of Text based funcs **************************************************/}}
+
+\end{DoxyCode}
