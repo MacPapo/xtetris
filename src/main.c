@@ -14,7 +14,7 @@
 #include "commonConfing.h"
 
 #define MINIAUDIO_IMPLEMENTATION
-#include "miniaudio.h"
+#include "miniaudio/miniaudio.h"
 
 #include "singlePlayer.h"
 #include "multiPlayer.h"
